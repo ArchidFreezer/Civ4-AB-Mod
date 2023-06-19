@@ -1,0 +1,17 @@
+Release/
+Release-fast/
+Assert/
+Assert-fast/
+Debug/
+Profile/
+
+UserSettings/
+
+obj/
+temp_files/
+.vs/
+
+~*.*
+*.dll
+*.opensdf
+*.log
