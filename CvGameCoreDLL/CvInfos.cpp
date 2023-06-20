@@ -10417,7 +10417,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	}
 
 	if (m_ppiRouteYieldChanges != NULL) {
-		for (i = 0; i < GC.getNumRouteInfos(); i++) {
+		for (int i = 0; i < GC.getNumRouteInfos(); i++) {
 			SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges[i]);
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
