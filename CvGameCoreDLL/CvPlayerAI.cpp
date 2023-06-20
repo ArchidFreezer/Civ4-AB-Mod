@@ -3516,7 +3516,8 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 					if (techs_in_path.count(techs[j].second) == 0) {
 						techs_in_path.insert(techs[j].second);
 						// Note: since this tech isn't a prereqs, it can go anywhere in our path. Try to research highest values first.
-						for (int k = 0; k < (int)tech_paths.back().second.size(); ++k) {
+						int k;
+						for (k = 0; k < (int)tech_paths.back().second.size(); ++k) {
 							if (techs[j].first < techs[tech_paths.back().second[k]].first) {
 								// Note: we'll need to recalculate the total value.
 								tech_paths.back().second.insert(tech_paths.back().second.begin() + k, j);
@@ -7918,7 +7919,7 @@ DenialTypes CvPlayerAI::AI_stopTradingTrade(TeamTypes eTradeTeam, PlayerTypes eP
 
 	AttitudeTypes eAttitudeThem = GET_TEAM(getTeam()).AI_getAttitude(eTradeTeam);
 
-	for (iI = 0; iI < MAX_PLAYERS; iI++) {
+	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
 		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
 			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam()) {
 				if (eAttitudeThem > GC.getLeaderHeadInfo(GET_PLAYER((PlayerTypes)iI).getPersonalityType()).getStopTradingThemRefuseAttitudeThreshold()) {

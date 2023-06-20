@@ -11886,7 +11886,6 @@ void CvGameTextMgr::setVassalRevoltHelp(CvWStringBuffer& szBuffer, TeamTypes eMa
 
 void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city) {
 	int iTotalGreatPeopleUnitProgress;
-	int iI;
 
 	if (NO_PLAYER == city.getOwnerINLINE()) {
 		return;
