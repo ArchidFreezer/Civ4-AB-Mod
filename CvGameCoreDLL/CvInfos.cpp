@@ -268,7 +268,7 @@ bool CvHotkeyInfo::read(CvXMLLoadUtility* pXML) {
 	if (pXML->GetChildXmlValByName(&iVal, "iHotKeyPriority")) {
 		setHotKeyPriority(iVal);
 	} else {
-		setHotKeyPriority(-1);
+		setHotKeyPriority(0);
 	}
 
 	if (pXML->GetChildXmlValByName(szTextVal, "HotKeyAlt")) {
