@@ -10479,9 +10479,9 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bNoRiverSide, "bNoRiverSide");
 	pXML->GetChildXmlValByName(&m_bNormalize, "bNormalize");
 
-	pXML->SetListPairInfo(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
-	pXML->SetListPairInfo(&m_pbFeature, "FeatureBooleans", GC.getNumFeatureInfos());
-	pXML->SetListPairInfo(&m_pbFeatureTerrain, "FeatureTerrainBooleans", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbFeature, "FeatureBooleans", GC.getNumFeatureInfos());
+	pXML->SetListInfoBool(&m_pbFeatureTerrain, "FeatureTerrainBooleans", GC.getNumTerrainInfos());
 
 	return true;
 }
@@ -10746,8 +10746,7 @@ bool CvFeatureInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(m_szEffectType, "EffectType");
 	pXML->GetChildXmlValByName(&m_iEffectProbability, "iEffectProbability");
-
-	pXML->SetListPairInfo(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
+	pXML->SetListInfoBool(&m_pbTerrain, "TerrainBooleans", GC.getNumTerrainInfos());
 
 	return true;
 }
