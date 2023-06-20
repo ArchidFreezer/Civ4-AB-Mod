@@ -21,8 +21,7 @@ enum PopupStates						// Exposed to Python
 	POPUPSTATE_MINIMIZED,
 };
 
-enum PopupEventTypes
-{
+enum PopupEventTypes {
 	POPUPEVENT_NONE,
 	POPUPEVENT_PRODUCTION,
 	POPUPEVENT_TECHNOLOGY,
@@ -49,18 +48,17 @@ enum CameraMovementSpeeds		// Exposed to Python
 	CAMERAMOVEMENTSPEED_FAST,
 };
 
-enum CameraAnimationTypes
-{
+enum CameraAnimationTypes {
 	NO_CAMERA_ANIMATION = -1,
 };
 
 enum ZoomLevelTypes					// Exposed to Python
 {
-	ZOOM_UNKNOWN							= 0x00000000,
-	ZOOM_DETAIL								= 0x00000001,
-	ZOOM_NORMAL								= 0x00000002,
-	ZOOM_GLOBEVIEW_TRANSITION	= 0x00000004,
-	ZOOM_GLOBEVIEW						= 0x00000008
+	ZOOM_UNKNOWN = 0x00000000,
+	ZOOM_DETAIL = 0x00000001,
+	ZOOM_NORMAL = 0x00000002,
+	ZOOM_GLOBEVIEW_TRANSITION = 0x00000004,
+	ZOOM_GLOBEVIEW = 0x00000008
 };
 
 enum DirectionTypes					// Exposed to Python
@@ -104,23 +102,21 @@ enum CardinalDirectionTypes			// Exposed to Python
 #endif
 };
 
-enum RotationTypes
-{
+enum RotationTypes {
 	ROTATE_NONE = 0,
 	ROTATE_90CW,
 	ROTATE_180CW,
 	ROTATE_270CW,
 	NUM_ROTATION_TYPES,
 
-	ROTATE_NONE_MASK	= 1 << ROTATE_NONE,
-	ROTATE_90CW_MASK	= 1 << ROTATE_90CW,
-	ROTATE_180CW_MASK	= 1 << ROTATE_180CW,
-	ROTATE_270CW_MASK	= 1 << ROTATE_270CW,
+	ROTATE_NONE_MASK = 1 << ROTATE_NONE,
+	ROTATE_90CW_MASK = 1 << ROTATE_90CW,
+	ROTATE_180CW_MASK = 1 << ROTATE_180CW,
+	ROTATE_270CW_MASK = 1 << ROTATE_270CW,
 };
 
 // camera wrap helper
-enum WrapDirection
-{
+enum WrapDirection {
 	WRAP_SAVE,
 	WRAP_NONE = WRAP_SAVE,
 	WRAP_RESTORE,
@@ -201,8 +197,7 @@ enum PlotLandscapeLayers		// Exposed to Python
 	PLOT_LANDSCAPE_LAYER_REVEALED_PLOTS = 1,
 };
 
-enum AreaBorderLayers
-{
+enum AreaBorderLayers {
 	AREA_BORDER_LAYER_REVEALED_PLOTS,
 	AREA_BORDER_LAYER_WORLD_BUILDER,
 	AREA_BORDER_LAYER_FOUNDING_BORDER,
@@ -214,13 +209,11 @@ enum AreaBorderLayers
 	NUM_AREA_BORDER_LAYERS
 };
 
-enum EffectTypes
-{
+enum EffectTypes {
 	NO_EFFECT = -1,
 };
 
-enum AttachableTypes
-{
+enum AttachableTypes {
 	NO_ATTACHABLE = -1,
 };
 
@@ -270,8 +263,7 @@ enum InterfaceMessageTypes	// Exposed to Python
 #endif
 };
 
-enum FlyoutTypes
-{
+enum FlyoutTypes {
 	NO_FLYOUT = -1,
 
 	FLYOUT_HURRY,
@@ -540,7 +532,7 @@ enum WidgetTypes					// Exposed to Python
 	WIDGET_GLOBELAYER,
 	WIDGET_GLOBELAYER_OPTION,
 	WIDGET_GLOBELAYER_TOGGLE,
-// K-Mod -  environmental advisor widgets. Note: this apparently breaks WIDGET_CLOSE_SCREEN if it is defined out of order.
+	// K-Mod -  environmental advisor widgets. Note: this apparently breaks WIDGET_CLOSE_SCREEN if it is defined out of order.
 	WIDGET_HELP_POLLUTION_OFFSETS,
 	WIDGET_HELP_POLLUTION_SOURCE,
 	WIDGET_HELP_SUSTAINABILITY_THRESHOLD,
@@ -632,8 +624,7 @@ enum WorldSizeTypes				// Exposed to Python
 
 // This is our current relationship with each 
 // one of our connected network peers
-enum InitStates
-{
+enum InitStates {
 	INIT_INACTIVE,
 	INIT_CONNECTED,
 	INIT_SENT_READY,
@@ -851,8 +842,7 @@ enum ForceControlTypes			// Exposed to Python
 #endif
 };
 
-enum TileArtTypes
-{
+enum TileArtTypes {
 	TILE_ART_TYPE_NONE = -1,
 	TILE_ART_TYPE_TREES,
 	TILE_ART_TYPE_HALF_TILING,
@@ -860,8 +850,7 @@ enum TileArtTypes
 	NUM_TILE_ART_TYPES
 };
 
-enum LightTypes
-{
+enum LightTypes {
 	LIGHT_TYPE_NONE = -1,
 	LIGHT_TYPE_SUN,
 	LIGHT_TYPE_TERRAIN,
@@ -987,8 +976,7 @@ enum ArtStyleTypes				// Exposed to Python
 	NO_ARTSTYLE = -1,
 };
 
-enum UnitArtStyleTypes
-{
+enum UnitArtStyleTypes {
 	NO_UNIT_ARTSTYLE = -1,
 };
 
@@ -1109,16 +1097,14 @@ enum ProjectTypes				// Exposed to Python
 	NO_PROJECT = -1,
 };
 
-enum AxisTypes
-{
+enum AxisTypes {
 	AXIS_X,
 	AXIS_Y,
 	AXIS_Z,
 	NUM_AXIS_TYPES
 };
 
-enum SpaceShipInfoTypes
-{
+enum SpaceShipInfoTypes {
 	SPACE_SHIP_INFO_TYPE_NONE,
 	SPACE_SHIP_INFO_TYPE_FILENAME,
 	SPACE_SHIP_INFO_TYPE_ALPHA_CENTAURI,
@@ -1192,7 +1178,7 @@ enum NewConceptTypes				// Exposed to Python
 
 enum CalendarTypes			// Exposed to Python
 {
-	NO_CALENDAR = -1, 
+	NO_CALENDAR = -1,
 
 	CALENDAR_DEFAULT,
 	CALENDAR_BI_YEARLY,
@@ -1682,23 +1668,20 @@ enum FogOfWarModeTypes		// Exposed to Python
 #endif
 };
 
-enum FogTypes
-{
+enum FogTypes {
 	FOG_TYPE_NONE,
 	FOG_TYPE_PARALLEL,
 	FOG_TYPE_PROJECTED,
 	NUM_FOG_TYPES
 };
 
-enum CameraOverlayTypes
-{
+enum CameraOverlayTypes {
 	CAMERA_OVERLAY_DECAL,
 	CAMERA_OVERLAY_ADDITIVE,
 	NUM_CAMERA_OVERLAY_TYPES
 };
 
-enum FOWUpdateTypes
-{
+enum FOWUpdateTypes {
 	FOW_UPDATE_REGULAR,
 	FOW_UPDATE_IMMEDIATE,
 	FOW_UPDATE_UNDO_IMMEDIATE,
@@ -1749,7 +1732,7 @@ enum AnimationPathTypes	// Exposed to Python
 	ANIMATIONPATH_MELEE_FORTIFIED,
 	ANIMATIONPATH_MELEE_DIE_FADE,		//!< Used only in combat. The colateral damage die should have a fade integrated.
 	ANIMATIONPATH_MELEE_FLEE,			//!< Used only by settler children, so they don't die in combat
-	
+
 	// Ranged combat related animation paths
 	ANIMATIONPATH_RANGED_STRIKE,
 	ANIMATIONPATH_RANGED_DIE,
@@ -1758,7 +1741,7 @@ enum AnimationPathTypes	// Exposed to Python
 	ANIMATIONPATH_RANGED_RUNDIE,
 	ANIMATIONPATH_RANGED_DIE_FADE,		//!< Used only in combat. The colateral damage die should have a fade integrated.
 	ANIMATIONPATH_LEADER_COMMAND,
-	
+
 	// Air Units animation paths
 	ANIMATIONPATH_AIRFADEIN,
 	ANIMATIONPATH_AIRFADEOUT,
@@ -1794,8 +1777,7 @@ enum AnimationCategoryTypes			// Exposed to Python
 };
 
 //!< Animation category operators.
-enum AnimationOperatorTypes
-{
+enum AnimationOperatorTypes {
 	ANIMOP_FIRST = 1001,
 	ANIMOP_RAND_FPR = ANIMOP_FIRST,			//!< Sets the FPR to a random number [0..1].
 	ANIMOP_SET_FPR,							//!< Sets the FPR to the input value
@@ -1818,8 +1800,7 @@ enum CursorTypes							// Exposed to Python
 	NO_CURSOR = -1,
 };
 
-enum FunctionTypes
-{
+enum FunctionTypes {
 	FUNC_NOINTERP = 0,	// NiAnimationKey::NOINTERP,
 	FUNC_LINKEY,	//	= NiAnimationKey::LINKEY,
 	FUNC_BEZKEY,	//	= NiAnimationKey::BEZKEY,
@@ -2012,7 +1993,7 @@ enum LeaderheadAction			// Exposed to Python
 
 enum DiplomacyPowerTypes	// Exposed to Python
 {
-	NO_DIPLOMACYPOWER		= -1,
+	NO_DIPLOMACYPOWER = -1,
 	DIPLOMACYPOWER_WEAKER,
 	DIPLOMACYPOWER_EQUAL,
 	DIPLOMACYPOWER_STRONGER,
@@ -2060,7 +2041,7 @@ enum FeatTypes						// Exposed to Python
 enum SaveGameTypes			// Exposed to Python
 {
 	SAVEGAME_NONE = -1,
-	
+
 	SAVEGAME_AUTO,
 	SAVEGAME_RECOVERY,
 	SAVEGAME_QUICK,
@@ -2076,8 +2057,7 @@ enum SaveGameTypes			// Exposed to Python
 #endif
 };
 
-enum InitializationStates
-{
+enum InitializationStates {
 	INIT_OK,
 	INIT_FAILED,
 
@@ -2121,8 +2101,7 @@ enum GameMode				// Exposed to Python
 #endif
 };
 
-enum GamePwdTypes
-{
+enum GamePwdTypes {
 	NO_PWDTYPE = -1,
 
 	PWD_NEWGAME,
@@ -2134,8 +2113,7 @@ enum GamePwdTypes
 #endif
 };
 
-enum SlotClaim
-{
+enum SlotClaim {
 	SLOTCLAIM_UNASSIGNED,
 	SLOTCLAIM_RESERVED,
 	SLOTCLAIM_ASSIGNED,
@@ -2145,8 +2123,7 @@ enum SlotClaim
 #endif
 };
 
-enum SlotStatus
-{
+enum SlotStatus {
 	SS_OPEN,
 	SS_COMPUTER,
 	SS_CLOSED,
@@ -2174,8 +2151,7 @@ enum GenericButtonSizes					// Exposed to Python
 	BUTTON_SIZE_CUSTOM,
 };
 
-enum MenuScreenType
-{
+enum MenuScreenType {
 	MENU_SCREEN_STANDARD,
 	MENU_SCREEN_BASELOBBY,
 	MENU_SCREEN_BASE_SCENARIO,
@@ -2187,7 +2163,7 @@ enum MenuScreenType
 	MENU_SCREEN_OPENING_MENU,
 	MENU_SCREEN_MOD_MENU,
 
-	MENU_SCREEN_GS_BUDDYLIST, 
+	MENU_SCREEN_GS_BUDDYLIST,
 	MENU_SCREEN_GS_CHATROOM,
 	MENU_SCREEN_GS_CHANNEL,
 	MENU_SCREEN_GS_CHOOSE_SCENARIO,
@@ -2227,7 +2203,7 @@ enum WorldBuilderPopupTypes			// Exposed to Python
 	WBPOPUP_NONE = -1,
 
 	WBPOPUP_START = 200,
-	WBPOPUP_CITY=WBPOPUP_START,		// first entry, starts at 0
+	WBPOPUP_CITY = WBPOPUP_START,		// first entry, starts at 0
 	WBPOPUP_UNIT,
 	WBPOPUP_PLAYER,
 	WBPOPUP_PLOT,
@@ -2390,8 +2366,7 @@ enum EventContextTypes					// Exposed to Python
 	EVENTCONTEXT_ALL,
 };
 
-enum CivLoginStates
-{
+enum CivLoginStates {
 	NO_CIV_LOGIN = -1,
 
 	LOGIN_CIV_OK,
@@ -2399,9 +2374,8 @@ enum CivLoginStates
 	LOGIN_CIV_TAKEN,
 	LOGIN_CIV_HAS_ID,
 };
- 
-enum VersionTypes
-{
+
+enum VersionTypes {
 	NO_VERSIONTYPE = -1,
 
 	VERSIONTYPE_EXE,
@@ -2411,15 +2385,13 @@ enum VersionTypes
 	VERSIONTYPE_XML,
 };
 
-enum VoteResultTypes
-{
+enum VoteResultTypes {
 	VOTERESULT_MAJORITY,
 	VOTERESULT_UNANIMOUS,
 };
 
-enum VoteStatusTypes
-{
-	NO_VOTESTATUS = -1, 
+enum VoteStatusTypes {
+	NO_VOTESTATUS = -1,
 
 	VOTESTATUS_TIED = -2,
 	VOTESTATUS_UNDECIDED = -3,
@@ -2537,7 +2509,7 @@ enum GameMessageTypes				// Exposed to Python
 	GAMEMESSAGE_FILE_INFO,
 	GAMEMESSAGE_PICK_YOUR_CIV,
 	GAMEMESSAGE_CIV_CHOICE,
-	GAMEMESSAGE_CONFIRM_CIV_CLAIM, 
+	GAMEMESSAGE_CONFIRM_CIV_CLAIM,
 	GAMEMESSAGE_CLAIM_INFO,
 	GAMEMESSAGE_CIV_CHOICE_ACK,
 	GAMEMESSAGE_CIV_CHOICE_NACK,
@@ -2635,11 +2607,11 @@ enum PopupControlLayout		// Exposed to Python
 
 enum JustificationTypes		// Exposed to Python
 {
-	DLL_FONT_LEFT_JUSTIFY = 1<<0,
-	DLL_FONT_RIGHT_JUSTIFY = 1<<1,
-	DLL_FONT_CENTER_JUSTIFY = 1<<2,
-	DLL_FONT_CENTER_VERTICALLY = 1<<3,
-	DLL_FONT_ADDITIVE = 1<<4,
+	DLL_FONT_LEFT_JUSTIFY = 1 << 0,
+	DLL_FONT_RIGHT_JUSTIFY = 1 << 1,
+	DLL_FONT_CENTER_JUSTIFY = 1 << 2,
+	DLL_FONT_CENTER_VERTICALLY = 1 << 3,
+	DLL_FONT_ADDITIVE = 1 << 4,
 };
 
 enum ToolTipAlignTypes		// Exposed to Python
@@ -2726,8 +2698,7 @@ enum AdvancedStartActionTypes				// Exposed to Python
 	ADVANCEDSTARTACTION_AUTOMATE
 };
 
-enum GlobeLayerTypes
-{
+enum GlobeLayerTypes {
 	GLOBE_LAYER_STRATEGY = -1,
 	GLOBE_LAYER_TRADE,
 	GLOBE_LAYER_UNIT,
@@ -2740,8 +2711,7 @@ enum GlobeLayerTypes
 #endif
 };
 
-enum GlobeLayerUnitOptionTypes
-{
+enum GlobeLayerUnitOptionTypes {
 	SHOW_ALL_MILITARY,
 	SHOW_TEAM_MILITARY,
 	SHOW_ENEMIES_IN_TERRITORY,
@@ -2753,8 +2723,7 @@ enum GlobeLayerUnitOptionTypes
 #endif
 };
 
-enum GlobeLayerResourceOptionTypes
-{
+enum GlobeLayerResourceOptionTypes {
 	SHOW_ALL_RESOURCES,
 	SHOW_STRATEGIC_RESOURCES,
 	SHOW_HAPPY_RESOURCES,
@@ -2765,8 +2734,7 @@ enum GlobeLayerResourceOptionTypes
 #endif
 };
 
-enum PlotIndicatorVisibilityFlags
-{
+enum PlotIndicatorVisibilityFlags {
 	PLOT_INDICATOR_VISIBLE_ALWAYS,
 	PLOT_INDICATOR_VISIBLE_ONSCREEN_ONLY,
 	PLOT_INDICATOR_VISIBLE_OFFSCREEN_ONLY,
@@ -2774,16 +2742,14 @@ enum PlotIndicatorVisibilityFlags
 	PLOT_INDICATOR_VISIBLE_NEVER
 };
 
-enum UnitSubEntityTypes
-{
+enum UnitSubEntityTypes {
 	UNIT_SUB_ENTITY_NORMAL,
 	UNIT_SUB_ENTITY_LEADER,
 	UNIT_SUB_ENTITY_SIEGE_TOWER,
 	UNIT_SUB_ENTITY_COUNT
 };
 
-enum CivilopediaWidgetShowTypes
-{
+enum CivilopediaWidgetShowTypes {
 	CIVILOPEDIA_WIDGET_SHOW_NONE,
 	CIVILOPEDIA_WIDGET_SHOW_LAND,
 	CIVILOPEDIA_WIDGET_SHOW_WATER,

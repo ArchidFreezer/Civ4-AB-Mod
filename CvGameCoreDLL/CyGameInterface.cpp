@@ -9,8 +9,7 @@
 // published python interface for CyGame
 // 
 
-void CyGamePythonInterface()
-{
+void CyGamePythonInterface() {
 	OutputDebugString("Python Extension Module - CyGamePythonInterface\n");
 
 	python::class_<CyGame>("CyGame")
@@ -66,7 +65,7 @@ void CyGamePythonInterface()
 		.def("getCurrentEra", &CyGame::getCurrentEra, "int /*EratTypes*/ ()")
 
 		.def("getActiveTeam", &CyGame::getActiveTeam, "int () - returns ID for the group")
-		.def("getActiveCivilizationType", &CyGame::getActiveCivilizationType, "int () - returns CivilizationID" )
+		.def("getActiveCivilizationType", &CyGame::getActiveCivilizationType, "int () - returns CivilizationID")
 		.def("isNetworkMultiPlayer", &CyGame::isNetworkMultiPlayer, "bool () - NetworkMultiplayer()? ")
 		.def("isGameMultiPlayer", &CyGame::isGameMultiPlayer, "bool () - GameMultiplayer()? ")
 		.def("isTeamGame", &CyGame::isTeamGame, "bool ()")
@@ -256,15 +255,15 @@ void CyGamePythonInterface()
 		.def("hasSkippedSaveChecksum", &CyGame::hasSkippedSaveChecksum)
 		.def("saveReplay", &CyGame::saveReplay)
 		.def("addPlayer", &CyGame::addPlayer, "void (int eNewPlayer, int eLeader, int eCiv)")
-/********************************************************************************/
-/* 	BETTER_BTS_AI_MOD						8/1/08				jdog5000	*/
-/* 																			*/
-/* 	Debug																	*/
-/********************************************************************************/
+		/********************************************************************************/
+		/* 	BETTER_BTS_AI_MOD						8/1/08				jdog5000	*/
+		/* 																			*/
+		/* 	Debug																	*/
+		/********************************************************************************/
 		.def("changeHumanPlayer", &CyGame::changeHumanPlayer, "void ( int /*PlayerTypes*/ eNewHuman )")
-/********************************************************************************/
-/* 	BETTER_BTS_AI_MOD						END								*/
-/********************************************************************************/
+		/********************************************************************************/
+		/* 	BETTER_BTS_AI_MOD						END								*/
+		/********************************************************************************/
 		.def("getCultureThreshold", &CyGame::getCultureThreshold, "int getCultureThreshold(CultureLevelTypes eLevel)")
 
 		.def("getPlotExtraYield", &CyGame::getPlotExtraYield, "int (int iX, int iY, int /*YieldTypes*/ eYield)") // K-Mod

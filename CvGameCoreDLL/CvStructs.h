@@ -9,9 +9,8 @@
 
 // XXX these should not be in the DLL per se (if the user changes them, we are screwed...)
 
-struct DllExport XYCoords
-{
-	XYCoords(int x=0, int y=0) : iX(x), iY(y) {}
+struct DllExport XYCoords {
+	XYCoords(int x = 0, int y = 0) : iX(x), iY(y) {}
 	int iX;
 	int iY;
 
@@ -23,26 +22,22 @@ struct DllExport XYCoords
 	bool operator>  (const XYCoords xy) const { return ((iY > xy.iY) || (iY == xy.iY && iX > xy.iX)); }
 };
 
-struct DllExport IDInfo
-{
+struct DllExport IDInfo {
 
-	IDInfo(PlayerTypes eOwner=NO_PLAYER, int iID=FFreeList::INVALID_INDEX) : eOwner(eOwner), iID(iID) {}
+	IDInfo(PlayerTypes eOwner = NO_PLAYER, int iID = FFreeList::INVALID_INDEX) : eOwner(eOwner), iID(iID) {}
 	PlayerTypes eOwner;
 	int iID;
 
-	bool operator== (const IDInfo& info) const
-	{
+	bool operator== (const IDInfo& info) const {
 		return (eOwner == info.eOwner && iID == info.iID);
 	}
 
-	bool operator!= (const IDInfo& info) const { return !(*this==info); }
-	bool operator< (const IDInfo& a) const
-	{
+	bool operator!= (const IDInfo& info) const { return !(*this == info); }
+	bool operator< (const IDInfo& a) const {
 		return eOwner < a.eOwner || (eOwner == a.eOwner && iID < a.iID);
 	}
 
-	void reset()
-	{
+	void reset() {
 		eOwner = NO_PLAYER;
 		iID = FFreeList::INVALID_INDEX;
 	}
@@ -79,8 +74,7 @@ struct DllExport TradeData					// Exposed to Python
 	bool m_bHidden;										//	Are we hidden?
 };
 
-struct EventTriggeredData
-{
+struct EventTriggeredData {
 	int m_iId;
 	EventTriggerTypes m_eTrigger;
 	int m_iTurn;
@@ -103,8 +97,7 @@ struct EventTriggeredData
 	void write(FDataStreamBase* pStream);
 };
 
-struct VoteSelectionSubData
-{
+struct VoteSelectionSubData {
 	VoteTypes eVote;
 	PlayerTypes ePlayer;
 	int iCityId;
@@ -112,8 +105,7 @@ struct VoteSelectionSubData
 	CvWString szText;
 };
 
-struct VoteSelectionData
-{
+struct VoteSelectionData {
 	int iId;
 	VoteSourceTypes eVoteSource;
 	std::vector<VoteSelectionSubData> aVoteOptions;
@@ -124,8 +116,7 @@ struct VoteSelectionData
 	void write(FDataStreamBase* pStream);
 };
 
-struct VoteTriggeredData
-{
+struct VoteTriggeredData {
 	int iId;
 	VoteSourceTypes eVoteSource;
 	VoteSelectionSubData kVoteOption;
@@ -136,19 +127,17 @@ struct VoteTriggeredData
 	void write(FDataStreamBase* pStream);
 };
 
-struct EventMessage
-{
+struct EventMessage {
 	CvWString szDescription;
 	int iExpirationTurn;
 	int iX;
 	int iY;
 
 	// python friendly accessors
-	std::wstring getDescription() const { return szDescription;	}
+	std::wstring getDescription() const { return szDescription; }
 };
 
-struct PlotExtraYield
-{
+struct PlotExtraYield {
 	int m_iX;
 	int m_iY;
 	std::vector<int> m_aeExtraYield;
@@ -157,8 +146,7 @@ struct PlotExtraYield
 	void write(FDataStreamBase* pStream);
 };
 
-struct PlotExtraCost
-{
+struct PlotExtraCost {
 	int m_iX;
 	int m_iY;
 	int m_iCost;
@@ -169,8 +157,7 @@ struct PlotExtraCost
 
 typedef std::vector< std::pair<BuildingClassTypes, int> > BuildingChangeArray;
 
-struct BuildingYieldChange
-{
+struct BuildingYieldChange {
 	BuildingClassTypes eBuildingClass;
 	YieldTypes eYield;
 	int iChange;
@@ -179,8 +166,7 @@ struct BuildingYieldChange
 	void write(FDataStreamBase* pStream);
 };
 
-struct BuildingCommerceChange
-{
+struct BuildingCommerceChange {
 	BuildingClassTypes eBuildingClass;
 	CommerceTypes eCommerce;
 	int iChange;
@@ -190,8 +176,7 @@ struct BuildingCommerceChange
 };
 
 
-struct DllExport FOWVis
-{
+struct DllExport FOWVis {
 	uint uiCount;
 	POINT* pOffsets;  // array of "Offset" points
 
@@ -199,8 +184,7 @@ struct DllExport FOWVis
 	POINT getOffsets(int i) const { return pOffsets[i]; }
 };
 
-struct DllExport PBGameSetupData
-{
+struct DllExport PBGameSetupData {
 	PBGameSetupData();
 
 	int iSize;
@@ -215,25 +199,24 @@ struct DllExport PBGameSetupData
 	int iTurnTime;
 
 	int iNumCustomMapOptions;
-	int * aiCustomMapOptions;
-	int getCustomMapOption(int iOption) {return aiCustomMapOptions[iOption];}
+	int* aiCustomMapOptions;
+	int getCustomMapOption(int iOption) { return aiCustomMapOptions[iOption]; }
 
 	int iNumVictories;
-	bool * abVictories;
-	bool getVictory(int iVictory) {return abVictories[iVictory];}
+	bool* abVictories;
+	bool getVictory(int iVictory) { return abVictories[iVictory]; }
 
 	std::wstring szMapName;
-	std::wstring getMapName() {return szMapName;}
+	std::wstring getMapName() { return szMapName; }
 
 	std::vector<bool> abOptions;
-	bool getOptionAt(int iOption) {return abOptions[iOption];}
+	bool getOptionAt(int iOption) { return abOptions[iOption]; }
 
 	std::vector<bool> abMPOptions;
-	bool getMPOptionAt(int iOption) {return abMPOptions[iOption];}
+	bool getMPOptionAt(int iOption) { return abMPOptions[iOption]; }
 };
 
-struct DllExport PBPlayerSetupData
-{
+struct DllExport PBPlayerSetupData {
 	int iWho;
 	int iCiv;
 	int iLeader;
@@ -241,17 +224,16 @@ struct DllExport PBPlayerSetupData
 	int iDifficulty;
 
 	std::wstring szStatusText;
-	std::wstring getStatusText() {return szStatusText;}
+	std::wstring getStatusText() { return szStatusText; }
 };
 
-struct DllExport PBPlayerAdminData
-{
+struct DllExport PBPlayerAdminData {
 	std::wstring szName;
-	std::wstring getName() {return szName;}
+	std::wstring getName() { return szName; }
 	std::wstring szPing;
-	std::wstring getPing() {return szPing;}
+	std::wstring getPing() { return szPing; }
 	std::wstring szScore;
-	std::wstring getScore() {return szScore;}
+	std::wstring getScore() { return szScore; }
 	bool bHuman;
 	bool bClaimed;
 	bool bTurnActive;
@@ -261,8 +243,7 @@ class CvUnit;
 class CvPlot;
 
 //! An enumeration for indexing units within a CvBattleDefinition
-enum BattleUnitTypes
-{
+enum BattleUnitTypes {
 	BATTLE_UNIT_ATTACKER,	//!< Index referencing the attacking unit
 	BATTLE_UNIT_DEFENDER,	//!< Index referencing the defending unit
 	BATTLE_UNIT_COUNT		//!< The number of unit index references
@@ -271,8 +252,7 @@ enum BattleUnitTypes
 void checkBattleUnitType(BattleUnitTypes unitType);
 
 //!< An enumeration for indexing times within the CvBattleDefinition
-enum BattleTimeTypes
-{
+enum BattleTimeTypes {
 	BATTLE_TIME_BEGIN,
 	BATTLE_TIME_RANGED,
 	BATTLE_TIME_END,
@@ -283,8 +263,7 @@ enum BattleTimeTypes
 //  STRUCT:      CvBattleRound
 //!  \brief		Represents a single round within a battle.
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class DllExport CvBattleRound
-{
+class DllExport CvBattleRound {
 public:
 	CvBattleRound();
 	bool isValid() const;
@@ -317,8 +296,7 @@ typedef std::vector<CvBattleRound> CvBattleRoundVector;		//!< Type declaration f
 //  CLASS:      CvMissionDefinition
 //!  \brief		Base mission definition struct
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class DllExport CvMissionDefinition
-{
+class DllExport CvMissionDefinition {
 public:
 	CvMissionDefinition();
 
@@ -328,54 +306,53 @@ public:
 	float getMissionTime() const;
 	void setMissionTime(float time);
 
-	CvUnit *getUnit(BattleUnitTypes unitType) const;
-	void setUnit(BattleUnitTypes unitType, CvUnit *unit);
+	CvUnit* getUnit(BattleUnitTypes unitType) const;
+	void setUnit(BattleUnitTypes unitType, CvUnit* unit);
 
-	const CvPlot *getPlot() const;
-	void setPlot(const CvPlot *plot);
+	const CvPlot* getPlot() const;
+	void setPlot(const CvPlot* plot);
 
 protected:
 	MissionTypes		m_eMissionType;			//!< The type of event
-	CvUnit *			m_aUnits[BATTLE_UNIT_COUNT];		//!< The units involved
+	CvUnit* m_aUnits[BATTLE_UNIT_COUNT];		//!< The units involved
 	float				m_fMissionTime;			//!< The amount of time that the event will take
-	const CvPlot *		m_pPlot;					//!< The plot associated with the event
+	const CvPlot* m_pPlot;					//!< The plot associated with the event
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  STRUCT:     CvBattleDefinition
 //!  \brief		A definition passed to CvBattleManager to start a battle between units
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class DllExport CvBattleDefinition : public CvMissionDefinition
-{
+class DllExport CvBattleDefinition : public CvMissionDefinition {
 public:
 	CvBattleDefinition();
-	CvBattleDefinition( const CvBattleDefinition & kCopy );
+	CvBattleDefinition(const CvBattleDefinition& kCopy);
 
 	int getDamage(BattleUnitTypes unitType, BattleTimeTypes timeType) const;
 	void setDamage(BattleUnitTypes unitType, BattleTimeTypes timeType, int damage);
 	void addDamage(BattleUnitTypes unitType, BattleTimeTypes timeType, int increment);
-	
+
 	int getFirstStrikes(BattleUnitTypes unitType) const;
 	void setFirstStrikes(BattleUnitTypes unitType, int firstStrikes);
 	void addFirstStrikes(BattleUnitTypes unitType, int increment);
-	
+
 	bool isAdvanceSquare() const;
 	void setAdvanceSquare(bool advanceSquare);
 
 	int getNumRangedRounds() const;
 	void setNumRangedRounds(int count);
 	void addNumRangedRounds(int increment);
-	
+
 	int getNumMeleeRounds() const;
 	void setNumMeleeRounds(int count);
 	void addNumMeleeRounds(int increment);
 
 	int getNumBattleRounds() const;
 	void clearBattleRounds();
-	CvBattleRound &getBattleRound(int index);
-	const CvBattleRound &getBattleRound(int index) const;
-	void addBattleRound(const CvBattleRound &round);
-	void setBattleRound(int index, const CvBattleRound &round);
+	CvBattleRound& getBattleRound(int index);
+	const CvBattleRound& getBattleRound(int index) const;
+	void addBattleRound(const CvBattleRound& round);
+	void setBattleRound(int index, const CvBattleRound& round);
 
 private:
 	void checkBattleTimeType(BattleTimeTypes timeType) const;
@@ -393,11 +370,10 @@ private:
 //  CLASS:      CvAirMissionDefinition
 //!  \brief		A definition passed to CvAirMissionManager to start an air mission
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-class DllExport CvAirMissionDefinition : public CvMissionDefinition
-{
+class DllExport CvAirMissionDefinition : public CvMissionDefinition {
 public:
 	CvAirMissionDefinition();
-	CvAirMissionDefinition( const CvAirMissionDefinition & kCopy );
+	CvAirMissionDefinition(const CvAirMissionDefinition& kCopy);
 
 	int getDamage(BattleUnitTypes unitType) const;
 	void setDamage(BattleUnitTypes unitType, int damage);
@@ -407,8 +383,7 @@ private:
 	int					m_aDamage[BATTLE_UNIT_COUNT];		//!< The ending damage of the units
 };
 
-struct DllExport CvWidgetDataStruct
-{
+struct DllExport CvWidgetDataStruct {
 	int m_iData1;										//	The first bit of data
 	int m_iData2;										//	The second piece of data
 
@@ -417,11 +392,8 @@ struct DllExport CvWidgetDataStruct
 	WidgetTypes m_eWidgetType;			//	What the 'type' of this widget is (for parsing help and executing actions)
 };
 
-struct DllExport CvPlotIndicatorData
-{
-	CvPlotIndicatorData() : m_eVisibility(PLOT_INDICATOR_VISIBLE_ALWAYS), m_bFlashing(false), m_pUnit(NULL), m_bTestEnemyVisibility(false), m_bVisibleOnlyIfSelected(false), m_bPersistentRotation(false)
-	{
-	}
+struct DllExport CvPlotIndicatorData {
+	CvPlotIndicatorData() : m_eVisibility(PLOT_INDICATOR_VISIBLE_ALWAYS), m_bFlashing(false), m_pUnit(NULL), m_bTestEnemyVisibility(false), m_bVisibleOnlyIfSelected(false), m_bPersistentRotation(false) {}
 	CvString m_strIcon;
 	CvString m_strLabel;
 	NiColor m_kColor;
@@ -435,9 +407,8 @@ struct DllExport CvPlotIndicatorData
 	bool m_bPersistentRotation;
 };
 
-struct DllExport CvGlobeLayerData
-{
-	CvGlobeLayerData(GlobeLayerTypes eType) : m_eType(eType), m_bGlobeViewRequired(true), m_bShouldCitiesZoom(false), m_iNumOptions(0) { }
+struct DllExport CvGlobeLayerData {
+	CvGlobeLayerData(GlobeLayerTypes eType) : m_eType(eType), m_bGlobeViewRequired(true), m_bShouldCitiesZoom(false), m_iNumOptions(0) {}
 	GlobeLayerTypes m_eType;
 	CvString m_strName;
 	CvString m_strButtonHelpTag;
@@ -447,9 +418,8 @@ struct DllExport CvGlobeLayerData
 	int m_iNumOptions;
 };
 
-struct DllExport CvFlyoutMenuData
-{
-	CvFlyoutMenuData(FlyoutTypes eType, int iId, int iX, int iY, const wchar* strTitle) : m_eFlyout(eType), m_iID(iId), m_iX(iX), m_iY(iY), m_strTitle(strTitle) { }
+struct DllExport CvFlyoutMenuData {
+	CvFlyoutMenuData(FlyoutTypes eType, int iId, int iX, int iY, const wchar* strTitle) : m_eFlyout(eType), m_iID(iId), m_iX(iX), m_iY(iY), m_strTitle(strTitle) {}
 	FlyoutTypes m_eFlyout;
 	int m_iID;
 	int m_iX;
@@ -457,34 +427,29 @@ struct DllExport CvFlyoutMenuData
 	CvWString m_strTitle;
 };
 
-struct DllExport CvStatBase
-{
-	CvStatBase(const char* strKey) : m_strKey(strKey) { }
-	virtual ~CvStatBase() { }
+struct DllExport CvStatBase {
+	CvStatBase(const char* strKey) : m_strKey(strKey) {}
+	virtual ~CvStatBase() {}
 	CvString m_strKey;
 };
 
-struct DllExport CvStatInt : public CvStatBase
-{
-	CvStatInt(const char* strKey, int iValue) : CvStatBase(strKey), m_iValue(iValue) { }
+struct DllExport CvStatInt : public CvStatBase {
+	CvStatInt(const char* strKey, int iValue) : CvStatBase(strKey), m_iValue(iValue) {}
 	int m_iValue;
 };
 
-struct DllExport CvStatString : public CvStatBase
-{
-	CvStatString(const char* strKey, const char* strValue) : CvStatBase(strKey), m_strValue(strValue) { }
+struct DllExport CvStatString : public CvStatBase {
+	CvStatString(const char* strKey, const char* strValue) : CvStatBase(strKey), m_strValue(strValue) {}
 	CvString m_strValue;
 };
 
-struct DllExport CvStatFloat : public CvStatBase
-{
-	CvStatFloat(const char* strKey, float fValue) : CvStatBase(strKey), m_fValue(fValue) { }
+struct DllExport CvStatFloat : public CvStatBase {
+	CvStatFloat(const char* strKey, float fValue) : CvStatBase(strKey), m_fValue(fValue) {}
 	float m_fValue;
 };
 
-struct DllExport CvWBData
-{
-	CvWBData(int iId, const wchar* strHelp, const char* strButton) : m_iId(iId), m_strHelp(strHelp), m_strButton(strButton) { }
+struct DllExport CvWBData {
+	CvWBData(int iId, const wchar* strHelp, const char* strButton) : m_iId(iId), m_strHelp(strHelp), m_strButton(strButton) {}
 	int m_iId;
 	CvWString m_strHelp;
 	CvString m_strButton;
