@@ -492,7 +492,7 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 				szString.append(gDLL->getText("TXT_KEY_UNIT_INVISIBLE_MOST"));
 			}
 
-			for (iI = 0; iI < pUnit->getNumSeeInvisibleTypes(); ++iI) {
+			for (int iI = 0; iI < pUnit->getNumSeeInvisibleTypes(); ++iI) {
 				if (pUnit->getSeeInvisibleType(iI) != pUnit->getInvisibleType()) {
 					szString.append(NEWLINE);
 					szString.append(gDLL->getText("TXT_KEY_UNIT_SEE_INVISIBLE", GC.getInvisibleInfo(pUnit->getSeeInvisibleType(iI)).getTextKeyWide()));
@@ -11912,7 +11912,7 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 
 	iTotalGreatPeopleUnitProgress = 0;
 
-	for (iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
+	for (int iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
 		iTotalGreatPeopleUnitProgress += city.getGreatPeopleUnitProgress((UnitTypes)iI);
 	}
 
@@ -11923,7 +11923,7 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 
 		std::vector< std::pair<UnitTypes, int> > aUnitProgress;
 		int iTotalTruncated = 0;
-		for (iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
+		for (int iI = 0; iI < GC.getNumUnitInfos(); ++iI) {
 			int iProgress = ((city.getGreatPeopleUnitProgress((UnitTypes)iI) * 100) / iTotalGreatPeopleUnitProgress);
 			if (iProgress > 0) {
 				iTotalTruncated += iProgress;
@@ -11935,7 +11935,7 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer& szBuffer, CvCity& city
 			aUnitProgress[0].second += 100 - iTotalTruncated;
 		}
 
-		for (iI = 0; iI < (int)aUnitProgress.size(); ++iI) {
+		for (int iI = 0; iI < (int)aUnitProgress.size(); ++iI) {
 			szBuffer.append(CvWString::format(L"%s%s - %d%%", NEWLINE, GC.getUnitInfo(aUnitProgress[iI].first).getDescription(), aUnitProgress[iI].second));
 		}
 	}
