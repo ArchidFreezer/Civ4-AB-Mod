@@ -4425,7 +4425,7 @@ bool CvSpecialUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bValid, "bValid");
 	pXML->GetChildXmlValByName(&m_bCityLoad, "bCityLoad");
 
-	pXML->SetListPairInfo(&m_pbCarrierUnitAITypes, "CarrierUnitAITypes", NUM_UNITAI_TYPES);
+	pXML->SetListInfoBool(&m_pbCarrierUnitAITypes, "CarrierUnitAITypes", NUM_UNITAI_TYPES);
 
 	pXML->SetListPairInfo(&m_piProductionTraits, "ProductionTraits", GC.getNumTraitInfos());
 
