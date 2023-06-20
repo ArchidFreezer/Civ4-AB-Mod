@@ -71,6 +71,7 @@ public:
 	CvWString getNewCityName() const;																																								// Exposed to Python
 	void getCivilizationCityName(CvWString& szBuffer, CivilizationTypes eCivilization) const;
 	bool isCityNameValid(CvWString& szName, bool bTestDestroyed = true) const;
+	CvCity* findCity(int iX, int iY, bool bPreferSameArea = true, CvCity* pSkipCity = NULL);
 
 	CvUnit* initUnit(UnitTypes eUnit, int iX, int iY, UnitAITypes eUnitAI = NO_UNITAI, DirectionTypes eFacingDirection = NO_DIRECTION);							// Exposed to Python
 	void disbandUnit(bool bAnnounce);																																					// Exposed to Python
