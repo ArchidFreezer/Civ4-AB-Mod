@@ -3357,106 +3357,6 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 	FAssert(techs_to_depth.size() == iMaxPathLength + 1);
 	//FAssert(techs.size() == values.size());
 
-#ifdef USE_OLD_TECH_STUFF
-	bool bPathways = false && getID() < GC.getGameINLINE().countCivPlayersEverAlive() / 2; // testing (temp)
-	bool bNewWays = true || getID() < GC.getGameINLINE().countCivPlayersEverAlive() / 2; // testing (temp)
-
-	if (!bPathways) {
-		// Ok. All techs have been evaluated up to the given search depth. Now we just have to add a percentage the deep tech values to their prereqs.
-		// First, lets calculate what the percentage should be!
-		// Note: the fraction compounds for each depth level. eg. 1, 1/3, 1/9, 1/27, etc.
-		if (iMaxPathLength > 1 && iTechCount > techs_to_depth[1]) {
-			int iPrereqPercent = bNewWays ? 50 : 0;
-			iPrereqPercent += (AI_getFlavorValue(FLAVOR_SCIENCE) > 0) ? 5 + AI_getFlavorValue(FLAVOR_SCIENCE) : 0;
-			iPrereqPercent += AI_isDoStrategy(AI_STRATEGY_ECONOMY_FOCUS) ? 10 : 0;
-			iPrereqPercent += AI_isDoVictoryStrategy(AI_VICTORY_SPACE1) ? 5 : 0;
-			iPrereqPercent += AI_isDoVictoryStrategy(AI_VICTORY_SPACE2) ? 10 : 0;
-			iPrereqPercent += AI_isDoStrategy(AI_STRATEGY_BIG_ESPIONAGE) ? -5 : 0;
-			iPrereqPercent += kTeam.getAnyWarPlanCount(true) > 0 ? -10 : 0;
-			// more modifiers to come?
-
-			iPrereqPercent = range(iPrereqPercent, 0, 80);
-
-			// I figure that if I go through the techs in reverse order to add value to their prereqs, I don't double-count or miss anything.
-			// Is that correct?
-			int iDepth = iMaxPathLength - 1;
-			for (int i = iTechCount - 1; i >= techs_to_depth[1]; --i) {
-				const CvTechInfo& kTech = GC.getTechInfo(techs[i].second);
-
-				if (i < techs_to_depth[iDepth]) {
-					--iDepth;
-				}
-				FAssert(iDepth > 0);
-
-				// We only want to award points to the techs directly below this level.
-				// We don't want, for example, Chemestry getting points from Biology when we haven't researched scientific method.
-				const std::vector<std::pair<int, TechTypes> >::iterator prereq_search_begin = techs.begin() + techs_to_depth[iDepth - 1];
-				const std::vector<std::pair<int, TechTypes> >::iterator prereq_search_end = techs.begin() + techs_to_depth[iDepth];
-
-				// Also; for the time being, I only want to add value to prereqs from the best following tech, rather than from all following techs.
-				// (The logic is that we will only research one thing at a time anyway; so although opening lots of options is good, we shouldn't overvalue it.)
-				std::vector<int> prereq_bonus(techs.size(), 0);
-
-				FAssert(techs[i].first * iPrereqPercent / 100 > 0 && techs[i].first * iPrereqPercent / 100 < 100000);
-
-				for (int p = 0; p < GC.getNUM_OR_TECH_PREREQS(); ++p) {
-					TechTypes ePrereq = (TechTypes)kTech.getPrereqOrTechs(p);
-					if (ePrereq != NO_TECH) {
-						std::vector<std::pair<int, TechTypes> >::iterator tech_it = std::find_if(prereq_search_begin, prereq_search_end, PairSecondEq<int, TechTypes>(ePrereq));
-						if (tech_it != prereq_search_end) {
-							const size_t prereq_i = tech_it - techs.begin();
-							//values[index] += values[i]*iPrereqPercent/100;
-							prereq_bonus[prereq_i] = std::max(prereq_bonus[prereq_i], techs[i].first * iPrereqPercent / 100);
-
-							if (gPlayerLogLevel >= 3) {
-								logBBAI("      %S adds %d to %S (depth %d)", GC.getTechInfo(techs[i].second).getDescription(), techs[i].first * iPrereqPercent / 100, GC.getTechInfo(techs[prereq_i].second).getDescription(), iDepth - 1);
-							}
-						}
-					}
-				}
-				for (int p = 0; p < GC.getNUM_AND_TECH_PREREQS(); ++p) {
-					TechTypes ePrereq = (TechTypes)kTech.getPrereqAndTechs(p);
-					if (ePrereq != NO_TECH) {
-						std::vector<std::pair<int, TechTypes> >::iterator tech_it = std::find_if(prereq_search_begin, prereq_search_end, PairSecondEq<int, TechTypes>(ePrereq));
-						if (tech_it != prereq_search_end) {
-							const size_t prereq_i = tech_it - techs.begin();
-
-							//values[prereq_i] += values[i]*iPrereqPercent/100;
-							prereq_bonus[prereq_i] = std::max(prereq_bonus[prereq_i], techs[i].first * iPrereqPercent / 100);
-
-							if (gPlayerLogLevel >= 3) {
-								logBBAI("      %S adds %d to %S (depth %d)", GC.getTechInfo(techs[i].second).getDescription(), techs[i].first * iPrereqPercent / 100, GC.getTechInfo(techs[prereq_i].second).getDescription(), iDepth - 1);
-							}
-						}
-					}
-				}
-
-				// Apply the prereq_bonuses
-				for (size_t p = 0; p < prereq_bonus.size(); ++p) {
-					// Kludge: Under this system, dead-end techs (such as rifling) can be avoided due to the high value of
-					// follow-on techs. So here's what we're going to do...
-					techs[p].first += std::max(prereq_bonus[p], (techs[p].first - 80) * iPrereqPercent * 3 / 400);
-					// Note, the "-80" is meant to represent removing the random value bonus. cf. AI_techValue (divided by ~5 turns). (bonus is 0-80*cities)
-				}
-			}
-		}
-		// All the evaluations are now complete. Now we just have to find the best tech.
-		std::vector<std::pair<int, TechTypes> >::iterator tech_it = std::max_element(techs.begin(), (bNewWays ? techs.begin() + techs_to_depth[1] : techs.end()), PairFirstLess<int, TechTypes>());
-		if (tech_it == (bNewWays ? techs.begin() + techs_to_depth[1] : techs.end())) {
-			FAssert(iTechCount == 0);
-			return NO_TECH;
-		}
-		TechTypes eBestTech = tech_it->second;
-		FAssert(canResearch(eBestTech));
-
-		if (gPlayerLogLevel >= 1) {
-			logBBAI("  Player %d (%S) selects tech %S with value %d", getID(), getCivilizationDescription(0), GC.getTechInfo(eBestTech).getDescription(), tech_it->first);
-		}
-
-		return eBestTech;
-	}
-#endif
-
 	// Yet another version!
 	// pathways version
 	// We've evaluated all the techs up to the given depth. Now we want to choose the highest value pathway.
@@ -4416,22 +4316,18 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 					// missing tech stays at 0, because this is a special case. (ie. no great person required)
 				} else if (corpHQs[iJ] != NO_BUILDING) {
 					const CvBuildingInfo& kBuildingInfo = GC.getBuildingInfo(corpHQs[iJ]);
-					if (kBuildingInfo.getPrereqAndTech() == eTech ||
-						kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech()) ||
-						canResearch((TechTypes)kBuildingInfo.getPrereqAndTech())) {
-						bCorpTech = true;
-						// Count the required techs. (cf. isTechRequiredForBuilding)
+					for (int iI = 0; iI < kBuildingInfo.getNumPrereqAndTechs(); iI++) {
+						if (kBuildingInfo.getPrereqAndTech(iI) == eTech || kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech(iI)) || canResearch((TechTypes)kBuildingInfo.getPrereqAndTech(iI))) {
+							bCorpTech = true;
+							// Count the required techs. (cf. isTechRequiredForBuilding)
 
-						iMissingTechs += !kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech()) ? 1 : 0;
+							iMissingTechs += !kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTech(iI)) ? 1 : 0;
 
-						for (int iP = 0; iP < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iP++) {
-							iMissingTechs += !kTeam.isHasTech((TechTypes)kBuildingInfo.getPrereqAndTechs(iP)) ? 1 : 0;
+							SpecialBuildingTypes eSpecial = (SpecialBuildingTypes)kBuildingInfo.getSpecialBuildingType();
+							iMissingTechs += eSpecial != NO_SPECIALBUILDING && !kTeam.isHasTech((TechTypes)GC.getSpecialBuildingInfo(eSpecial).getTechPrereq()) ? 1 : 0;
+
+							FAssert(iMissingTechs > 0);
 						}
-
-						SpecialBuildingTypes eSpecial = (SpecialBuildingTypes)kBuildingInfo.getSpecialBuildingType();
-						iMissingTechs += eSpecial != NO_SPECIALBUILDING && !kTeam.isHasTech((TechTypes)GC.getSpecialBuildingInfo(eSpecial).getTechPrereq()) ? 1 : 0;
-
-						FAssert(iMissingTechs > 0);
 					}
 				}
 				if (bCorpTech) {
@@ -4766,8 +4662,12 @@ int CvPlayerAI::AI_techBuildingValue(TechTypes eTech, bool bConstCache, bool& bE
 			if (GC.getGameINLINE().isBuildingClassMaxedOut(eClass) || kLoopBuilding.getProductionCost() < 0)
 				continue; // either maxed out, or it's a special building that we don't want to evaluate here.
 
-			if (kLoopBuilding.getPrereqAndTech() == eTech)
-				bEnablesWonder = true; // a buildable world wonder
+			for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+				if (kLoopBuilding.getPrereqAndTech(iI) == eTech) {
+					bEnablesWonder = true; // a buildable world wonder
+					break;
+				}
+			}
 		}
 
 		bool bLimitedBuilding = isLimitedWonderClass(eClass) || kLoopBuilding.getProductionCost() < 0;
@@ -7523,14 +7423,10 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 					{
 						// determine whether we have the tech for this building
 						bool bHasTechForBuilding = true;
-						if (!(kTeam.isHasTech((TechTypes)(kLoopBuilding.getPrereqAndTech())))) {
-							bHasTechForBuilding = false;
-						}
-						for (int iPrereqIndex = 0; bHasTechForBuilding && iPrereqIndex < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iPrereqIndex++) {
-							if (kLoopBuilding.getPrereqAndTechs(iPrereqIndex) != NO_TECH) {
-								if (!(kTeam.isHasTech((TechTypes)(kLoopBuilding.getPrereqAndTechs(iPrereqIndex))))) {
-									bHasTechForBuilding = false;
-								}
+						for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+							if (!(kTeam.isHasTech((TechTypes)(kLoopBuilding.getPrereqAndTech(iI))))) {
+								bHasTechForBuilding = false;
+								break;
 							}
 						}
 
@@ -7557,14 +7453,17 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const {
 							iTempValue /= std::max(1, iCityCount / 2);
 						}
 
-						if (kLoopBuilding.getPrereqAndTech() != NO_TECH) {
-							int iDiff = abs(GC.getTechInfo((TechTypes)(kLoopBuilding.getPrereqAndTech())).getEra() - getCurrentEra());
-
-							if (iDiff == 0) {
+						if (kLoopBuilding.getNumPrereqAndTechs() > 0) {
+							int iMaxDiff = 0;
+							for (int iI = 0; iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+								int iDiff = abs(GC.getTechInfo((TechTypes)(kLoopBuilding.getPrereqAndTech(iI))).getEra() - getCurrentEra());
+								iMaxDiff = std::max(iMaxDiff, iDiff);
+							}
+							if (iMaxDiff == 0) {
 								iTempValue *= 3;
 								iTempValue /= 2;
 							} else {
-								iTempValue /= iDiff;
+								iTempValue /= iMaxDiff;
 							}
 						}
 
@@ -10447,10 +10346,12 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 								if (canDoCivics(eCivic)) {
 									// Only check the tech prereqs for the corp if we already have the prereqs for this civic.
 									// (This condition will help us research towards the corp tech rather than researching towards the civic that will block the corp.)
-									bHasPrereq = kTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTech()) || canResearch((TechTypes)kLoopBuilding.getPrereqAndTech());
-
-									for (int iI = 0; bHasPrereq && iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-										bHasPrereq = kTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTechs(iI)) || canResearch((TechTypes)kLoopBuilding.getPrereqAndTechs(iI));
+									TechTypes eTech;
+									for (int iI = 0; bHasPrereq && iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+										eTech = (TechTypes)kLoopBuilding.getPrereqAndTech(iI);
+										if (!kTeam.isHasTech(eTech) || canResearch(eTech)) {
+											bHasPrereq = false;
+										}
 									}
 								}
 
@@ -10460,10 +10361,8 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 									for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
 										const CvTeam& kLoopTeam = GET_TEAM(GET_PLAYER(j).getTeam());
 										if (kLoopTeam.getID() != getTeam() && kTeam.isHasMet(kLoopTeam.getID())) {
-											bHasPrereq = kLoopTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTech());
-
-											for (int iI = 0; bHasPrereq && iI < GC.getNUM_BUILDING_AND_TECH_PREREQS(); iI++) {
-												bHasPrereq = kLoopTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTechs(iI));
+											for (int iI = 0; bHasPrereq && iI < kLoopBuilding.getNumPrereqAndTechs(); iI++) {
+												bHasPrereq = kLoopTeam.isHasTech((TechTypes)kLoopBuilding.getPrereqAndTech(iI));
 											}
 											if (bHasPrereq)
 												iSpeculation++;
