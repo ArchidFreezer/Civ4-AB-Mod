@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	BULL City Bar
+	by EmperorFool
+	
+	Copyright (c) 2009 The BUG Mod.
+-->
+<mod id="CityBar" 
+	 name="City Bar" 
+	 author="EmperorFool" 
+	 version="1.0" 
+	 date="04/20/2009"
+	 url="http://forums.civfanatics.com/showthread.php?t=307951">
+	 
+	<options id="CityBar" file="CityBar.ini">
+		<section id="Bar">
+			<option id="StarvationTurns" key="Starvation Turns" type="boolean" default="True"/>
+		</section>
+		
+		<section id="Hover">
+			<option id="Health" key="Health" type="boolean" default="True"/>
+			<option id="Happiness" key="Happiness" type="boolean" default="True"/>
+					
+			<option id="HurryAnger" key="Hurry Anger" type="boolean" default="True"/>
+			<option id="DraftAnger" key="Draft Anger" type="boolean" default="True"/>
+					
+			<option id="FoodAssist" key="Food Assist" type="boolean" default="True"/>
+			<option id="BaseValues" key="Base Values" type="boolean" default="True"/>
+			<option id="BaseProduction" key="Base Production" type="boolean" default="True"/>
+			<option id="BuildingActualEffects" key="Building Actual Effects" type="boolean" default="True"/>
+					
+			<option id="HurryAssist" key="Hurry Assist" type="boolean" default="True"/>
+			<option id="HurryAssistIncludeCurrent" key="Hurry Assist Include Current" type="boolean" default="False"/>
+					
+			<option id="TradeDetail" key="Trade Detail" type="boolean" default="True"/>
+			<option id="Commerce" key="Commerce" type="boolean" default="True"/>
+					
+			<option id="BuildingIcons" key="BuildingIcons" type="boolean" default="True"/>
+					
+			<option id="CultureTurns" key="Culture Turns" type="boolean" default="True"/>
+			<option id="GreatPersonTurns" key="Great Person Turns" type="boolean" default="True"/>
+					
+			<option id="Specialists" key="Specialists" type="boolean" default="True"/>
+			<option id="RevoltChance" key="Revolt Chance" type="boolean" default="True"/>
+					
+			<option id="HideInstructions" key="Hide Instructions" type="boolean" default="True"/>
+		</section>
+		<section id="Plot Status">
+			<option id="CityControlledPlots" key="City Controlled Plots" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+
+			<option id="CityPlotStatus" key="City Plot Status" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovedPlot" key="Working Improved Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovedPlotColour" key="Working Improved Plot Colour" type="color" default="COLOR_WHITE"/>
+			<list id="WorkingImprovedPlotAlpha" key="Working Improved Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="WorkingImprovablePlot" key="Working Improvable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovablePlotColour" key="Working Improvable Plot Colour" type="color" default="COLOR_RED"/>
+			<list id="WorkingImprovablePlotAlpha" key="Working Improvable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="WorkingImprovableBonusPlot" key="Working Improvable Bonus Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingImprovableBonusPlotColour" key="Working Improvable Bonus Plot Colour" type="color" default="COLOR_RED"/>
+			<list id="WorkingImprovableBonusPlotAlpha" key="Working Improvable Bonus Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="WorkingUnimprovablePlot" key="Working Unimprovable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="WorkingUnimprovablePlotColour" key="Working Unimprovable Plot Colour" type="color" default="COLOR_DARK_GREY"/>
+			<list id="WorkingUnimprovablePlotAlpha" key="Working Unimprovable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingImprovedPlot" key="Not Working Improved Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingImprovedPlotColour" key="Not Working Improved Plot Colour" type="color" default="COLOR_GREEN"/>
+			<list id="NotWorkingImprovedPlotAlpha" key="Not Working Improved Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingImprovablePlot" key="Not Working Improvable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingImprovablePlotColour" key="Not Working Improvable Plot Colour" type="color" default="COLOR_BLUE"/>
+			<list id="NotWorkingImprovablePlotAlpha" key="Not Working Improvable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingImprovableBonusPlot" key="Not Working Improvable Bonus Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingImprovableBonusPlotColour" key="Not Working Improvable Bonus Plot Colour" type="color" default="COLOR_CYAN"/>
+			<list id="NotWorkingImprovableBonusPlotAlpha" key="Not Working Improvable Bonus Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+			<option id="NotWorkingUnimprovablePlot" key="Not Working Unimprovable Plot" type="boolean" default="True" dirtyBit="ColoredPlots"/>
+			<option id="NotWorkingUnimprovablePlotColour" key="Not Working Unimprovable Plot Colour" type="color" default="COLOR_BLACK"/>
+			<list id="NotWorkingUnimprovablePlotAlpha" key="Not Working Unimprovable Plot Alpha" type="float" default="1.0" listType="float" values="0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0" format="%.1f"/>
+
+		</section>
+	</options>
+</mod>
