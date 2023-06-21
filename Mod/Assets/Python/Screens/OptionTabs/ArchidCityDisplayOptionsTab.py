@@ -19,11 +19,8 @@ class ArchidCityDisplayOptionsTab(BugOptionsTab.BugOptionsTab):
 		tab = self.createTab(screen)
 		panel = self.createMainPanel(screen)
 		column = self.addOneColumnLayout(screen, panel)
-		left, right = self.addTwoColumnLayout(screen, column, "Page", True)
 		
-		self.createCityBarHoverPanel(screen, left)
-		self.createCityBarMapPanel(screen, right)
-		
+		self.createCityBarHoverPanel(screen, column)
 		
 	def createCityBarHoverPanel(self, screen, panel):
 		self.addLabel(screen, panel, "CitybarHover", "City Bar Hover:")
