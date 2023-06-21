@@ -19,7 +19,7 @@ class ArchidCityDisplayOptionsTab(BugOptionsTab.BugOptionsTab):
 		tab = self.createTab(screen)
 		panel = self.createMainPanel(screen)
 		column = self.addOneColumnLayout(screen, panel)
-		
+
 		self.createCityBarHoverPanel(screen, column)
 		
 	def createCityBarHoverPanel(self, screen, panel):
@@ -43,7 +43,3 @@ class ArchidCityDisplayOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addCheckbox(screen, right, "CityBar__RevoltChance")
 		self.addCheckbox(screen, right, "CityBar__Specialists")
 		self.addCheckbox(screen, right, "CityBar__TradeDetail")
-
-	def createCityBarMapPanel(self, screen, panel):
-		self.addLabel(screen, panel, "MapCityBar", "Map City Bar:")
-		self.addCheckbox(screen, panel, "CityBar__StarvationTurns")

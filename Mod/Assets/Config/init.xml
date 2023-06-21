@@ -59,6 +59,7 @@
 			"COLOR_BLACK"
 		</arg>
 	</init>
-
+		
 	<load mod="CityBar"/>
+	<load mod="UnitActions"/>
 </bug>
