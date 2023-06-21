@@ -820,6 +820,8 @@ CvTechInfo::CvTechInfo() :
 	m_iPowerValue(0),
 	m_iGridX(0),
 	m_iGridY(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bRepeat(false),
 	m_bTrade(false),
 	m_bDisable(false),
@@ -839,6 +841,8 @@ CvTechInfo::CvTechInfo() :
 	m_bIgnoreIrrigation(false),
 	m_bWaterWork(false),
 	m_bRiverTrade(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piPrereqOrTechs(NULL),
@@ -864,6 +868,22 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce); // K-Mod
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvTechInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvTechInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvTechInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvTechInfo::getAdvisorType() const {
@@ -1110,6 +1130,8 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iFirstFreeTechs);
 	stream->Read(&m_iAssetValue);
 	stream->Read(&m_iPowerValue);
+	stream->Read(&m_iUnitRangeChange);
+	stream->Read(&m_iUnitRangePercentChange);
 	stream->Read(&m_bRepeat);
 	stream->Read(&m_bTrade);
 	stream->Read(&m_bDisable);
@@ -1129,6 +1151,8 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bIgnoreIrrigation);
 	stream->Read(&m_bWaterWork);
 	stream->Read(&m_bRiverTrade);
+	stream->Read(&m_bUnitRangeUnbound);
+	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1193,6 +1217,8 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iFirstFreeTechs);
 	stream->Write(m_iAssetValue);
 	stream->Write(m_iPowerValue);
+	stream->Write(m_iUnitRangeChange);
+	stream->Write(m_iUnitRangePercentChange);
 	stream->Write(m_bRepeat);
 	stream->Write(m_bTrade);
 	stream->Write(m_bDisable);
@@ -1212,6 +1238,8 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bIgnoreIrrigation);
 	stream->Write(m_bWaterWork);
 	stream->Write(m_bRiverTrade);
+	stream->Write(m_bUnitRangeUnbound);
+	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1277,6 +1305,10 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bIgnoreIrrigation, "bIgnoreIrrigation");
 	pXML->GetChildXmlValByName(&m_bWaterWork, "bWaterWork");
 	pXML->GetChildXmlValByName(&m_bRiverTrade, "bRiverTrade");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 	pXML->GetChildXmlValByName(&m_iGridX, "iGridX");
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
 
@@ -1351,6 +1383,8 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iUpgradeDiscount(0),
 	m_iExperiencePercent(0),
 	m_iKamikazePercent(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1359,6 +1393,8 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_bAlwaysHeal(false),
 	m_bHillsDoubleMove(false),
 	m_bImmuneToFirstStrikes(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_piTerrainAttackPercent(NULL),
 	m_piTerrainDefensePercent(NULL),
 	m_piFeatureAttackPercent(NULL),
@@ -1386,6 +1422,22 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbUnitCombat);
+}
+
+int CvPromotionInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvPromotionInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvPromotionInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvPromotionInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvPromotionInfo::getLayerAnimationPath() const {
@@ -1691,6 +1743,8 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUpgradeDiscount);
 	stream->Read(&m_iExperiencePercent);
 	stream->Read(&m_iKamikazePercent);
+	stream->Read(&m_iUnitRangeChange);
+	stream->Read(&m_iUnitRangePercentChange);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -1700,6 +1754,8 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAlwaysHeal);
 	stream->Read(&m_bHillsDoubleMove);
 	stream->Read(&m_bImmuneToFirstStrikes);
+	stream->Read(&m_bUnitRangeUnbound);
+	stream->Read(&m_bUnitTerritoryUnbound);
 
 	stream->ReadString(m_szSound);
 
@@ -1785,6 +1841,8 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUpgradeDiscount);
 	stream->Write(m_iExperiencePercent);
 	stream->Write(m_iKamikazePercent);
+	stream->Write(m_iUnitRangeChange);
+	stream->Write(m_iUnitRangePercentChange);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -1794,6 +1852,8 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bAlwaysHeal);
 	stream->Write(m_bHillsDoubleMove);
 	stream->Write(m_bImmuneToFirstStrikes);
+	stream->Write(m_bUnitRangeUnbound);
+	stream->Write(m_bUnitTerritoryUnbound);
 
 	stream->WriteString(m_szSound);
 
@@ -1876,6 +1936,10 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUpgradeDiscount, "iUpgradeDiscount");
 	pXML->GetChildXmlValByName(&m_iExperiencePercent, "iExperiencePercent");
 	pXML->GetChildXmlValByName(&m_iKamikazePercent, "iKamikazePercent");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 
 	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
 	pXML->SetListPairInfo(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());
@@ -2580,6 +2644,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iUnitRangedWaveSize(0),
 	m_iNumUnitNames(0),
 	m_iCommandType(NO_COMMAND),
+	m_eRangeType(UNITRANGE_RANGE),
 	m_bAnimal(false),
 	m_bFoodProduction(false),
 	m_bNoBadGoodies(false),
@@ -2711,6 +2776,12 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+UnitRangeTypes CvUnitInfo::getRangeType() const {
+	FAssertMsg(m_eRangeType > -1, "m_eRangeType out of bounds");
+	FAssertMsg(m_eRangeType < NUM_UNITRANGES, "m_eRangeType out of bounds");
+	return m_eRangeType;
 }
 
 int CvUnitInfo::getAIWeight() const {
@@ -3594,6 +3665,10 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iNumUnitNames);
 	stream->Read(&m_iCommandType);
 
+	int iTemp;
+	stream->Read(&iTemp);
+	m_eRangeType = (UnitRangeTypes)iTemp;
+
 	stream->Read(&m_bAnimal);
 	stream->Read(&m_bFoodProduction);
 	stream->Read(&m_bNoBadGoodies);
@@ -3888,6 +3963,8 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iNumUnitNames);
 	stream->Write(m_iCommandType);
 
+	stream->Write(m_eRangeType);
+
 	stream->Write(m_bAnimal);
 	stream->Write(m_bFoodProduction);
 	stream->Write(m_bNoBadGoodies);
@@ -4054,6 +4131,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bHiddenNationality, "bHiddenNationality", false);
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
 	pXML->GetChildXmlValByName(&m_bNoRevealMap, "bNoRevealMap", false);
+	pXML->GetChildXmlEnumValByName(&m_eRangeType, "UnitRangeType", UNITRANGE_UNLIMITED);
 
 	pXML->SetListInfoBool(&m_pbUpgradeUnitClass, "UnitClassUpgrades", GC.getNumUnitClassInfos());
 	pXML->SetListInfoBool(&m_pbTargetUnitClass, "UnitClassTargets", GC.getNumUnitClassInfos());
@@ -4514,6 +4592,8 @@ CvCivicInfo::CvCivicInfo() :
 	m_iStateReligionBuildingProductionModifier(0),
 	m_iStateReligionFreeExperience(0),
 	m_iExpInBorderModifier(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
 	m_bMilitaryFoodProduction(false),
 	m_iUnhealthyPopulationModifier(0), // K-Mod
 	m_bBuildingOnlyHealthy(false),
@@ -4522,6 +4602,8 @@ CvCivicInfo::CvCivicInfo() :
 	m_bNoForeignCorporations(false),
 	m_bStateReligion(false),
 	m_bNoNonStateReligionSpread(false),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_piYieldModifier(NULL),
 	m_piCapitalYieldModifier(NULL),
 	m_piTradeYieldModifier(NULL),
@@ -4564,6 +4646,22 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvCivicInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvCivicInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvCivicInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvCivicInfo::getCivicOptionType() const {
@@ -4904,6 +5002,8 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iStateReligionBuildingProductionModifier);
 	stream->Read(&m_iStateReligionFreeExperience);
 	stream->Read(&m_iExpInBorderModifier);
+	stream->Read(&m_iUnitRangeChange);
+	stream->Read(&m_iUnitRangePercentChange);
 
 	stream->Read(&m_bMilitaryFoodProduction);
 	stream->Read(&m_iUnhealthyPopulationModifier); // K-Mod
@@ -4913,6 +5013,8 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bNoForeignCorporations);
 	stream->Read(&m_bStateReligion);
 	stream->Read(&m_bNoNonStateReligionSpread);
+	stream->Read(&m_bUnitRangeUnbound);
+	stream->Read(&m_bUnitTerritoryUnbound);
 
 	// Arrays
 
@@ -5022,6 +5124,8 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iStateReligionBuildingProductionModifier);
 	stream->Write(m_iStateReligionFreeExperience);
 	stream->Write(m_iExpInBorderModifier);
+	stream->Write(m_iUnitRangeChange);
+	stream->Write(m_iUnitRangePercentChange);
 
 	stream->Write(m_bMilitaryFoodProduction);
 	stream->Write(m_iUnhealthyPopulationModifier); // K-Mod
@@ -5031,6 +5135,8 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bNoForeignCorporations);
 	stream->Write(m_bStateReligion);
 	stream->Write(m_bNoNonStateReligionSpread);
+	stream->Write(m_bUnitRangeUnbound);
+	stream->Write(m_bUnitTerritoryUnbound);
 
 	// Arrays
 
@@ -5114,6 +5220,10 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iStateReligionBuildingProductionModifier, "iStateReligionBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iStateReligionFreeExperience, "iStateReligionFreeExperience");
 	pXML->GetChildXmlValByName(&m_iExpInBorderModifier, "iExpInBorderModifier");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 
 	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCapitalYieldModifier, "CapitalYieldModifiers", NUM_YIELD_TYPES);
@@ -13252,6 +13362,10 @@ CvTraitInfo::CvTraitInfo() :
 	m_iMaxGlobalBuildingProductionModifier(0),
 	m_iMaxTeamBuildingProductionModifier(0),
 	m_iMaxPlayerBuildingProductionModifier(0),
+	m_iUnitRangeChange(0),
+	m_iUnitRangePercentChange(0),
+	m_bUnitRangeUnbound(false),
+	m_bUnitTerritoryUnbound(false),
 	m_paiExtraYieldThreshold(NULL),
 	m_paiTradeYieldModifier(NULL),
 	m_paiCommerceChange(NULL),
@@ -13273,6 +13387,22 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiCommerceModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+int CvTraitInfo::getUnitRangeChange() const {
+	return m_iUnitRangeChange;
+}
+
+int CvTraitInfo::getUnitRangePercentChange() const {
+	return m_iUnitRangePercentChange;
+}
+
+bool CvTraitInfo::isUnitRangeUnbound() const {
+	return m_bUnitRangeUnbound;
+}
+
+bool CvTraitInfo::isUnitTerritoryUnbound() const {
+	return m_bUnitTerritoryUnbound;
 }
 
 int CvTraitInfo::getHealth() const {
@@ -13373,6 +13503,10 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iMaxGlobalBuildingProductionModifier, "iMaxGlobalBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxTeamBuildingProductionModifier, "iMaxTeamBuildingProductionModifier");
 	pXML->GetChildXmlValByName(&m_iMaxPlayerBuildingProductionModifier, "iMaxPlayerBuildingProductionModifier");
+	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
+	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
+	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
+	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiCommerceChange, "CommerceChanges", NUM_COMMERCE_TYPES);

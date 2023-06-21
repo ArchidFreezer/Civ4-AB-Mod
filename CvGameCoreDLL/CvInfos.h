@@ -310,6 +310,8 @@ public:
 	int getFirstFreeTechs() const;				// Exposed to Python
 	int getAssetValue() const;						// Exposed to Python
 	int getPowerValue() const;						// Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
 
 	int getGridX() const;									// Exposed to Python
 	int getGridY() const;									// Exposed to Python
@@ -333,6 +335,8 @@ public:
 	bool isIgnoreIrrigation() const;			// Exposed to Python
 	bool isWaterWork() const;							// Exposed to Python
 	bool isRiverTrade() const;							// Exposed to Python
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	std::wstring getQuote() const;	// Exposed to Python
 	void setQuoteKey(const TCHAR* szVal);
@@ -380,6 +384,8 @@ protected:
 	int m_iFirstFreeTechs;
 	int m_iAssetValue;
 	int m_iPowerValue;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
 
 	int m_iGridX;
 	int m_iGridY;
@@ -403,6 +409,8 @@ protected:
 	bool m_bIgnoreIrrigation;
 	bool m_bWaterWork;
 	bool m_bRiverTrade;
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;
@@ -480,6 +488,8 @@ public:
 	int getUpgradeDiscount() const;				// Exposed to Python
 	int getExperiencePercent() const;				// Exposed to Python
 	int getKamikazePercent() const;				// Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -489,6 +499,8 @@ public:
 	bool isAlwaysHeal() const;				// Exposed to Python
 	bool isHillsDoubleMove() const;				// Exposed to Python
 	bool isImmuneToFirstStrikes() const;				// Exposed to Python
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	const TCHAR* getSound() const;				// Exposed to Python
 	void setSound(const TCHAR* szVal);
@@ -552,6 +564,8 @@ protected:
 	int m_iUpgradeDiscount;
 	int m_iExperiencePercent;
 	int m_iKamikazePercent;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -561,6 +575,8 @@ protected:
 	bool m_bAlwaysHeal;
 	bool m_bHillsDoubleMove;
 	bool m_bImmuneToFirstStrikes;
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvString m_szSound;
 
@@ -915,6 +931,8 @@ public:
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
 
+	UnitRangeTypes getRangeType() const;
+
 	// Arrays
 
 	int getPrereqAndTechs(int i) const;				// Exposed to Python
@@ -1093,6 +1111,8 @@ protected:
 	bool m_bAlwaysHostile;
 	bool m_bNoRevealMap;
 	int m_iLeaderPromotion;
+
+	UnitRangeTypes 	m_eRangeType;
 
 	float m_fUnitMaxSpeed;
 	float m_fUnitPadTime;
@@ -1320,6 +1340,8 @@ public:
 	int getStateReligionFreeExperience() const;								// Exposed to Python
 	int getExpInBorderModifier() const;				// Exposed to Python
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1328,6 +1350,8 @@ public:
 	bool isNoForeignCorporations() const;				// Exposed to Python
 	bool isStateReligion() const;				// Exposed to Python
 	bool isNoNonStateReligionSpread() const;				// Exposed to Python
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1402,6 +1426,8 @@ protected:
 	int m_iStateReligionBuildingProductionModifier;
 	int m_iStateReligionFreeExperience;
 	int m_iExpInBorderModifier;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod
@@ -1411,6 +1437,8 @@ protected:
 	bool m_bNoForeignCorporations;
 	bool m_bStateReligion;
 	bool m_bNoNonStateReligionSpread;
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvWString m_szWeLoveTheKingKey;
 
@@ -4113,6 +4141,11 @@ public:
 	int getMaxGlobalBuildingProductionModifier() const;				// Exposed to Python
 	int getMaxTeamBuildingProductionModifier() const;				// Exposed to Python
 	int getMaxPlayerBuildingProductionModifier() const;				// Exposed to Python
+	int getUnitRangeChange() const;
+	int getUnitRangePercentChange() const;
+
+	bool isUnitRangeUnbound() const;
+	bool isUnitTerritoryUnbound() const;
 
 	const TCHAR* getShortDescription() const;				// Exposed to Python
 	void setShortDescription(const TCHAR* szVal);
@@ -4143,6 +4176,11 @@ protected:
 	int m_iMaxGlobalBuildingProductionModifier;
 	int m_iMaxTeamBuildingProductionModifier;
 	int m_iMaxPlayerBuildingProductionModifier;
+	int m_iUnitRangeChange;
+	int m_iUnitRangePercentChange;
+
+	bool m_bUnitRangeUnbound;
+	bool m_bUnitTerritoryUnbound;
 
 	CvString m_szShortDescription;
 
