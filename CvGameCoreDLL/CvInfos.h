@@ -5087,6 +5087,7 @@ public:
 	int getEventChancePerTurn() const;				//	Exposed to Python
 	int getSoundtrackSpace() const;				//	Exposed to Python
 	int getNumSoundtracks() const;				//	Exposed to Python
+	int getMaxCities() const;
 	const TCHAR* getAudioUnitVictoryScript() const;				//	Exposed to Python
 	const TCHAR* getAudioUnitDefeatScript() const;				//	Exposed to Python
 
@@ -5126,6 +5127,7 @@ protected:
 	int m_iEventChancePerTurn;
 	int m_iSoundtrackSpace;
 	int m_iNumSoundtracks;
+	int m_iMaxCities;
 	CvString m_szAudioUnitVictoryScript;
 	CvString m_szAudioUnitDefeatScript;
 
