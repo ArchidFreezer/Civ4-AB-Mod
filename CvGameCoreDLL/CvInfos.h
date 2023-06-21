@@ -1644,6 +1644,7 @@ public:
 	int getVoteSourceType() const;				// Exposed to Python
 	int getUnhealthyPopulationModifier() const;	// K-Mod, Exposed to Python
 	int getNumPrereqAndTechs() const;
+	int getNumPrereqOrBonuses() const;
 
 	float getVisibilityPriority() const;
 
@@ -1872,7 +1873,6 @@ protected:
 
 	// Arrays
 
-	int* m_piPrereqOrBonuses;
 	int* m_piProductionTraits;
 	int* m_piHappinessTraits;
 	int* m_piSeaPlotYieldChange;
@@ -1916,6 +1916,7 @@ protected:
 
 	// Vectors
 	std::vector<int> m_viPrereqAndTechs;
+	std::vector<int> m_viPrereqOrBonuses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
