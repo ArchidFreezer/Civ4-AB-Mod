@@ -588,7 +588,7 @@ void CvUnit::NotifyEntity(MissionTypes eMission) {
 void CvUnit::doTurn() {
 	PROFILE("CvUnit::doTurn()")
 
-		FAssertMsg(!isDead(), "isDead did not return false as expected");
+	FAssertMsg(!isDead(), "isDead did not return false as expected");
 	FAssertMsg(getGroup() != NULL, "getGroup() is not expected to be equal with NULL");
 
 	testPromotionReady();
@@ -5498,6 +5498,7 @@ void CvUnit::promote(PromotionTypes ePromotion, int iLeaderUnitId) {
 		gDLL->getInterfaceIFace()->playGeneralSound(GC.getPromotionInfo(ePromotion).getSound());
 
 		gDLL->getInterfaceIFace()->setDirty(UnitInfo_DIRTY_BIT, true);
+		gDLL->getInterfaceIFace()->setDirty(PlotListButtons_DIRTY_BIT, true);
 		gDLL->getFAStarIFace()->ForceReset(&GC.getInterfacePathFinder()); // K-Mod.
 	} else {
 		setInfoBarDirty(true);
