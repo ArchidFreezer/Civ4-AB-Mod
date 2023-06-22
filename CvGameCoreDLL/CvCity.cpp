@@ -9167,17 +9167,19 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 	FASSERT_BOUNDS(0, GC.getNumReligionInfos(), eIndex, "CvCity::setHasReligion");
 
 	if (isHasReligion(eIndex) != bNewValue) {
-		for (int iVoteSource = 0; iVoteSource < GC.getNumVoteSourceInfos(); ++iVoteSource) {
-			processVoteSourceBonus((VoteSourceTypes)iVoteSource, false);
+		CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+
+		for (VoteSourceTypes eVoteSource = (VoteSourceTypes)0; eVoteSource < GC.getNumVoteSourceInfos(); eVoteSource = (VoteSourceTypes)(eVoteSource + 1)) {
+			processVoteSourceBonus(eVoteSource, false);
 		}
 
 		m_pabHasReligion[eIndex] = bNewValue;
 
-		for (int iVoteSource = 0; iVoteSource < GC.getNumVoteSourceInfos(); ++iVoteSource) {
-			processVoteSourceBonus((VoteSourceTypes)iVoteSource, true);
+		for (VoteSourceTypes eVoteSource = (VoteSourceTypes)0; eVoteSource < GC.getNumVoteSourceInfos(); eVoteSource = (VoteSourceTypes)(eVoteSource + 1)) {
+			processVoteSourceBonus(eVoteSource, true);
 		}
 
-		GET_PLAYER(getOwnerINLINE()).changeHasReligionCount(eIndex, ((isHasReligion(eIndex)) ? 1 : -1));
+		kOwner.changeHasReligionCount(eIndex, ((isHasReligion(eIndex)) ? 1 : -1));
 
 		updateMaintenance();
 		updateReligionHappiness();
@@ -9187,27 +9189,28 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 
 		setInfoDirty(true);
 
+		const CvReligionInfo& kReligion = GC.getReligionInfo(eIndex);
 		if (isHasReligion(eIndex)) {
 			GC.getGameINLINE().makeReligionFounded(eIndex, getOwnerINLINE());
 
 			if (bAnnounce) {
 				if (GC.getGameINLINE().getHolyCity(eIndex) != this) {
-					for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-						if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-							if (isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
-								if ((getOwnerINLINE() == iI) || (GET_PLAYER((PlayerTypes)iI).getStateReligion() == eIndex) || GET_PLAYER((PlayerTypes)iI).hasHolyCity(eIndex)) {
-									CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_SPREAD", GC.getReligionInfo(eIndex).getTextKeyWide(), getNameKey());
-									gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, GC.getReligionInfo(eIndex).getSound(), MESSAGE_TYPE_MAJOR_EVENT, GC.getReligionInfo(eIndex).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
-									// (K-Mod note: event time was originally "long".)
-								}
+					for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) // Include barbarians
+					{
+						const CvPlayer& kLoopPlayer = GET_PLAYER(ePlayer);
+						if (kLoopPlayer.isAlive() && isRevealed(kLoopPlayer.getTeam(), false)) {
+							if ((getOwnerINLINE() == ePlayer) || (kLoopPlayer.getStateReligion() == eIndex) || kLoopPlayer.hasHolyCity(eIndex)) {
+								CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_SPREAD", kReligion.getTextKeyWide(), getNameKey());
+								gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szBuffer, kReligion.getSound(), MESSAGE_TYPE_MAJOR_EVENT, kReligion.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
+								// (K-Mod note: event time was originally "long".)
 							}
 						}
 					}
 				}
 
 				if (isHuman()) {
-					if (GET_PLAYER(getOwnerINLINE()).getHasReligionCount(eIndex) == 1) {
-						if (GET_PLAYER(getOwnerINLINE()).canConvert(eIndex) && (GET_PLAYER(getOwnerINLINE()).getStateReligion() == NO_RELIGION)) {
+					if (kOwner.getHasReligionCount(eIndex) == 1) {
+						if (kOwner.canConvert(eIndex) && (kOwner.getStateReligion() == NO_RELIGION)) {
 							CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_CHANGERELIGION);
 							if (NULL != pInfo) {
 								pInfo->setData1(eIndex);
@@ -9220,8 +9223,8 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 		} else // religion removed
 		{
 			if (bAnnounce) {
-				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_REMOVE", GC.getReligionInfo(eIndex).getTextKeyWide(), getNameKey());
-				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BLIGHT", MESSAGE_TYPE_MAJOR_EVENT, GC.getReligionInfo(eIndex).getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
+				CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_RELIGION_REMOVE", kReligion.getTextKeyWide(), getNameKey());
+				gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_BLIGHT", MESSAGE_TYPE_MAJOR_EVENT, kReligion.getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), bArrows, bArrows);
 			}
 		}
 
@@ -9231,6 +9234,16 @@ void CvCity::setHasReligion(ReligionTypes eIndex, bool bNewValue, bool bAnnounce
 		} else {
 			// Python Event
 			CvEventReporter::getInstance().religionRemove(eIndex, getOwnerINLINE(), this);
+		}
+
+		for (BuildingTypes eLoopBuilding = (BuildingTypes)0; eLoopBuilding < GC.getNumBuildingInfos(); eLoopBuilding = (BuildingTypes)(eLoopBuilding + 1)) {
+			if (GC.getBuildingInfo(eLoopBuilding).getPrereqReligion() == eIndex) {
+				if (bNewValue && isDisabledBuilding(eLoopBuilding)) {
+					setDisabledBuilding(eLoopBuilding, false);
+				} else if (!bNewValue && getNumBuilding(eLoopBuilding) > 0) {
+					setDisabledBuilding(eLoopBuilding, true);
+				}
+			}
 		}
 
 	}
