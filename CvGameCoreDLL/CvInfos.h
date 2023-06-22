@@ -929,6 +929,7 @@ public:
 	bool isHiddenNationality() const;			// Exposed to Python
 	bool isAlwaysHostile() const;			// Exposed to Python
 	bool isNoRevealMap() const;			// Exposed to Python
+	bool isSingleBuild() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
@@ -1116,6 +1117,7 @@ protected:
 	bool m_bHiddenNationality;
 	bool m_bAlwaysHostile;
 	bool m_bNoRevealMap;
+	bool m_bSingleBuild;
 	int m_iLeaderPromotion;
 
 	UnitRangeTypes 	m_eRangeType;
