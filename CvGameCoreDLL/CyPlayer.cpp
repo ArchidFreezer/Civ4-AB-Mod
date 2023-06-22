@@ -1869,3 +1869,7 @@ void CyPlayer::changeExtraRangePercent(int iChange) {
 int CyPlayer::getExtraRangePercent() const {
 	return m_pPlayer ? m_pPlayer->getExtraRangePercent() : 0;
 }
+
+void CyPlayer::setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue) {
+	return m_pPlayer ? m_pPlayer->setHasTrait((TraitTypes)iIndex, bNewValue) : false;
+}

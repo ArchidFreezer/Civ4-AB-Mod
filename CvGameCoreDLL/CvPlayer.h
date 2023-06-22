@@ -38,8 +38,7 @@ public:
 	void initInGame(PlayerTypes eID);
 	void resetPlotAndCityData();
 
-	void clearTraitBonuses();
-	void addTraitBonuses();
+	void setHasTrait(TraitTypes eTrait, bool bNewValue);
 	void changePersonalityType();
 	void resetCivTypeEffects();
 	void changeLeader(LeaderHeadTypes eNewLeader);
@@ -1277,6 +1276,7 @@ protected:
 
 	bool* m_pabResearchingTech;
 	bool* m_pabLoyalMember;
+	bool* m_pbTrait;
 
 	std::vector<EventTriggerTypes> m_triggersFired;
 	std::vector<BuildingTypes> m_civicDisabledBuildings;
