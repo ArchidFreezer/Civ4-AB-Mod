@@ -6030,6 +6030,9 @@ UnitCombatTypes CvUnit::getUnitCombatType() const {
 	return ((UnitCombatTypes)(m_pUnitInfo->getUnitCombatType()));
 }
 
+bool CvUnit::isUnitCombatType(UnitCombatTypes eUnitCombat) const {
+	return (getUnitCombatType() == eUnitCombat || m_pUnitInfo->isSubCombatType(eUnitCombat));
+}
 
 DomainTypes CvUnit::getDomainType() const {
 	return ((DomainTypes)(m_pUnitInfo->getDomainType()));
