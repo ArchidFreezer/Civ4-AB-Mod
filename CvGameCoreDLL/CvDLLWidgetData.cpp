@@ -602,7 +602,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_CAPTURE_CITIES:
 		parseCaptureCitiesHelp(widgetDataStruct, szBuffer);
 		break;
-		// K-Mod. Extra specialist commerce
+	case WIDGET_HELP_OBSOLETE_BUILD:
+		parseObsoleteBuildHelp(widgetDataStruct, szBuffer);
+		break;
 	case WIDGET_HELP_GLOBAL_COMMERCE_MODIFIER:
 		GAMETEXT.setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_IN_ALL_CITIES").GetCString(), GC.getTechInfo((TechTypes)(widgetDataStruct.m_iData1)).getCommerceModifierArray(), true, false);
 		break;
@@ -926,6 +928,7 @@ bool CvDLLWidgetData::executeAction(CvWidgetDataStruct& widgetDataStruct) {
 	case WIDGET_HELP_RIVER_YIELD_CHANGE:
 	case WIDGET_HELP_SEA_YIELD_CHANGE:
 	case WIDGET_HELP_CAPTURE_CITIES:
+	case WIDGET_HELP_OBSOLETE_BUILD:
 		//	Nothing on clicked
 		break;
 	}
@@ -1007,6 +1010,9 @@ bool CvDLLWidgetData::executeAltAction(CvWidgetDataStruct& widgetDataStruct) {
 		break;
 	case WIDGET_LEADERHEAD:
 		doContactCiv(widgetDataStruct);
+		break;
+	case WIDGET_HELP_OBSOLETE_BUILD:
+		doPediaBuildJump(widgetDataStruct);
 		break;
 
 	default:
@@ -4576,4 +4582,8 @@ void CvDLLWidgetData::parseCaptureCitiesHelp(CvWidgetDataStruct& widgetDataStruc
 
 void CvDLLWidgetData::parseFirstFreeUnitHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildFirstFreeUnitString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData2)));
+}
+
+void CvDLLWidgetData::parseObsoleteBuildHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildObsoleteBuildString(szBuffer, ((BuildTypes)(widgetDataStruct.m_iData1)));
 }

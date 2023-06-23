@@ -9917,6 +9917,7 @@ CvBuildInfo::CvBuildInfo() :
 	m_iTime(0),
 	m_iCost(0),
 	m_iTechPrereq(NO_TECH),
+	m_iObsoleteTech(NO_TECH),
 	m_iImprovement(NO_IMPROVEMENT),
 	m_iRoute(NO_ROUTE),
 	m_iEntityEvent(ENTITY_EVENT_NONE),
@@ -9939,6 +9940,10 @@ CvBuildInfo::~CvBuildInfo() {
 	SAFE_DELETE_ARRAY(m_paiFeatureTime);
 	SAFE_DELETE_ARRAY(m_paiFeatureProduction);
 	SAFE_DELETE_ARRAY(m_pabFeatureRemove);
+}
+
+int CvBuildInfo::getObsoleteTech() const {
+	return m_iObsoleteTech;
 }
 
 int CvBuildInfo::getTime() const {
@@ -10011,6 +10016,8 @@ bool CvBuildInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "ObsoleteTech");
+	m_iObsoleteTech = pXML->FindInInfoClass(szTextVal);
 
 	pXML->GetChildXmlValByName(&m_iTime, "iTime");
 	pXML->GetChildXmlValByName(&m_iCost, "iCost");

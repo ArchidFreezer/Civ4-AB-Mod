@@ -2734,6 +2734,7 @@ public:
 	int getTechPrereq() const;				// Exposed to Python
 	int getImprovement() const;				// Exposed to Python
 	int getRoute() const;				// Exposed to Python
+	int getObsoleteTech() const;
 	DllExport int getEntityEvent() const;				// Exposed to Python
 	DllExport int getMissionType() const;				// Exposed to Python
 	void setMissionType(int iNewType);
@@ -2761,6 +2762,7 @@ protected:
 	int m_iRoute;
 	int m_iEntityEvent;
 	int m_iMissionType;
+	int m_iObsoleteTech;
 
 	bool m_bKill;
 
