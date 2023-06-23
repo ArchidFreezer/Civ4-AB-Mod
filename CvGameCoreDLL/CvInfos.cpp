@@ -2803,7 +2803,6 @@ CvUnitInfo::CvUnitInfo() :
 	m_iPrereqReligion(NO_RELIGION),
 	m_iPrereqCorporation(NO_CORPORATION),
 	m_iPrereqBuilding(NO_BUILDING),
-	m_iPrereqAndTech(NO_TECH),
 	m_iPrereqAndBonus(NO_BONUS),
 	m_iGroupSize(0),
 	m_iGroupDefinitions(0),
@@ -2875,8 +2874,6 @@ CvUnitInfo::CvUnitInfo() :
 	m_pbForceBuildings(NULL),
 	m_pbTerrainImpassable(NULL),
 	m_pbFeatureImpassable(NULL),
-	m_piPrereqAndTechs(NULL),
-	m_piPrereqOrBonuses(NULL),
 	m_piProductionTraits(NULL),
 	m_piFlavorValue(NULL),
 	m_piTerrainAttackModifier(NULL),
@@ -2928,8 +2925,6 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_pbForceBuildings);
 	SAFE_DELETE_ARRAY(m_pbTerrainImpassable);
 	SAFE_DELETE_ARRAY(m_pbFeatureImpassable);
-	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
-	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
 	SAFE_DELETE_ARRAY(m_piTerrainAttackModifier);
@@ -2952,6 +2947,30 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getPrereqOrBonus(int i) const {
+	return (getNumPrereqOrBonuses() > i) ? m_viPrereqOrBonuses[i] : NO_TECH;
+}
+
+int CvUnitInfo::getNumPrereqOrBonuses() const {
+	return (int)m_viPrereqOrBonuses.size();
+}
+
+bool CvUnitInfo::isPrereqOrBonus(int i) const {
+	return (std::find(m_viPrereqOrBonuses.begin(), m_viPrereqOrBonuses.end(), i) != m_viPrereqOrBonuses.end());
+}
+
+int CvUnitInfo::getPrereqAndTech(int i) const {
+	return (getNumPrereqAndTechs() > i) ? m_viPrereqAndTechs[i] : NO_TECH;
+}
+
+int CvUnitInfo::getNumPrereqAndTechs() const {
+	return (int)m_viPrereqAndTechs.size();
+}
+
+bool CvUnitInfo::isPrereqAndTech(int i) const {
+	return (std::find(m_viPrereqAndTechs.begin(), m_viPrereqAndTechs.end(), i) != m_viPrereqAndTechs.end());
 }
 
 int CvUnitInfo::getObsoleteTech() const {
@@ -3370,10 +3389,6 @@ int CvUnitInfo::getPrereqBuilding() const {
 	return m_iPrereqBuilding;
 }
 
-int CvUnitInfo::getPrereqAndTech() const {
-	return m_iPrereqAndTech;
-}
-
 int CvUnitInfo::getPrereqAndBonus() const {
 	return m_iPrereqAndBonus;
 }
@@ -3574,18 +3589,6 @@ void CvUnitInfo::setCommandType(int iNewType) {
 
 
 // Arrays
-
-int CvUnitInfo::getPrereqAndTechs(int i) const {
-	FAssertMsg(i < GC.getNUM_UNIT_AND_TECH_PREREQS(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_piPrereqAndTechs ? m_piPrereqAndTechs[i] : -1;
-}
-
-int CvUnitInfo::getPrereqOrBonuses(int i) const {
-	FAssertMsg(i < GC.getNUM_UNIT_PREREQ_OR_BONUSES(), "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_piPrereqOrBonuses ? m_piPrereqOrBonuses[i] : -1;
-}
 
 int CvUnitInfo::getProductionTraits(int i) const {
 	FAssertMsg(i < GC.getNumTraitInfos(), "Index out of bounds");
@@ -4004,7 +4007,6 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iPrereqReligion);
 	stream->Read(&m_iPrereqCorporation);
 	stream->Read(&m_iPrereqBuilding);
-	stream->Read(&m_iPrereqAndTech);
 	stream->Read(&m_iPrereqAndBonus);
 	stream->Read(&m_iGroupSize);
 	stream->Read(&m_iGroupDefinitions);
@@ -4064,14 +4066,6 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
-
-	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
-	m_piPrereqAndTechs = new int[GC.getNUM_UNIT_AND_TECH_PREREQS()];
-	stream->Read(GC.getNUM_UNIT_AND_TECH_PREREQS(), m_piPrereqAndTechs);
-
-	SAFE_DELETE_ARRAY(m_piPrereqOrBonuses);
-	m_piPrereqOrBonuses = new int[GC.getNUM_UNIT_PREREQ_OR_BONUSES()];
-	stream->Read(GC.getNUM_UNIT_PREREQ_OR_BONUSES(), m_piPrereqOrBonuses);
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
 	m_piProductionTraits = new int[GC.getNumTraitInfos()];
@@ -4315,6 +4309,20 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 		m_viSubCombatTypes.push_back(iElement);
 	}
 
+	stream->Read(&iNumElements);
+	m_viPrereqAndTechs.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndTechs.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrBonuses.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrBonuses.push_back(iElement);
+	}
+
 	stream->ReadString(m_szFormationType);
 
 	updateArtDefineButton();
@@ -4395,7 +4403,6 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iPrereqReligion);
 	stream->Write(m_iPrereqCorporation);
 	stream->Write(m_iPrereqBuilding);
-	stream->Write(m_iPrereqAndTech);
 	stream->Write(m_iPrereqAndBonus);
 	stream->Write(m_iGroupSize);
 	stream->Write(m_iGroupDefinitions);
@@ -4453,8 +4460,6 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
 
-	stream->Write(GC.getNUM_UNIT_AND_TECH_PREREQS(), m_piPrereqAndTechs);
-	stream->Write(GC.getNUM_UNIT_PREREQ_OR_BONUSES(), m_piPrereqOrBonuses);
 	stream->Write(GC.getNumTraitInfos(), m_piProductionTraits);
 	stream->Write(GC.getNumFlavorTypes(), m_piFlavorValue);
 	stream->Write(GC.getNumTerrainInfos(), m_piTerrainAttackModifier);
@@ -4552,6 +4557,16 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(m_viSubCombatTypes.size());
 	for (std::vector<int>::iterator it = m_viSubCombatTypes.begin(); it != m_viSubCombatTypes.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqAndTechs.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndTechs.begin(); it != m_viPrereqAndTechs.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrBonuses.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrBonuses.begin(); it != m_viPrereqOrBonuses.end(); ++it) {
 		stream->Write(*it);
 	}
 
@@ -4679,10 +4694,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "PrereqBuilding");
 	m_iPrereqBuilding = pXML->FindInInfoClass(szTextVal);
 
-	pXML->GetChildXmlValByName(szTextVal, "PrereqTech");
-	m_iPrereqAndTech = pXML->FindInInfoClass(szTextVal);
-
-	pXML->SetListInfo(&m_piPrereqAndTechs, "TechTypes", GC.getNUM_UNIT_AND_TECH_PREREQS());
+	pXML->SetVectorInfo(m_viPrereqAndTechs, "PrereqTechs");
 
 	pXML->GetChildXmlValByName(szTextVal, "ObsoleteTech");
 	m_iObsoleteTech = pXML->FindInInfoClass(szTextVal);
@@ -4690,7 +4702,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "BonusType");
 	m_iPrereqAndBonus = pXML->FindInInfoClass(szTextVal);
 
-	pXML->SetListInfo(&m_piPrereqOrBonuses, "PrereqBonuses", GC.getNUM_UNIT_PREREQ_OR_BONUSES());
+	pXML->SetVectorInfo(m_viPrereqOrBonuses, "PrereqOrBonuses");
 
 	pXML->SetVectorInfo(m_viPrereqAndCivics, "PrereqAndCivics");
 	pXML->SetVectorInfo(m_viPrereqOrCivics, "PrereqOrCivics");

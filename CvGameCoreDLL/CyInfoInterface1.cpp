@@ -280,7 +280,6 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqReligion", &CvUnitInfo::getPrereqReligion, "int ()")
 		.def("getPrereqCorporation", &CvUnitInfo::getPrereqCorporation, "int ()")
 		.def("getPrereqBuilding", &CvUnitInfo::getPrereqBuilding, "int ()")
-		.def("getPrereqAndTech", &CvUnitInfo::getPrereqAndTech, "int ()")
 		.def("getPrereqAndBonus", &CvUnitInfo::getPrereqAndBonus, "int ()")
 		.def("getGroupSize", &CvUnitInfo::getGroupSize, "int ()")
 		.def("getGroupDefinitions", &CvUnitInfo::getGroupDefinitions, "int ()")
@@ -298,6 +297,8 @@ void CyInfoPythonInterface1() {
 		.def("getNumPrereqVicinityImprovements", &CvUnitInfo::getNumPrereqVicinityImprovements, "int ()")
 		.def("getNumPrereqVicinityFeatures", &CvUnitInfo::getNumPrereqVicinityFeatures, "int ()")
 		.def("getObsoleteTech", &CvUnitInfo::getObsoleteTech, "int ()")
+		.def("getNumPrereqAndTechs", &CvUnitInfo::getNumPrereqAndTechs, "int ()")
+		.def("getNumPrereqOrBonuses", &CvUnitInfo::getNumPrereqOrBonuses, "int ()")
 
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")
@@ -344,8 +345,6 @@ void CyInfoPythonInterface1() {
 
 		// Arrays
 
-		.def("getPrereqAndTechs", &CvUnitInfo::getPrereqAndTechs, "int (int i)")
-		.def("getPrereqOrBonuses", &CvUnitInfo::getPrereqOrBonuses, "int (int i)")
 		.def("getProductionTraits", &CvUnitInfo::getProductionTraits, "int (int i)")
 		.def("getFlavorValue", &CvUnitInfo::getFlavorValue, "int (int i)")
 		.def("getTerrainAttackModifier", &CvUnitInfo::getTerrainAttackModifier, "int (int i)")
@@ -367,6 +366,8 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqVicinityOrBonus", &CvUnitInfo::getPrereqVicinityOrBonus, "int (int i)")
 		.def("getPrereqVicinityImprovement", &CvUnitInfo::getPrereqVicinityImprovement, "int (int i)")
 		.def("getPrereqVicinityFeature", &CvUnitInfo::getPrereqVicinityFeature, "int (int i)")
+		.def("getPrereqAndTech", &CvUnitInfo::getPrereqAndTech, "int (int i)")
+		.def("getPrereqOrBonus", &CvUnitInfo::getPrereqOrBonus, "int (int i)")
 
 		.def("getUpgradeUnitClass", &CvUnitInfo::getUpgradeUnitClass, "bool (int i)")
 		.def("getTargetUnitClass", &CvUnitInfo::getTargetUnitClass, "bool (int i)")
@@ -391,8 +392,11 @@ void CyInfoPythonInterface1() {
 		.def("getFreePromotions", &CvUnitInfo::getFreePromotions, "bool (int i)")
 		.def("getLeaderPromotion", &CvUnitInfo::getLeaderPromotion, "int ()")
 		.def("getLeaderExperience", &CvUnitInfo::getLeaderExperience, "int ()")
+
 		.def("isPrereqOrCivic", &CvUnitInfo::isPrereqOrCivic, "bool (int i)")
 		.def("isPrereqAndCivic", &CvUnitInfo::isPrereqAndCivic, "bool (int i)")
+		.def("isPrereqAndTech", &CvUnitInfo::isPrereqAndCivic, "bool (int i)")
+		.def("isPrereqOrBonus", &CvUnitInfo::isPrereqOrBonus, "bool (int i)")
 
 		.def("getEarlyArtDefineTag", &CvUnitInfo::getEarlyArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
 		.def("getLateArtDefineTag", &CvUnitInfo::getLateArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
