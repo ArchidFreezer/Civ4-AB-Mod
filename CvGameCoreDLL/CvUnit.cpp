@@ -9278,8 +9278,9 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		}
 	}
 
-	bool bValid = false;
+	bool bValid = true;
 	for (int iI = 0; iI < kPromotion.getNumPrereqOrPromotions(); iI++) {
+		bValid = false;
 		if (isHasPromotion((PromotionTypes)kPromotion.getPrereqOrPromotion(iI))) {
 			bValid = true;
 			break;
