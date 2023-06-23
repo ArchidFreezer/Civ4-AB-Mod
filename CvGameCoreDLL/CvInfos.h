@@ -897,6 +897,8 @@ public:
 	int getNumPrereqVicinityOrBonus() const;
 	int getNumPrereqOrBuildingClasses() const;
 	int getNumPrereqNotBuildingClasses() const;
+	int getLeaderExperience() const;
+	int getLeaderPromotion() const;
 	int getMinPopulation() const;
 
 	bool isAnimal() const;				// Exposed to Python
@@ -1008,8 +1010,6 @@ public:
 	bool isPrereqVicinityOrBonus(BonusTypes eTerrain) const;
 	bool isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) const;
 	bool isPrereqNotBuildingClass(BuildingClassTypes eBuildingClass) const;
-	int getLeaderPromotion() const;   // Exposed to Python
-	int getLeaderExperience() const;				// Exposed to Python
 
 	const TCHAR* getEarlyArtDefineTag(int i, UnitArtStyleTypes eStyle) const;				// Exposed to Python
 	void setEarlyArtDefineTag(int i, const TCHAR* szVal);
@@ -1106,6 +1106,7 @@ protected:
 	int m_iNumUnitNames;
 	int m_iCommandType;
 	int m_iLeaderExperience;
+	int m_iLeaderPromotion;
 	int m_iMinPopulation;
 
 	bool m_bAnimal;
@@ -1148,7 +1149,6 @@ protected:
 	bool m_bNoRevealMap;
 	bool m_bSingleBuild;
 	bool m_bPrereqPower;
-	int m_iLeaderPromotion;
 
 	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;
