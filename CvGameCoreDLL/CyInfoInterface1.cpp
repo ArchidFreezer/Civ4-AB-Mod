@@ -297,6 +297,7 @@ void CyInfoPythonInterface1() {
 		.def("getNumPrereqVicinityOrBonus", &CvUnitInfo::getNumPrereqVicinityOrBonus, "int ()")
 		.def("getNumPrereqVicinityImprovements", &CvUnitInfo::getNumPrereqVicinityImprovements, "int ()")
 		.def("getNumPrereqVicinityFeatures", &CvUnitInfo::getNumPrereqVicinityFeatures, "int ()")
+		.def("getObsoleteTech", &CvUnitInfo::getObsoleteTech, "int ()")
 
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")
