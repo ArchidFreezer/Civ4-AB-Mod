@@ -490,6 +490,7 @@ public:
 	int getKamikazePercent() const;				// Exposed to Python
 	int getUnitRangeChange() const;
 	int getUnitRangePercentChange() const;
+	int getPromotionGroup() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -501,6 +502,7 @@ public:
 	bool isImmuneToFirstStrikes() const;				// Exposed to Python
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
+	bool isCityPrereq() const;
 
 	const TCHAR* getSound() const;				// Exposed to Python
 	void setSound(const TCHAR* szVal);
@@ -566,6 +568,7 @@ protected:
 	int m_iKamikazePercent;
 	int m_iUnitRangeChange;
 	int m_iUnitRangePercentChange;
+	int m_iPromotionGroup;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -577,6 +580,7 @@ protected:
 	bool m_bImmuneToFirstStrikes;
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
+	bool m_bCityPrereq;
 
 	CvString m_szSound;
 
