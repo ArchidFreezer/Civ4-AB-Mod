@@ -4211,6 +4211,7 @@ public:
 	void setTGAIndex(int i);
 
 	int getBonusProduced() const;					// Exposed to Python
+	int getNumPrereqBonuses() const;
 
 	const TCHAR* getMovieFile() const;				// Exposed to Python
 	void setMovieFile(const TCHAR* szVal);
@@ -4228,6 +4229,8 @@ public:
 	int* getCommerceProducedArray() const;
 	int getYieldProduced(int i) const;					// Exposed to Python
 	int* getYieldProducedArray() const;
+
+	bool isPrereqBonus(int i) const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -4251,11 +4254,11 @@ protected:
 
 	// Arrays
 
-	int* m_paiPrereqBonuses;
 	int* m_paiHeadquarterCommerce;
 	int* m_paiCommerceProduced;
 	int* m_paiYieldProduced;
 
+	std::vector<int> m_viPrereqBonuses;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
