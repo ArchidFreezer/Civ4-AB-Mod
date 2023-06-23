@@ -9947,6 +9947,7 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_iPillageGold(0),
 	m_iImprovementPillage(NO_IMPROVEMENT),
 	m_iImprovementUpgrade(NO_IMPROVEMENT),
+	m_iUpgradeTech(NO_TECH),
 	m_bActsAsCity(true),
 	m_bHillsMakesValid(false),
 	m_bFreshWaterMakesValid(false),
@@ -10008,6 +10009,10 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+int CvImprovementInfo::getUpgradeTech() const {
+	return m_iUpgradeTech;
 }
 
 int CvImprovementInfo::getAdvancedStartCost() const {
@@ -10287,6 +10292,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iPillageGold);
 	stream->Read(&m_iImprovementPillage);
 	stream->Read(&m_iImprovementUpgrade);
+	stream->Read(&m_iUpgradeTech);
 
 	stream->Read(&m_bActsAsCity);
 	stream->Read(&m_bHillsMakesValid);
@@ -10389,6 +10395,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iPillageGold);
 	stream->Write(m_iImprovementPillage);
 	stream->Write(m_iImprovementUpgrade);
+	stream->Write(m_iUpgradeTech);
 
 	stream->Write(m_bActsAsCity);
 	stream->Write(m_bHillsMakesValid);
@@ -10487,6 +10494,9 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 		// initialize the boolean list to the correct size and all the booleans to false
 		pXML->InitImprovementBonusList(&m_paImprovementBonus, GC.getNumBonusInfos());
 	}
+
+	pXML->GetChildXmlValByName(szTextVal, "UpgradeTech");
+	m_iUpgradeTech = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetListPairInfoArray(&m_ppiTechYieldChanges, "TechYieldChanges", GC.getNumTechInfos(), NUM_YIELD_TYPES);
 	pXML->SetListPairInfoArray(&m_ppiRouteYieldChanges, "RouteYieldChanges", GC.getNumRouteInfos(), NUM_YIELD_TYPES);
