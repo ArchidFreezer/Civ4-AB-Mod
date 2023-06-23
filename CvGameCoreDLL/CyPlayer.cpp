@@ -1873,3 +1873,7 @@ int CyPlayer::getExtraRangePercent() const {
 void CyPlayer::setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue) {
 	return m_pPlayer ? m_pPlayer->setHasTrait((TraitTypes)iIndex, bNewValue) : false;
 }
+
+bool CyPlayer::canCaptureCities() {
+	return m_pPlayer ? m_pPlayer->canCaptureCities() : false;
+}

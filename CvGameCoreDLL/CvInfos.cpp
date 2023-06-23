@@ -843,6 +843,7 @@ CvTechInfo::CvTechInfo() :
 	m_bRiverTrade(false),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
+	m_bCaptureCities(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piPrereqOrTechs(NULL),
@@ -874,6 +875,10 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce); // K-Mod
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+bool CvTechInfo::isCaptureCities() const {
+	return m_bCaptureCities;
 }
 
 int CvTechInfo::getForestPlotYieldChange(int i) const {
@@ -1222,6 +1227,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bRiverTrade);
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
+	stream->Read(&m_bCaptureCities);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1319,6 +1325,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bRiverTrade);
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
+	stream->Write(m_bCaptureCities);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1387,6 +1394,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bIgnoreIrrigation, "bIgnoreIrrigation");
 	pXML->GetChildXmlValByName(&m_bWaterWork, "bWaterWork");
 	pXML->GetChildXmlValByName(&m_bRiverTrade, "bRiverTrade");
+	pXML->GetChildXmlValByName(&m_bCaptureCities, "bCaptureCities");
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
