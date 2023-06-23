@@ -586,6 +586,15 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_FOOD_MOD_HELP:
 		parseFoodModHelp(widgetDataStruct, szBuffer);
 		break;
+	case WIDGET_HELP_FOREST_YIELD_CHANGE:
+		parseForestYieldChangeHelp(widgetDataStruct, szBuffer);
+		break;
+	case WIDGET_HELP_RIVER_YIELD_CHANGE:
+		parseRiverYieldChangeHelp(widgetDataStruct, szBuffer);
+		break;
+	case WIDGET_HELP_SEA_YIELD_CHANGE:
+		parseSeaYieldChangeHelp(widgetDataStruct, szBuffer);
+		break;
 		// K-Mod. Extra specialist commerce
 	case WIDGET_HELP_GLOBAL_COMMERCE_MODIFIER:
 		GAMETEXT.setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_IN_ALL_CITIES").GetCString(), GC.getTechInfo((TechTypes)(widgetDataStruct.m_iData1)).getCommerceModifierArray(), true, false);
@@ -905,6 +914,9 @@ bool CvDLLWidgetData::executeAction(CvWidgetDataStruct& widgetDataStruct) {
 	case WIDGET_LEADER_LINE:
 	case WIDGET_CLOSE_SCREEN:
 	case WIDGET_SCORE_BREAKDOWN:
+	case WIDGET_HELP_FOREST_YIELD_CHANGE:
+	case WIDGET_HELP_RIVER_YIELD_CHANGE:
+	case WIDGET_HELP_SEA_YIELD_CHANGE:
 		//	Nothing on clicked
 		break;
 	}
@@ -4534,4 +4546,16 @@ void CvDLLWidgetData::parseDefenseHelp(CvWidgetDataStruct& widgetDataStruct, CvW
 	if (NULL != pHeadSelectedCity) {
 		GAMETEXT.setDefenseHelp(szBuffer, *pHeadSelectedCity);
 	}
+}
+
+void CvDLLWidgetData::parseForestYieldChangeHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildForestYieldChangeString(szBuffer, (TechTypes)widgetDataStruct.m_iData1);
+}
+
+void CvDLLWidgetData::parseRiverYieldChangeHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildRiverYieldChangeString(szBuffer, (TechTypes)widgetDataStruct.m_iData1);
+}
+
+void CvDLLWidgetData::parseSeaYieldChangeHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildSeaYieldChangeString(szBuffer, (TechTypes)widgetDataStruct.m_iData1);
 }
