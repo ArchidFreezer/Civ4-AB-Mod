@@ -3319,8 +3319,8 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 
 			// Check "or" prereqs
 			bool bMissingPrereq = false;
-			for (int p = 0; p < GC.getNUM_OR_TECH_PREREQS(); ++p) {
-				TechTypes ePrereq = (TechTypes)kTech.getPrereqOrTechs(p);
+			for (int p = 0; p < kTech.getNumPrereqOrTechs(); ++p) {
+				TechTypes ePrereq = (TechTypes)kTech.getPrereqOrTech(p);
 				if (ePrereq != NO_TECH) {
 					if (kTeam.isHasTech(ePrereq) || std::find_if(techs.begin(), tech_search_end, PairSecondEq<int, TechTypes>(ePrereq)) != tech_search_end) {
 						bMissingPrereq = false; // we have a prereq
@@ -3333,8 +3333,8 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 				continue; // We don't have any of the "or" prereqs
 
 			// Check "and" prereqs
-			for (int p = 0; p < GC.getNUM_AND_TECH_PREREQS(); ++p) {
-				TechTypes ePrereq = (TechTypes)kTech.getPrereqAndTechs(p);
+			for (int p = 0; p < kTech.getNumPrereqOrTechs(); ++p) {
+				TechTypes ePrereq = (TechTypes)kTech.getPrereqAndTech(p);
 				if (ePrereq != NO_TECH) {
 					if (!GET_TEAM(getTeam()).isHasTech(ePrereq) && std::find_if(techs.begin(), tech_search_end, PairSecondEq<int, TechTypes>(ePrereq)) == tech_search_end) {
 						bMissingPrereq = true;
@@ -3440,8 +3440,8 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 				bool bMissingPrereq = false;
 
 				// AndTech prereqs:
-				for (int p = 0; p < GC.getNUM_AND_TECH_PREREQS() && !bMissingPrereq; ++p) {
-					TechTypes ePrereq = (TechTypes)GC.getTechInfo(techs_to_check.front()).getPrereqAndTechs(p);
+				for (int p = 0; p < GC.getTechInfo(techs_to_check.front()).getNumPrereqAndTechs() && !bMissingPrereq; ++p) {
+					TechTypes ePrereq = (TechTypes)GC.getTechInfo(techs_to_check.front()).getPrereqAndTech(p);
 					if (!kTeam.isHasTech(ePrereq) && techs_in_path.find(ePrereq) == techs_in_path.end()) {
 						bMissingPrereq = true;
 						// find the tech. (Lambda would be nice...)
@@ -3468,8 +3468,8 @@ TechTypes CvPlayerAI::AI_bestTech(int iMaxPathLength, bool bFreeTech, bool bAsyn
 				// OrTechs:
 				int iBestOrIndex = -1;
 				int iBestOrValue = -1;
-				for (int p = 0; p < GC.getNUM_OR_TECH_PREREQS(); ++p) {
-					TechTypes ePrereq = (TechTypes)GC.getTechInfo(techs_to_check.front()).getPrereqOrTechs(p);
+				for (int p = 0; p < GC.getTechInfo(techs_to_check.front()).getNumPrereqOrTechs(); ++p) {
+					TechTypes ePrereq = (TechTypes)GC.getTechInfo(techs_to_check.front()).getPrereqOrTech(p);
 					if (ePrereq == NO_TECH)
 						continue;
 

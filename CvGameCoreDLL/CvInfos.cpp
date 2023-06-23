@@ -847,8 +847,6 @@ CvTechInfo::CvTechInfo() :
 	m_bCaptureCities(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
-	m_piPrereqOrTechs(NULL),
-	m_piPrereqAndTechs(NULL),
 	m_piForestPlotYieldChange(NULL),
 	m_piRiverPlotYieldChange(NULL),
 	m_piSeaPlotYieldChange(NULL),
@@ -867,8 +865,6 @@ CvTechInfo::CvTechInfo() :
 CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainExtraMoves);
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
-	SAFE_DELETE_ARRAY(m_piPrereqOrTechs);
-	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
 	SAFE_DELETE_ARRAY(m_piForestPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_piRiverPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
@@ -876,6 +872,30 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce); // K-Mod
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getNumPrereqAndTechs() const {
+	return m_viPrereqAndTechs.size();
+}
+
+int CvTechInfo::getPrereqAndTech(int i) const {
+	return getNumPrereqAndTechs() > i ? m_viPrereqAndTechs[i] : NO_TECH;
+}
+
+bool CvTechInfo::isPrereqAndTech(int i) const {
+	return (std::find(m_viPrereqAndTechs.begin(), m_viPrereqAndTechs.end(), i) != m_viPrereqAndTechs.end());
+}
+
+int CvTechInfo::getNumPrereqOrTechs() const {
+	return m_viPrereqOrTechs.size();
+}
+
+int CvTechInfo::getPrereqOrTech(int i) const {
+	return getNumPrereqOrTechs() > i ? m_viPrereqOrTechs[i] : NO_TECH;
+}
+
+bool CvTechInfo::isPrereqOrTech(int i) const {
+	return (std::find(m_viPrereqOrTechs.begin(), m_viPrereqOrTechs.end(), i) != m_viPrereqOrTechs.end());
 }
 
 bool CvTechInfo::isCaptureCities() const {
@@ -1149,14 +1169,6 @@ int CvTechInfo::getFlavorValue(int i) const {
 	return m_piFlavorValue ? m_piFlavorValue[i] : -1;
 }
 
-int CvTechInfo::getPrereqOrTechs(int i) const {
-	return m_piPrereqOrTechs ? m_piPrereqOrTechs[i] : -1;
-}
-
-int CvTechInfo::getPrereqAndTechs(int i) const {
-	return m_piPrereqAndTechs ? m_piPrereqAndTechs[i] : -1;
-}
-
 int CvTechInfo::getCommerceModifier(int i) const {
 	FAssertMsg(m_piCommerceModifier, "Tech info not initialised");
 	FASSERT_BOUNDS(0, NUM_COMMERCE_TYPES, i, "CvTechInfo::getCommerceModifier");
@@ -1245,14 +1257,6 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	m_piFlavorValue = new int[GC.getNumFlavorTypes()];
 	stream->Read(GC.getNumFlavorTypes(), m_piFlavorValue);
 
-	SAFE_DELETE_ARRAY(m_piPrereqOrTechs);
-	m_piPrereqOrTechs = new int[GC.getNUM_OR_TECH_PREREQS()];
-	stream->Read(GC.getNUM_OR_TECH_PREREQS(), m_piPrereqOrTechs);
-
-	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
-	m_piPrereqAndTechs = new int[GC.getNUM_AND_TECH_PREREQS()];
-	stream->Read(GC.getNUM_AND_TECH_PREREQS(), m_piPrereqAndTechs);
-
 	SAFE_DELETE_ARRAY(m_piForestPlotYieldChange);
 	m_piForestPlotYieldChange = new int[NUM_YIELD_TYPES];
 	stream->Read(NUM_YIELD_TYPES, m_piForestPlotYieldChange);
@@ -1280,6 +1284,22 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
 	m_pbTerrainTrade = new bool[GC.getNumTerrainInfos()];
 	stream->Read(GC.getNumTerrainInfos(), m_pbTerrainTrade);
+
+	int iNumElements;
+	int iElement;
+	stream->Read(&iNumElements);
+	m_viPrereqAndTechs.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqAndTechs.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqOrTechs.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqOrTechs.push_back(iElement);
+	}
 
 	stream->ReadString(m_szQuoteKey);
 	stream->ReadString(m_szSound);
@@ -1338,8 +1358,6 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(NUM_DOMAIN_TYPES, m_piDomainExtraMoves);
 	stream->Write(GC.getNumFlavorTypes(), m_piFlavorValue);
-	stream->Write(GC.getNUM_OR_TECH_PREREQS(), m_piPrereqOrTechs);
-	stream->Write(GC.getNUM_AND_TECH_PREREQS(), m_piPrereqAndTechs);
 	stream->Write(NUM_YIELD_TYPES, m_piForestPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piRiverPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
@@ -1347,6 +1365,16 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce); // K-Mod. uiFlag >= 1
 	stream->Write(NUM_COMMERCE_TYPES, m_pbCommerceFlexible);
 	stream->Write(GC.getNumTerrainInfos(), m_pbTerrainTrade);
+
+	stream->Write(m_viPrereqAndTechs.size());
+	for (std::vector<int>::iterator it = m_viPrereqAndTechs.begin(); it != m_viPrereqAndTechs.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqOrTechs.size());
+	for (std::vector<int>::iterator it = m_viPrereqOrTechs.begin(); it != m_viPrereqOrTechs.end(); ++it) {
+		stream->Write(*it);
+	}
 
 	stream->WriteString(m_szQuoteKey);
 	stream->WriteString(m_szSound);
@@ -1431,8 +1459,8 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "SoundMP");
 	setSoundMP(szTextVal);
 
-	pXML->SetListInfo(&m_piPrereqOrTechs, "OrPreReqs", GC.getNUM_OR_TECH_PREREQS());
-	pXML->SetListInfo(&m_piPrereqAndTechs, "AndPreReqs", GC.getNUM_AND_TECH_PREREQS());
+	pXML->SetVectorInfo(m_viPrereqAndTechs, "AndPreReqs");
+	pXML->SetVectorInfo(m_viPrereqOrTechs, "OrPreReqs");
 
 	return true;
 }
@@ -1526,7 +1554,7 @@ CvPromotionInfo::~CvPromotionInfo() {
 }
 
 int CvPromotionInfo::getPrereqOrPromotion(int i) const {
-	return m_viPrereqOrPromotions[i];
+	return getNumPrereqOrPromotions() > i ? m_viPrereqOrPromotions[i] : NO_PROMOTION;
 }
 
 int CvPromotionInfo::getNumPrereqOrPromotions() const {
@@ -1538,7 +1566,7 @@ bool CvPromotionInfo::isPrereqOrPromotion(int i) const {
 }
 
 int CvPromotionInfo::getNotCombatType(int i) const {
-	return m_viNotCombatTypes[i];
+	return getNumNotCombatTypes() > i ? m_viNotCombatTypes[i] : NO_UNITCOMBAT;
 }
 
 int CvPromotionInfo::getNumNotCombatTypes() const {
@@ -1550,7 +1578,7 @@ bool CvPromotionInfo::isNotCombatType(int i) const {
 }
 
 int CvPromotionInfo::getOrCombatType(int i) const {
-	return m_viOrCombatTypes[i];
+	return getNumOrCombatTypes() > i ? m_viOrCombatTypes[i] : NO_UNITCOMBAT;
 }
 
 int CvPromotionInfo::getNumOrCombatTypes() const {
@@ -2931,7 +2959,7 @@ int CvUnitInfo::getObsoleteTech() const {
 }
 
 int CvUnitInfo::getSubCombatType(int i) const {
-	return m_viSubCombatTypes[i];
+	return getNumSubCombatTypes() > i ? m_viSubCombatTypes[i] : NO_UNITCOMBAT;
 }
 
 int CvUnitInfo::getNumSubCombatTypes() const {
@@ -2947,7 +2975,7 @@ bool CvUnitInfo::isCombatType(UnitCombatTypes eCombatType) const {
 }
 
 int CvUnitInfo::getPrereqAndTerrain(int i) const {
-	return m_viPrereqAndTerrains[i];
+	return getNumPrereqAndTerrains() > i ? m_viPrereqAndTerrains[i] : NO_TERRAIN;
 }
 
 int CvUnitInfo::getNumPrereqAndTerrains() const {
@@ -2955,7 +2983,7 @@ int CvUnitInfo::getNumPrereqAndTerrains() const {
 }
 
 int CvUnitInfo::getPrereqOrTerrain(int i) const {
-	return m_viPrereqOrTerrains[i];
+	return getNumPrereqOrTerrains() > 0 ? m_viPrereqOrTerrains[i] : NO_TERRAIN;
 }
 
 int CvUnitInfo::getNumPrereqOrTerrains() const {
@@ -2971,7 +2999,7 @@ bool CvUnitInfo::isPrereqOrTerrain(TerrainTypes eTerrain) const {
 }
 
 int CvUnitInfo::getPrereqVicinityImprovement(int i) const {
-	return m_viPrereqVicinityImprovements[i];
+	return getNumPrereqVicinityImprovements() > i ? m_viPrereqVicinityImprovements[i] : NO_IMPROVEMENT;
 }
 
 int CvUnitInfo::getNumPrereqVicinityImprovements() const {
@@ -2983,7 +3011,7 @@ bool CvUnitInfo::isPrereqVicinityImprovement(ImprovementTypes eImprovement) cons
 }
 
 int CvUnitInfo::getPrereqVicinityFeature(int i) const {
-	return m_viPrereqVicinityFeatures[i];
+	return getNumPrereqVicinityFeatures() > i ? m_viPrereqVicinityFeatures[i] : NO_FEATURE;
 }
 
 int CvUnitInfo::getNumPrereqVicinityFeatures() const {
@@ -2995,7 +3023,7 @@ bool CvUnitInfo::isPrereqVicinityFeature(FeatureTypes eFeature) const {
 }
 
 int CvUnitInfo::getPrereqVicinityAndBonus(int i) const {
-	return m_viPrereqVicinityAndBonus[i];
+	return getNumPrereqVicinityAndBonus() > i ? m_viPrereqVicinityAndBonus[i] : NO_BONUS;
 }
 
 int CvUnitInfo::getNumPrereqVicinityAndBonus() const {
@@ -3003,7 +3031,7 @@ int CvUnitInfo::getNumPrereqVicinityAndBonus() const {
 }
 
 int CvUnitInfo::getPrereqVicinityOrBonus(int i) const {
-	return m_viPrereqVicinityOrBonus[i];
+	return getNumPrereqVicinityOrBonus() > i ? m_viPrereqVicinityOrBonus[i] : NO_BONUS;
 }
 
 int CvUnitInfo::getNumPrereqVicinityOrBonus() const {
@@ -3019,7 +3047,7 @@ bool CvUnitInfo::isPrereqVicinityOrBonus(BonusTypes eBonus) const {
 }
 
 int CvUnitInfo::getPrereqOrBuildingClass(int i) const {
-	return m_viPrereqOrBuildingClasses[i];
+	return getNumPrereqOrBuildingClasses() > i ? m_viPrereqOrBuildingClasses[i] : NO_BUILDINGCLASS;
 }
 
 int CvUnitInfo::getNumPrereqOrBuildingClasses() const {
@@ -3031,7 +3059,7 @@ bool CvUnitInfo::isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) cons
 }
 
 int CvUnitInfo::getPrereqNotBuildingClass(int i) const {
-	return m_viPrereqNotBuildingClasses[i];
+	return getNumPrereqNotBuildingClasses() > i ? m_viPrereqNotBuildingClasses[i] : NO_BUILDINGCLASS;
 }
 
 int CvUnitInfo::getNumPrereqNotBuildingClasses() const {
@@ -3871,7 +3899,7 @@ const CvArtInfoUnit* CvUnitInfo::getArtInfo(int i, EraTypes eEra, UnitArtStyleTy
 }
 
 int CvUnitInfo::getPrereqAndCivic(int i) const {
-	return m_viPrereqAndCivics[i];
+	return getNumPrereqAndCivics() > i ? m_viPrereqAndCivics[i] : NO_CIVIC;
 }
 
 int CvUnitInfo::getNumPrereqAndCivics() const {
@@ -3879,7 +3907,7 @@ int CvUnitInfo::getNumPrereqAndCivics() const {
 }
 
 int CvUnitInfo::getPrereqOrCivic(int i) const {
-	return m_viPrereqOrCivics[i];
+	return getNumPrereqOrCivics() > i ? m_viPrereqOrCivics[i] : NO_CIVIC;
 }
 
 int CvUnitInfo::getNumPrereqOrCivics() const {
@@ -6866,7 +6894,7 @@ int CvBuildingInfo::getDomainProductionModifier(int i) const {
 }
 
 int CvBuildingInfo::getPrereqOrBonuses(int i) const {
-	return m_viPrereqOrBonuses[i];
+	return getNumPrereqOrBonuses() > i ? m_viPrereqOrBonuses[i] : NO_BONUS;
 }
 
 int CvBuildingInfo::getNumPrereqOrBonuses() const {
@@ -6958,7 +6986,7 @@ int* CvBuildingInfo::getBonusYieldModifierArray(int i) const {
 }
 
 int CvBuildingInfo::getPrereqAndTech(int i) const {
-	return m_viPrereqAndTechs[i];
+	return getNumPrereqAndTechs() > i ? m_viPrereqAndTechs[i] : NO_TECH;
 }
 
 int CvBuildingInfo::getNumPrereqAndTechs() const {
@@ -6966,7 +6994,7 @@ int CvBuildingInfo::getNumPrereqAndTechs() const {
 }
 
 int CvBuildingInfo::getPrereqAndCivic(int i) const {
-	return m_viPrereqAndCivics[i];
+	return getNumPrereqAndCivics() > i ? m_viPrereqAndCivics[i] : NO_CIVIC;
 }
 
 int CvBuildingInfo::getNumPrereqAndCivics() const {
@@ -6978,7 +7006,7 @@ bool CvBuildingInfo::isPrereqAndCivic(CivicTypes eCivic) const {
 }
 
 int CvBuildingInfo::getPrereqOrCivic(int i) const {
-	return m_viPrereqOrCivics[i];
+	return getNumPrereqOrCivics() > i ? m_viPrereqOrCivics[i] : NO_CIVIC;
 }
 
 int CvBuildingInfo::getNumPrereqOrCivics() const {
@@ -6990,7 +7018,7 @@ bool CvBuildingInfo::isPrereqOrCivic(CivicTypes eCivic) const {
 }
 
 int CvBuildingInfo::getPrereqAndTerrain(int i) const {
-	return m_viPrereqAndTerrains[i];
+	return getNumPrereqAndTerrains() > i ? m_viPrereqAndTerrains[i] : NO_TERRAIN;
 }
 
 int CvBuildingInfo::getNumPrereqAndTerrains() const {
@@ -6998,7 +7026,7 @@ int CvBuildingInfo::getNumPrereqAndTerrains() const {
 }
 
 int CvBuildingInfo::getPrereqOrTerrain(int i) const {
-	return m_viPrereqOrTerrains[i];
+	return getNumPrereqOrTerrains() > i ? m_viPrereqOrTerrains[i] : NO_TERRAIN;
 }
 
 int CvBuildingInfo::getNumPrereqOrTerrains() const {
@@ -7014,7 +7042,7 @@ bool CvBuildingInfo::isPrereqOrTerrain(TerrainTypes eTerrain) const {
 }
 
 int CvBuildingInfo::getPrereqVicinityImprovement(int i) const {
-	return m_viPrereqVicinityImprovements[i];
+	return getNumPrereqVicinityImprovements() > i ? m_viPrereqVicinityImprovements[i] : NO_IMPROVEMENT;
 }
 
 int CvBuildingInfo::getNumPrereqVicinityImprovements() const {
@@ -7026,7 +7054,7 @@ bool CvBuildingInfo::isPrereqVicinityImprovement(ImprovementTypes eImprovement) 
 }
 
 int CvBuildingInfo::getPrereqVicinityFeature(int i) const {
-	return m_viPrereqVicinityFeatures[i];
+	return getNumPrereqVicinityFeatures() > i ? m_viPrereqVicinityFeatures[i] : NO_FEATURE;
 }
 
 int CvBuildingInfo::getNumPrereqVicinityFeatures() const {
@@ -7038,7 +7066,7 @@ bool CvBuildingInfo::isPrereqVicinityFeature(FeatureTypes eFeature) const {
 }
 
 int CvBuildingInfo::getPrereqVicinityAndBonus(int i) const {
-	return m_viPrereqVicinityAndBonus[i];
+	return getNumPrereqVicinityAndBonus() > i ? m_viPrereqVicinityAndBonus[i] : NO_BONUS;
 }
 
 int CvBuildingInfo::getNumPrereqVicinityAndBonus() const {
@@ -7046,7 +7074,7 @@ int CvBuildingInfo::getNumPrereqVicinityAndBonus() const {
 }
 
 int CvBuildingInfo::getPrereqVicinityOrBonus(int i) const {
-	return m_viPrereqVicinityOrBonus[i];
+	return getNumPrereqVicinityOrBonus() > i ? m_viPrereqVicinityOrBonus[i] : NO_BONUS;
 }
 
 int CvBuildingInfo::getNumPrereqVicinityOrBonus() const {
@@ -7062,7 +7090,7 @@ bool CvBuildingInfo::isPrereqVicinityOrBonus(BonusTypes eBonus) const {
 }
 
 int CvBuildingInfo::getPrereqAndBuildingClass(int i) const {
-	return m_viPrereqAndBuildingClasses[i];
+	return getNumPrereqAndBuildingClasses() > i ? m_viPrereqAndBuildingClasses[i] : NO_BUILDINGCLASS;
 }
 
 int CvBuildingInfo::getNumPrereqAndBuildingClasses() const {
@@ -7074,7 +7102,7 @@ bool CvBuildingInfo::isPrereqAndBuildingClass(BuildingClassTypes eBuildingClass)
 }
 
 int CvBuildingInfo::getPrereqOrBuildingClass(int i) const {
-	return m_viPrereqOrBuildingClasses[i];
+	return getNumPrereqOrBuildingClasses() > i ? m_viPrereqOrBuildingClasses[i] : NO_BUILDINGCLASS;
 }
 
 int CvBuildingInfo::getNumPrereqOrBuildingClasses() const {
@@ -7086,7 +7114,7 @@ bool CvBuildingInfo::isPrereqOrBuildingClass(BuildingClassTypes eBuildingClass) 
 }
 
 int CvBuildingInfo::getPrereqNotBuildingClass(int i) const {
-	return m_viPrereqNotBuildingClasses[i];
+	return getNumPrereqNotBuildingClasses() > i ? m_viPrereqNotBuildingClasses[i] : NO_BUILDINGCLASS;
 }
 
 int CvBuildingInfo::getNumPrereqNotBuildingClasses() const {

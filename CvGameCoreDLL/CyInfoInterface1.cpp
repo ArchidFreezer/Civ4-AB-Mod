@@ -102,8 +102,8 @@ void CyInfoPythonInterface1() {
 
 		.def("getDomainExtraMoves", &CvTechInfo::getDomainExtraMoves, "int (int i)")
 		.def("getFlavorValue", &CvTechInfo::getFlavorValue, "int (int i)")
-		.def("getPrereqOrTechs", &CvTechInfo::getPrereqOrTechs, "int (int i)")
-		.def("getPrereqAndTechs", &CvTechInfo::getPrereqAndTechs, "int (int i)")
+		.def("getPrereqOrTechs", &CvTechInfo::getPrereqOrTech, "int (int i)")
+		.def("getPrereqAndTechs", &CvTechInfo::getPrereqAndTech, "int (int i)")
 
 		.def("getCommerceModifier", &CvTechInfo::getCommerceModifier, "int (int i)") // K-Mod
 		.def("getSpecialistExtraCommerce", &CvTechInfo::getSpecialistExtraCommerce, "int (int i)") // K-Mod
