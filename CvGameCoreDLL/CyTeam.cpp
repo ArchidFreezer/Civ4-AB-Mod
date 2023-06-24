@@ -7,9 +7,11 @@
 #include "CyArea.h"
 #include "CvTeam.h"
 
-CyTeam::CyTeam() : m_pTeam(NULL) {}
+CyTeam::CyTeam() : m_pTeam(NULL) {
+}
 
-CyTeam::CyTeam(CvTeam* pTeam) : m_pTeam(pTeam) {}
+CyTeam::CyTeam(CvTeam* pTeam) : m_pTeam(pTeam) {
+}
 
 void CyTeam::addTeam(int /*TeamTypes*/ eTeam) {
 	if (m_pTeam)
@@ -776,15 +778,9 @@ void CyTeam::AI_setWarPlan(int /*TeamTypes*/ eIndex, int /*WarPlanTypes*/ eNewVa
 	}
 }
 
-/************************************************************************************************/
-/* BETTER_BTS_AI_MOD                      01/12/09                                jdog5000      */
-/*                                                                                              */
-/* Player Interface                                                                             */
-/************************************************************************************************/
 int CyTeam::AI_getWarPlan(int /*TeamTypes*/ eIndex) const {
 	return m_pTeam ? m_pTeam->AI_getWarPlan((TeamTypes)eIndex) : -1;
 }
-
 
 int CyTeam::AI_getAtWarCounter(int /*TeamTypes*/ eTeam) const {
 	return m_pTeam ? m_pTeam->AI_getAtWarCounter((TeamTypes)eTeam) : -1;
@@ -796,4 +792,21 @@ int CyTeam::AI_getAtPeaceCounter(int /*TeamTypes*/ eTeam) const {
 
 int CyTeam::AI_getWarSuccess(int /*TeamTypes*/ eIndex) const {
 	return m_pTeam ? m_pTeam->AI_getWarSuccess((TeamTypes)eIndex) : -1;
+}
+
+bool CyTeam::isHasEmbassy(int /*TeamTypes*/ eTeam) const {
+	return m_pTeam ? m_pTeam->isHasEmbassy((TeamTypes)eTeam) : false;
+}
+
+bool CyTeam::isEmbassyTrading() {
+	return m_pTeam ? m_pTeam->isEmbassyTrading() : false;
+}
+
+int CyTeam::getEmbassyTradingCount() {
+	return m_pTeam ? m_pTeam->getEmbassyTradingCount() : -1;
+}
+
+void CyTeam::changeEmbassyTradingCount(int iChange) {
+	if (m_pTeam)
+		m_pTeam->changeEmbassyTradingCount(iChange);
 }

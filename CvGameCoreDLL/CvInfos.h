@@ -344,6 +344,7 @@ public:
 	bool isCanPassPeaks() const;
 	bool isMoveFastPeaks() const;
 	bool isCanFoundOnPeaks() const;
+	bool isEmbassyTrading() const;
 
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
@@ -407,7 +408,6 @@ protected:
 	int m_iPowerValue;
 	int m_iUnitRangeChange;
 	int m_iUnitRangePercentChange;
-
 	int m_iGridX;
 	int m_iGridY;
 
@@ -436,6 +436,7 @@ protected:
 	bool m_bCanPassPeaks;
 	bool m_bMoveFastPeaks;
 	bool m_bCanFoundOnPeaks;
+	bool m_bEmbassyTrading;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;
@@ -1267,13 +1268,15 @@ protected:
 
 class CvUnitEntry {
 public:
-	CvUnitEntry() {}
+	CvUnitEntry() {
+	}
 
 	CvUnitEntry(const NiPoint2& position, float radius, float facingDirection, float facingVariance) :
 		m_position(position),
 		m_fRadius(radius),
 		m_fFacingDirection(facingDirection),
-		m_fFacingVariance(facingVariance) {}
+		m_fFacingVariance(facingVariance) {
+	}
 
 	NiPoint2 m_position;
 	float m_fRadius;
@@ -5101,7 +5104,8 @@ public:
 
 	class FeatureVariety {
 	public:
-		FeatureVariety() {}
+		FeatureVariety() {
+		}
 
 		const CvString& getVarietyButton() const {
 			return m_szVarietyButton;
@@ -5552,7 +5556,8 @@ public:
 			m_pbLeaderHeadTypes(NULL),
 			m_pbAttitudeTypes(NULL),
 			m_pbDiplomacyPowerTypes(NULL),
-			m_paszDiplomacyText(NULL) {}
+			m_paszDiplomacyText(NULL) {
+		}
 
 		DllExport virtual ~Response() {
 			SAFE_DELETE_ARRAY(m_pbCivilizationTypes);
@@ -5701,7 +5706,8 @@ public:
 		// Stores the QuestLinks Type and Name
 		DllExport QuestLink() :
 			m_szQuestLinkType("No Type"),
-			m_szQuestLinkName("No Name") {}
+			m_szQuestLinkName("No Name") {
+		}
 
 		CvString m_szQuestLinkType;
 		CvString m_szQuestLinkName;
