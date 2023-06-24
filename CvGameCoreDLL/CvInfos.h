@@ -1772,6 +1772,7 @@ public:
 	bool isStateReligion() const;				// Exposed to Python
 	bool isAllowsNukes() const;				// Exposed to Python
 	bool isPrereqPower() const;
+	bool isAutoBuild() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -1997,6 +1998,7 @@ protected:
 	bool m_bStateReligion;
 	bool m_bAllowsNukes;
 	bool m_bPrereqPower;
+	bool m_bAutoBuild;
 
 	CultureLevelTypes m_eMinCultureLevel;
 
