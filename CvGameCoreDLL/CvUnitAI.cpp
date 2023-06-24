@@ -51,7 +51,8 @@ void CvUnitAI::AI_init(UnitAITypes eUnitAI) {
 }
 
 
-void CvUnitAI::AI_uninit() {}
+void CvUnitAI::AI_uninit() {
+}
 
 
 void CvUnitAI::AI_reset(UnitAITypes eUnitAI) {
@@ -6706,6 +6707,16 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (kPromotion.isCanMovePeaks()) {
+		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+			if (!GET_TEAM(getTeam()).isHasTech(eTech)) {
+				if (GC.getTechInfo(eTech).isCanPassPeaks()) {
+					iValue += 75;
+				}
+			}
+		}
+	}
+
 	if (kPromotion.isUnitTerritoryUnbound() && getRangeType() == UNITRANGE_TERRITORY) {
 		if (AI_getUnitAIType() == UNITAI_EXPLORE) {
 			iValue += 20;
@@ -12120,7 +12131,7 @@ bool CvUnitAI::AI_assaultSeaReinforce(bool bAttackBarbs) {
 // K-Mod. General function for moving assault groups - to reduce code duplication.
 bool CvUnitAI::AI_transportGoTo(CvPlot* pEndTurnPlot, CvPlot* pTargetPlot, int iFlags, MissionAITypes eMissionAI) {
 	FAssert(pEndTurnPlot && pTargetPlot);
-	FAssert(!pEndTurnPlot->isImpassable());
+	FAssert(!pEndTurnPlot->isImpassable(getTeam()));
 
 	if (getGroup()->AI_getMissionAIType() != eMissionAI) {
 		// Cancel missions of all those coming to join departing transport
@@ -12303,7 +12314,7 @@ bool CvUnitAI::AI_settlerSeaTransport() {
 	}
 
 	if ((pBestPlot != NULL) && (pBestFoundPlot != NULL)) {
-		FAssert(!(pBestPlot->isImpassable()));
+		FAssert(!pBestPlot->isImpassable(getTeam()));
 
 		if ((pBestPlot == pBestFoundPlot) || (stepDistance(pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), pBestFoundPlot->getX_INLINE(), pBestFoundPlot->getY_INLINE()) == 1)) {
 			if (atPlot(pBestFoundPlot)) {
@@ -12373,7 +12384,7 @@ bool CvUnitAI::AI_settlerSeaTransport() {
 	}
 
 	if ((pBestPlot != NULL) && (pBestFoundPlot != NULL)) {
-		FAssert(!(pBestPlot->isImpassable()));
+		FAssert(!pBestPlot->isImpassable(getTeam()));
 
 		if ((pBestPlot == pBestFoundPlot) || (stepDistance(pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), pBestFoundPlot->getX_INLINE(), pBestFoundPlot->getY_INLINE()) == 1)) {
 			if (atPlot(pBestFoundPlot)) {
@@ -12589,7 +12600,7 @@ bool CvUnitAI::AI_specialSeaTransportMissionary() {
 	}
 
 	if ((pBestPlot != NULL) && (pBestSpreadPlot != NULL)) {
-		FAssert(!(pBestPlot->isImpassable()) || canMoveImpassable());
+		FAssert(!pBestPlot->isImpassable(getTeam()) || canMoveImpassable());
 
 		if ((pBestPlot == pBestSpreadPlot) || (stepDistance(pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), pBestSpreadPlot->getX_INLINE(), pBestSpreadPlot->getY_INLINE()) == 1)) {
 			if (atPlot(pBestSpreadPlot)) {
@@ -12955,6 +12966,9 @@ bool CvUnitAI::AI_improveCity(CvCity* pCity) {
 				if (plot()->isHills()) {
 					iPlotMoveCost += GC.getHILLS_EXTRA_MOVEMENT();
 				}
+				if (plot()->isPeak()) {
+					iPlotMoveCost += GET_TEAM(getTeam()).isMoveFastPeaks() ? 1 : GC.getPEAK_EXTRA_MOVEMENT();
+				}
 				if (iPlotMoveCost > 1) {
 					eMission = MISSION_ROUTE_TO;
 				}
@@ -13067,6 +13081,9 @@ bool CvUnitAI::AI_improveLocalPlot(int iRange, CvCity* pIgnoreCity) {
 
 			if (plot()->isHills()) {
 				iPlotMoveCost += GC.getHILLS_EXTRA_MOVEMENT();
+			}
+			if (plot()->isPeak()) {
+				iPlotMoveCost += GET_TEAM(getTeam()).isMoveFastPeaks() ? 1 : GC.getPEAK_EXTRA_MOVEMENT();
 			}
 			if (iPlotMoveCost > 1) {
 				eMission = MISSION_ROUTE_TO;
@@ -13662,6 +13679,10 @@ BuildTypes CvUnitAI::AI_betterPlotBuild(CvPlot* pPlot, BuildTypes eBuild) {
 		if ((GC.getHILLS_EXTRA_MOVEMENT() > 0) && (iWorkersNeeded > 1)) {
 			bBuildRoute = true;
 		}
+	} else if (pPlot->isPeak()) {
+		if ((GC.getPEAK_EXTRA_MOVEMENT() > 0) && (iWorkersNeeded > 1)) {
+			bBuildRoute = true;
+		}
 	}
 
 	if (pPlot->getRouteType() != NO_ROUTE) {
@@ -13689,7 +13710,9 @@ BuildTypes CvUnitAI::AI_betterPlotBuild(CvPlot* pPlot, BuildTypes eBuild) {
 					}
 
 					if (pPlot->getWorkingCity() != NULL) {
+						// Plot cannot be both hills and peak so only one of these will trigger
 						iValue *= 2 + iWorkersNeeded + ((pPlot->isHills() && (iWorkersNeeded > 1)) ? 2 * GC.getHILLS_EXTRA_MOVEMENT() : 0);
+						iValue *= 2 + iWorkersNeeded + ((pPlot->isPeak() && (iWorkersNeeded > 1)) ? 2 * GC.getPEAK_EXTRA_MOVEMENT() : 0);
 						iValue /= 3;
 					}
 					ImprovementTypes eImprovement = (ImprovementTypes)kOriginalBuildInfo.getImprovement();
@@ -15298,7 +15321,7 @@ int CvUnitAI::AI_exploreAirPlotValue(CvPlot* pPlot) {
 			iValue++;
 		}
 
-		if (!pPlot->isImpassable()) {
+		if (!pPlot->isImpassable(getTeam())) {
 			iValue *= 4;
 
 			if (pPlot->isWater() || pPlot->getArea() == getArea()) {
@@ -16238,7 +16261,7 @@ int CvUnitAI::AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold) {
 					}
 
 					if (!(pAdjacentPlot->isRoute())) {
-						if (!(pAdjacentPlot->isWater()) && !(pAdjacentPlot->isImpassable())) {
+						if (!pAdjacentPlot->isWater() && !pAdjacentPlot->isImpassable(getTeam())) {
 							iValue += 2;
 						}
 					}

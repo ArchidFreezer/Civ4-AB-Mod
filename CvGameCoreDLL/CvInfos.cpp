@@ -26,7 +26,8 @@
 //
 //------------------------------------------------------------------------------------------------------
 CvInfoBase::CvInfoBase() :
-	m_bGraphicalOnly(false) {}
+	m_bGraphicalOnly(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -35,7 +36,8 @@ CvInfoBase::CvInfoBase() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvInfoBase::~CvInfoBase() {}
+CvInfoBase::~CvInfoBase() {
+}
 
 void CvInfoBase::read(FDataStreamBase* pStream) {
 	reset();
@@ -238,7 +240,8 @@ CvHotkeyInfo::CvHotkeyInfo() :
 	m_bCtrlDown(false),
 	m_bAltDownAlt(false),
 	m_bShiftDownAlt(false),
-	m_bCtrlDownAlt(false) {}
+	m_bCtrlDownAlt(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -247,7 +250,8 @@ CvHotkeyInfo::CvHotkeyInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvHotkeyInfo::~CvHotkeyInfo() {}
+CvHotkeyInfo::~CvHotkeyInfo() {
+}
 
 bool CvHotkeyInfo::read(CvXMLLoadUtility* pXML) {
 	int iVal;
@@ -513,7 +517,8 @@ CvDiplomacyResponse::CvDiplomacyResponse() :
 	m_pbLeaderHeadTypes(NULL),
 	m_pbAttitudeTypes(NULL),
 	m_pbDiplomacyPowerTypes(NULL),
-	m_paszDiplomacyText(NULL) {}
+	m_paszDiplomacyText(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -692,7 +697,8 @@ CvSpecialistInfo::CvSpecialistInfo() :
 	m_piYieldChange(NULL),
 	m_piCommerceChange(NULL),
 	m_piFlavorValue(NULL),
-	m_iExperience(0) {}
+	m_iExperience(0) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -845,6 +851,9 @@ CvTechInfo::CvTechInfo() :
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_bCaptureCities(false),
+	m_bCanPassPeaks(false),
+	m_bMoveFastPeaks(false),
+	m_bCanFoundOnPeaks(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piForestPlotYieldChange(NULL),
@@ -853,7 +862,8 @@ CvTechInfo::CvTechInfo() :
 	m_piCommerceModifier(NULL), // K-Mod
 	m_piSpecialistExtraCommerce(NULL), // K-Mod
 	m_pbCommerceFlexible(NULL),
-	m_pbTerrainTrade(NULL) {}
+	m_pbTerrainTrade(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -872,6 +882,18 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce); // K-Mod
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+bool CvTechInfo::isCanPassPeaks() const {
+	return m_bCanPassPeaks;
+}
+
+bool CvTechInfo::isMoveFastPeaks() const {
+	return m_bMoveFastPeaks;
+}
+
+bool CvTechInfo::isCanFoundOnPeaks() const {
+	return m_bCanFoundOnPeaks;
 }
 
 int CvTechInfo::getNumPrereqAndTechs() const {
@@ -1246,6 +1268,9 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bCaptureCities);
+	stream->Read(&m_bCanFoundOnPeaks);
+	stream->Read(&m_bCanPassPeaks);
+	stream->Read(&m_bMoveFastPeaks);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1353,6 +1378,9 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bCaptureCities);
+	stream->Write(m_bCanFoundOnPeaks);
+	stream->Write(m_bCanPassPeaks);
+	stream->Write(m_bMoveFastPeaks);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1436,6 +1464,9 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangePercentChange, "iUnitRangePercentChange");
+	pXML->GetChildXmlValByName(&m_bCanPassPeaks, "bCanPassPeaks");
+	pXML->GetChildXmlValByName(&m_bMoveFastPeaks, "bMoveFastPeaks");
+	pXML->GetChildXmlValByName(&m_bCanFoundOnPeaks, "bCanFoundOnPeaks");
 	pXML->GetChildXmlValByName(&m_iGridX, "iGridX");
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
 
@@ -1524,6 +1555,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
 	m_bCityPrereq(false),
+	m_bCanMovePeaks(false),
 	m_piTerrainAttackPercent(NULL),
 	m_piTerrainDefensePercent(NULL),
 	m_piFeatureAttackPercent(NULL),
@@ -1551,6 +1583,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+bool CvPromotionInfo::isCanMovePeaks() const {
+	return m_bCanMovePeaks;
 }
 
 int CvPromotionInfo::getPrereqOrPromotion(int i) const {
@@ -1894,6 +1930,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitRangeUnbound);
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bCityPrereq);
+	stream->Read(&m_bCanMovePeaks);
 
 	stream->ReadString(m_szSound);
 
@@ -2009,6 +2046,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitRangeUnbound);
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bCityPrereq);
+	stream->Write(m_bCanMovePeaks);
 
 	stream->WriteString(m_szSound);
 
@@ -2073,6 +2111,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bEnemyRoute, "bEnemyRoute");
 	pXML->GetChildXmlValByName(&m_bAlwaysHeal, "bAlwaysHeal");
 	pXML->GetChildXmlValByName(&m_bHillsDoubleMove, "bHillsDoubleMove");
+	pXML->GetChildXmlValByName(&m_bCanMovePeaks, "bCanMovePeaks");
 	pXML->GetChildXmlValByName(&m_bImmuneToFirstStrikes, "bImmuneToFirstStrikes");
 	pXML->GetChildXmlValByName(&m_iVisibilityChange, "iVisibilityChange");
 	pXML->GetChildXmlValByName(&m_iMovesChange, "iMovesChange");
@@ -2139,7 +2178,8 @@ CvMissionInfo::CvMissionInfo() :
 	m_bTarget(false),
 	m_bBuild(false),
 	m_bVisible(false),
-	m_eEntityEvent(ENTITY_EVENT_NONE) {}
+	m_eEntityEvent(ENTITY_EVENT_NONE) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -2148,7 +2188,8 @@ CvMissionInfo::CvMissionInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvMissionInfo::~CvMissionInfo() {}
+CvMissionInfo::~CvMissionInfo() {
+}
 
 int CvMissionInfo::getTime() const {
 	return m_iTime;
@@ -2211,7 +2252,8 @@ bool CvMissionInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvControlInfo::CvControlInfo() {}
+CvControlInfo::CvControlInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -2220,7 +2262,8 @@ CvControlInfo::CvControlInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvControlInfo::~CvControlInfo() {}
+CvControlInfo::~CvControlInfo() {
+}
 
 bool CvControlInfo::read(CvXMLLoadUtility* pXML) {
 	if (!CvHotkeyInfo::read(pXML)) {
@@ -2245,7 +2288,8 @@ CvCommandInfo::CvCommandInfo() :
 	m_iAutomate(NO_AUTOMATE),
 	m_bConfirmCommand(false),
 	m_bVisible(false),
-	m_bAll(false) {}
+	m_bAll(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -2254,7 +2298,8 @@ CvCommandInfo::CvCommandInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCommandInfo::~CvCommandInfo() {}
+CvCommandInfo::~CvCommandInfo() {
+}
 
 int CvCommandInfo::getAutomate() const {
 	return m_iAutomate;
@@ -2308,7 +2353,8 @@ CvAutomateInfo::CvAutomateInfo() :
 	m_iCommand(NO_COMMAND),
 	m_iAutomate(NO_AUTOMATE),
 	m_bConfirmCommand(false),
-	m_bVisible(false) {}
+	m_bVisible(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -2317,7 +2363,8 @@ CvAutomateInfo::CvAutomateInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvAutomateInfo::~CvAutomateInfo() {}
+CvAutomateInfo::~CvAutomateInfo() {
+}
 
 int CvAutomateInfo::getCommand() const {
 	return m_iCommand;
@@ -2374,7 +2421,8 @@ bool CvAutomateInfo::read(CvXMLLoadUtility* pXML) {
 //------------------------------------------------------------------------------------------------------
 CvActionInfo::CvActionInfo() :
 	m_iOriginalIndex(-1),
-	m_eSubType(NO_ACTIONSUBTYPE) {}
+	m_eSubType(NO_ACTIONSUBTYPE) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -2383,7 +2431,8 @@ CvActionInfo::CvActionInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvActionInfo::~CvActionInfo() {}
+CvActionInfo::~CvActionInfo() {
+}
 
 int CvActionInfo::getMissionData() const {
 
@@ -4860,7 +4909,8 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 //  \brief		Default Constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvUnitFormationInfo::CvUnitFormationInfo() {}
+CvUnitFormationInfo::CvUnitFormationInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -4869,7 +4919,8 @@ CvUnitFormationInfo::CvUnitFormationInfo() {}
 //  \brief		Destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvUnitFormationInfo::~CvUnitFormationInfo() {}
+CvUnitFormationInfo::~CvUnitFormationInfo() {
+}
 
 const TCHAR* CvUnitFormationInfo::getFormationType() const {
 	return m_szFormationType;
@@ -4988,7 +5039,8 @@ CvSpecialUnitInfo::CvSpecialUnitInfo() :
 	m_bValid(false),
 	m_bCityLoad(false),
 	m_pbCarrierUnitAITypes(NULL),
-	m_piProductionTraits(NULL) {}
+	m_piProductionTraits(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -5051,7 +5103,8 @@ bool CvSpecialUnitInfo::read(CvXMLLoadUtility* pXML) {
 //
 //------------------------------------------------------------------------------------------------------
 CvCivicOptionInfo::CvCivicOptionInfo() :
-	m_pabTraitNoUpkeep(NULL) {}
+	m_pabTraitNoUpkeep(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -5153,7 +5206,8 @@ CvCivicInfo::CvCivicInfo() :
 	m_pabHurry(NULL),
 	m_pabSpecialBuildingNotRequired(NULL),
 	m_pabSpecialistValid(NULL),
-	m_ppiImprovementYieldChanges(NULL) {}
+	m_ppiImprovementYieldChanges(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -5796,7 +5850,8 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvDiplomacyInfo::CvDiplomacyInfo() {}
+CvDiplomacyInfo::CvDiplomacyInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -5951,7 +6006,8 @@ CvUnitClassInfo::CvUnitClassInfo() :
 	m_iMaxTeamInstances(0),
 	m_iMaxPlayerInstances(0),
 	m_iInstanceCostModifier(0),
-	m_iDefaultUnitIndex(NO_UNIT) {}
+	m_iDefaultUnitIndex(NO_UNIT) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -5960,7 +6016,8 @@ CvUnitClassInfo::CvUnitClassInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvUnitClassInfo::~CvUnitClassInfo() {}
+CvUnitClassInfo::~CvUnitClassInfo() {
+}
 
 int CvUnitClassInfo::getMaxGlobalInstances() const {
 	return m_iMaxGlobalInstances;
@@ -8100,7 +8157,8 @@ CvSpecialBuildingInfo::CvSpecialBuildingInfo() :
 	m_iTechPrereq(NO_TECH),
 	m_iTechPrereqAnyone(NO_TECH),
 	m_bValid(false),
-	m_piProductionTraits(NULL) {}
+	m_piProductionTraits(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -8176,7 +8234,8 @@ CvBuildingClassInfo::CvBuildingClassInfo() :
 	m_iDefaultBuildingIndex(NO_BUILDING),
 	m_bNoLimit(false),
 	m_bMonument(false),
-	m_piVictoryThreshold(NULL) {}
+	m_piVictoryThreshold(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -8262,7 +8321,8 @@ bool CvBuildingClassInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvRiverInfo::CvRiverInfo() {}
+CvRiverInfo::CvRiverInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -8271,7 +8331,8 @@ CvRiverInfo::CvRiverInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvRiverInfo::~CvRiverInfo() {}
+CvRiverInfo::~CvRiverInfo() {
+}
 
 //======================================================================================================
 //					CvRiverModelInfo
@@ -8298,7 +8359,8 @@ CvRiverModelInfo::CvRiverModelInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvRiverModelInfo::~CvRiverModelInfo() {}
+CvRiverModelInfo::~CvRiverModelInfo() {
+}
 
 const TCHAR* CvRiverModelInfo::getModelFile() const {
 	return m_szModelFile;
@@ -8381,7 +8443,8 @@ CvRouteModelInfo::CvRouteModelInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvRouteModelInfo::~CvRouteModelInfo() {}
+CvRouteModelInfo::~CvRouteModelInfo() {
+}
 
 RouteTypes CvRouteModelInfo::getRouteType() const		// The route type
 {
@@ -8485,7 +8548,8 @@ CvCivilizationInfo::CvCivilizationInfo() :
 	m_pbCivilizationFreeBuildingClass(NULL),
 	m_pbCivilizationFreeTechs(NULL),
 	m_pbCivilizationDisableTechs(NULL),
-	m_paszCityNames(NULL) {}
+	m_paszCityNames(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -8936,7 +9000,8 @@ CvVictoryInfo::CvVictoryInfo() :
 	m_bEndScore(false),
 	m_bConquest(false),
 	m_bDiploVote(false),
-	m_bPermanent(false) {}
+	m_bPermanent(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -8945,7 +9010,8 @@ CvVictoryInfo::CvVictoryInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvVictoryInfo::~CvVictoryInfo() {}
+CvVictoryInfo::~CvVictoryInfo() {
+}
 
 int CvVictoryInfo::getPopulationPercentLead() const {
 	return m_iPopulationPercentLead;
@@ -9048,7 +9114,8 @@ bool CvVictoryInfo::read(CvXMLLoadUtility* pXML) {
 CvHurryInfo::CvHurryInfo() :
 	m_iGoldPerProduction(0),
 	m_iProductionPerPopulation(0),
-	m_bAnger(false) {}
+	m_bAnger(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -9057,7 +9124,8 @@ CvHurryInfo::CvHurryInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvHurryInfo::~CvHurryInfo() {}
+CvHurryInfo::~CvHurryInfo() {
+}
 
 int CvHurryInfo::getGoldPerProduction() const {
 	return m_iGoldPerProduction;
@@ -9155,7 +9223,8 @@ CvHandicapInfo::CvHandicapInfo() :
 	m_iNumGoodies(0),
 	m_piGoodies(NULL),
 	m_pbFreeTechs(NULL),
-	m_pbAIFreeTechs(NULL) {}
+	m_pbAIFreeTechs(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -9702,7 +9771,8 @@ CvGameSpeedInfo::CvGameSpeedInfo() :
 	m_iInflationPercent(0),
 	m_iVictoryDelayPercent(0),
 	m_iNumTurnIncrements(0),
-	m_pGameTurnInfo(NULL) {}
+	m_pGameTurnInfo(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -9883,7 +9953,8 @@ CvTurnTimerInfo::CvTurnTimerInfo() :
 	m_iBaseTime(0),
 	m_iCityBonus(0),
 	m_iUnitBonus(0),
-	m_iFirstTurnMultiplier(0) {}
+	m_iFirstTurnMultiplier(0) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -9892,7 +9963,8 @@ CvTurnTimerInfo::CvTurnTimerInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvTurnTimerInfo::~CvTurnTimerInfo() {}
+CvTurnTimerInfo::~CvTurnTimerInfo() {
+}
 
 int CvTurnTimerInfo::getBaseTime() const {
 	return m_iBaseTime;
@@ -9947,7 +10019,8 @@ CvBuildInfo::CvBuildInfo() :
 	m_paiFeatureTech(NULL),
 	m_paiFeatureTime(NULL),
 	m_paiFeatureProduction(NULL),
-	m_pabFeatureRemove(NULL) {}
+	m_pabFeatureRemove(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -10082,7 +10155,8 @@ CvGoodyInfo::CvGoodyInfo() :
 	m_iUnitClassType(NO_UNITCLASS),
 	m_iBarbarianUnitClass(NO_UNITCLASS),
 	m_bTech(false),
-	m_bBad(false) {}
+	m_bBad(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -10091,7 +10165,8 @@ CvGoodyInfo::CvGoodyInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvGoodyInfo::~CvGoodyInfo() {}
+CvGoodyInfo::~CvGoodyInfo() {
+}
 
 int CvGoodyInfo::getGold() const {
 	return m_iGold;
@@ -10213,7 +10288,9 @@ CvRouteInfo::CvRouteInfo() :
 	m_iFlatMovementCost(0),
 	m_iPrereqBonus(NO_BONUS),
 	m_piYieldChange(NULL),
-	m_piTechMovementChange(NULL) {}
+	m_piTechMovementChange(NULL)
+{
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -10315,7 +10392,8 @@ CvImprovementBonusInfo::CvImprovementBonusInfo() :
 	m_iDiscoverRand(0),
 	m_bBonusMakesValid(false),
 	m_bBonusTrade(false),
-	m_piYieldChange(NULL) {}
+	m_piYieldChange(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -10419,6 +10497,7 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_bGoody(false),
 	m_bPermanent(false),
 	m_bOutsideBorders(false),
+	m_bPeakMakesValid(false),
 	m_iWorldSoundscapeScriptId(0),
 	m_piPrereqNatureYield(NULL),
 	m_piYieldChange(NULL),
@@ -10429,7 +10508,8 @@ CvImprovementInfo::CvImprovementInfo() :
 	m_pbFeatureMakesValid(NULL),
 	m_ppiTechYieldChanges(NULL),
 	m_ppiRouteYieldChanges(NULL),
-	m_paImprovementBonus(NULL) {}
+	m_paImprovementBonus(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -10466,6 +10546,10 @@ CvImprovementInfo::~CvImprovementInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiRouteYieldChanges);
 	}
+}
+
+bool CvImprovementInfo::isPeakMakesValid() const {
+	return m_bPeakMakesValid;
 }
 
 int CvImprovementInfo::getUpgradeTech() const {
@@ -10765,6 +10849,7 @@ void CvImprovementInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bGoody);
 	stream->Read(&m_bPermanent);
 	stream->Read(&m_bOutsideBorders);
+	stream->Read(&m_bPeakMakesValid);
 
 	stream->ReadString(m_szArtDefineTag);
 
@@ -10868,6 +10953,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bGoody);
 	stream->Write(m_bPermanent);
 	stream->Write(m_bOutsideBorders);
+	stream->Write(m_bPeakMakesValid);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -10919,6 +11005,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
 	pXML->GetChildXmlValByName(&m_bActsAsCity, "bActsAsCity");
 	pXML->GetChildXmlValByName(&m_bHillsMakesValid, "bHillsMakesValid");
+	pXML->GetChildXmlValByName(&m_bPeakMakesValid, "bPeakMakesValid");
 	pXML->GetChildXmlValByName(&m_bFreshWaterMakesValid, "bFreshWaterMakesValid");
 	pXML->GetChildXmlValByName(&m_bRiverSideMakesValid, "bRiverSideMakesValid");
 	pXML->GetChildXmlValByName(&m_bNoFreshWater, "bNoFreshWater");
@@ -10979,7 +11066,8 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML) {
 //
 //------------------------------------------------------------------------------------------------------
 CvBonusClassInfo::CvBonusClassInfo() :
-	m_iUniqueRange(0) {}
+	m_iUniqueRange(0) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -10988,7 +11076,8 @@ CvBonusClassInfo::CvBonusClassInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvBonusClassInfo::~CvBonusClassInfo() {}
+CvBonusClassInfo::~CvBonusClassInfo() {
+}
 
 int CvBonusClassInfo::getUniqueRange() const {
 	return m_iUniqueRange;
@@ -11045,11 +11134,13 @@ CvBonusInfo::CvBonusInfo() :
 	m_bFlatlands(false),
 	m_bNoRiverSide(false),
 	m_bNormalize(false),
+	m_bPeaks(false),
 	m_piYieldChange(NULL),
 	m_piImprovementChange(NULL),
 	m_pbTerrain(NULL),
 	m_pbFeature(NULL),
-	m_pbFeatureTerrain(NULL) {}
+	m_pbFeatureTerrain(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -11064,6 +11155,10 @@ CvBonusInfo::~CvBonusInfo() {
 	SAFE_DELETE_ARRAY(m_pbTerrain);
 	SAFE_DELETE_ARRAY(m_pbFeature);
 	SAFE_DELETE_ARRAY(m_pbFeatureTerrain);	// free memory - MT
+}
+
+bool CvBonusInfo::isPeaks() const {
+	return m_bPeaks;
 }
 
 int CvBonusInfo::getBonusClassType() const {
@@ -11276,6 +11371,7 @@ void CvBonusInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bFlatlands);
 	stream->Read(&m_bNoRiverSide);
 	stream->Read(&m_bNormalize);
+	stream->Read(&m_bPeaks);
 
 	stream->ReadString(m_szArtDefineTag);
 
@@ -11338,6 +11434,7 @@ void CvBonusInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bFlatlands);
 	stream->Write(m_bNoRiverSide);
 	stream->Write(m_bNormalize);
+	stream->Write(m_bPeaks);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -11401,6 +11498,7 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGroupRand, "iGroupRand");
 	pXML->GetChildXmlValByName(&m_bOneArea, "bArea");
 	pXML->GetChildXmlValByName(&m_bHills, "bHills");
+	pXML->GetChildXmlValByName(&m_bPeaks, "bPeaks");
 	pXML->GetChildXmlValByName(&m_bFlatlands, "bFlatlands");
 	pXML->GetChildXmlValByName(&m_bNoRiverSide, "bNoRiverSide");
 	pXML->GetChildXmlValByName(&m_bNormalize, "bNormalize");
@@ -11451,7 +11549,8 @@ CvFeatureInfo::CvFeatureInfo() :
 	m_piRiverYieldChange(NULL),
 	m_piHillsYieldChange(NULL),
 	m_pi3DAudioScriptFootstepIndex(NULL),
-	m_pbTerrain(NULL) {}
+	m_pbTerrain(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -11706,7 +11805,8 @@ CvCommerceInfo::CvCommerceInfo() :
 	m_iInitialPercent(0),
 	m_iInitialHappiness(0),
 	m_iAIWeightPercent(0),
-	m_bFlexiblePercent(false) {}
+	m_bFlexiblePercent(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -11715,7 +11815,8 @@ CvCommerceInfo::CvCommerceInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCommerceInfo::~CvCommerceInfo() {}
+CvCommerceInfo::~CvCommerceInfo() {
+}
 
 int CvCommerceInfo::getChar() const {
 	return m_iChar;
@@ -11779,7 +11880,8 @@ CvYieldInfo::CvYieldInfo() :
 	m_iGoldenAgeYieldThreshold(0),
 	m_iAIWeightPercent(0),
 	m_iColorType(NO_COLOR),
-	m_paszSymbolPath(NULL) {}
+	m_paszSymbolPath(NULL) {
+}
 
 
 //------------------------------------------------------------------------------------------------------
@@ -11931,7 +12033,8 @@ CvTerrainInfo::CvTerrainInfo() :
 	m_piYields(NULL),
 	m_piRiverYieldChange(NULL),
 	m_piHillsYieldChange(NULL),
-	m_pi3DAudioScriptFootstepIndex(NULL) {}
+	m_pi3DAudioScriptFootstepIndex(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -12092,7 +12195,8 @@ CvInterfaceModeInfo::CvInterfaceModeInfo() :
 	m_bGotoPlot(false),
 	m_bHighlightPlot(false),
 	m_bSelectType(false),
-	m_bSelectAll(false) {}
+	m_bSelectAll(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -12101,7 +12205,8 @@ CvInterfaceModeInfo::CvInterfaceModeInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvInterfaceModeInfo::~CvInterfaceModeInfo() {}
+CvInterfaceModeInfo::~CvInterfaceModeInfo() {
+}
 
 int CvInterfaceModeInfo::getCursorIndex() const {
 	return m_iCursorIndex;
@@ -12163,7 +12268,8 @@ bool CvInterfaceModeInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvAdvisorInfo::CvAdvisorInfo() {}
+CvAdvisorInfo::CvAdvisorInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -12172,7 +12278,8 @@ CvAdvisorInfo::CvAdvisorInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvAdvisorInfo::~CvAdvisorInfo() {}
+CvAdvisorInfo::~CvAdvisorInfo() {
+}
 
 const TCHAR* CvAdvisorInfo::getTexture() const {
 	return m_szTexture;
@@ -12319,7 +12426,8 @@ CvLeaderHeadInfo::CvLeaderHeadInfo() :
 	m_piDiploPeaceIntroMusicScriptIds(NULL),
 	m_piDiploPeaceMusicScriptIds(NULL),
 	m_piDiploWarIntroMusicScriptIds(NULL),
-	m_piDiploWarMusicScriptIds(NULL) {}
+	m_piDiploWarMusicScriptIds(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -13193,7 +13301,8 @@ CvWorldInfo::CvWorldInfo() :
 	m_iColonyMaintenancePercent(0),
 	m_iCorporationMaintenancePercent(0),
 	m_iNumCitiesAnarchyPercent(0),
-	m_iAdvancedStartPointsMod(0) {}
+	m_iAdvancedStartPointsMod(0) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -13202,7 +13311,8 @@ CvWorldInfo::CvWorldInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvWorldInfo::~CvWorldInfo() {}
+CvWorldInfo::~CvWorldInfo() {
+}
 
 int CvWorldInfo::getDefaultPlayers() const {
 	return m_iDefaultPlayers;
@@ -13322,9 +13432,11 @@ CvClimateInfo::CvClimateInfo() :
 	m_fDesertBottomLatitudeChange(0.0f),
 	m_fDesertTopLatitudeChange(0.0f),
 	m_fIceLatitude(0.0f),
-	m_fRandIceLatitude(0.0f) {}
+	m_fRandIceLatitude(0.0f) {
+}
 
-CvClimateInfo::~CvClimateInfo() {}
+CvClimateInfo::~CvClimateInfo() {
+}
 
 int CvClimateInfo::getDesertPercentChange() const {
 	return m_iDesertPercentChange;
@@ -13395,9 +13507,11 @@ bool CvClimateInfo::read(CvXMLLoadUtility* pXML) {
 //					CvSeaLevelInfo
 //======================================================================================================
 CvSeaLevelInfo::CvSeaLevelInfo() :
-	m_iSeaLevelChange(0) {}
+	m_iSeaLevelChange(0) {
+}
 
-CvSeaLevelInfo::~CvSeaLevelInfo() {}
+CvSeaLevelInfo::~CvSeaLevelInfo() {
+}
 
 int CvSeaLevelInfo::getSeaLevelChange() const {
 	return m_iSeaLevelChange;
@@ -13426,7 +13540,8 @@ bool CvSeaLevelInfo::read(CvXMLLoadUtility* pXML) {
 //------------------------------------------------------------------------------------------------------
 CvProcessInfo::CvProcessInfo() :
 	m_iTechPrereq(NO_TECH),
-	m_paiProductionToCommerceModifier(NULL) {}
+	m_paiProductionToCommerceModifier(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -13494,7 +13609,8 @@ CvVoteInfo::CvVoteInfo() :
 	m_bForceWar(false),
 	m_bAssignCity(false),
 	m_pbForceCivic(NULL),
-	m_abVoteSourceTypes(NULL) {}
+	m_abVoteSourceTypes(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -13642,7 +13758,8 @@ CvProjectInfo::CvProjectInfo() :
 	m_piBonusProductionModifier(NULL),
 	m_piVictoryThreshold(NULL),
 	m_piVictoryMinThreshold(NULL),
-	m_piProjectsNeeded(NULL) {}
+	m_piProjectsNeeded(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14271,7 +14388,8 @@ CvTraitInfo::CvTraitInfo() :
 	m_paiBaseCommerceFromUnit(NULL),
 	m_paiCommerceFromUnitModifier(NULL),
 	m_pabFreePromotionUnitCombat(NULL),
-	m_pabFreePromotion(NULL) {}
+	m_pabFreePromotion(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14452,7 +14570,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCursorInfo::CvCursorInfo() {}
+CvCursorInfo::CvCursorInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14461,7 +14580,8 @@ CvCursorInfo::CvCursorInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCursorInfo::~CvCursorInfo() {}
+CvCursorInfo::~CvCursorInfo() {
+}
 
 const TCHAR* CvCursorInfo::getPath() {
 	return m_szPath;
@@ -14494,7 +14614,8 @@ bool CvCursorInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvThroneRoomCamera::CvThroneRoomCamera() {}
+CvThroneRoomCamera::CvThroneRoomCamera() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14503,7 +14624,8 @@ CvThroneRoomCamera::CvThroneRoomCamera() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvThroneRoomCamera::~CvThroneRoomCamera() {}
+CvThroneRoomCamera::~CvThroneRoomCamera() {
+}
 
 const TCHAR* CvThroneRoomCamera::getFileName() {
 	return m_szFileName;
@@ -14539,7 +14661,8 @@ bool CvThroneRoomCamera::read(CvXMLLoadUtility* pXML) {
 CvThroneRoomInfo::CvThroneRoomInfo() :
 	m_iFromState(0),
 	m_iToState(0),
-	m_iAnimation(0) {}
+	m_iAnimation(0) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14548,7 +14671,8 @@ CvThroneRoomInfo::CvThroneRoomInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvThroneRoomInfo::~CvThroneRoomInfo() {}
+CvThroneRoomInfo::~CvThroneRoomInfo() {
+}
 
 const TCHAR* CvThroneRoomInfo::getEvent() {
 	return m_szEvent;
@@ -14622,7 +14746,8 @@ bool CvThroneRoomInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvThroneRoomStyleInfo::CvThroneRoomStyleInfo() {}
+CvThroneRoomStyleInfo::CvThroneRoomStyleInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14631,7 +14756,8 @@ CvThroneRoomStyleInfo::CvThroneRoomStyleInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvThroneRoomStyleInfo::~CvThroneRoomStyleInfo() {}
+CvThroneRoomStyleInfo::~CvThroneRoomStyleInfo() {
+}
 
 const TCHAR* CvThroneRoomStyleInfo::getArtStyleType() {
 	return m_szArtStyleType;
@@ -14703,7 +14829,8 @@ bool CvThroneRoomStyleInfo::read(CvXMLLoadUtility* pXML) {
 //
 //------------------------------------------------------------------------------------------------------
 CvSlideShowInfo::CvSlideShowInfo() :
-	m_fStartTime(0.0f) {}
+	m_fStartTime(0.0f) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14712,7 +14839,8 @@ CvSlideShowInfo::CvSlideShowInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvSlideShowInfo::~CvSlideShowInfo() {}
+CvSlideShowInfo::~CvSlideShowInfo() {
+}
 
 const TCHAR* CvSlideShowInfo::getPath() {
 	return m_szPath;
@@ -14766,7 +14894,8 @@ bool CvSlideShowInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvSlideShowRandomInfo::CvSlideShowRandomInfo() {}
+CvSlideShowRandomInfo::CvSlideShowRandomInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14775,7 +14904,8 @@ CvSlideShowRandomInfo::CvSlideShowRandomInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvSlideShowRandomInfo::~CvSlideShowRandomInfo() {}
+CvSlideShowRandomInfo::~CvSlideShowRandomInfo() {
+}
 
 const TCHAR* CvSlideShowRandomInfo::getPath() {
 	return m_szPath;
@@ -14808,7 +14938,8 @@ bool CvSlideShowRandomInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvWorldPickerInfo::CvWorldPickerInfo() {}
+CvWorldPickerInfo::CvWorldPickerInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14817,7 +14948,8 @@ CvWorldPickerInfo::CvWorldPickerInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvWorldPickerInfo::~CvWorldPickerInfo() {}
+CvWorldPickerInfo::~CvWorldPickerInfo() {
+}
 
 const TCHAR* CvWorldPickerInfo::getMapName() {
 	return m_szMapName;
@@ -14951,7 +15083,8 @@ CvSpaceShipInfo::CvSpaceShipInfo() :
 	m_iArtType(-1),
 	m_iEventCode(-1),
 	m_eProjectType(NO_PROJECT),
-	m_eCameraUpAxis(AXIS_X) {}
+	m_eCameraUpAxis(AXIS_X) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -14960,7 +15093,8 @@ CvSpaceShipInfo::CvSpaceShipInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvSpaceShipInfo::~CvSpaceShipInfo() {}
+CvSpaceShipInfo::~CvSpaceShipInfo() {
+}
 
 const TCHAR* CvSpaceShipInfo::getNodeName() {
 	return m_szNodeName;
@@ -15079,7 +15213,8 @@ bool CvSpaceShipInfo::read(CvXMLLoadUtility* pXML) {
 //
 //------------------------------------------------------------------------------------------------------
 CvAnimationPathInfo::CvAnimationPathInfo() :
-	m_bMissionPath(false) {}
+	m_bMissionPath(false) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -15088,7 +15223,8 @@ CvAnimationPathInfo::CvAnimationPathInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvAnimationPathInfo::~CvAnimationPathInfo() {}
+CvAnimationPathInfo::~CvAnimationPathInfo() {
+}
 
 int CvAnimationPathInfo::getPathCategory(int i) {
 	return (int)m_vctPathDefinition.size() > i ? m_vctPathDefinition[i].first : -1;
@@ -15171,7 +15307,8 @@ CvAnimationCategoryInfo::CvAnimationCategoryInfo() {
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvAnimationCategoryInfo::~CvAnimationCategoryInfo() {}
+CvAnimationCategoryInfo::~CvAnimationCategoryInfo() {
+}
 
 int CvAnimationCategoryInfo::getCategoryBaseID() {
 	return m_kCategory.first;
@@ -15202,9 +15339,11 @@ bool CvAnimationCategoryInfo::read(CvXMLLoadUtility* pXML) {
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 CvEntityEventInfo::CvEntityEventInfo() :
-	m_bUpdateFormation(true) {}
+	m_bUpdateFormation(true) {
+}
 
-CvEntityEventInfo::~CvEntityEventInfo() {}
+CvEntityEventInfo::~CvEntityEventInfo() {
+}
 
 bool CvEntityEventInfo::read(CvXMLLoadUtility* pXML) {
 	CvString szTmp, szTextVal;
@@ -15430,9 +15569,11 @@ CvArtInfoUnit::CvArtInfoUnit() :
 	m_iRunEndSoundTag(0),
 	m_iSelectionSoundScriptId(0),
 	m_iActionSoundScriptId(0),
-	m_iPatrolSoundTag(0) {}
+	m_iPatrolSoundTag(0) {
+}
 
-CvArtInfoUnit::~CvArtInfoUnit() {}
+CvArtInfoUnit::~CvArtInfoUnit() {
+}
 
 bool CvArtInfoUnit::getActAsRanged() const {
 	return m_bActAsRanged;
@@ -15618,9 +15759,11 @@ int CvArtInfoUnit::getActionSoundScriptId() const {
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 CvArtInfoBuilding::CvArtInfoBuilding() :
-	m_bAnimated(false) {}
+	m_bAnimated(false) {
+}
 
-CvArtInfoBuilding::~CvArtInfoBuilding() {}
+CvArtInfoBuilding::~CvArtInfoBuilding() {
+}
 
 bool CvArtInfoBuilding::isAnimated() const {
 	return m_bAnimated;
@@ -15646,9 +15789,11 @@ bool CvArtInfoBuilding::read(CvXMLLoadUtility* pXML) {
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 CvArtInfoCivilization::CvArtInfoCivilization() :
-	m_bWhiteFlag(false) {}
+	m_bWhiteFlag(false) {
+}
 
-CvArtInfoCivilization::~CvArtInfoCivilization() {}
+CvArtInfoCivilization::~CvArtInfoCivilization() {
+}
 
 bool CvArtInfoCivilization::isWhiteFlag() const {
 	return m_bWhiteFlag;
@@ -15717,9 +15862,11 @@ bool CvArtInfoScalableAsset::read(CvXMLLoadUtility* pXML) {
 //////////////////////////////////////////////////////////////////////////
 
 CvArtInfoImprovement::CvArtInfoImprovement() :
-	m_bExtraAnimations(false) {}
+	m_bExtraAnimations(false) {
+}
 
-CvArtInfoImprovement::~CvArtInfoImprovement() {}
+CvArtInfoImprovement::~CvArtInfoImprovement() {
+}
 
 bool CvArtInfoImprovement::isExtraAnimations() const {
 	return m_bExtraAnimations;
@@ -15846,9 +15993,11 @@ CvArtInfoFeature::CvArtInfoFeature() :
 	m_bAnimated(false),
 	m_bRiverArt(false),
 	m_eTileArtType(TILE_ART_TYPE_NONE),
-	m_eLightType(LIGHT_TYPE_NONE) {}
+	m_eLightType(LIGHT_TYPE_NONE) {
+}
 
-CvArtInfoFeature::~CvArtInfoFeature() {}
+CvArtInfoFeature::~CvArtInfoFeature() {
+}
 
 bool CvArtInfoFeature::isAnimated() const {
 	return m_bAnimated;
@@ -16055,7 +16204,8 @@ CvEmphasizeInfo::CvEmphasizeInfo() :
 	m_bAvoidGrowth(false),
 	m_bGreatPeople(false),
 	m_piYieldModifiers(NULL),
-	m_piCommerceModifiers(NULL) {}
+	m_piCommerceModifiers(NULL) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -16114,9 +16264,11 @@ bool CvEmphasizeInfo::read(CvXMLLoadUtility* pXML) {
 
 CvUpkeepInfo::CvUpkeepInfo() :
 	m_iPopulationPercent(0),
-	m_iCityPercent(0) {}
+	m_iCityPercent(0) {
+}
 
-CvUpkeepInfo::~CvUpkeepInfo() {}
+CvUpkeepInfo::~CvUpkeepInfo() {
+}
 
 int CvUpkeepInfo::getPopulationPercent() const {
 	return m_iPopulationPercent;
@@ -16145,7 +16297,8 @@ bool CvUpkeepInfo::read(CvXMLLoadUtility* pXml) {
 CvCultureLevelInfo::CvCultureLevelInfo() :
 	m_iCityDefenseModifier(0),
 	m_iCityRadius(0),
-	m_paiSpeedThreshold(NULL) {}
+	m_paiSpeedThreshold(NULL) {
+}
 
 CvCultureLevelInfo::~CvCultureLevelInfo() {
 	SAFE_DELETE_ARRAY(m_paiSpeedThreshold);
@@ -16212,7 +16365,8 @@ CvEraInfo::CvEraInfo() :
 	m_bNoBarbCities(false),
 	m_bFirstSoundtrackFirst(false),
 	m_paiCitySoundscapeSciptIds(NULL),
-	m_paiSoundtracks(NULL) {}
+	m_paiSoundtracks(NULL) {
+}
 
 CvEraInfo::~CvEraInfo() {
 	SAFE_DELETE_ARRAY(m_paiCitySoundscapeSciptIds);
@@ -16413,7 +16567,8 @@ bool CvEraInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvColorInfo::CvColorInfo() {}
+CvColorInfo::CvColorInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -16422,7 +16577,8 @@ CvColorInfo::CvColorInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvColorInfo::~CvColorInfo() {}
+CvColorInfo::~CvColorInfo() {
+}
 
 const NiColorA& CvColorInfo::getColor() const {
 	return m_Color;
@@ -16455,7 +16611,8 @@ bool CvColorInfo::read(CvXMLLoadUtility* pXML) {
 CvPlayerColorInfo::CvPlayerColorInfo() :
 	m_iColorTypePrimary(NO_COLOR),
 	m_iColorTypeSecondary(NO_COLOR),
-	m_iTextColorType(NO_COLOR) {}
+	m_iTextColorType(NO_COLOR) {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -16464,7 +16621,8 @@ CvPlayerColorInfo::CvPlayerColorInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvPlayerColorInfo::~CvPlayerColorInfo() {}
+CvPlayerColorInfo::~CvPlayerColorInfo() {
+}
 
 int CvPlayerColorInfo::getColorTypePrimary() const {
 	return m_iColorTypePrimary;
@@ -16517,7 +16675,8 @@ CvLandscapeInfo::CvLandscapeInfo() :
 	m_fZScale(0.0f),
 	m_bUseTerrainShader(false),
 	m_bUseLightmap(false),
-	m_bRandomMap(false) {}
+	m_bRandomMap(false) {
+}
 
 int CvLandscapeInfo::getFogR() const {
 	return m_iFogR;
@@ -16699,7 +16858,8 @@ void CvGameText::setNumLanguages(int iNum) {
 
 CvGameText::CvGameText() :
 	m_szGender("N"),
-	m_szPlural("false") {}
+	m_szPlural("false") {
+}
 
 const wchar* CvGameText::getText() const {
 	return m_szText;
@@ -16789,7 +16949,8 @@ bool CvGameText::read(CvXMLLoadUtility* pXML, const std::string& language_name) 
 
 CvDiplomacyTextInfo::CvDiplomacyTextInfo() :
 	m_iNumResponses(0),
-	m_pResponses(NULL) {}
+	m_pResponses(NULL) {
+}
 
 // note - Response member vars allocated by CvXmlLoadUtility  
 void CvDiplomacyTextInfo::init(int iNum) {
@@ -16972,9 +17133,11 @@ CvEffectInfo::CvEffectInfo() :
 	m_bProjectile(false),
 	m_bSticky(false),
 	m_fProjectileSpeed(0.0f),
-	m_fProjectileArc(0.0f) {}
+	m_fProjectileArc(0.0f) {
+}
 
-CvEffectInfo::~CvEffectInfo() {}
+CvEffectInfo::~CvEffectInfo() {
+}
 
 bool CvEffectInfo::read(CvXMLLoadUtility* pXML) {
 	CvString szTextVal;
@@ -17006,9 +17169,11 @@ bool CvEffectInfo::read(CvXMLLoadUtility* pXML) {
 //
 //
 CvAttachableInfo::CvAttachableInfo() :
-	m_fUpdateRate(0.0f) {}
+	m_fUpdateRate(0.0f) {
+}
 
-CvAttachableInfo::~CvAttachableInfo() {}
+CvAttachableInfo::~CvAttachableInfo() {
+}
 
 bool CvAttachableInfo::read(CvXMLLoadUtility* pXML) {
 	CvString szTextVal;
@@ -17349,9 +17514,11 @@ bool CvTutorialInfo::read(CvXMLLoadUtility* pXML) {
 //
 CvGameOptionInfo::CvGameOptionInfo() :
 	m_bDefault(false),
-	m_bVisible(true) {}
+	m_bVisible(true) {
+}
 
-CvGameOptionInfo::~CvGameOptionInfo() {}
+CvGameOptionInfo::~CvGameOptionInfo() {
+}
 
 bool CvGameOptionInfo::getDefault() const {
 	return m_bDefault;
@@ -17379,9 +17546,11 @@ bool CvGameOptionInfo::read(CvXMLLoadUtility* pXML) {
 //
 //
 CvMPOptionInfo::CvMPOptionInfo() :
-	m_bDefault(false) {}
+	m_bDefault(false) {
+}
 
-CvMPOptionInfo::~CvMPOptionInfo() {}
+CvMPOptionInfo::~CvMPOptionInfo() {
+}
 
 bool CvMPOptionInfo::getDefault() const {
 	return m_bDefault;
@@ -17404,9 +17573,11 @@ bool CvMPOptionInfo::read(CvXMLLoadUtility* pXML) {
 //
 //
 CvForceControlInfo::CvForceControlInfo() :
-	m_bDefault(false) {}
+	m_bDefault(false) {
+}
 
-CvForceControlInfo::~CvForceControlInfo() {}
+CvForceControlInfo::~CvForceControlInfo() {
+}
 
 bool CvForceControlInfo::getDefault() const {
 	return m_bDefault;
@@ -17429,9 +17600,11 @@ bool CvForceControlInfo::read(CvXMLLoadUtility* pXML) {
 //
 //
 CvPlayerOptionInfo::CvPlayerOptionInfo() :
-	m_bDefault(false) {}
+	m_bDefault(false) {
+}
 
-CvPlayerOptionInfo::~CvPlayerOptionInfo() {}
+CvPlayerOptionInfo::~CvPlayerOptionInfo() {
+}
 
 bool CvPlayerOptionInfo::getDefault() const {
 	return m_bDefault;
@@ -17454,9 +17627,11 @@ bool CvPlayerOptionInfo::read(CvXMLLoadUtility* pXML) {
 //
 //
 CvGraphicOptionInfo::CvGraphicOptionInfo() :
-	m_bDefault(false) {}
+	m_bDefault(false) {
+}
 
-CvGraphicOptionInfo::~CvGraphicOptionInfo() {}
+CvGraphicOptionInfo::~CvGraphicOptionInfo() {
+}
 
 bool CvGraphicOptionInfo::getDefault() const {
 	return m_bDefault;
@@ -17526,9 +17701,11 @@ CvEventTriggerInfo::CvEventTriggerInfo() :
 	m_bHeadquarters(false),
 	m_bProbabilityUnitMultiply(false),
 	m_bProbabilityBuildingMultiply(false),
-	m_bPrereqEventCity(false) {}
+	m_bPrereqEventCity(false) {
+}
 
-CvEventTriggerInfo::~CvEventTriggerInfo() {}
+CvEventTriggerInfo::~CvEventTriggerInfo() {
+}
 
 int CvEventTriggerInfo::getPercentGamesActive() const {
 	return m_iPercentGamesActive;
@@ -18404,7 +18581,8 @@ CvEventInfo::CvEventInfo() :
 	m_piAdditionalEventTime(NULL),
 	m_piClearEventChance(NULL),
 	m_piUnitCombatPromotions(NULL),
-	m_piUnitClassPromotions(NULL) {}
+	m_piUnitClassPromotions(NULL) {
+}
 
 CvEventInfo::~CvEventInfo() {
 	SAFE_DELETE_ARRAY(m_piTechFlavorValue);
@@ -19305,7 +19483,8 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvEspionageMissionInfo::CvEspionageMissionInfo() {}
+CvEspionageMissionInfo::CvEspionageMissionInfo() {
+}
 
 //------------------------------------------------------------------------------------------------------
 //
@@ -19314,7 +19493,8 @@ CvEspionageMissionInfo::CvEspionageMissionInfo() {}
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvEspionageMissionInfo::~CvEspionageMissionInfo() {}
+CvEspionageMissionInfo::~CvEspionageMissionInfo() {
+}
 
 int CvEspionageMissionInfo::getCost() const {
 	return m_iCost;
@@ -19492,9 +19672,11 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML) {
 //  Graphic Flavor Units packages by Impaler[WrG]
 //
 
-CvUnitArtStyleTypeInfo::CvUnitArtStyleTypeInfo() {}
+CvUnitArtStyleTypeInfo::CvUnitArtStyleTypeInfo() {
+}
 
-CvUnitArtStyleTypeInfo::~CvUnitArtStyleTypeInfo() {}
+CvUnitArtStyleTypeInfo::~CvUnitArtStyleTypeInfo() {
+}
 
 const TCHAR* CvUnitArtStyleTypeInfo::getEarlyArtDefineTag(int /*Mesh Index*/ i, int /*UnitType*/ j) const {
 	FAssertMsg(i < GC.getUnitInfo((UnitTypes)j).getGroupDefinitions(), "Index out of bounds");
@@ -19725,7 +19907,8 @@ CvMainMenuInfo::CvMainMenuInfo() {
 
 }
 
-CvMainMenuInfo::~CvMainMenuInfo() {}
+CvMainMenuInfo::~CvMainMenuInfo() {
+}
 
 std::string CvMainMenuInfo::getScene() const {
 	return m_szScene;

@@ -30,10 +30,12 @@ CvMapGenerator& CvMapGenerator::GetInstance() {
 }
 
 
-CvMapGenerator::CvMapGenerator() {}
+CvMapGenerator::CvMapGenerator() {
+}
 
 
-CvMapGenerator::~CvMapGenerator() {}
+CvMapGenerator::~CvMapGenerator() {
+}
 
 
 bool CvMapGenerator::canPlaceBonusAt(BonusTypes eBonus, int iX, int iY, bool bIgnoreLatitude) {
@@ -166,6 +168,10 @@ bool CvMapGenerator::canPlaceGoodyAt(ImprovementTypes eImprovement, int iX, int 
 	}
 
 	if (pPlot->isImpassable()) {
+		return false;
+	}
+
+	if (pPlot->isPeak()) {
 		return false;
 	}
 

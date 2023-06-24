@@ -341,6 +341,9 @@ public:
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
 	bool isCaptureCities() const;
+	bool isCanPassPeaks() const;
+	bool isMoveFastPeaks() const;
+	bool isCanFoundOnPeaks() const;
 
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
@@ -430,6 +433,9 @@ protected:
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
 	bool m_bCaptureCities;
+	bool m_bCanPassPeaks;
+	bool m_bMoveFastPeaks;
+	bool m_bCanFoundOnPeaks;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;
@@ -518,6 +524,7 @@ public:
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
 	bool isCityPrereq() const;
+	bool isCanMovePeaks() const;
 
 	const TCHAR* getSound() const;				// Exposed to Python
 	void setSound(const TCHAR* szVal);
@@ -597,6 +604,7 @@ protected:
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;
 	bool m_bCityPrereq;
+	bool m_bCanMovePeaks;
 
 	CvString m_szSound;
 
@@ -2979,6 +2987,7 @@ public:
 	DllExport bool isGoody() const;				// Exposed to Python
 	bool isPermanent() const;				// Exposed to Python
 	bool isOutsideBorders() const;				// Exposed to Python
+	bool isPeakMakesValid() const;				// Exposed to Python
 
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
@@ -3054,6 +3063,7 @@ protected:
 	bool m_bGoody;
 	bool m_bPermanent;
 	bool m_bOutsideBorders;
+	bool m_bPeakMakesValid;
 
 	CvString m_szArtDefineTag;
 
@@ -3152,6 +3162,7 @@ public:
 	bool isFlatlands() const;						// Exposed to Python
 	bool isNoRiverSide() const;					// Exposed to Python
 	bool isNormalize() const;						// Exposed to Python
+	bool isPeaks() const;								// Exposed to Python
 
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
@@ -3210,6 +3221,7 @@ protected:
 	bool m_bFlatlands;
 	bool m_bNoRiverSide;
 	bool m_bNormalize;
+	bool m_bPeaks;
 
 	CvString m_szArtDefineTag;
 

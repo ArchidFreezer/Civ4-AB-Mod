@@ -1982,10 +1982,9 @@ short CvPlayerAI::AI_foundValue_bulk(int iX, int iY, const CvFoundSettings& kSet
 		CvPlot* pLoopPlot = plotCity(iX, iY, iI);
 
 		if (iI != CITY_HOME_PLOT) {
-			if ((pLoopPlot == NULL) || pLoopPlot->isImpassable()) {
+			if ((pLoopPlot == NULL) || pLoopPlot->isImpassable(getTeam())) {
 				iBadTile += 2;
-			} else if (!pLoopPlot->isFreshWater() && !pLoopPlot->isHills() &&
-				(pLoopPlot->calculateBestNatureYield(YIELD_FOOD, getTeam()) == 0 || pLoopPlot->calculateTotalBestNatureYield(getTeam()) <= 1)) {
+			} else if (!pLoopPlot->isFreshWater() && !pLoopPlot->isHills() && (pLoopPlot->calculateBestNatureYield(YIELD_FOOD, getTeam()) == 0 || pLoopPlot->calculateTotalBestNatureYield(getTeam()) <= 1)) {
 				iBadTile += 2;
 			} else if (pLoopPlot->isWater() && !bIsCoastal && pLoopPlot->calculateBestNatureYield(YIELD_FOOD, getTeam()) <= 1) {
 				iBadTile++;
@@ -3785,6 +3784,26 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 		iValue += 6 * iCoastalCities * getAveragePopulation();
 	}
 
+	// There is no simple check for the vale of passing peaks as it is dependent on things like whether there is
+	// a map bottleneck we would like to be able to breach, but checking that would be expensive and not really
+	// worth it so we will stick to finding out how many of our cities have mountains in their vicinity
+	if (kTechInfo.isCanPassPeaks()) {
+		int iLoop;
+		CvCity* pLoopCity;
+		for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+			if (pLoopCity->hasVicinityTerrain((TerrainTypes)GC.getInfoTypeForString("TERRAIN_PEAK")))
+				iValue += 5;
+		}
+	}
+
+	if (kTechInfo.isMoveFastPeaks()) {
+		iValue += 150;
+	}
+
+	if (kTechInfo.isCanFoundOnPeaks()) {
+		iValue += 100;
+	}
+
 	iValue += kTechInfo.getFeatureProductionModifier() * 2 * std::max(iCityCount, iCityTarget) / 25;
 	iValue += kTechInfo.getWorkerSpeedModifier() * 2 * std::max(iCityCount, iCityTarget / 2) / 25;
 	// K-Mod. TODO: the actual value of this is completely bogus; but at the moment I'm just changing the style.
@@ -3931,6 +3950,7 @@ int CvPlayerAI::AI_techValue(TechTypes eTech, int iPathLength, bool bFreeTech, b
 				const CvImprovementInfo& kBuildImprovement = GC.getImprovementInfo(eBuildImprovement);
 				// iAccessibility represents the number of this improvement we expect to have per city.
 				iAccessibility += ((kBuildImprovement.isHillsMakesValid()) ? 150 : 0);
+				iAccessibility += ((kBuildImprovement.isPeakMakesValid()) ? 100 : 0);
 				iAccessibility += ((kBuildImprovement.isFreshWaterMakesValid()) ? 150 : 0);
 				iAccessibility += ((kBuildImprovement.isRiverSideMakesValid()) ? 150 : 0);
 
