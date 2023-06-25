@@ -9758,6 +9758,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iExtraRangePercent);
 	pStream->Write(m_iRangeUnboundCount);
 	pStream->Write(m_iTerritoryUnboundCount);
+	pStream->Write(m_iCanMovePeaksCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
