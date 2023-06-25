@@ -608,6 +608,9 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer& szBuffer, CvWidgetDataStruct& w
 	case WIDGET_HELP_EMBASSY:
 		parseEmbassyHelp(widgetDataStruct, szBuffer);
 		break;
+	case WIDGET_HELP_LIMITED_BORDERS:
+		parseLimitedBordersHelp(widgetDataStruct, szBuffer);
+		break;
 	case WIDGET_HELP_GLOBAL_COMMERCE_MODIFIER:
 		GAMETEXT.setCommerceChangeHelp(szBuffer, L"", L"", gDLL->getText("TXT_KEY_CIVIC_IN_ALL_CITIES").GetCString(), GC.getTechInfo((TechTypes)(widgetDataStruct.m_iData1)).getCommerceModifierArray(), true, false);
 		break;
@@ -3678,6 +3681,9 @@ void CvDLLWidgetData::parseTradeItem(CvWidgetDataStruct& widgetDataStruct, CvWSt
 		case TRADE_EMBASSY:
 			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_EMBASSY", -25));
 			break;
+		case TRADE_LIMITED_BORDERS:
+			szBuffer.append(gDLL->getText("TXT_KEY_TRADE_LIMITED_BORDERS"));
+			break;
 		}
 
 		TradeData item;
@@ -4596,4 +4602,8 @@ void CvDLLWidgetData::parseObsoleteBuildHelp(CvWidgetDataStruct& widgetDataStruc
 
 void CvDLLWidgetData::parseEmbassyHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
 	GAMETEXT.buildEmbassyString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
+}
+
+void CvDLLWidgetData::parseLimitedBordersHelp(CvWidgetDataStruct& widgetDataStruct, CvWStringBuffer& szBuffer) {
+	GAMETEXT.buildLimitedBordersString(szBuffer, ((TechTypes)(widgetDataStruct.m_iData1)));
 }

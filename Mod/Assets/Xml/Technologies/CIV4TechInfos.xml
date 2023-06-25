@@ -3619,6 +3619,7 @@
 			<iPower>4</iPower>
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
+			<bLimitedBordersTrading>1</bLimitedBordersTrading>
 			<iGridX>1</iGridX>
 			<iGridY>3</iGridY>
 			<Flavors>
