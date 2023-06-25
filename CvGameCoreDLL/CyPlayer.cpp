@@ -16,9 +16,11 @@
 #include "CvDLLPythonIFaceBase.h"
 #include "CvGlobals.h"
 
-CyPlayer::CyPlayer() : m_pPlayer(NULL) {}
+CyPlayer::CyPlayer() : m_pPlayer(NULL) {
+}
 
-CyPlayer::CyPlayer(CvPlayer* pPlayer) : m_pPlayer(pPlayer) {}
+CyPlayer::CyPlayer(CvPlayer* pPlayer) : m_pPlayer(pPlayer) {
+}
 
 void CyPlayer::changeLeader(int /*LeaderHeadTypes*/ eNewLeader) {
 	if (m_pPlayer)
@@ -1876,4 +1878,8 @@ void CyPlayer::setHasTrait(int /*TraitTypes*/ iIndex, bool bNewValue) {
 
 bool CyPlayer::canCaptureCities() {
 	return m_pPlayer ? m_pPlayer->canCaptureCities() : false;
+}
+
+bool CyPlayer::isDoNotBotherStatus(int /*PlayerTypes*/ playerID) {
+	return m_pPlayer ? m_pPlayer->isDoNotBotherStatus((PlayerTypes)playerID) : false;
 }
