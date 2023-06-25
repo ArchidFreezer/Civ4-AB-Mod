@@ -3410,6 +3410,10 @@ bool CvPlayer::canTradeWith(PlayerTypes eWhoTo) const {
 		return true;
 	}
 
+	if (kOurTeam.isFreeTradeAgreementTrading() || kTheirTeam.isFreeTradeAgreementTrading()) {
+		return true;
+	}
+
 	return false;
 }
 
@@ -3633,6 +3637,20 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 		}
 		break;
 
+	case TRADE_FREE_TRADE_ZONE:
+		if (getTeam() != kTheirPlayer.getTeam()) {
+			if (!atWar(getTeam(), kTheirPlayer.getTeam())) {
+				if (kOurTeam.canSignFreeTradeAgreement(kTheirPlayer.getTeam())) {
+					if (kOurTeam.isFreeTradeAgreementTrading() || kTheirTeam.isFreeTradeAgreementTrading()) {
+						if (!kOurTeam.isFreeTradeAgreement(kTheirPlayer.getTeam())) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+		break;
+
 	case TRADE_DEFENSIVE_PACT:
 		if (!(kOurTeam.isAVassal()) && !(kTheirTeam.isAVassal())) {
 			if (getTeam() != kTheirPlayer.getTeam() && !kTheirTeam.isVassal(getTeam())) {
@@ -3767,8 +3785,12 @@ DenialTypes CvPlayer::getTradeDenial(PlayerTypes eWhoTo, TradeData item) const {
 	case TRADE_LIMITED_BORDERS:
 		return kOurTeam.AI_LimitedBordersTrade(eTheirTeam);
 		break;
-	}
 
+	case TRADE_FREE_TRADE_ZONE:
+		return kOurTeam.AI_FreeTradeAgreement(eTheirTeam);
+		break;
+
+	}
 	return NO_DENIAL;
 }
 
@@ -11627,6 +11649,10 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 			iModifier *= 100 - GC.getEMBASSY_ESPIONAGE_MISSION_COST_MODIFIER();
 			iModifier /= 100;
 		}
+		if (GET_TEAM(getTeam()).isFreeTradeAgreement(kTargetPlayer.getTeam())) {
+			iModifier *= 100 - GC.getFREE_TRADE_AGREEMENT_ESPIONAGE_MISSION_COST_MODIFIER();
+			iModifier /= 100;
+		}
 	}
 
 	return iModifier;
@@ -17479,6 +17505,12 @@ void CvPlayer::buildTradeTable(PlayerTypes eOtherPlayer, CLinkList<TradeData>& o
 		ourList.insertAtEnd(item);
 	}
 
+	//Free Trade
+	setTradeItem(&item, TRADE_FREE_TRADE_ZONE, 0);
+	if (canTradeItem(eOtherPlayer, item)) {
+		ourList.insertAtEnd(item);
+	}
+
 	// Limited Borders
 	setTradeItem(&item, TRADE_LIMITED_BORDERS);
 	if (canTradeItem(eOtherPlayer, item)) {
@@ -17798,6 +17830,9 @@ bool CvPlayer::getItemTradeString(PlayerTypes eOtherPlayer, bool bOffer, bool bS
 		break;
 	case TRADE_LIMITED_BORDERS:
 		szString = gDLL->getText("TXT_KEY_TRADE_LIMITED_BORDERS_STRING");
+		break;
+	case TRADE_FREE_TRADE_ZONE:
+		szString = gDLL->getText("TXT_KEY_MISC_FREE_TRADE_ZONE");
 		break;
 	default:
 		szString.clear();

@@ -2,7 +2,8 @@
 #include "CvHallOfFameInfo.h"
 #include "CvGlobals.h"
 
-CvHallOfFameInfo::CvHallOfFameInfo() {}
+CvHallOfFameInfo::CvHallOfFameInfo() {
+}
 
 CvHallOfFameInfo::~CvHallOfFameInfo() {
 	for (uint i = 0; i < m_aReplays.size(); i++) {

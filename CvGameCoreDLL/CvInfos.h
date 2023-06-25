@@ -346,6 +346,7 @@ public:
 	bool isCanFoundOnPeaks() const;
 	bool isEmbassyTrading() const;
 	bool isLimitedBordersTrading() const;
+	bool isFreeTradeAgreementTrading() const;
 
 	bool hasAnyForestPlotYieldChange() const;
 	bool hasAnyRiverPlotYieldChange() const;
@@ -439,6 +440,7 @@ protected:
 	bool m_bCanFoundOnPeaks;
 	bool m_bEmbassyTrading;
 	bool m_bLimitedBordersTrading;
+	bool m_bFreeTradeAgreementTrading;
 
 	CvString m_szQuoteKey;
 	CvString m_szSound;
