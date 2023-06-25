@@ -3832,6 +3832,10 @@ protected:
 	int* m_piDiploWarIntroMusicScriptIds;
 	int* m_piDiploWarMusicScriptIds;
 
+	// Protected Functions
+	void setDefaultContactInfo();
+	void setDefaultMemoryInfo();
+
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
