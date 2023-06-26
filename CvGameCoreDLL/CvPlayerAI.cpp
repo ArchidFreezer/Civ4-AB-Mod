@@ -8255,18 +8255,23 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 	FAssertMsg(eUnit != NO_UNIT, "Unit is not assigned a valid value");
 	FAssertMsg(eUnitAI != NO_UNITAI, "UnitAI is not assigned a valid value");
 
-	if (GC.getUnitInfo(eUnit).getDomainType() != AI_unitAIDomainType(eUnitAI)) {
+	const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
+	if (kUnit.getDomainType() != AI_unitAIDomainType(eUnitAI)) {
 		if (eUnitAI != UNITAI_ICBM)//XXX
 		{
 			return 0;
 		}
 	}
 
-	if (GC.getUnitInfo(eUnit).getNotUnitAIType(eUnitAI)) {
+	if (kUnit.getNotUnitAIType(eUnitAI)) {
 		return 0;
 	}
 
-	bool bValid = GC.getUnitInfo(eUnit).getUnitAIType(eUnitAI);
+	if (kUnit.isFixedAI() && kUnit.getDefaultUnitAIType() != eUnitAI) {
+		return 0;
+	}
+
+	bool bValid = kUnit.getUnitAIType(eUnitAI);
 
 	if (!bValid) {
 		switch (eUnitAI) {
@@ -8274,20 +8279,20 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ANIMAL:
-			if (GC.getUnitInfo(eUnit).isAnimal()) {
+			if (kUnit.isAnimal()) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_SETTLE:
-			if (GC.getUnitInfo(eUnit).isFound()) {
+			if (kUnit.isFound()) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_WORKER:
 			for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-				if (GC.getUnitInfo(eUnit).getBuilds(iI)) {
+				if (kUnit.getBuilds(iI)) {
 					bValid = true;
 					break;
 				}
@@ -8295,17 +8300,17 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ATTACK:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
 					bValid = true;
 				}
 			}
 			break;
 
 		case UNITAI_ATTACK_CITY:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
-					if (!(GC.getUnitInfo(eUnit).isNoCapture())) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
+					if (!(kUnit.isNoCapture())) {
 						bValid = true;
 					}
 				}
@@ -8313,9 +8318,9 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_COLLATERAL:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
-					if (GC.getUnitInfo(eUnit).getCollateralDamage() > 0) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
+					if (kUnit.getCollateralDamage() > 0) {
 						bValid = true;
 					}
 				}
@@ -8323,36 +8328,36 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_PILLAGE:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
 					bValid = true;
 				}
 			}
 			break;
 
 		case UNITAI_RESERVE:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
 					bValid = true;
 				}
 			}
 			break;
 
 		case UNITAI_COUNTER:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isOnlyDefensive())) {
-					if (GC.getUnitInfo(eUnit).getInterceptionProbability() > 0) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isOnlyDefensive())) {
+					if (kUnit.getInterceptionProbability() > 0) {
 						bValid = true;
 					}
 
 					if (!bValid) {
 						for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-							if (GC.getUnitInfo(eUnit).getUnitClassAttackModifier(iI) > 0) {
+							if (kUnit.getUnitClassAttackModifier(iI) > 0) {
 								bValid = true;
 								break;
 							}
 
-							if (GC.getUnitInfo(eUnit).getTargetUnitClass(iI)) {
+							if (kUnit.getTargetUnitClass(iI)) {
 								bValid = true;
 								break;
 							}
@@ -8361,12 +8366,12 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 					if (!bValid) {
 						for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-							if (GC.getUnitInfo(eUnit).getUnitCombatModifier(iI) > 0) {
+							if (kUnit.getUnitCombatModifier(iI) > 0) {
 								bValid = true;
 								break;
 							}
 
-							if (GC.getUnitInfo(eUnit).getTargetUnitCombat(iI)) {
+							if (kUnit.getTargetUnitCombat(iI)) {
 								bValid = true;
 								break;
 							}
@@ -8376,13 +8381,13 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 					if (!bValid) {
 
 						for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
-							int iUnitClass = GC.getUnitInfo(eUnit).getUnitClassType();
+							int iUnitClass = kUnit.getUnitClassType();
 							if (NO_UNITCLASS != iUnitClass && GC.getUnitInfo((UnitTypes)iI).getDefenderUnitClass(iUnitClass)) {
 								bValid = true;
 								break;
 							}
 
-							int iUnitCombat = GC.getUnitInfo(eUnit).getUnitCombatType();
+							int iUnitCombat = kUnit.getUnitCombatType();
 							if (NO_UNITCOMBAT != iUnitCombat && GC.getUnitInfo((UnitTypes)iI).getDefenderUnitCombat(iUnitCombat)) {
 								bValid = true;
 								break;
@@ -8394,9 +8399,9 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_CITY_DEFENSE:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isNoDefensiveBonus())) {
-					if (GC.getUnitInfo(eUnit).getCityDefenseModifier() > 0) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isNoDefensiveBonus())) {
+					if (kUnit.getCityDefenseModifier() > 0) {
 						bValid = true;
 					}
 				}
@@ -8404,15 +8409,15 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_CITY_COUNTER:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (!(GC.getUnitInfo(eUnit).isNoDefensiveBonus())) {
-					if (GC.getUnitInfo(eUnit).getInterceptionProbability() > 0) {
+			if (kUnit.getCombat() > 0) {
+				if (!(kUnit.isNoDefensiveBonus())) {
+					if (kUnit.getInterceptionProbability() > 0) {
 						bValid = true;
 					}
 
 					if (!bValid) {
 						for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-							if (GC.getUnitInfo(eUnit).getUnitClassDefenseModifier(iI) > 0) {
+							if (kUnit.getUnitClassDefenseModifier(iI) > 0) {
 								bValid = true;
 								break;
 							}
@@ -8421,7 +8426,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 					if (!bValid) {
 						for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-							if (GC.getUnitInfo(eUnit).getUnitCombatModifier(iI) > 0) {
+							if (kUnit.getUnitCombatModifier(iI) > 0) {
 								bValid = true;
 								break;
 							}
@@ -8435,13 +8440,13 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_PARADROP:
-			if (GC.getUnitInfo(eUnit).getDropRange() > 0) {
+			if (kUnit.getDropRange() > 0) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_EXPLORE:
-			if (!GC.getUnitInfo(eUnit).isNoRevealMap() && (GC.getUnitInfo(eUnit).getCombat() > 0 || GC.getUnitInfo(eUnit).isInvisible())) // K-Mod
+			if (!kUnit.isNoRevealMap() && (kUnit.getCombat() > 0 || kUnit.isInvisible())) // K-Mod
 			{
 				if (0 == AI_unitImpassableCount(eUnit)) {
 					bValid = true;
@@ -8452,7 +8457,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		case UNITAI_MISSIONARY:
 			if (pArea != NULL) {
 				for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-					if (GC.getUnitInfo(eUnit).getReligionSpreads((ReligionTypes)iI) > 0) {
+					if (kUnit.getReligionSpreads((ReligionTypes)iI) > 0) {
 						int iNeededMissionaries = AI_neededMissionaries(pArea, ((ReligionTypes)iI));
 
 						if (iNeededMissionaries > 0) {
@@ -8465,7 +8470,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 				}
 
 				for (int iI = 0; iI < GC.getNumCorporationInfos(); iI++) {
-					if (GC.getUnitInfo(eUnit).getCorporationSpreads((CorporationTypes)iI) > 0) {
+					if (kUnit.getCorporationSpreads((CorporationTypes)iI) > 0) {
 						int iNeededMissionaries = AI_neededExecutives(pArea, ((CorporationTypes)iI));
 
 						if (iNeededMissionaries > 0) {
@@ -8490,14 +8495,14 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ICBM:
-			if (GC.getUnitInfo(eUnit).getNukeRange() != -1) {
+			if (kUnit.getNukeRange() != -1) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_WORKER_SEA:
 			for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-				if (GC.getUnitInfo(eUnit).getBuilds(iI)) {
+				if (kUnit.getBuilds(iI)) {
 					bValid = true;
 					break;
 				}
@@ -8505,9 +8510,9 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ATTACK_SEA:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (GC.getUnitInfo(eUnit).getCargoSpace() == 0) {
-					if (!(GC.getUnitInfo(eUnit).isInvisible()) && (GC.getUnitInfo(eUnit).getInvisibleType() == NO_INVISIBLE)) {
+			if (kUnit.getCombat() > 0) {
+				if (kUnit.getCargoSpace() == 0) {
+					if (!(kUnit.isInvisible()) && (kUnit.getInvisibleType() == NO_INVISIBLE)) {
 						bValid = true;
 					}
 				}
@@ -8515,16 +8520,16 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_RESERVE_SEA:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (GC.getUnitInfo(eUnit).getCargoSpace() == 0) {
+			if (kUnit.getCombat() > 0) {
+				if (kUnit.getCargoSpace() == 0) {
 					bValid = true;
 				}
 			}
 			break;
 
 		case UNITAI_ESCORT_SEA:
-			if (GC.getUnitInfo(eUnit).getCombat() > 0) {
-				if (GC.getUnitInfo(eUnit).getCargoSpace() == 0) {
+			if (kUnit.getCombat() > 0) {
+				if (kUnit.getCargoSpace() == 0) {
 					if (0 == AI_unitImpassableCount(eUnit)) {
 						bValid = true;
 					}
@@ -8533,15 +8538,15 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_EXPLORE_SEA:
-			if (GC.getUnitInfo(eUnit).getCargoSpace() <= 1 && !(GC.getUnitInfo(eUnit).isNoRevealMap())) {
+			if (kUnit.getCargoSpace() <= 1 && !(kUnit.isNoRevealMap())) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_ASSAULT_SEA:
 		case UNITAI_SETTLER_SEA:
-			if (GC.getUnitInfo(eUnit).getCargoSpace() > 0) {
-				if (GC.getUnitInfo(eUnit).getSpecialCargo() == NO_SPECIALUNIT) {
+			if (kUnit.getCargoSpace() > 0) {
+				if (kUnit.getSpecialCargo() == NO_SPECIALUNIT) {
 					bValid = true;
 				}
 			}
@@ -8551,10 +8556,10 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		case UNITAI_SPY_SEA:
 		case UNITAI_CARRIER_SEA:
 		case UNITAI_MISSILE_CARRIER_SEA:
-			if (GC.getUnitInfo(eUnit).getCargoSpace() > 0) {
-				if (GC.getUnitInfo(eUnit).getSpecialCargo() != NO_SPECIALUNIT) {
+			if (kUnit.getCargoSpace() > 0) {
+				if (kUnit.getSpecialCargo() != NO_SPECIALUNIT) {
 					for (int i = 0; i < NUM_UNITAI_TYPES; ++i) {
-						if (GC.getSpecialUnitInfo((SpecialUnitTypes)GC.getUnitInfo(eUnit).getSpecialCargo()).isCarrierUnitAIType(eUnitAI)) {
+						if (GC.getSpecialUnitInfo((SpecialUnitTypes)kUnit.getSpecialCargo()).isCarrierUnitAIType(eUnitAI)) {
 							bValid = true;
 							break;
 						}
@@ -8564,36 +8569,36 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_PIRATE_SEA:
-			if (GC.getUnitInfo(eUnit).isAlwaysHostile() && GC.getUnitInfo(eUnit).isHiddenNationality()) {
+			if (kUnit.isAlwaysHostile() && kUnit.isHiddenNationality()) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_ATTACK_AIR:
-			if (GC.getUnitInfo(eUnit).getAirCombat() > 0) {
-				if (!GC.getUnitInfo(eUnit).isSuicide()) {
+			if (kUnit.getAirCombat() > 0) {
+				if (!kUnit.isSuicide()) {
 					bValid = true;
 				}
 			}
 			break;
 
 		case UNITAI_DEFENSE_AIR:
-			if (GC.getUnitInfo(eUnit).getInterceptionProbability() > 0) {
+			if (kUnit.getInterceptionProbability() > 0) {
 				bValid = true;
 			}
 			break;
 
 		case UNITAI_CARRIER_AIR:
-			if (GC.getUnitInfo(eUnit).getAirCombat() > 0) {
-				if (GC.getUnitInfo(eUnit).getInterceptionProbability() > 0) {
+			if (kUnit.getAirCombat() > 0) {
+				if (kUnit.getInterceptionProbability() > 0) {
 					bValid = true;
 				}
 			}
 			break;
 
 		case UNITAI_MISSILE_AIR:
-			if (GC.getUnitInfo(eUnit).getAirCombat() > 0) {
-				if (GC.getUnitInfo(eUnit).isSuicide()) {
+			if (kUnit.getAirCombat() > 0) {
+				if (kUnit.isSuicide()) {
 					bValid = true;
 				}
 			}
@@ -8617,7 +8622,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	int iValue = 1;
 
-	iValue += GC.getUnitInfo(eUnit).getAIWeight();
+	iValue += kUnit.getAIWeight();
 
 	switch (eUnitAI) {
 	case UNITAI_UNKNOWN:
@@ -8625,34 +8630,34 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		break;
 
 	case UNITAI_SETTLE:
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 100);
+		iValue += (kUnit.getMoves() * 100);
 		break;
 
 	case UNITAI_WORKER:
-		for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-			if (GC.getUnitInfo(eUnit).getBuilds(iI)) {
+		for (BuildTypes eLoopBuild = (BuildTypes)0; eLoopBuild < GC.getNumBuildInfos(); eLoopBuild = (BuildTypes)(eLoopBuild + 1)) {
+			if (kUnit.getBuilds(eLoopBuild)) {
 				iValue += 50;
 			}
 		}
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 100);
+		iValue += (kUnit.getMoves() * 100);
 		break;
 
 	case UNITAI_ATTACK:
 
 		iValue += iCombatValue;
 
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getWithdrawalProbability()) / 100);
-		if (GC.getUnitInfo(eUnit).getCombatLimit() < 100) {
-			iValue -= (iCombatValue * (125 - GC.getUnitInfo(eUnit).getCombatLimit())) / 100;
+		iValue += ((iCombatValue * kUnit.getWithdrawalProbability()) / 100);
+		if (kUnit.getCombatLimit() < 100) {
+			iValue -= (iCombatValue * (125 - kUnit.getCombatLimit())) / 100;
 		}
 
-		if (GC.getUnitInfo(eUnit).getMoves() > 1) {
+		if (kUnit.getMoves() > 1) {
 			// (the bts / bbai bonus was too high)
 			int iFastMoverMultiplier = AI_isDoStrategy(AI_STRATEGY_FASTMOVERS) ? 3 : 1;
-			iValue += iCombatValue * iFastMoverMultiplier * GC.getUnitInfo(eUnit).getMoves() / 8;
+			iValue += iCombatValue * iFastMoverMultiplier * kUnit.getMoves() / 8;
 		}
 
-		if (GC.getUnitInfo(eUnit).isNoCapture()) {
+		if (kUnit.isNoCapture()) {
 			iValue -= iCombatValue * 30 / 100;
 		}
 
@@ -8665,17 +8670,17 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 		int iTempValue = ((iCombatValue * iCombatValue) / 75) + (iCombatValue / 2);
 		iValue += iTempValue;
-		if (GC.getUnitInfo(eUnit).isNoDefensiveBonus()) {
+		if (kUnit.isNoDefensiveBonus()) {
 			iValue -= iTempValue / 3; // K-Mod
 		}
-		if (GC.getUnitInfo(eUnit).isFirstStrikeImmune()) {
+		if (kUnit.isFirstStrikeImmune()) {
 			iValue += (iTempValue * 8) / 100;
 		}
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getCityAttackModifier()) / 75); // bbai (was 100).
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getWithdrawalProbability()) / 150); // K-Mod (was 100)
-		if (GC.getUnitInfo(eUnit).getMoves() > 1) {
+		iValue += ((iCombatValue * kUnit.getCityAttackModifier()) / 75); // bbai (was 100).
+		iValue += ((iCombatValue * kUnit.getWithdrawalProbability()) / 150); // K-Mod (was 100)
+		if (kUnit.getMoves() > 1) {
 			int iFastMoverMultiplier = AI_isDoStrategy(AI_STRATEGY_FASTMOVERS) ? 4 : 1;
-			iValue += iCombatValue * iFastMoverMultiplier * GC.getUnitInfo(eUnit).getMoves() / 10;
+			iValue += iCombatValue * iFastMoverMultiplier * kUnit.getMoves() / 10;
 		}
 
 		// K-Mod. Bombard rate and collateral damage are both very powerful, but they have diminishing returns wrt the number of such units.
@@ -8686,9 +8691,9 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		// Note: The original bts bombard evaluation has been deleted.
 		// The commented code above is K-Mod code from before the more recent changes; kept for comparison.
 		int iSiegeValue = 0;
-		iSiegeValue += iCombatValue * GC.getUnitInfo(eUnit).getCollateralDamage() * (4 + GC.getUnitInfo(eUnit).getCollateralDamageMaxUnits()) / 600;
-		if (GC.getUnitInfo(eUnit).getBombardRate() > 0 && !AI_isDoStrategy(AI_STRATEGY_AIR_BLITZ)) {
-			int iBombardValue = (GC.getUnitInfo(eUnit).getBombardRate() + 3) * 6;
+		iSiegeValue += iCombatValue * kUnit.getCollateralDamage() * (4 + kUnit.getCollateralDamageMaxUnits()) / 600;
+		if (kUnit.getBombardRate() > 0 && !AI_isDoStrategy(AI_STRATEGY_AIR_BLITZ)) {
+			int iBombardValue = (kUnit.getBombardRate() + 3) * 6;
 			// Decrease the bombard value if we own every city in the area, or if we are fighting an overseas war
 			if (pArea &&
 				(pArea->getNumCities() == pArea->getCitiesPerPlayer(getID()) ||
@@ -8698,7 +8703,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 			iSiegeValue += iBombardValue;
 		}
-		if (GC.getUnitInfo(eUnit).getCombatLimit() < 100) {
+		if (kUnit.getCombatLimit() < 100) {
 			PROFILE("AI_unitValue, UNITAI_ATTACK_CITY combat limit adjustment");
 			// count the number of existing combat-limited units.
 			int iLimitedUnits = 0;
@@ -8741,63 +8746,62 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_COLLATERAL:
 		iValue += iCombatValue;
-		iValue += iCombatValue * GC.getUnitInfo(eUnit).getCollateralDamage() * (1 + GC.getUnitInfo(eUnit).getCollateralDamageMaxUnits()) / 350; // K-Mod (max units is 6-8 in the current xml)
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getMoves()) / 4);
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getWithdrawalProbability()) / 25);
-		iValue -= ((iCombatValue * GC.getUnitInfo(eUnit).getCityAttackModifier()) / 100);
+		iValue += iCombatValue * kUnit.getCollateralDamage() * (1 + kUnit.getCollateralDamageMaxUnits()) / 350; // K-Mod (max units is 6-8 in the current xml)
+		iValue += ((iCombatValue * kUnit.getMoves()) / 4);
+		iValue += ((iCombatValue * kUnit.getWithdrawalProbability()) / 25);
+		iValue -= ((iCombatValue * kUnit.getCityAttackModifier()) / 100);
 		break;
 
 	case UNITAI_PILLAGE:
 		iValue += iCombatValue;
-		iValue += iCombatValue * (GC.getUnitInfo(eUnit).getMoves() - 1) / 2;
+		iValue += (iCombatValue * kUnit.getMoves());
 		break;
 
 	case UNITAI_RESERVE:
 		iValue += iCombatValue;
 		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 12000);
+			iValue += ((iCombatValue * kUnit.getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 12000);
 		}
-		if (GC.getUnitInfo(eUnit).getMoves() > 1) {
-			iValue += iCombatValue * GC.getUnitInfo(eUnit).getMoves() / (GC.getUnitInfo(eUnit).isNoDefensiveBonus() ? 7 : 5);
+		if (kUnit.getMoves() > 1) {
+			iValue += iCombatValue * kUnit.getMoves() / (kUnit.isNoDefensiveBonus() ? 7 : 5);
 		}
 
-		iValue -= (GC.getUnitInfo(eUnit).isNoDefensiveBonus() ? iCombatValue / 4 : 0);
+		iValue -= (kUnit.isNoDefensiveBonus() ? iCombatValue / 4 : 0);
 
 		for (UnitClassTypes i = (UnitClassTypes)0; i < GC.getNumUnitClassInfos(); i = (UnitClassTypes)(i + 1)) {
-			iValue += iCombatValue * GC.getUnitInfo(eUnit).getFlankingStrikeUnitClass(i) * AI_getUnitClassWeight(i) / 20000; // (this is pretty small)
+			iValue += iCombatValue * kUnit.getFlankingStrikeUnitClass(i) * AI_getUnitClassWeight(i) / 20000; // (this is pretty small)
 		}
 		break;
 
 	case UNITAI_COUNTER:
 		iValue += (iCombatValue / 2);
 		for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitClassAttackModifier(iI) * AI_getUnitClassWeight((UnitClassTypes)iI)) / 10000); // was 7500
-			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitClassDefenseModifier(iI) * AI_getUnitClassWeight((UnitClassTypes)iI)) / 10000); // K-Mod
-			iValue += ((iCombatValue * (GC.getUnitInfo(eUnit).getTargetUnitClass(iI) ? 50 : 0)) / 100);
+			iValue += ((iCombatValue * kUnit.getUnitClassAttackModifier(iI) * AI_getUnitClassWeight((UnitClassTypes)iI)) / 7500);
+			iValue += ((iCombatValue * (kUnit.getTargetUnitClass(iI) ? 50 : 0)) / 100);
 		}
 		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 7500); // was 10000
-			iValue += ((iCombatValue * (GC.getUnitInfo(eUnit).getTargetUnitCombat(iI) ? 50 : 0)) / 100);
+			iValue += ((iCombatValue * kUnit.getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 10000);
+			iValue += ((iCombatValue * (kUnit.getTargetUnitCombat(iI) ? 50 : 0)) / 100);
 		}
 		for (int iI = 0; iI < GC.getNumUnitInfos(); iI++) {
-			int eUnitClass = GC.getUnitInfo(eUnit).getUnitClassType();
+			int eUnitClass = kUnit.getUnitClassType();
 			if (NO_UNITCLASS != eUnitClass && GC.getUnitInfo((UnitTypes)iI).getDefenderUnitClass(eUnitClass)) {
 				iValue += (50 * iCombatValue) / 100;
 			}
 
-			int eUnitCombat = GC.getUnitInfo(eUnit).getUnitCombatType();
+			int eUnitCombat = kUnit.getUnitCombatType();
 			if (NO_UNITCOMBAT != eUnitCombat && GC.getUnitInfo((UnitTypes)iI).getDefenderUnitCombat(eUnitCombat)) {
 				iValue += (50 * iCombatValue) / 100;
 			}
 		}
 
-		if (GC.getUnitInfo(eUnit).getMoves() > 1) {
-			iValue += iCombatValue * GC.getUnitInfo(eUnit).getMoves() / 8;
+		if (kUnit.getMoves() > 1) {
+			iValue += iCombatValue * kUnit.getMoves() / 6;
 		}
 
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getWithdrawalProbability()) / 100);
-		if (GC.getUnitInfo(eUnit).getInterceptionProbability() > 0) {
-			int iTempValue = GC.getUnitInfo(eUnit).getInterceptionProbability();
+		iValue += ((iCombatValue * kUnit.getWithdrawalProbability()) / 100);
+		if (kUnit.getInterceptionProbability() > 0) {
+			int iTempValue = kUnit.getInterceptionProbability();
 
 			iTempValue *= (25 + std::min(175, GET_TEAM(getTeam()).AI_getRivalAirPower()));
 			iTempValue /= 100;
@@ -8808,33 +8812,33 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_CITY_DEFENSE:
 		iValue += ((iCombatValue * 2) / 3);
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getCityDefenseModifier()) / 75);
+		iValue += ((iCombatValue * kUnit.getCityDefenseModifier()) / 75);
 		// K-Mod. Value for collateral immunity
 		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			if (GC.getUnitInfo(eUnit).getUnitCombatCollateralImmune(iI)) {
+			if (kUnit.getUnitCombatCollateralImmune(iI)) {
 				iValue += iCombatValue * 30 / 100;
 				break;
 			}
 		}
 		// Other bonuses
-		iValue += iCombatValue * GC.getUnitInfo(eUnit).getHillsDefenseModifier() / 200;
+		iValue += iCombatValue * kUnit.getHillsDefenseModifier() / 200;
 		break;
 
 	case UNITAI_CITY_COUNTER:
 	case UNITAI_CITY_SPECIAL:
 	case UNITAI_PARADROP:
 		iValue += (iCombatValue / 2);
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getCityDefenseModifier()) / 100);
+		iValue += ((iCombatValue * kUnit.getCityDefenseModifier()) / 100);
 		for (int iI = 0; iI < GC.getNumUnitClassInfos(); iI++) {
-			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitClassAttackModifier(iI) * AI_getUnitClassWeight((UnitClassTypes)iI)) / 10000);
-			iValue += ((iCombatValue * (GC.getUnitInfo(eUnit).getDefenderUnitClass(iI) ? 50 : 0)) / 100);
+			iValue += ((iCombatValue * kUnit.getUnitClassAttackModifier(iI) * AI_getUnitClassWeight((UnitClassTypes)iI)) / 10000);
+			iValue += ((iCombatValue * (kUnit.getDefenderUnitClass(iI) ? 50 : 0)) / 100);
 		}
 		for (int iI = 0; iI < GC.getNumUnitCombatInfos(); iI++) {
-			iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 10000);
-			iValue += ((iCombatValue * (GC.getUnitInfo(eUnit).getDefenderUnitCombat(iI) ? 50 : 0)) / 100);
+			iValue += ((iCombatValue * kUnit.getUnitCombatModifier(iI) * AI_getUnitCombatWeight((UnitCombatTypes)iI)) / 10000);
+			iValue += ((iCombatValue * (kUnit.getDefenderUnitCombat(iI) ? 50 : 0)) / 100);
 		}
-		if (GC.getUnitInfo(eUnit).getInterceptionProbability() > 0) {
-			int iTempValue = GC.getUnitInfo(eUnit).getInterceptionProbability();
+		if (kUnit.getInterceptionProbability() > 0) {
+			int iTempValue = kUnit.getInterceptionProbability();
 
 			iTempValue *= (25 + std::min(125, GET_TEAM(getTeam()).AI_getRivalAirPower()));
 			iTempValue /= 50;
@@ -8845,8 +8849,8 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_EXPLORE:
 		iValue += (iCombatValue / 2);
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 200);
-		if (GC.getUnitInfo(eUnit).isNoBadGoodies()) {
+		iValue += (kUnit.getMoves() * 200);
+		if (kUnit.isNoBadGoodies()) {
 			iValue += 100;
 		}
 		// K-Mod note: spies are valid explorers, but the AI currently doesn't know to convert them to
@@ -8854,14 +8858,14 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		break;
 
 	case UNITAI_MISSIONARY:
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 100);
+		iValue += (kUnit.getMoves() * 100);
 		if (getStateReligion() != NO_RELIGION) {
-			if (GC.getUnitInfo(eUnit).getReligionSpreads(getStateReligion()) > 0) {
-				iValue += (5 * GC.getUnitInfo(eUnit).getReligionSpreads(getStateReligion())) / 2;
+			if (kUnit.getReligionSpreads(getStateReligion()) > 0) {
+				iValue += (5 * kUnit.getReligionSpreads(getStateReligion())) / 2;
 			}
 		}
 		for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-			if (GC.getUnitInfo(eUnit).getReligionSpreads((ReligionTypes)iI) && hasHolyCity((ReligionTypes)iI)) {
+			if (kUnit.getReligionSpreads((ReligionTypes)iI) && hasHolyCity((ReligionTypes)iI)) {
 				iValue += 80;
 				break;
 			}
@@ -8869,7 +8873,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		if (AI_isDoVictoryStrategy(AI_VICTORY_CULTURE2)) {
 			int iTempValue = 0;
 			for (int iI = 0; iI < GC.getNumReligionInfos(); iI++) {
-				if (GC.getUnitInfo(eUnit).getReligionSpreads((ReligionTypes)iI)) {
+				if (kUnit.getReligionSpreads((ReligionTypes)iI)) {
 					iTempValue += (50 * getNumCities()) / (1 + getHasReligionCount((ReligionTypes)iI));
 				}
 			}
@@ -8877,8 +8881,8 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		}
 		for (int iI = 0; iI < GC.getNumCorporationInfos(); ++iI) {
 			if (hasHeadquarters((CorporationTypes)iI)) {
-				if (GC.getUnitInfo(eUnit).getCorporationSpreads(iI) > 0) {
-					iValue += (5 * GC.getUnitInfo(eUnit).getCorporationSpreads(iI)) / 2;
+				if (kUnit.getCorporationSpreads(iI) > 0) {
+					iValue += (5 * kUnit.getCorporationSpreads(iI)) / 2;
 					// Fix potential crash, probably would only happen in mods
 					if (pArea != NULL) {
 						iValue += 300 / std::max(1, pArea->countHasCorporation((CorporationTypes)iI, getID()));
@@ -8898,23 +8902,23 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		break;
 
 	case UNITAI_SPY:
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 100);
-		if (GC.getUnitInfo(eUnit).isSabotage()) {
+		iValue += (kUnit.getMoves() * 100);
+		if (kUnit.isSabotage()) {
 			iValue += 50;
 		}
-		if (GC.getUnitInfo(eUnit).isDestroy()) {
+		if (kUnit.isDestroy()) {
 			iValue += 50;
 		}
-		if (GC.getUnitInfo(eUnit).isCounterSpy()) {
+		if (kUnit.isCounterSpy()) {
 			iValue += 100;
 		}
 		break;
 
 	case UNITAI_ICBM:
-		if (GC.getUnitInfo(eUnit).getNukeRange() != -1) {
-			int iTempValue = 100 + (GC.getUnitInfo(eUnit).getNukeRange() * 40);
-			if (GC.getUnitInfo(eUnit).getAirRange() > 0) {
-				iTempValue = iTempValue * std::min(8, GC.getUnitInfo(eUnit).getAirRange()) / 10;
+		if (kUnit.getNukeRange() != -1) {
+			int iTempValue = 100 + (kUnit.getNukeRange() * 40);
+			if (kUnit.getAirRange() > 0) {
+				iTempValue = iTempValue * std::min(8, kUnit.getAirRange()) / 10;
 			}
 			// estimate the expected loss from being shot down.
 			{
@@ -8932,7 +8936,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 				}
 				if (iInterceptTally > 0) {
 					FAssert(iPowerTally > 0);
-					iTempValue -= iTempValue * (iInterceptTally / iPowerTally) * (100 - GC.getUnitInfo(eUnit).getEvasionProbability()) / 10000;
+					iTempValue -= iTempValue * (iInterceptTally / iPowerTally) * (100 - kUnit.getEvasionProbability()) / 10000;
 				}
 			}
 			iValue += iTempValue;
@@ -8941,33 +8945,33 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_WORKER_SEA:
 		for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
-			if (GC.getUnitInfo(eUnit).getBuilds(iI)) {
+			if (kUnit.getBuilds(iI)) {
 				iValue += 50;
 			}
 		}
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 100);
+		iValue += (kUnit.getMoves() * 100);
 		break;
 
 	case UNITAI_ATTACK_SEA:
 		iValue += iCombatValue;
-		iValue += ((iCombatValue * GC.getUnitInfo(eUnit).getMoves()) / 2);
-		iValue += (GC.getUnitInfo(eUnit).getBombardRate() * 4);
+		iValue += ((iCombatValue * kUnit.getMoves()) / 2);
+		iValue += (kUnit.getBombardRate() * 4);
 		break;
 
 	case UNITAI_RESERVE_SEA:
 		iValue += iCombatValue;
-		iValue += (iCombatValue * GC.getUnitInfo(eUnit).getMoves());
+		iValue += (iCombatValue * kUnit.getMoves());
 		break;
 
 	case UNITAI_ESCORT_SEA:
 		iValue += iCombatValue;
-		iValue += (iCombatValue * GC.getUnitInfo(eUnit).getMoves());
-		iValue += (GC.getUnitInfo(eUnit).getInterceptionProbability() * 3);
-		if (GC.getUnitInfo(eUnit).getNumSeeInvisibleTypes() > 0) {
+		iValue += (iCombatValue * kUnit.getMoves());
+		iValue += (kUnit.getInterceptionProbability() * 3);
+		if (kUnit.getNumSeeInvisibleTypes() > 0) {
 			iValue += 200;
 		}
 		// Boats which can't be seen don't play defense, don't make good escorts
-		if (GC.getUnitInfo(eUnit).getInvisibleType() != NO_INVISIBLE) {
+		if (kUnit.getInvisibleType() != NO_INVISIBLE) {
 			iValue /= 2;
 		}
 		break;
@@ -8982,8 +8986,8 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 				}
 			}
 		}
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * iExploreValue);
-		if (GC.getUnitInfo(eUnit).isAlwaysHostile()) {
+		iValue += (kUnit.getMoves() * iExploreValue);
+		if (kUnit.isAlwaysHostile()) {
 			iValue /= 2;
 		}
 		iValue /= (1 + AI_unitImpassableCount(eUnit));
@@ -8995,51 +8999,51 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 	case UNITAI_MISSIONARY_SEA:
 	case UNITAI_SPY_SEA:
 		iValue += (iCombatValue / 2);
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 200);
-		iValue += (GC.getUnitInfo(eUnit).getCargoSpace() * 300);
+		iValue += (kUnit.getMoves() * 200);
+		iValue += (kUnit.getCargoSpace() * 300);
 		// Never build galley transports when ocean faring ones exist (issue mainly for Carracks)
 		iValue /= (1 + AI_unitImpassableCount(eUnit));
 		break;
 
 	case UNITAI_CARRIER_SEA:
 		iValue += iCombatValue;
-		iValue += (GC.getUnitInfo(eUnit).getMoves() * 50);
-		iValue += (GC.getUnitInfo(eUnit).getCargoSpace() * 400);
+		iValue += (kUnit.getMoves() * 50);
+		iValue += (kUnit.getCargoSpace() * 400);
 		break;
 
 	case UNITAI_MISSILE_CARRIER_SEA:
-		iValue += iCombatValue * GC.getUnitInfo(eUnit).getMoves();
-		iValue += (25 + iCombatValue) * (3 + (GC.getUnitInfo(eUnit).getCargoSpace()));
+		iValue += iCombatValue * kUnit.getMoves();
+		iValue += (25 + iCombatValue) * (3 + (kUnit.getCargoSpace()));
 		break;
 
 	case UNITAI_PIRATE_SEA:
 		iValue += iCombatValue;
-		iValue += (iCombatValue * GC.getUnitInfo(eUnit).getMoves());
+		iValue += (iCombatValue * kUnit.getMoves());
 		break;
 
 	case UNITAI_ATTACK_AIR:
 		iValue += iCombatValue;
-		iValue += (GC.getUnitInfo(eUnit).getCollateralDamage() * iCombatValue) / 100;
-		iValue += 4 * GC.getUnitInfo(eUnit).getBombRate();
-		iValue += (iCombatValue * (100 + 2 * GC.getUnitInfo(eUnit).getCollateralDamage()) * GC.getUnitInfo(eUnit).getAirRange()) / 100;
+		iValue += (kUnit.getCollateralDamage() * iCombatValue) / 100;
+		iValue += 4 * kUnit.getBombRate();
+		iValue += (iCombatValue * (100 + 2 * kUnit.getCollateralDamage()) * kUnit.getAirRange()) / 100;
 		break;
 
 	case UNITAI_DEFENSE_AIR:
 		iValue += iCombatValue;
-		iValue += (GC.getUnitInfo(eUnit).getInterceptionProbability() * 3);
-		iValue += (GC.getUnitInfo(eUnit).getAirRange() * iCombatValue);
+		iValue += (kUnit.getInterceptionProbability() * 3);
+		iValue += (kUnit.getAirRange() * iCombatValue);
 		break;
 
 	case UNITAI_CARRIER_AIR:
 		iValue += (iCombatValue);
-		iValue += (GC.getUnitInfo(eUnit).getInterceptionProbability() * 2);
-		iValue += (GC.getUnitInfo(eUnit).getAirRange() * iCombatValue);
+		iValue += (kUnit.getInterceptionProbability() * 2);
+		iValue += (kUnit.getAirRange() * iCombatValue);
 		break;
 
 	case UNITAI_MISSILE_AIR:
 		iValue += iCombatValue;
-		iValue += 4 * GC.getUnitInfo(eUnit).getBombRate();
-		iValue += GC.getUnitInfo(eUnit).getAirRange() * iCombatValue;
+		iValue += 4 * kUnit.getBombRate();
+		iValue += kUnit.getAirRange() * iCombatValue;
 		break;
 
 	case UNITAI_ATTACK_CITY_LEMMING:
@@ -9056,7 +9060,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			AreaAITypes eAreaAI = pArea->getAreaAIType(getTeam());
 			if (eAreaAI == AREAAI_ASSAULT || eAreaAI == AREAAI_ASSAULT_MASSING) {
 				for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++) {
-					if (GC.getUnitInfo(eUnit).getFreePromotions(iI)) {
+					if (kUnit.getFreePromotions(iI)) {
 						if (GC.getPromotionInfo((PromotionTypes)iI).isAmphib()) {
 							iValue *= 133;
 							iValue /= 100;

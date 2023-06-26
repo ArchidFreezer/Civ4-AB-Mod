@@ -900,7 +900,6 @@ public:
 	int getBombardRate() const;								// Exposed to Python
 	int getSpecialCargo() const;							// Exposed to Python
 	int getDomainCargo() const;								// Exposed to Python
-
 	int getCargoSpace() const;								// Exposed to Python
 	int getConscriptionValue() const;					// Exposed to Python
 	int getCultureGarrisonValue() const;			// Exposed to Python
@@ -991,6 +990,7 @@ public:
 	bool isPrereqPower() const;
 	bool isWorkerTrade() const;
 	bool isMilitaryTrade() const;
+	bool isFixedAI() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
@@ -1205,6 +1205,7 @@ protected:
 	bool m_bPrereqPower;
 	bool m_bWorkerTrade;
 	bool m_bMilitaryTrade;
+	bool m_bFixedAI;
 
 	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;

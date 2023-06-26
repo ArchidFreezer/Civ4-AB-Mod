@@ -2974,6 +2974,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_bPrereqPower(false),
 	m_bWorkerTrade(false),
 	m_bMilitaryTrade(false),
+	m_bFixedAI(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
 	m_pbUpgradeUnitClass(NULL),
@@ -3067,6 +3068,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+bool CvUnitInfo::isFixedAI() const {
+	return m_bFixedAI;
 }
 
 bool CvUnitInfo::isWorkerTrade() const {
@@ -4189,6 +4194,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bPrereqPower);
 	stream->Read(&m_bWorkerTrade);
 	stream->Read(&m_bMilitaryTrade);
+	stream->Read(&m_bFixedAI);
 
 	stream->Read(&m_fUnitMaxSpeed);
 	stream->Read(&m_fUnitPadTime);
@@ -4584,6 +4590,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bPrereqPower);
 	stream->Write(m_bWorkerTrade);
 	stream->Write(m_bMilitaryTrade);
+	stream->Write(m_bFixedAI);
 
 	stream->Write(m_fUnitMaxSpeed);
 	stream->Write(m_fUnitPadTime);
@@ -4732,6 +4739,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 
 	pXML->GetChildXmlValByName(szTextVal, "DefaultUnitAI");
 	m_iDefaultUnitAIType = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(&m_bFixedAI, "bFixedAI", false);
 
 	pXML->GetChildXmlValByName(szTextVal, "Invisible");
 	m_iInvisibleType = pXML->FindInInfoClass(szTextVal);

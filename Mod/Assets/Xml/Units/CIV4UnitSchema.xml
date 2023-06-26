@@ -485,6 +485,7 @@
 	<ElementType name="ObsoleteTech" content="textOnly"/>
 	<ElementType name="bWorkerTrade" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bMilitaryTrade" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -495,6 +496,7 @@
 		<element type="SubCombatTypes" minOccurs="0"/>
 		<element type="Domain"/>
 		<element type="DefaultUnitAI"/>
+		<element type="bFixedAI" minOccurs="0"/>
 		<element type="Invisible" minOccurs="0"/>
 		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="Description" minOccurs="0"/>
