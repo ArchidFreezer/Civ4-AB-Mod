@@ -857,6 +857,7 @@ CvTechInfo::CvTechInfo() :
 	m_bEmbassyTrading(false),
 	m_bLimitedBordersTrading(false),
 	m_bFreeTradeAgreementTrading(false),
+	m_bNonAggressionTrading(false),
 	m_piDomainExtraMoves(NULL),
 	m_piFlavorValue(NULL),
 	m_piForestPlotYieldChange(NULL),
@@ -885,6 +886,10 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce); // K-Mod
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+bool CvTechInfo::isNonAggressionTrading() const {
+	return m_bNonAggressionTrading;
 }
 
 bool CvTechInfo::isFreeTradeAgreementTrading() const {
@@ -1289,6 +1294,7 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bEmbassyTrading);
 	stream->Read(&m_bLimitedBordersTrading);
 	stream->Read(&m_bFreeTradeAgreementTrading);
+	stream->Read(&m_bNonAggressionTrading);
 	stream->Read(&m_iGridX);
 	stream->Read(&m_iGridY);
 
@@ -1402,6 +1408,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bEmbassyTrading);
 	stream->Write(m_bLimitedBordersTrading);
 	stream->Write(m_bFreeTradeAgreementTrading);
+	stream->Write(m_bNonAggressionTrading);
 	stream->Write(m_iGridX);
 	stream->Write(m_iGridY);
 
@@ -1475,6 +1482,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bEmbassyTrading, "bEmbassyTrading");
 	pXML->GetChildXmlValByName(&m_bLimitedBordersTrading, "bLimitedBordersTrading");
 	pXML->GetChildXmlValByName(&m_bFreeTradeAgreementTrading, "bFreeTradeAgreementTrading");
+	pXML->GetChildXmlValByName(&m_bNonAggressionTrading, "bNonAggressionTrading");
 	pXML->GetChildXmlValByName(&m_bDefensivePactTrading, "bDefensivePactTrading");
 	pXML->GetChildXmlValByName(&m_bPermanentAllianceTrading, "bPermanentAllianceTrading");
 	pXML->GetChildXmlValByName(&m_bVassalStateTrading, "bVassalTrading");
@@ -13353,10 +13361,12 @@ void CvLeaderHeadInfo::setDefaultMemoryInfo() {
 	// Add the default values here
 	std::map<MemoryTypes, int> mAttitudeVals;
 	mAttitudeVals.insert(std::make_pair(MEMORY_CANCELLED_FREE_TRADE_AGREEMENT, -100));
+	mAttitudeVals.insert(std::make_pair(MEMORY_CANCELLED_NON_AGGRESSION, -100));
 	mAttitudeVals.insert(std::make_pair(MEMORY_RECALLED_AMBASSADOR, -150));
 
 	std::map<MemoryTypes, int> mDecayVals;
 	mDecayVals.insert(std::make_pair(MEMORY_CANCELLED_FREE_TRADE_AGREEMENT, 15));
+	mDecayVals.insert(std::make_pair(MEMORY_CANCELLED_NON_AGGRESSION, 15));
 	mDecayVals.insert(std::make_pair(MEMORY_RECALLED_AMBASSADOR, 15));
 
 	////////////////////

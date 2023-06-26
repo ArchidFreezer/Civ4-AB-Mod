@@ -763,7 +763,7 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 	case TRADE_EMBASSY:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_EMBASSY, kFromPlayer.getTeam(), eToTeam, true);
-			GET_TEAM(kFromPlayer.getTeam()).setHasEmbassy(((TeamTypes)(eToTeam)), true);
+			GET_TEAM(kFromPlayer.getTeam()).setHasEmbassy(eToTeam, true);
 		} else {
 			bSave = true;
 		}
@@ -772,7 +772,7 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 	case TRADE_OPEN_BORDERS:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_OPEN_BORDERS, kFromPlayer.getTeam(), eToTeam, true);
-			GET_TEAM(kFromPlayer.getTeam()).setOpenBorders(((TeamTypes)(eToTeam)), true);
+			GET_TEAM(kFromPlayer.getTeam()).setOpenBorders(eToTeam, true);
 			endTeamTrade(TRADE_LIMITED_BORDERS, kFromPlayer.getTeam(), eToTeam);
 			if (gTeamLogLevel >= 2) {
 				logBBAI("    Player %d (%S_1) signs open borders due to TRADE_OPEN_BORDERS with player %d (%S_2)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
@@ -785,7 +785,7 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 	case TRADE_LIMITED_BORDERS:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_LIMITED_BORDERS, kFromPlayer.getTeam(), eToTeam, true);
-			GET_TEAM(kFromPlayer.getTeam()).setLimitedBorders(((TeamTypes)(eToTeam)), true);
+			GET_TEAM(kFromPlayer.getTeam()).setLimitedBorders(eToTeam, true);
 		} else {
 			bSave = true;
 		}
@@ -794,7 +794,7 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 	case TRADE_FREE_TRADE_ZONE:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_FREE_TRADE_ZONE, GET_PLAYER(eFromPlayer).getTeam(), GET_PLAYER(eToPlayer).getTeam(), true);
-			GET_TEAM(GET_PLAYER(eFromPlayer).getTeam()).setFreeTradeAgreement(((TeamTypes)(GET_PLAYER(eToPlayer).getTeam())), true);
+			GET_TEAM(GET_PLAYER(eFromPlayer).getTeam()).setFreeTradeAgreement(eToTeam, true);
 		} else {
 			bSave = true;
 		}
@@ -803,7 +803,7 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 	case TRADE_DEFENSIVE_PACT:
 		if (trade.m_iData == 0) {
 			startTeamTrade(TRADE_DEFENSIVE_PACT, kFromPlayer.getTeam(), eToTeam, true);
-			GET_TEAM(kFromPlayer.getTeam()).setDefensivePact(((TeamTypes)(eToTeam)), true);
+			GET_TEAM(kFromPlayer.getTeam()).setDefensivePact(eToTeam, true);
 			if (gTeamLogLevel >= 2) {
 				logBBAI("    Player %d (%S) signs defensive pact due to TRADE_DEFENSIVE_PACT with player %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
 			}
@@ -816,11 +816,20 @@ bool CvDeal::startTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eT
 		break;
 
 	case TRADE_PEACE_TREATY:
-		GET_TEAM(kFromPlayer.getTeam()).setForcePeace(((TeamTypes)(eToTeam)), true);
+		GET_TEAM(kFromPlayer.getTeam()).setForcePeace(eToTeam, true);
 		if (gTeamLogLevel >= 2) {
 			logBBAI("    Player %d (%S) signs peace treaty due to TRADE_PEACE_TREATY with player %d (%S)", eFromPlayer, kFromPlayer.getCivilizationDescription(0), eToPlayer, kToPlayer.getCivilizationDescription(0));
 		}
 		bSave = true;
+		break;
+
+	case TRADE_NON_AGGRESSION:
+		if (trade.m_iData == 0) {
+			startTeamTrade(TRADE_NON_AGGRESSION, kFromPlayer.getTeam(),kToPlayer.getTeam(), true);
+			GET_TEAM(kFromPlayer.getTeam()).setHasNonAggression(eToTeam, true);
+		} else {
+			bSave = true;
+		}
 		break;
 
 	default:
@@ -890,6 +899,7 @@ void CvDeal::endTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eToP
 			endTeamTrade(TRADE_DEFENSIVE_PACT, eFromTeam, eToTeam);
 			endTeamTrade(TRADE_PERMANENT_ALLIANCE, eFromTeam, eToTeam);
 			endTeamTrade(TRADE_FREE_TRADE_ZONE, eFromTeam, eToTeam);
+			endTeamTrade(TRADE_NON_AGGRESSION, eFromTeam, eToTeam);
 		}
 
 		for (PlayerTypes eOuterPlayer = (PlayerTypes)0; eOuterPlayer < MAX_PLAYERS; eOuterPlayer = (PlayerTypes)(eOuterPlayer + 1)) {
@@ -993,6 +1003,29 @@ void CvDeal::endTrade(TradeData trade, PlayerTypes eFromPlayer, PlayerTypes eToP
 		kFromTeam.setForcePeace((eToTeam), false);
 		break;
 
+	case TRADE_NON_AGGRESSION:
+		kFromTeam.setHasNonAggression(eToTeam, false);
+		if (bTeam) {
+			endTeamTrade(TRADE_NON_AGGRESSION, eFromTeam, eToTeam);
+		}
+
+		for (PlayerTypes eOuterPlayer = (PlayerTypes)0; eOuterPlayer < MAX_PLAYERS; eOuterPlayer = (PlayerTypes)(eOuterPlayer + 1)) {
+			CvPlayer& kOuterPlayer = GET_PLAYER(eOuterPlayer);
+			if (kOuterPlayer.isAlive()) {
+				if (kOuterPlayer.getTeam() == eFromTeam) {
+					for (PlayerTypes eInnerPlayer = (PlayerTypes)0; eInnerPlayer < MAX_PLAYERS; eInnerPlayer = (PlayerTypes)(eInnerPlayer + 1)) {
+						const CvPlayer& kInnerPlayer = GET_PLAYER(eInnerPlayer);
+						if (kInnerPlayer.isAlive()) {
+							if (kInnerPlayer.getTeam() == eToTeam) {
+								kOuterPlayer.AI_changeMemoryCount(eInnerPlayer, MEMORY_CANCELLED_NON_AGGRESSION, 1);
+							}
+						}
+					}
+				}
+			}
+		}
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -1090,6 +1123,7 @@ bool CvDeal::isAnnual(TradeableItems eItem) {
 	case TRADE_EMBASSY:
 	case TRADE_LIMITED_BORDERS:
 	case TRADE_FREE_TRADE_ZONE:
+	case TRADE_NON_AGGRESSION:
 		return true;
 		break;
 	}
@@ -1106,6 +1140,7 @@ bool CvDeal::isDual(TradeableItems eItem, bool bExcludePeace) {
 	case TRADE_EMBASSY:
 	case TRADE_LIMITED_BORDERS:
 	case TRADE_FREE_TRADE_ZONE:
+	case TRADE_NON_AGGRESSION:
 		return true;
 	case TRADE_PEACE_TREATY:
 		return (!bExcludePeace);
@@ -1123,6 +1158,7 @@ bool CvDeal::hasData(TradeableItems eItem) {
 		eItem != TRADE_DEFENSIVE_PACT &&
 		eItem != TRADE_PERMANENT_ALLIANCE &&
 		eItem != TRADE_EMBASSY &&
+		eItem != TRADE_NON_AGGRESSION &&
 		eItem != TRADE_PEACE_TREATY);
 }
 
