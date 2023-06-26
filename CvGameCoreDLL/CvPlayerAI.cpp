@@ -12583,7 +12583,7 @@ void CvPlayerAI::AI_doDiplo() {
 
 							if (eOtherTeam != getTeam() && !((kOurTeam).isHuman()) && (kOtherPlayer.isHuman() || !(kOtherTeam.isHuman()))) {
 								FAssertMsg(!(kOtherPlayer.isBarbarian()), "(kOtherPlayer.isBarbarian()) did not return false as expected");
-								FAssertMsg(iI != getID(), "iI is not expected to be equal with getID()");
+								FAssertMsg(eOtherPlayer != getID(), "iI is not expected to be equal with getID()");
 
 								if (kOtherTeam.isVassal(getTeam())) {
 									int iBestValue = 0;
