@@ -19268,8 +19268,7 @@ bool CvPlayer::applyStarEvent(StarEventTypes eEvent, bool bPersist) {
 
 	// Combat Experience
 	if (kEvent.getCombatPoints() - getStarSignPersistDecay() > 0) {
-		// Never lose combat experience
-		if (bGoodEffect) {
+		if (bGoodEffect || !isStarSignMitigated(eEvent, getCapitalCity())) {
 			int iMaxChange = getStarMaxChange(kEvent.getCombatPoints(), getStarMultiplierPercent(kEvent.getScalePoints(), getCapitalCity(), bGoodEffect));
 			int iActualChange = (getCombatExperience() + iMaxChange) < 0 ? getCombatExperience() * -1 : iMaxChange;
 			reportStarEffect(iActualChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
@@ -19305,7 +19304,7 @@ bool CvPlayer::applyStarEvent(StarEventTypes eEvent, bool bPersist) {
 		if (bGoodEffect || !isStarSignMitigated(eEvent, getCapitalCity())) {
 			int iMaxChange = getStarMaxChange(kEvent.getGold(), getStarMultiplierPercent(kEvent.getScalePoints(), getCapitalCity(), bGoodEffect));
 			int iActualChange = (getGold() + iMaxChange) < 0 ? getGold() * -1 : iMaxChange;
-			reportStarEffect(iActualChange, eEvent, getCapitalCity()->getName());
+			reportStarEffect(iActualChange, eEvent, gDLL->getText(GC.getSTAR_SIGN_DEFAULT_TEXT_KEY_AGGREGATE_TARGET()));
 			changeGold(iActualChange);
 			bNoEffect = false;
 		}
