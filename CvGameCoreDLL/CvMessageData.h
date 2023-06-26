@@ -56,7 +56,8 @@ private:
 class CvNetPushOrder : public CvMessageData {
 public:
 	CvNetPushOrder(PlayerTypes ePlayer = NO_PLAYER, int iCityID = -1, OrderTypes eOrder = NO_ORDER, int iData = -1, bool bSave = false, bool bPop = true, int iPosition = 0)
-		: CvMessageData(GAMEMESSAGE_PUSH_ORDER), m_ePlayer(ePlayer), m_iCityID(iCityID), m_eOrder(eOrder), m_iData(iData), m_bSave(bSave), m_bPop(bPop), m_iPosition(iPosition) {}
+		: CvMessageData(GAMEMESSAGE_PUSH_ORDER), m_ePlayer(ePlayer), m_iCityID(iCityID), m_eOrder(eOrder), m_iData(iData), m_bSave(bSave), m_bPop(bPop), m_iPosition(iPosition) {
+	}
 	DllExport virtual void Debug(char* szAddendum);
 	DllExport virtual void Execute();
 	DllExport virtual void PutInBuffer(FDataStreamBase* pStream);
@@ -387,6 +388,17 @@ private:
 	int m_iY;
 };
 
-
+class CvNetToggleWorldView : public CvMessageData {
+public:
+	CvNetToggleWorldView();
+	CvNetToggleWorldView(PlayerTypes ePlayer, WorldViewTypes eWorldView);
+	virtual void Debug(char* szAddendum);
+	virtual void Execute();
+	virtual void PutInBuffer(FDataStreamBase* pStream);
+	virtual void SetFromBuffer(FDataStreamBase* pStream);
+private:
+	PlayerTypes m_ePlayer;
+	WorldViewTypes m_eWorldView;
+};
 
 #endif

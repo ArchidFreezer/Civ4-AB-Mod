@@ -6275,6 +6275,7 @@ BuildTypes CvUnit::getBuildType() const {
 		case MISSION_LEAD:
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
+		case MISSION_UPDATE_WORLD_VIEWS:
 			break;
 
 		case MISSION_BUILD:
