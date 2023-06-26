@@ -717,6 +717,7 @@ enum FlavorTypes						// Exposed to Python
 	FLAVOR_SCIENCE,
 	FLAVOR_CULTURE,
 	FLAVOR_GROWTH,
+	FLAVOR_ESPIONAGE,
 };
 
 enum EmphasizeTypes					// Exposed to Python
