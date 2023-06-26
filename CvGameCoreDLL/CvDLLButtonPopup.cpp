@@ -59,10 +59,12 @@ void CvDLLButtonPopup::freeInstance() {
 	m_pInst = NULL;
 }
 
-CvDLLButtonPopup::CvDLLButtonPopup() {}
+CvDLLButtonPopup::CvDLLButtonPopup() {
+}
 
 
-CvDLLButtonPopup::~CvDLLButtonPopup() {}
+CvDLLButtonPopup::~CvDLLButtonPopup() {
+}
 
 void CvDLLButtonPopup::OnAltExecute(CvPopup& popup, const PopupReturn& popupReturn, CvPopupInfo& info) {
 	CvPopupInfo* pInfo = new CvPopupInfo;
@@ -604,6 +606,9 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn* pPopupReturn, C
 		CvMessageControl::getInstance().sendFoundReligion(GC.getGameINLINE().getActivePlayer(), (ReligionTypes)pPopupReturn->getButtonClicked(), (ReligionTypes)info.getData1());
 		break;
 
+	case BUTTONPOPUP_GOTO_CITY:
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -818,6 +823,9 @@ bool CvDLLButtonPopup::launchButtonPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		break;
 	case BUTTONPOPUP_FOUND_RELIGION:
 		bLaunched = launchFoundReligionPopup(pPopup, info);
+		break;
+	case BUTTONPOPUP_GOTO_CITY:
+		bLaunched = launchGoToCityPopup(pPopup, info);
 		break;
 	default:
 		FAssert(false);
@@ -2190,6 +2198,48 @@ bool CvDLLButtonPopup::launchFoundReligionPopup(CvPopup* pPopup, CvPopupInfo& in
 	}
 
 	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+
+	return true;
+}
+
+bool CvDLLButtonPopup::launchGoToCityPopup(CvPopup* pPopup, CvPopupInfo& info) {
+	CvPlayer& kPlayer = GET_PLAYER(GC.getGameINLINE().getActivePlayer());
+	CvWString szBuffer = gDLL->getText("TXT_KEY_POPUP_GOTO_CITY");
+	CvUnit* pUnit = gDLL->getInterfaceIFace()->getHeadSelectedUnit();
+
+	int iButtonID = 0;
+	if (pUnit != NULL) {
+		KmodPathFinder PathFinder;
+		PathFinder.SetSettings(pUnit->getGroup());
+		switch (pUnit->getDomainType()) {
+			int iLoopCity;
+		case DOMAIN_LAND:
+			gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, szBuffer);
+
+			for (CvCity* pCity = kPlayer.firstCity(&iLoopCity); pCity != NULL; pCity = kPlayer.nextCity(&iLoopCity)) {
+				if (PathFinder.GeneratePath(pCity->plot())) {
+					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(pCity->getName()).c_str(), NULL, iButtonID++, WIDGET_CITY_GOTO, pCity->getID());
+				}
+			}
+
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, iButtonID, WIDGET_GENERAL);
+			gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+			break;
+
+			//For Sea units we want the list to only include Coastal cities
+		case DOMAIN_SEA:
+			gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, szBuffer);
+			for (CvCity* pCity = kPlayer.firstCity(&iLoopCity); pCity != NULL; pCity = kPlayer.nextCity(&iLoopCity)) {
+				if (pCity->isCoastal(10) && PathFinder.GeneratePath(pCity->plot())) {
+					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText(pCity->getName()).c_str(), NULL, iButtonID++, WIDGET_CITY_GOTO, pCity->getID());
+				}
+			}
+
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, iButtonID, WIDGET_GENERAL);
+			gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+			break;
+		}
+	}
 
 	return true;
 }
