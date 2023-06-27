@@ -102,6 +102,8 @@ public:
 	CvUnit* getShadowUnit() const;
 	void clearShadowUnit();
 
+	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
+
 	bool canTradeUnit(PlayerTypes eReceivingPlayer);
 	void tradeUnit(PlayerTypes eReceivingPlayer);
 
