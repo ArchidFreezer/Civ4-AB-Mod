@@ -1622,6 +1622,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyDisablePowerChange(0),
 	m_iSpySwitchCivicChange(0),
 	m_iSpySwitchReligionChange(0),
+	m_iSpyEscapeChange(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1663,6 +1664,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSpyEscapeChange() const {
+	return m_iSpyEscapeChange;
 }
 
 int CvPromotionInfo::getSpyDiploPenaltyChange() const {
@@ -2051,6 +2056,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyDisablePowerChange);
 	stream->Read(&m_iSpySwitchCivicChange);
 	stream->Read(&m_iSpySwitchReligionChange);
+	stream->Read(&m_iSpyEscapeChange);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2178,6 +2184,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyDisablePowerChange);
 	stream->Write(m_iSpySwitchCivicChange);
 	stream->Write(m_iSpySwitchReligionChange);
+	stream->Write(m_iSpyEscapeChange);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2293,6 +2300,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpyPoisonModifier, "iSpyPoisonModifier");
 	pXML->GetChildXmlValByName(&m_iSpyEvasionChange, "iSpyEvasionChange");
 	pXML->GetChildXmlValByName(&m_iSpyDiploPenaltyChange, "iSpyDiploPenaltyChange");
+	pXML->GetChildXmlValByName(&m_iSpyEscapeChange, "iSpyEscapeChange");
 	pXML->GetChildXmlValByName(&m_iSpyNukeCityChange, "iSpyNukeCityChange");
 	pXML->GetChildXmlValByName(&m_iSpyDisablePowerChange, "iSpyDisablePowerChange");
 	pXML->GetChildXmlValByName(&m_iSpySwitchCivicChange, "iSpySwitchCivicChange");
