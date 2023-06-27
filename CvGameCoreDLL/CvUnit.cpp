@@ -11368,44 +11368,46 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* attack from water
-			else if (kPromotion.isAmphib() && data->bAmphibAttack) {
+			if (kPromotion.isAmphib() && data->bAmphibAttack) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* attack terrain
-			else if (kPromotion.getTerrainAttackPercent(pPlot->getTerrainType()) > 0) {
+			if (kPromotion.getTerrainAttackPercent(pPlot->getTerrainType()) > 0) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* attack feature
-			else if (pPlot->getFeatureType() != NO_FEATURE && kPromotion.getFeatureAttackPercent(pPlot->getFeatureType()) > 0) {
+			if (pPlot->getFeatureType() != NO_FEATURE && kPromotion.getFeatureAttackPercent(pPlot->getFeatureType()) > 0) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* attack hills
-			else if (kPromotion.getHillsAttackPercent() > 0 && pPlot->isHills()) {
+			if (kPromotion.getHillsAttackPercent() > 0 && pPlot->isHills()) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* attack city
-			else if (kPromotion.getCityAttackPercent() > 0 && pPlot->isCity(true))	//count forts too
+			if (kPromotion.getCityAttackPercent() > 0 && pPlot->isCity(true))	//count forts too
 			{
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* first strikes/chances promotions
-			else if ((kPromotion.getFirstStrikesChange() > 0 || kPromotion.getChanceFirstStrikesChange() > 0) && (firstStrikes() > 0 || chanceFirstStrikes() > 0)) {
+			if ((kPromotion.getFirstStrikesChange() > 0 || kPromotion.getChanceFirstStrikesChange() > 0) && (firstStrikes() > 0 || chanceFirstStrikes() > 0)) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* unit combat mod
-			else if (kPromotion.getUnitCombatModifierPercent(pDefender->getUnitCombatType()) > 0) {
-				aAttackerAvailablePromotions.push_back(ePromotion);
+			for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+				if (pDefender->isUnitCombatType(eUnitCombat) && kPromotion.getUnitCombatModifierPercent(eUnitCombat) > 0) {
+					aAttackerAvailablePromotions.push_back(ePromotion);
+				}
 			}
 			//* combat strength promotions
-			else if (kPromotion.getCombatPercent() > 0) {
+			if (kPromotion.getCombatPercent() > 0) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* domain mod
-			else if (kPromotion.getDomainModifierPercent(pDefender->getDomainType())) {
+			if (kPromotion.getDomainModifierPercent(pDefender->getDomainType())) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 			//* blitz
-			else if (kPromotion.isBlitz() && data->bAttackerUninjured) {
+			if (kPromotion.isBlitz() && data->bAttackerUninjured) {
 				aAttackerAvailablePromotions.push_back(ePromotion);
 			}
 		}	//if defender is dead
@@ -11434,32 +11436,34 @@ void CvUnit::doFieldPromotions(CombatData* data, CvUnit* pDefender, CvPlot* pPlo
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* defend feature
-			else if (pPlot->getFeatureType() != NO_FEATURE && kPromotion.getFeatureDefensePercent(pPlot->getFeatureType()) > 0) {
+			if (pPlot->getFeatureType() != NO_FEATURE && kPromotion.getFeatureDefensePercent(pPlot->getFeatureType()) > 0) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* defend hills
-			else if (kPromotion.getHillsDefensePercent() > 0 && pPlot->isHills()) {
+			if (kPromotion.getHillsDefensePercent() > 0 && pPlot->isHills()) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* defend city
-			else if (kPromotion.getCityDefensePercent() > 0 && pPlot->isCity(true))	//count forts too
+			if (kPromotion.getCityDefensePercent() > 0 && pPlot->isCity(true))	//count forts too
 			{
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* first strikes/chances promotions
-			else if ((kPromotion.getFirstStrikesChange() > 0 || kPromotion.getChanceFirstStrikesChange() > 0) && (pDefender->firstStrikes() > 0 || pDefender->chanceFirstStrikes() > 0)) {
+			if ((kPromotion.getFirstStrikesChange() > 0 || kPromotion.getChanceFirstStrikesChange() > 0) && (pDefender->firstStrikes() > 0 || pDefender->chanceFirstStrikes() > 0)) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* unit combat mod vs attacker unit type
-			else if (kPromotion.getUnitCombatModifierPercent(getUnitCombatType()) > 0) {
-				aDefenderAvailablePromotions.push_back(ePromotion);
+			for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+				if (isUnitCombatType(eUnitCombat) && kPromotion.getUnitCombatModifierPercent(eUnitCombat) > 0) {
+					aDefenderAvailablePromotions.push_back(ePromotion);
+				}
 			}
 			//* combat strength promotions
-			else if (kPromotion.getCombatPercent() > 0) {
+			if (kPromotion.getCombatPercent() > 0) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 			//* domain mod
-			else if (kPromotion.getDomainModifierPercent(getDomainType())) {
+			if (kPromotion.getDomainModifierPercent(getDomainType())) {
 				aDefenderAvailablePromotions.push_back(ePromotion);
 			}
 		}	//if attacker dead
