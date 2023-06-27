@@ -6,6 +6,14 @@
 		<English>Disorganized</English>
 		<Spanish>Desorganizado</Spanish>
 	</TEXT>
+	<TEXT> <!-- Loyalty -->
+		<Tag>TXT_KEY_PROMOTION_LOYALTY</Tag>
+		<English>Loyalty</English>
+		<French>Fidelite </French>
+		<German>Loyalitet</German>
+		<Italian>Lealte</Italian>
+		<Spanish>Lealtad</Spanish>
+	</TEXT>	
 
 <!-- ************	-->
 <!-- Text         -->
@@ -26,4 +34,12 @@
 		<Tag>TXT_KEY_PROMOTION_RANGE_MODIFY</Tag>
 		<English>%D1_Change% Range modification</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LOYAL_TEXT_SPY</Tag>
+		<English>[ICON_BULLET]Never reveals team identity</English>
+	</TEXT>	
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_LOYAL_TEXT</Tag>
+		<English>[ICON_BULLET]Never switches allegiance</English>
+	</TEXT>	
 </Civ4GameText>

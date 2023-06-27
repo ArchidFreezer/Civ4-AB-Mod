@@ -102,7 +102,14 @@ public:
 	CvUnit* getShadowUnit() const;
 	void clearShadowUnit();
 
+	bool isDoubleAgent() const;
+	bool isLoyal() const;
+	int getLoyaltyCount() const;
 	void awardSpyExperience(TeamTypes eTargetTeam, int iModifier);
+	void changeLoyaltyCount(int iChange);
+	void setOriginalSpymaster(PlayerTypes ePlayer);
+	PlayerTypes getOriginalSpymaster() const;
+
 
 	bool canTradeUnit(PlayerTypes eReceivingPlayer);
 	void tradeUnit(PlayerTypes eReceivingPlayer);
@@ -890,6 +897,7 @@ protected:
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;
+	int m_iLoyaltyCount;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
@@ -904,6 +912,7 @@ protected:
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
+	PlayerTypes m_eOriginalSpymaster;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;

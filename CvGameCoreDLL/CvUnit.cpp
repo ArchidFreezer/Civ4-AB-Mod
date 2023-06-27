@@ -310,6 +310,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iRangeUnboundCount = 0;
 	m_iTerritoryUnboundCount = 0;
 	m_iCanMovePeaksCount = 0;
+	m_iLoyaltyCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -324,6 +325,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
+	m_eOriginalSpymaster = NO_PLAYER;
 	m_eUnitType = eUnit;
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
 	m_iBaseCombat = (NO_UNIT != m_eUnitType) ? m_pUnitInfo->getCombat() : 0;
@@ -5355,18 +5357,24 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iM
 		return false;
 	}
 
+	//
+	// At this point we know the spy has failed their mission
 	CvString szFormatNoReveal;
 	CvString szFormatReveal;
+	CvString szFormatRevealTurned;
 
-	if (GET_TEAM(kTargetPlayer.getTeam()).getCounterespionageModAgainstTeam(getTeam()) > 0) {
+	if (GET_TEAM(kTargetPlayer.getTeam()).getCounterespionageModAgainstTeam(getTeam()) > 0) { // Counterespionage
 		szFormatNoReveal = "TXT_KEY_SPY_INTERCEPTED_MISSION";
 		szFormatReveal = "TXT_KEY_SPY_INTERCEPTED_MISSION_REVEAL";
-	} else if (plot()->isEspionageCounterSpy(kTargetPlayer.getTeam())) {
+		szFormatRevealTurned = "TXT_KEY_SPY_INTERCEPTED_MISSION_REVEAL_TURNED";
+	} else if (plot()->isEspionageCounterSpy(kTargetPlayer.getTeam())) { // Spy presence
 		szFormatNoReveal = "TXT_KEY_SPY_INTERCEPTED_SPY";
 		szFormatReveal = "TXT_KEY_SPY_INTERCEPTED_SPY_REVEAL";
-	} else {
+		szFormatRevealTurned = "TXT_KEY_SPY_INTERCEPTED_SPY_REVEAL_TURNED";
+	} else { // Chance
 		szFormatNoReveal = "TXT_KEY_SPY_INTERCEPTED";
 		szFormatReveal = "TXT_KEY_SPY_INTERCEPTED_REVEAL";
+		szFormatRevealTurned = "TXT_KEY_SPY_INTERCEPTED_REVEAL_TURNED";
 	}
 
 	CvWString szCityName = kTargetPlayer.getCivilizationShortDescription();
@@ -5378,12 +5386,32 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iM
 	CvWString szBuffer = gDLL->getText(szFormatReveal.GetCString(), GET_PLAYER(getOwnerINLINE()).getCivilizationAdjectiveKey(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
 	gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSED", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), true, true);
 
-	if (GC.getGameINLINE().getSorenRandNum(100, "Spy Reveal identity") < GC.getDefineINT("ESPIONAGE_SPY_REVEAL_IDENTITY_PERCENT")) {
+	// Determine if the target identifies the owner of the spy
+	bool bDoubleAgent = false;
+	if (!isLoyal() && GC.getGameINLINE().getSorenRandNum(100, "Spy Reveal identity") < GC.getDefineINT("ESPIONAGE_SPY_REVEAL_IDENTITY_PERCENT")) {
+		// Determine whether the spy can be turned to provide the target a double agent
+		bDoubleAgent = GC.getGameINLINE().getSorenRandNum(100, "Spy turning") < GC.getDOUBLE_AGENT_CREATE_CHANCE();
+
 		if (!isEnemy(kTargetPlayer.getTeam())) {
 			GET_PLAYER(eTargetPlayer).AI_changeMemoryCount(getOwnerINLINE(), MEMORY_SPY_CAUGHT, 1);
 		}
 
+		// If the target turns the agent they may also gain some espionage points against the owner
+		int iGainPoints = 0;
+		if (bDoubleAgent) {
+			iGainPoints = GC.getGameINLINE().getSorenRandNum(200, "Captured Intel");
+			szBuffer = gDLL->getText(szFormatRevealTurned.GetCString(), GET_PLAYER(getOwnerINLINE()).getCivilizationAdjectiveKey(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
+		}
+
 		gDLL->getInterfaceIFace()->addHumanMessage(eTargetPlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
+
+		if (iGainPoints > 0) {
+			GET_TEAM(kTargetPlayer.getTeam()).changeEspionagePointsAgainstTeam(GET_PLAYER(getOwnerINLINE()).getTeam(), iGainPoints);
+
+			szBuffer = gDLL->getText("TXT_KEY_MISC_DOUBLE_AGENT_INTEL", GET_PLAYER(getOwnerINLINE()).getCivilizationAdjectiveKey(), iGainPoints);
+			gDLL->getInterfaceIFace()->addHumanMessage(eTargetPlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_PILLAGE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
+		}
+
 	} else {
 		szBuffer = gDLL->getText(szFormatNoReveal.GetCString(), getNameKey(), kTargetPlayer.getCivilizationAdjectiveKey(), szCityName.GetCString());
 		gDLL->getInterfaceIFace()->addHumanMessage(eTargetPlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_EXPOSE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
@@ -5400,7 +5428,10 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iM
 		pCounterUnit->testPromotionReady();
 	}
 
-	kill(true);
+	if (bDoubleAgent)
+		kTargetPlayer.turnSpy(this);
+	else
+		kill(true);
 
 	return true;
 }
@@ -5672,7 +5703,7 @@ bool CvUnit::lead(int iUnitId) {
 	} else {
 		CvUnit* pUnit = GET_PLAYER(getOwnerINLINE()).getUnit(iUnitId);
 
-		if (!pUnit || !pUnit->canPromote(eLeaderPromotion, getID())) {
+		if (!pUnit || !pUnit->canPromote(eLeaderPromotion, getID()) || isDoubleAgent()) {
 			return false;
 		}
 
@@ -9512,6 +9543,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeRangeUnboundCount(kPromotion.isUnitRangeUnbound() ? iChange : 0);
 		changeTerritoryUnboundCount(kPromotion.isUnitTerritoryUnbound() ? iChange : 0);
 		changeCanMovePeaksCount(kPromotion.isCanMovePeaks() ? iChange : 0);
+		changeLoyaltyCount(kPromotion.isLoyal() ? iChange : 0);
 
 		changeExtraVisibilityRange(kPromotion.getVisibilityChange() * iChange);
 		changeExtraMoves(kPromotion.getMovesChange() * iChange);
@@ -9685,6 +9717,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iRangeUnboundCount);
 	pStream->Read(&m_iTerritoryUnboundCount);
 	pStream->Read(&m_iCanMovePeaksCount);
+	pStream->Read(&m_iLoyaltyCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9701,6 +9734,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
+	pStream->Read((int*)&m_eOriginalSpymaster);
 	pStream->Read((int*)&m_eUnitType);
 	FAssert(NO_UNIT != m_eUnitType);
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
@@ -9798,6 +9832,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iRangeUnboundCount);
 	pStream->Write(m_iTerritoryUnboundCount);
 	pStream->Write(m_iCanMovePeaksCount);
+	pStream->Write(m_iLoyaltyCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -9812,6 +9847,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
+	pStream->Write(m_eOriginalSpymaster);
 	pStream->Write(m_eUnitType);
 	pStream->Write(m_eLeaderUnitType);
 
@@ -11711,4 +11747,30 @@ void CvUnit::awardSpyExperience(TeamTypes eTargetTeam, int iModifier) {
 		changeExperience(6);
 
 	testPromotionReady();
+}
+
+void CvUnit::setOriginalSpymaster(PlayerTypes ePlayer) {
+	m_eOriginalSpymaster = ePlayer;
+}
+
+PlayerTypes CvUnit::getOriginalSpymaster() const {
+	return m_eOriginalSpymaster;
+}
+
+bool CvUnit::isDoubleAgent() const {
+	PlayerTypes eOriginalSpymaster = getOriginalSpymaster();
+	return eOriginalSpymaster != NO_PLAYER && eOriginalSpymaster != getOwnerINLINE() && GET_PLAYER(eOriginalSpymaster).isAlive();
+}
+
+bool CvUnit::isLoyal() const {
+	return getLoyaltyCount() > 0;
+}
+
+void CvUnit::changeLoyaltyCount(int iChange) {
+	m_iLoyaltyCount += iChange;
+	FAssert(getLoyaltyCount() >= 0);
+}
+
+int CvUnit::getLoyaltyCount() const {
+	return m_iLoyaltyCount;
 }

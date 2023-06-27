@@ -1625,6 +1625,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_bUnitTerritoryUnbound(false),
 	m_bCityPrereq(false),
 	m_bCanMovePeaks(false),
+	m_bLoyal(false),
 	m_piTerrainAttackPercent(NULL),
 	m_piTerrainDefensePercent(NULL),
 	m_piFeatureAttackPercent(NULL),
@@ -1652,6 +1653,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+bool CvPromotionInfo::isLoyal() const {
+	return m_bLoyal;
 }
 
 bool CvPromotionInfo::isCanMovePeaks() const {
@@ -2000,6 +2005,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bUnitTerritoryUnbound);
 	stream->Read(&m_bCityPrereq);
 	stream->Read(&m_bCanMovePeaks);
+	stream->Read(&m_bLoyal);
 
 	stream->ReadString(m_szSound);
 
@@ -2116,6 +2122,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bUnitTerritoryUnbound);
 	stream->Write(m_bCityPrereq);
 	stream->Write(m_bCanMovePeaks);
+	stream->Write(m_bLoyal);
 
 	stream->WriteString(m_szSound);
 
@@ -2182,6 +2189,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bHillsDoubleMove, "bHillsDoubleMove");
 	pXML->GetChildXmlValByName(&m_bCanMovePeaks, "bCanMovePeaks");
 	pXML->GetChildXmlValByName(&m_bImmuneToFirstStrikes, "bImmuneToFirstStrikes");
+	pXML->GetChildXmlValByName(&m_bLoyal, "bLoyal");
 	pXML->GetChildXmlValByName(&m_iVisibilityChange, "iVisibilityChange");
 	pXML->GetChildXmlValByName(&m_iMovesChange, "iMovesChange");
 	pXML->GetChildXmlValByName(&m_iMoveDiscountChange, "iMoveDiscountChange");

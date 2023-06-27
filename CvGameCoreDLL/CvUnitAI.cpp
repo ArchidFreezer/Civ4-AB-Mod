@@ -6334,6 +6334,7 @@ void CvUnitAI::AI_defenseAirMove() {
 	PROFILE_FUNC();
 
 	if (!plot()->isCity(true)) {
+		//FAssertMsg(false, "defenseAir units are expected to stay in cities/forts");
 		if (AI_airDefensiveCity())
 			return;
 	}
@@ -6672,6 +6673,14 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 			iValue += 5;
 		} else {
 			iValue++;
+		}
+	}
+
+	if (kPromotion.isLoyal()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			iValue += 30;
+		} else {
+			iValue += 5;
 		}
 	}
 

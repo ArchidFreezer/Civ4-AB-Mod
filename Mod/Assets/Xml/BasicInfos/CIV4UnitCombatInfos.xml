@@ -54,6 +54,11 @@
 			<Description>TXT_KEY_UNITCOMBAT_SIEGE</Description>
 			<Button>Art/Interface/Buttons/Combat/combat_siege.dds</Button>
 		</UnitCombatInfo>
+		<UnitCombatInfo> <!-- Spy -->
+			<Type>UNITCOMBAT_SPY</Type>
+			<Description>TXT_KEY_UNITCOMBAT_SPY</Description>
+			<Button>Art/Interface/Buttons/Combat/combat_spy.dds</Button>
+		</UnitCombatInfo>
 
 <!-- +++ Naval +++ -->
 		<UnitCombatInfo> <!-- Diesel Ships -->
