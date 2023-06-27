@@ -978,7 +978,7 @@ int CvUnitAI::AI_sacrificeValue(const CvPlot* pPlot) const {
 
 // Protected Functions...
 
-// K-Mod - test if we should declare war become moving to the target plot.
+// K-Mod - test if we should declare war before moving to the target plot.
 // (originally, DOW were made inside the unit movement mechanics. To me, that seems like a really dumb idea.)
 bool CvUnitAI::AI_considerDOW(CvPlot* pPlot) {
 	CvTeamAI& kOurTeam = GET_TEAM(getTeam());
@@ -3623,8 +3623,7 @@ bool CvUnitAI::AI_greatPersonMove() {
 			int iPathTurns;
 			if (generatePath(pLoopCity->plot(), iMoveFlags, true, &iPathTurns)) {
 				// Join
-				for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++) {
-					SpecialistTypes eSpecialist = (SpecialistTypes)iI;
+				for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
 					if (canJoin(pLoopCity->plot(), eSpecialist)) {
 						// Note, specialistValue is roughly 400x the commerce it provides. So /= 4 to make it 100x.
 						int iValue = pLoopCity->AI_permanentSpecialistValue(eSpecialist) / 4;
@@ -3637,8 +3636,8 @@ bool CvUnitAI::AI_greatPersonMove() {
 					}
 				}
 				// Construct
-				for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-					BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iI);
+				for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+					BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass);
 
 					if (eBuilding != NO_BUILDING) {
 						if ((m_pUnitInfo->getForceBuildings(eBuilding) || m_pUnitInfo->getBuildings(eBuilding)) &&
@@ -3653,7 +3652,7 @@ bool CvUnitAI::AI_greatPersonMove() {
 								eBestBuilding = eBuilding;
 								eBestSpecialist = NO_SPECIALIST;
 							}
-						} else if (bCanHurry && isWorldWonderClass((BuildingClassTypes)iI) && pLoopCity->canConstruct(eBuilding)) {
+						} else if (bCanHurry && isWorldWonderClass(eBuildingClass) && pLoopCity->canConstruct(eBuilding)) {
 							// maybe we can hurry a wonder...
 							int iCost = pLoopCity->getProductionNeeded(eBuilding);
 							int iHurryProduction = getMaxHurryProduction(pLoopCity);
@@ -3695,7 +3694,7 @@ bool CvUnitAI::AI_greatPersonMove() {
 				}
 			} // end safe move possible
 		} // end this area
-	} // end city loop.
+	}
 
 	// Golden age
 	int iGoldenAgeValue = 0;
@@ -3717,7 +3716,7 @@ bool CvUnitAI::AI_greatPersonMove() {
 			iDiscoverValue *= 2;
 			iDiscoverValue /= 3;
 		}
-		if (kPlayer.AI_isFirstTech(eDiscoverTech)) // founding relgions / free techs / free great people
+		if (kPlayer.AI_isFirstTech(eDiscoverTech)) // founding religions / free techs / free great people
 		{
 			iDiscoverValue *= 2;
 		}
@@ -3823,24 +3822,24 @@ bool CvUnitAI::AI_greatPersonMove() {
 			break;
 
 		case GP_TRADE:
-		{
-			MissionAITypes eOldMission = getGroup()->AI_getMissionAIType(); // just used for the log message below
-			if (AI_doTradeMission(pBestTradePlot)) {
-				if (gUnitLogLevel > 2) logBBAI("    %S %s 'trade mission' with their %S (value: %d, choice #%d)", GET_PLAYER(getOwnerINLINE()).getCivilizationDescription(0), eOldMission == MISSIONAI_TRADE ? "continues" : "chooses", getName(0).GetCString(), iTradeValue, iChoice);
-				return true;
+			{
+				MissionAITypes eOldMission = getGroup()->AI_getMissionAIType(); // just used for the log message below
+				if (AI_doTradeMission(pBestTradePlot)) {
+					if (gUnitLogLevel > 2) logBBAI("    %S %s 'trade mission' with their %S (value: %d, choice #%d)", GET_PLAYER(getOwnerINLINE()).getCivilizationDescription(0), eOldMission == MISSIONAI_TRADE ? "continues" : "chooses", getName(0).GetCString(), iTradeValue, iChoice);
+					return true;
+				}
+				break;
 			}
-			break;
-		}
 
 		case GP_CULTURE:
-		{
-			MissionAITypes eOldMission = getGroup()->AI_getMissionAIType(); // just used for the log message below
-			if (AI_doGreatWork(pBestCulturePlot)) {
-				if (gUnitLogLevel > 2) logBBAI("    %S %s 'great work' with their %S (value: %d, choice #%d)", GET_PLAYER(getOwnerINLINE()).getCivilizationDescription(0), eOldMission == MISSIONAI_TRADE ? "continues" : "chooses", getName(0).GetCString(), iCultureValue, iChoice);
-				return true;
+			{
+				MissionAITypes eOldMission = getGroup()->AI_getMissionAIType(); // just used for the log message below
+				if (AI_doGreatWork(pBestCulturePlot)) {
+					if (gUnitLogLevel > 2) logBBAI("    %S %s 'great work' with their %S (value: %d, choice #%d)", GET_PLAYER(getOwnerINLINE()).getCivilizationDescription(0), eOldMission == MISSIONAI_TRADE ? "continues" : "chooses", getName(0).GetCString(), iCultureValue, iChoice);
+					return true;
+				}
+				break;
 			}
-			break;
-		}
 
 		case GP_GOLDENAGE:
 			if (AI_goldenAge()) {
@@ -9092,9 +9091,8 @@ bool CvUnitAI::AI_join(int iMaxCount) {
 		if ((pLoopCity->area() == area()) && AI_plotValid(pLoopCity->plot())) {
 			if (!(pLoopCity->plot()->isVisibleEnemyUnit(this))) {
 				if (generatePath(pLoopCity->plot(), MOVE_SAFE_TERRITORY, true)) {
-					for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++) {
+					for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
 						bool bDoesJoin = false;
-						SpecialistTypes eSpecialist = (SpecialistTypes)iI;
 						if (m_pUnitInfo->getGreatPeoples(eSpecialist)) {
 							bDoesJoin = true;
 						}
@@ -9105,13 +9103,13 @@ bool CvUnitAI::AI_join(int iMaxCount) {
 							}
 						}
 
-						if (canJoin(pLoopCity->plot(), ((SpecialistTypes)iI))) {
+						if (canJoin(pLoopCity->plot(), eSpecialist)) {
 							if (!(GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(pLoopCity->plot(), 2))) {
-								int iValue = pLoopCity->AI_permanentSpecialistValue((SpecialistTypes)iI); // K-Mod
+								int iValue = pLoopCity->AI_permanentSpecialistValue(eSpecialist); // K-Mod
 								if (iValue > iBestValue) {
 									iBestValue = iValue;
 									pBestPlot = getPathEndTurnPlot();
-									eBestSpecialist = ((SpecialistTypes)iI);
+									eBestSpecialist = eSpecialist;
 								}
 							}
 						}
@@ -10349,6 +10347,7 @@ bool CvUnitAI::AI_goToTargetCity(int iFlags, int iMaxPathTurns, CvCity* pTargetC
 
 		if (pBestPlot != NULL) {
 			FAssert(!(pTargetCity->at(pEndTurnPlot)) || 0 != (iFlags & MOVE_THROUGH_ENEMY)); // no suicide missions...
+			// K-Mod note: it may be possible for this assert to fail if the city is so weak that ATTACK_STACK_MOVE would choose to just walk through it.
 			if (!atPlot(pEndTurnPlot)) {
 				if (AI_considerPathDOW(pEndTurnPlot, iFlags)) {
 					// regenerate the path, just incase we want to take a different route after the DOW
@@ -10545,6 +10544,7 @@ bool CvUnitAI::AI_cityAttack(int iRange, int iOddsThreshold, int iFlags, bool bF
 
 // Returns true if a mission was pushed...
 // This function has been been writen for K-Mod. (it started getting messy, so I deleted most of the old code)
+// bFollow implies AI_follow conditions - ie. not everyone in the group can move, and this unit might not be the group leader.
 bool CvUnitAI::AI_anyAttack(int iRange, int iOddsThreshold, int iFlags, int iMinStack, bool bAllowCities, bool bFollow) {
 	PROFILE_FUNC();
 
@@ -10600,7 +10600,8 @@ bool CvUnitAI::AI_anyAttack(int iRange, int iOddsThreshold, int iFlags, int iMin
 			pBestPlot = getPathEndTurnPlot();
 		}
 		if (bFollow && pBestPlot->getNumVisiblePotentialEnemyDefenders(this) == 0) {
-			// we need to ungroup this unit so that we can move into the city.
+			FAssert(pBestPlot->getPlotCity() != 0);
+			// we need to ungroup to capture the undefended unit / city. (because not everyone in our group can move)
 			joinGroup(0);
 			bFollow = false;
 		}
@@ -11038,6 +11039,7 @@ bool CvUnitAI::AI_blockade() {
 
 
 // Returns true if a mission was pushed...
+// K-Mod todo: this function is very slow on large maps. Consider rewriting it!
 bool CvUnitAI::AI_pirateBlockade() {
 	PROFILE_FUNC();
 
@@ -11218,6 +11220,7 @@ bool CvUnitAI::AI_seaBombardRange(int iMaxRange) {
 			if (pLoopPlot != NULL && AI_plotValid(pLoopPlot)) {
 				CvCity* pBombardCity = bombardTarget(pLoopPlot);
 
+				// Consider city even if fully bombarded, causes ship to camp outside blockading instead of switching between cities after bombarding to 0
 				if (pBombardCity != NULL && isEnemy(pBombardCity->getTeam(), pLoopPlot) && pBombardCity->getDefenseDamage() < GC.getMAX_CITY_DEFENSE_DAMAGE()) {
 					int iPathTurns;
 					if (generatePath(pLoopPlot, 0, true, &iPathTurns, 1 + iMaxRange / baseMoves())) {
@@ -13531,8 +13534,7 @@ bool CvUnitAI::AI_improveBonus(bool bSingleBuild) // K-Mod. (all that junk wasn'
 									}
 								}
 
-								if ((kOwner.AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_BUILD, getGroup()) < iMaxWorkers)
-									&& (!bDoImprove || (pLoopPlot->getBuildTurnsLeft(eBestTempBuild, 0, 0) > (iPathTurns * 2 - 1)))) {
+								if (kOwner.AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_BUILD, getGroup()) < iMaxWorkers && (!bDoImprove || (pLoopPlot->getBuildTurnsLeft(eBestTempBuild, 0, 0) > (iPathTurns * 2 - 1)))) {
 									if (bDoImprove) {
 										iValue *= 1000;
 
@@ -13582,7 +13584,6 @@ bool CvUnitAI::AI_improveBonus(bool bSingleBuild) // K-Mod. (all that junk wasn'
 			FAssertMsg(!bBestBuildIsRoute, "BestBuild should not be a route");
 			FAssertMsg(eBestBuild < GC.getNumBuildInfos(), "BestBuild is assigned a corrupt value");
 
-
 			MissionTypes eBestMission = MISSION_MOVE_TO;
 
 			if ((pBestPlot->getWorkingCity() == NULL) || !pBestPlot->getWorkingCity()->isConnectedToCapital()) {
@@ -13599,7 +13600,6 @@ bool CvUnitAI::AI_improveBonus(bool bSingleBuild) // K-Mod. (all that junk wasn'
 
 			eBestBuild = AI_betterPlotBuild(pBestPlot, eBestBuild);
 			getGroup()->pushMission(eBestMission, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), 0, false, false, MISSIONAI_BUILD, pBestPlot);
-			//getGroup()->pushMission(MISSION_BUILD, eBestBuild, -1, 0, (getGroup()->getLengthMissionQueue() > 0), false, MISSIONAI_BUILD, pBestPlot);
 			getGroup()->pushMission(MISSION_BUILD, eBestBuild, -1, 0, true, false, MISSIONAI_BUILD, pBestPlot); // K-Mod
 
 			return true;
@@ -14081,8 +14081,7 @@ bool CvUnitAI::AI_retreatToCity(bool bPrimary, bool bPrioritiseAirlift, int iMax
 				continue;
 
 			int iPathTurns;
-			if (generatePath(pLoopCity->plot(), (iPass >= 2 ? MOVE_IGNORE_DANGER : 0), true, &iPathTurns, iMaxPath)) // was iPass >= 3
-			{
+			if (generatePath(pLoopCity->plot(), (iPass >= 2 ? MOVE_IGNORE_DANGER : 0), true, &iPathTurns, iMaxPath)) { // was iPass >= 3
 				// Water units can't defend a city
 				// Any unthreatened city acceptable on 0th pass, solves problem where sea units
 				// would oscillate in and out of threatened city because they had iCurrentDanger = 0
@@ -14192,6 +14191,7 @@ bool CvUnitAI::AI_handleStranded(int iFlags) {
 				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(i);
 
 				if (pLoopPlot->getArea() == getArea() && pLoopPlot->isCoastalLand()) {
+					// TODO: check that the water isn't blocked by ice.
 					int iPathTurns;
 					if (generatePath(pLoopPlot, iFlags, true, &iPathTurns, iShortestPath)) {
 						FAssert(iPathTurns <= iShortestPath);

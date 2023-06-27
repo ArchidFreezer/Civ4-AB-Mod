@@ -110,9 +110,9 @@ void CyInfoPythonInterface1() {
 		.def("getFlavorValue", &CvTechInfo::getFlavorValue, "int (int i)")
 		.def("getPrereqOrTech", &CvTechInfo::getPrereqOrTech, "int (int i)")
 		.def("getPrereqAndTech", &CvTechInfo::getPrereqAndTech, "int (int i)")
+		.def("getSpecialistExtraCommerce", &CvTechInfo::getSpecialistExtraCommerce, "int (int i)")
+		.def("getCommerceModifier", &CvTechInfo::getCommerceModifier, "int (int i)")
 
-		.def("getCommerceModifier", &CvTechInfo::getCommerceModifier, "int (int i)") // K-Mod
-		.def("getSpecialistExtraCommerce", &CvTechInfo::getSpecialistExtraCommerce, "int (int i)") // K-Mod
 		.def("isCommerceFlexible", &CvTechInfo::isCommerceFlexible, "bool (int i)")
 		.def("isTerrainTrade", &CvTechInfo::isTerrainTrade, "bool (int i)")
 		.def("isPrereqOrTech", &CvTechInfo::isPrereqOrTech, "int (int i)")
@@ -265,7 +265,6 @@ void CyInfoPythonInterface1() {
 		.def("getBombardRate", &CvUnitInfo::getBombardRate, "int ()")
 		.def("getSpecialCargo", &CvUnitInfo::getSpecialCargo, "int ()")
 		.def("getDomainCargo", &CvUnitInfo::getDomainCargo, "int ()")
-
 		.def("getCargoSpace", &CvUnitInfo::getCargoSpace, "int ()")
 		.def("getConscriptionValue", &CvUnitInfo::getConscriptionValue, "int ()")
 		.def("getCultureGarrisonValue", &CvUnitInfo::getCultureGarrisonValue, "int ()")

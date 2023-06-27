@@ -148,9 +148,9 @@ void CvSelectionGroup::doTurn() {
 				}
 			}
 		}
-		bool bHurt = false;
 
 		// do unit's turns (checking for damage)
+		bool bHurt = false;
 		{
 			CLLNode<IDInfo>* pUnitNode = headUnitNode();
 			while (pUnitNode != NULL) {
@@ -613,6 +613,7 @@ void CvSelectionGroup::startMission() {
 		else
 			setActivityType(ACTIVITY_HOLD);
 
+		// Whole group effects
 		switch (headMissionQueueNode()->m_data.eMissionType) {
 		case MISSION_MOVE_TO:
 		case MISSION_MOVE_TO_SENTRY:
@@ -718,47 +719,46 @@ void CvSelectionGroup::startMission() {
 			// K-Mod. Let fast units carry out the pillage action first.
 			// (This is based on the idea from BBAI, which had a buggy implementation.)
 		case MISSION_PILLAGE:
-		{
-			// Fast units pillage first
-			std::vector<std::pair<int, int> > unit_list;
-			CLLNode<IDInfo>* pUnitNode = headUnitNode();
+			{
+				// Fast units pillage first
+				std::vector<std::pair<int, int> > unit_list;
+				CLLNode<IDInfo>* pUnitNode = headUnitNode();
 
-			while (pUnitNode != NULL) {
-				CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
-				pUnitNode = nextUnitNode(pUnitNode);
+				while (pUnitNode != NULL) {
+					CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+					pUnitNode = nextUnitNode(pUnitNode);
 
-				if (pLoopUnit->canMove() && pLoopUnit->canPillage(plot())) {
-					int iPriority = 0;
-					if (pLoopUnit->bombardRate() > 0)
-						iPriority--;
-					if (pLoopUnit->isMadeAttack())
-						iPriority++;
-					if (pLoopUnit->isHurt() && !pLoopUnit->hasMoved())
-						iPriority--;
+					if (pLoopUnit->canMove() && pLoopUnit->canPillage(plot())) {
+						int iPriority = 0;
+						if (pLoopUnit->bombardRate() > 0)
+							iPriority--;
+						if (pLoopUnit->isMadeAttack())
+							iPriority++;
+						if (pLoopUnit->isHurt() && !pLoopUnit->hasMoved())
+							iPriority--;
 
-					iPriority = (3 + iPriority) * pLoopUnit->movesLeft() / 3;
-					unit_list.push_back(std::make_pair(iPriority, pLoopUnit->getID()));
+						iPriority = (3 + iPriority) * pLoopUnit->movesLeft() / 3;
+						unit_list.push_back(std::make_pair(iPriority, pLoopUnit->getID()));
+					}
 				}
-			}
-			std::sort(unit_list.begin(), unit_list.end(), std::greater<std::pair<int, int> >());
+				std::sort(unit_list.begin(), unit_list.end(), std::greater<std::pair<int, int> >());
 
-			CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
-			for (size_t i = 0; i < unit_list.size(); i++) {
-				CvUnit* pLoopUnit = kOwner.getUnit(unit_list[i].second);
-				FAssert(pLoopUnit);
+				CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+				for (size_t i = 0; i < unit_list.size(); i++) {
+					CvUnit* pLoopUnit = kOwner.getUnit(unit_list[i].second);
 
-				if (pLoopUnit->pillage()) {
-					bAction = true;
-					if (!isHuman() && canAllMove()) // AI groups might want to reconsider their action after pillaging.
-						break;
+					if (pLoopUnit->pillage()) {
+						bAction = true;
+						if (!isHuman() && canAllMove()) // AI groups might want to reconsider their action after pillaging.
+							break;
+					}
+					if (pLoopUnit->isAttacking()) {
+						break; // Sea patrol intercept
+					}
 				}
-				if (pLoopUnit->isAttacking())
-					break; // Sea patrol intercept
+				break;
 			}
-			break;
-		}
-
-		// K-Mod. If the worker is already in danger when the command is issued, use the MOVE_IGNORE_DANGER flag.
+			// K-Mod. If the worker is already in danger when the command is issued, use the MOVE_IGNORE_DANGER flag.
 		case MISSION_BUILD:
 			if (!AI_isControlled() && headMissionQueueNode()->m_data.iPushTurn == GC.getGameINLINE().getGameTurn() &&
 				GET_PLAYER(getOwnerINLINE()).AI_getAnyPlotDanger(plot(), 2, true, false)) // cf. condition used in CvSelectionGroup::doTurn.
@@ -818,7 +818,7 @@ void CvSelectionGroup::startMission() {
 					}
 					break;
 				case MISSION_MOVE_TO:
-					case MISSION_MOVE_TO_SENTRY:
+				case MISSION_MOVE_TO_SENTRY:
 				case MISSION_ROUTE_TO:
 				case MISSION_MOVE_TO_UNIT:
 				case MISSION_SLEEP:
@@ -1029,7 +1029,6 @@ void CvSelectionGroup::startMission() {
 				units_left_behind[i]->joinGroup(pNewGroup, true);
 			}
 		}
-		// K-Mod end
 	} // end if (can start mission)
 
 	if ((getNumUnits() > 0) && (headMissionQueueNode() != NULL)) {
@@ -2565,6 +2564,7 @@ bool CvSelectionGroup::groupAttack(int iX, int iY, int iFlags, bool& bFailedAlre
 	return bAttack;
 }
 
+
 // Most of this function has been restructured / edited for K-Mod.
 void CvSelectionGroup::groupMove(CvPlot* pPlot, bool bCombat, CvUnit* pCombatUnit, bool bEndMove) {
 	//PROFILE_FUNC();
@@ -2586,20 +2586,16 @@ void CvSelectionGroup::groupMove(CvPlot* pPlot, bool bCombat, CvUnit* pCombatUni
 			originalGroup.push_back(pUnitNode->m_data);
 	}
 	FAssert(originalGroup.size() == getNumUnits());
-	// K-Mod end
 
 	for (std::vector<IDInfo>::iterator it = originalGroup.begin(); it != originalGroup.end(); ++it) // K-Mod
 	{
 		CvUnit* pLoopUnit = ::getUnit(*it);
 
-		//if ((pLoopUnit->canMove() && ((bCombat && (!(pLoopUnit->isNoCapture()) || !(pPlot->isEnemyCity(*pLoopUnit)))) ? pLoopUnit->canMoveOrAttackInto(pPlot) : pLoopUnit->canMoveInto(pPlot))) || (pLoopUnit == pCombatUnit))
-		// K-Mod
 		if (pLoopUnit == NULL)
 			continue;
 		if (!bSentryAlert && pLoopUnit->canMove() && (bCombat ? pLoopUnit->canMoveOrAttackInto(pPlot) : pLoopUnit->canMoveInto(pPlot))) {
 			pLoopUnit->move(pPlot, true);
-		} else {
-			// K-Mod. all units left behind should stay in the same group. (unless it would mean a change of group AI)
+		} else {	// K-Mod. all units left behind should stay in the same group. (unless it would mean a change of group AI)
 			// (Note: it is important that units left behind are not in the original group.
 			// The later code assumes that the original group has moved, and if it hasn't, there will be an infinite loop.)
 			if (pStaticGroup)
@@ -2610,7 +2606,6 @@ void CvSelectionGroup::groupMove(CvPlot* pPlot, bool bCombat, CvUnit* pCombatUni
 					pStaticGroup = pLoopUnit->getGroup();
 				// else -- wwe could track the ungrouped units; but I don't think there's much point.
 			}
-			//
 		}
 		// K-Mod. If the unit is no longer in the original group; then display it's movement animation now.
 		if (pLoopUnit->getGroupID() != getID())
@@ -2628,7 +2623,6 @@ void CvSelectionGroup::groupMove(CvPlot* pPlot, bool bCombat, CvUnit* pCombatUni
 		}
 	}
 }
-
 
 // Returns true if move was made...
 bool CvSelectionGroup::groupPathTo(int iX, int iY, int iFlags) {
@@ -3680,18 +3674,18 @@ CvSelectionGroup* CvSelectionGroup::splitGroup(int iSplitSize, CvUnit* pNewHeadU
 		}
 	}
 
-	for (UnitAITypes i = (UnitAITypes)0; i < NUM_UNITAI_TYPES; i = (UnitAITypes)(i + 1)) {
-		if (aiTotalAIs[i] == 0 || i == eNewHeadAI || i == eOldHeadAI)
+	for (UnitAITypes eUnitAI = (UnitAITypes)0; eUnitAI < NUM_UNITAI_TYPES; eUnitAI = (UnitAITypes)(eUnitAI + 1)) {
+		if (aiTotalAIs[eUnitAI] == 0 || eUnitAI == eNewHeadAI || eUnitAI == eOldHeadAI)
 			continue; // already done. (see above)
 
-		int x = (aiTotalAIs[i] * iSplitSize + iGroupSize / 2 + iCarry) / iGroupSize;
+		int x = (aiTotalAIs[eUnitAI] * iSplitSize + iGroupSize / 2 + iCarry) / iGroupSize;
 
 		// In rare situations x can be rounded up above the maximum,
 		// because iCarry may oversized if one of the original head units is reserved.
-		x = std::min(x, aiTotalAIs[i]);
-		FAssert(x >= 0 && x <= aiTotalAIs[i]);
-		iCarry += aiTotalAIs[i] * iSplitSize - x * iGroupSize;
-		aiNewGroupAIs[i] = x;
+		x = std::min(x, aiTotalAIs[eUnitAI]);
+		FAssert(x >= 0 && x <= aiTotalAIs[eUnitAI]);
+		iCarry += aiTotalAIs[eUnitAI] * iSplitSize - x * iGroupSize;
+		aiNewGroupAIs[eUnitAI] = x;
 		FAssert(iCarry >= -iGroupSize && iCarry <= iGroupSize);
 	}
 	FAssert(iCarry == 0);

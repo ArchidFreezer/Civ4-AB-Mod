@@ -6,9 +6,11 @@
 #include "CyArea.h"
 #include "CvArea.h"
 
-CyArea::CyArea() : m_pArea(NULL) {}
+CyArea::CyArea() : m_pArea(NULL) {
+}
 
-CyArea::CyArea(CvArea* pArea) : m_pArea(pArea) {}
+CyArea::CyArea(CvArea* pArea) : m_pArea(pArea) {
+}
 
 int CyArea::calculateTotalBestNatureYield() {
 	return m_pArea ? m_pArea->calculateTotalBestNatureYield() : -1;

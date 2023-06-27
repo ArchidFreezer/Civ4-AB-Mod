@@ -539,23 +539,24 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer) {
 	FAssertMsg(getCombatUnit() == NULL, "The current unit instance's combat unit is expected to be NULL");
 
 	GET_TEAM(getTeam()).changeUnitClassCount((UnitClassTypes)m_pUnitInfo->getUnitClassType(), -1);
-	GET_PLAYER(getOwnerINLINE()).changeUnitClassCount((UnitClassTypes)m_pUnitInfo->getUnitClassType(), -1);
 
-	GET_PLAYER(getOwnerINLINE()).changeExtraUnitCost(-(m_pUnitInfo->getExtraCost()));
+	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+	kOwner.changeUnitClassCount((UnitClassTypes)m_pUnitInfo->getUnitClassType(), -1);
+	kOwner.changeExtraUnitCost(-(m_pUnitInfo->getExtraCost()));
 
 	if (m_pUnitInfo->getNukeRange() != -1) {
-		GET_PLAYER(getOwnerINLINE()).changeNumNukeUnits(-1);
+		kOwner.changeNumNukeUnits(-1);
 	}
 
 	if (m_pUnitInfo->isMilitarySupport()) {
-		GET_PLAYER(getOwnerINLINE()).changeNumMilitaryUnits(-1);
+		kOwner.changeNumMilitaryUnits(-1);
 	}
 
-	GET_PLAYER(getOwnerINLINE()).changeAssets(-(m_pUnitInfo->getAssetValue()));
+	kOwner.changeAssets(-(m_pUnitInfo->getAssetValue()));
 
-	GET_PLAYER(getOwnerINLINE()).changePower(-(m_pUnitInfo->getPowerValue()));
+	kOwner.changePower(-(m_pUnitInfo->getPowerValue()));
 
-	GET_PLAYER(getOwnerINLINE()).AI_changeNumAIUnits(AI_getUnitAIType(), -1);
+	kOwner.AI_changeNumAIUnits(AI_getUnitAIType(), -1);
 
 	PlayerTypes eOwner = getOwnerINLINE();
 	PlayerTypes eCapturingPlayer = getCapturingPlayer();
@@ -567,7 +568,7 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer) {
 
 	CvEventReporter::getInstance().unitLost(this);
 
-	GET_PLAYER(getOwnerINLINE()).deleteUnit(getID());
+	kOwner.deleteUnit(getID());
 
 	if ((eCapturingPlayer != NO_PLAYER) && (eCaptureUnitType != NO_UNIT) && !(GET_PLAYER(eCapturingPlayer).isBarbarian())) {
 		if (GET_PLAYER(eCapturingPlayer).isHuman() || GET_PLAYER(eCapturingPlayer).AI_captureUnit(eCaptureUnitType, pPlot) || 0 == GC.getDefineINT("AI_CAN_DISBAND_UNITS")) {
@@ -864,7 +865,8 @@ void CvUnit::updateAirCombat(bool bQuick) {
 	//if not finished and not fighting yet, set up combat damage and mission
 	if (!bFinish) {
 		if (!isFighting()) {
-			if (plot()->isFighting() || pPlot->isFighting()) {
+			// K-Mod. I don't think it matters if the plot we're on is fighting already - but the interceptor needs to be available to fight!
+			if (pPlot->isFighting() || pInterceptor->isFighting()) {
 				return;
 			}
 
@@ -2117,8 +2119,9 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 	if (isNoCapture()) {
 		// K-Mod. Don't let noCapture units attack defenceless cities. (eg. cities with a worker in them)
 		if (pPlot->isEnemyCity(*this)) {
-			if (!bAttack || !pPlot->isVisibleEnemyDefender(this))
+			if (!bAttack || !pPlot->isVisibleEnemyDefender(this)) {
 				return false;
+			}
 		}
 	}
 
@@ -11151,11 +11154,13 @@ UnitRangeTypes CvUnit::getRangeType() const {
 	}
 }
 
+
 void CvUnit::setCivicEnabled(bool bEnable) {
 	if (m_bCivicEnabled != bEnable) {
 		m_bCivicEnabled = bEnable;
 		CvWString szBuffer = bEnable ? gDLL->getText("TXT_KEY_CIVIC_ENABLED_UNIT", getNameKey()) : gDLL->getText("TXT_KEY_CIVIC_DISABLED_UNIT", getNameKey());
 		gDLL->getInterfaceIFace()->addHumanMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(), szBuffer, NULL, MESSAGE_TYPE_MINOR_EVENT, getUnitInfo().getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_WHITE"), getX(), getY(), true, true);
+
 	}
 }
 

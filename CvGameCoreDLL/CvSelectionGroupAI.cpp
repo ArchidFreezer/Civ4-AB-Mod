@@ -31,7 +31,8 @@ void CvSelectionGroupAI::AI_init() {
 }
 
 
-void CvSelectionGroupAI::AI_uninit() {}
+void CvSelectionGroupAI::AI_uninit() {
+}
 
 
 void CvSelectionGroupAI::AI_reset() {
@@ -208,7 +209,7 @@ bool CvSelectionGroupAI::AI_update() {
 		if (!isHuman()) {
 			bool bFollow = false;
 
-			// if we not group attacking, then check for follow action
+			// if we not group attacking, then check for 'follow' action
 			if (!AI_isGroupAttack() && readyToMove(true)) {
 				// K-Mod. What we do here might split the group. So to avoid problems, lets make a list of our units.
 				std::vector<IDInfo> originalGroup;
@@ -422,9 +423,7 @@ int CvSelectionGroupAI::AI_sumStrength(const CvPlot* pAttackedPlot, DomainTypes 
 	bool bDefenders = pAttackedPlot ? pAttackedPlot->isVisibleEnemyUnit(getHeadOwner()) : false; // K-Mod
 	bool bCountCollateral = pAttackedPlot && pAttackedPlot != plot(); // K-Mod
 
-	int iBaseCollateral = bCountCollateral
-		? estimateCollateralWeight(pAttackedPlot, pAttackedPlot->getTeam() == getTeam() ? NO_TEAM : pAttackedPlot->getTeam())
-		: 0;
+	int iBaseCollateral = bCountCollateral ? estimateCollateralWeight(pAttackedPlot, getTeam()) : 0;
 
 	CLLNode<IDInfo>* pUnitNode = headUnitNode();
 	while (pUnitNode != NULL) {

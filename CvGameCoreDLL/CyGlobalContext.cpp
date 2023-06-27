@@ -17,9 +17,11 @@
 #include "CvTeamAI.h"
 #include "CyArtFileMgr.h"
 
-CyGlobalContext::CyGlobalContext() {}
+CyGlobalContext::CyGlobalContext() {
+}
 
-CyGlobalContext::~CyGlobalContext() {}
+CyGlobalContext::~CyGlobalContext() {
+}
 
 CyGlobalContext& CyGlobalContext::getInstance() {
 	static CyGlobalContext globalContext;

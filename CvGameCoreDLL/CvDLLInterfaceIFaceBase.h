@@ -196,8 +196,7 @@ public:
 	virtual void popupAddGenericButton(CvPopup* pPopup, CvWString szText, const char* szIcon = 0, int iButtonId = -1, WidgetTypes eWidgetType = WIDGET_GENERAL, int iData1 = MAX_INT, int iData2 = MAX_INT,
 		bool bOption = true, PopupControlLayout ctrlLayout = POPUP_LAYOUT_CENTER, unsigned int textJustifcation = DLL_FONT_LEFT_JUSTIFY) = 0;
 
-	virtual void popupCreateEditBox(CvPopup* pPopup, CvWString szDefaultString = "", WidgetTypes eWidgetType = WIDGET_GENERAL, CvWString szHelpText = "", int iGroup = 0,
-		PopupControlLayout ctrlLayout = POPUP_LAYOUT_STRETCH, unsigned int preferredCharWidth = 0, unsigned int maxCharCount = 256) = 0;
+	virtual void popupCreateEditBox(CvPopup* pPopup, CvWString szDefaultString = "", WidgetTypes eWidgetType = WIDGET_GENERAL, CvWString szHelpText = "", int iGroup = 0, PopupControlLayout ctrlLayout = POPUP_LAYOUT_STRETCH, unsigned int preferredCharWidth = 0, unsigned int maxCharCount = 256) = 0;
 	virtual void popupEnableEditBox(CvPopup* pPopup, int iGroup = 0, bool bEnable = false) = 0;
 
 	virtual void popupCreateRadioButtons(CvPopup* pPopup, int iNumButtons, int iGroup = 0, WidgetTypes eWidgetType = WIDGET_GENERAL, PopupControlLayout ctrlLayout = POPUP_LAYOUT_CENTER) = 0;

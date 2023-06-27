@@ -477,6 +477,7 @@ void CvGlobals::uninit() {
 	m_aIniOptsInt.clear();
 	m_aIniOptsDouble.clear();
 	m_aIniOptsString.clear();
+
 }
 
 void CvGlobals::clearTypesMap() {

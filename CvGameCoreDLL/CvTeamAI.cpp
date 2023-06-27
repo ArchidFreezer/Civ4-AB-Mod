@@ -1908,7 +1908,7 @@ DenialTypes CvTeamAI::AI_vassalTrade(TeamTypes eTeam) const {
 	for (TeamTypes i = (TeamTypes)0; i < MAX_CIV_TEAMS; i = (TeamTypes)(i + 1)) {
 		const CvTeam& kLoopTeam = GET_TEAM(i);
 
-		if (!kLoopTeam.isAlive() || (i == getID() && i == kMasterTeam.getID()))
+		if (!kLoopTeam.isAlive() || i == getID() && i == kMasterTeam.getID())
 			continue;
 
 		if (kMasterTeam.isAtWar(i) && !isAtWar(i)) {
@@ -1961,7 +1961,7 @@ DenialTypes CvTeamAI::AI_surrenderTrade(TeamTypes eTeam, int iPowerMultiplier) c
 	if (isAtWar(eTeam)) {
 		for (TeamTypes i = (TeamTypes)0; i < MAX_CIV_TEAMS; i = (TeamTypes)(i + 1)) {
 			const CvTeam& kLoopTeam = GET_TEAM(i);
-			if (!kLoopTeam.isAlive() || (i == getID() && i == kMasterTeam.getID()))
+			if (!kLoopTeam.isAlive() || i == getID() && i == kMasterTeam.getID())
 				continue;
 
 			if (isAtWar(i) && !kMasterTeam.isAtWar(i)) {

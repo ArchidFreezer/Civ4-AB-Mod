@@ -44,7 +44,8 @@ CvWaterPlaneInfo::CvWaterPlaneInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvWaterPlaneInfo::~CvWaterPlaneInfo() {}
+CvWaterPlaneInfo::~CvWaterPlaneInfo() {
+}
 //------------------------------------------------------------------------------------------------------
 float CvWaterPlaneInfo::getMaterialAlpha() const		// The water plane's material alpha
 {
@@ -186,7 +187,8 @@ CvTerrainPlaneInfo::CvTerrainPlaneInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvTerrainPlaneInfo::~CvTerrainPlaneInfo() {}
+CvTerrainPlaneInfo::~CvTerrainPlaneInfo() {
+}
 //------------------------------------------------------------------------------------------------------
 bool CvTerrainPlaneInfo::isVisible() const {
 	return m_bVisible;
@@ -298,7 +300,8 @@ CvCameraOverlayInfo::CvCameraOverlayInfo() :
 //  PURPOSE :   Default destructor
 //
 //------------------------------------------------------------------------------------------------------
-CvCameraOverlayInfo::~CvCameraOverlayInfo() {}
+CvCameraOverlayInfo::~CvCameraOverlayInfo() {
+}
 //------------------------------------------------------------------------------------------------------
 bool CvCameraOverlayInfo::isVisible() const {
 	return m_bVisible;

@@ -123,7 +123,7 @@ void CyPlayerPythonInterface1(python::class_<CyPlayer>& x) {
 		.def("calculateUnitCost", &CyPlayer::calculateUnitCost, "int ()")
 		.def("calculateUnitSupply", &CyPlayer::calculateUnitSupply, "int ()")
 		.def("calculatePreInflatedCosts", &CyPlayer::calculatePreInflatedCosts, "int ()")
-		.def("getInflationRate", &CyPlayer::getInflationRate, "int ()") // K-Mod
+		.def("getInflationRate", &CyPlayer::getInflationRate, "int ()")
 		.def("calculateInflatedCosts", &CyPlayer::calculateInflatedCosts, "int ()")
 		.def("calculateGoldRate", &CyPlayer::calculateGoldRate, "int ()")
 		.def("calculateTotalCommerce", &CyPlayer::calculateTotalCommerce, "int ()")

@@ -192,7 +192,7 @@ void CvDeal::addTrades(CLinkList<TradeData>* pFirstList, CLinkList<TradeData>* p
 				break;
 			}
 		}
-
+		// K-Mod end
 		for (CLLNode<TradeData>* pNode = pFirstList->head(); pNode; pNode = pFirstList->next(pNode)) {
 			bool bSave = startTrade(pNode->m_data, getFirstPlayer(), getSecondPlayer());
 			bBumpUnits = bBumpUnits || pNode->m_data.m_eItemType == TRADE_PEACE; // K-Mod
@@ -203,7 +203,6 @@ void CvDeal::addTrades(CLinkList<TradeData>* pFirstList, CLinkList<TradeData>* p
 				bAlliance = true;
 		}
 	}
-
 
 	if (pSecondList != NULL) {
 		// K-Mod. Vassal deals need to be implemented last, so that master/vassal power is set correctly.

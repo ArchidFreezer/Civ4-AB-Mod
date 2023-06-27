@@ -5704,13 +5704,12 @@ void CvPlayer::updateInflationRate() {
 		for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
 			for (PlayerTypes j = (PlayerTypes)0; j < MAX_CIV_PLAYERS; j = (PlayerTypes)(j + 1)) {
 				const CvPlayer& kLoopPlayer = GET_PLAYER(j);
-				if (kLoopPlayer.isAlive() &&
-					!kLoopPlayer.isMinorCiv() &&
-					kLoopPlayer.canEverResearch(eTech)) {
+				if (kLoopPlayer.isAlive() && !kLoopPlayer.isMinorCiv() && kLoopPlayer.canEverResearch(eTech)) {
 					int iWeight = kLoopPlayer.getTotalPopulation() * (kLoopPlayer.getTeam() == getTeam() ? 2 : 1);
 					iPotentialTech += iWeight;
-					if (GET_TEAM(kLoopPlayer.getTeam()).isHasTech(eTech))
+					if (GET_TEAM(kLoopPlayer.getTeam()).isHasTech(eTech)) {
 						iCurrentTech += iWeight;
+					}
 				}
 			}
 		}
@@ -10516,7 +10515,7 @@ int CvPlayer::findPathLength(TechTypes eTech, bool bCost) const {
 		//	If this is a valid tech
 		if (ePreReq != NO_TECH) {
 			//	Recursively find the path length (takes into account all ANDs)
-			int iNumSteps = findPathLength(ePreReq, bCost);
+			int iNumSteps = findPathLength(ePreReq, bCost); // K-Mod note: This will double-count any shared AND-prepreqs.
 
 			//	If the prereq is a valid tech and its the current shortest, mark it as such
 			if (iNumSteps < iShortestPath) {
@@ -10997,10 +10996,10 @@ void CvPlayer::clearSpaceShipPopups() {
 				it = m_listPopups.erase(it);
 				SAFE_DELETE(pInfo);
 			} else {
-				it++;
+				++it;
 			}
 		} else {
-			it++;
+			++it;
 		}
 	}
 }
@@ -11362,11 +11361,11 @@ int CvPlayer::getEspionageMissionCost(EspionageMissionTypes eMission, PlayerType
 		return -1;
 	}
 
-	iMissionCost *= getEspionageMissionCostModifier(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
-	iMissionCost /= 100;
-
 	// Multiply cost of mission * number of team members
 	iMissionCost *= GET_TEAM(getTeam()).getNumMembers();
+
+	iMissionCost *= getEspionageMissionCostModifier(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
+	iMissionCost /= 100;
 
 	return std::max(0, iMissionCost);
 }
@@ -11406,7 +11405,7 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 
 	if (kMission.getStealTreasuryTypes() > 0) {
 		// Steal Treasury
-		int iNumTotalGold;
+		int iNumTotalGold = 0;
 
 		if (NULL != pCity) {
 			iNumTotalGold = getEspionageGoldQuantity(eMission, eTargetPlayer, pCity);
@@ -12025,7 +12024,7 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 	if (kMission.getStealTreasuryTypes() > 0) {
 		if (NO_PLAYER != eTargetPlayer) {
-			int iNumTotalGold;
+			int iNumTotalGold = 0;
 
 			if (NULL != pPlot) {
 				CvCity* pCity = pPlot->getPlotCity();
@@ -14461,6 +14460,12 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 }
 
 void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThreshold, bool bIncrementExperience, int iX, int iY) {
+	CvPlot* pPlot = GC.getMapINLINE().plot(iX, iY);
+	if (pPlot == NULL) {
+		FAssertMsg(false, "Invalid plot in createGreatPeople()");
+		return;
+	}
+
 	CvUnit* pGreatPeopleUnit = initUnit(eGreatPersonUnit, iX, iY);
 	if (NULL == pGreatPeopleUnit) {
 		FAssert(false);
@@ -14491,29 +14496,26 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 		}
 	}
 
-
-	CvPlot* pPlot = GC.getMapINLINE().plot(iX, iY);
 	CvCity* pCity = pPlot->getPlotCity();
 	CvWString szReplayMessage;
 
-	if (pPlot) {
-		if (pCity) {
-			CvWString szCity;
-			szCity.Format(L"%s (%s)", pCity->getName().GetCString(), GET_PLAYER(pCity->getOwnerINLINE()).getReplayName());
-			szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN", pGreatPeopleUnit->getName().GetCString(), szCity.GetCString());
-		} else {
-			szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_FIELD", pGreatPeopleUnit->getName().GetCString());
-		}
-		GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getID(), szReplayMessage, iX, iY, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+	if (pCity) {
+		CvWString szCity;
+		szCity.Format(L"%s (%s)", pCity->getName().GetCString(), GET_PLAYER(pCity->getOwnerINLINE()).getReplayName());
+		szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN", pGreatPeopleUnit->getName().GetCString(), szCity.GetCString());
+	} else {
+		szReplayMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_FIELD", pGreatPeopleUnit->getName().GetCString());
 	}
+	GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_MAJOR_EVENT, getID(), szReplayMessage, iX, iY, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
 
-	for (int iI = 0; iI < MAX_PLAYERS; iI++) {
-		if (GET_PLAYER((PlayerTypes)iI).isAlive()) {
-			if (pPlot->isRevealed(GET_PLAYER((PlayerTypes)iI).getTeam(), false)) {
-				gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, pGreatPeopleUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), iX, iY, true, true);
+	for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1)) {
+		const CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive()) {
+			if (pPlot->isRevealed(kPlayer.getTeam(), false)) {
+				gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szReplayMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, pGreatPeopleUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"), iX, iY, true, true);
 			} else {
 				CvWString szMessage = gDLL->getText("TXT_KEY_MISC_GP_BORN_SOMEWHERE", pGreatPeopleUnit->getName().GetCString());
-				gDLL->getInterfaceIFace()->addHumanMessage(((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), szMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
+				gDLL->getInterfaceIFace()->addHumanMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szMessage, "AS2D_UNIT_GREATPEOPLE", MESSAGE_TYPE_MAJOR_EVENT, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_UNIT_TEXT"));
 			}
 		}
 	}
@@ -14522,7 +14524,6 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 	if (pCity) {
 		CvEventReporter::getInstance().greatPersonBorn(pGreatPeopleUnit, getID(), pCity);
 	}
-
 }
 
 
@@ -17404,7 +17405,7 @@ bool CvPlayer::canForceCivics(PlayerTypes eTarget, CivicTypes eCivic) const {
 }
 
 bool CvPlayer::canForceReligion(PlayerTypes eTarget, ReligionTypes eReligion) const {
-	// K-Mod - You shouldn't be able to force a relgion on an irreligious civ.
+	// K-Mod - You shouldn't be able to force a religion on an irreligious civ.
 	return (GET_PLAYER(eTarget).isStateReligion() && GET_PLAYER(eTarget).canDoReligion(eReligion) && GET_PLAYER(eTarget).getStateReligion() != eReligion && getStateReligion() == eReligion);
 }
 
@@ -17894,6 +17895,8 @@ bool CvPlayer::getHeadingTradeString(PlayerTypes eOtherPlayer, TradeableItems eI
 		szString.clear();
 		return false;
 		break;
+
+
 	}
 
 	return true;

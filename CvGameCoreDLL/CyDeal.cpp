@@ -11,7 +11,8 @@ CyDeal::CyDeal(CvDeal* pDeal) :
 
 }
 
-CyDeal::~CyDeal() {}
+CyDeal::~CyDeal() {
+}
 
 bool CyDeal::isNone() {
 	return (NULL == m_pDeal);

@@ -18,7 +18,8 @@ void CvGameRecord::init() {
 	reset();
 }
 
-void CvGameRecord::uninit() {}
+void CvGameRecord::uninit() {
+}
 
 void CvGameRecord::reset() {
 	uninit();

@@ -78,7 +78,8 @@ inline void FVariable::Write(FDataStreamBase* pStream) const {
 
 //////////////////////////////////////////////////////////////////////////
 
-inline FVariableSystem::FVariableSystem() {}
+inline FVariableSystem::FVariableSystem() {
+}
 
 //---------------------------------------------------------------------------------------
 // inline FVariableSystem::~FVariableSystem( )
@@ -123,7 +124,7 @@ inline void FVariableSystem::Read(FDataStreamBase* pStream) {
 	pStream->Read(&iSize);
 
 	// read and add vars
-	for (i = 0; i < iSize; i++) {
+	for (i = 0; i < iSize; ++i) {
 		// read key
 		std::string szKey;
 		pStream->ReadString(szKey);
@@ -160,7 +161,7 @@ inline void FVariableSystem::Write(FDataStreamBase* pStream) const {
 		pkVariable = (FVariable*)iIterator->second;
 		pkVariable->Write(pStream);
 
-		iNumWritten++;
+		++iNumWritten;
 		++iIterator;
 	}
 

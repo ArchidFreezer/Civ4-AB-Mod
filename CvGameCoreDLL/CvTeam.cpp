@@ -747,7 +747,7 @@ void CvTeam::shareCounters(TeamTypes eTeam) {
 		int iDelta = kShareTeam.getProjectCount(eProject) - getProjectCount(eProject);
 		if (iDelta > 0) {
 			changeProjectCount(eProject, iDelta);
-			// don't count the additional projects that have been added in thiw way
+			// don't count the additional projects that have been added in this way
 			GC.getGameINLINE().incrementProjectCreatedCount(eProject, -iDelta);
 		}
 
@@ -786,9 +786,9 @@ void CvTeam::shareCounters(TeamTypes eTeam) {
 	// K-Mod. Share extra moves.
 	// Note: there is no reliable way to do this. We can't tell if the bonus is from something unique- such as circumnavigation,
 	//       or from something that is already taken into account - such as refrigeration.
-	for (DomainTypes eDomainType = (DomainTypes)0; eDomainType < NUM_DOMAIN_TYPES; eDomainType = (DomainTypes)(eDomainType + 1)) {
-		if (kShareTeam.getExtraMoves(eDomainType) > getExtraMoves(eDomainType))
-			changeExtraMoves(eDomainType, kShareTeam.getExtraMoves(eDomainType) - getExtraMoves(eDomainType));
+	for (DomainTypes eDomain = (DomainTypes)0; eDomain < NUM_DOMAIN_TYPES; eDomain = (DomainTypes)(eDomain + 1)) {
+		if (kShareTeam.getExtraMoves(eDomain) > getExtraMoves(eDomain))
+			changeExtraMoves(eDomain, kShareTeam.getExtraMoves(eDomain) - getExtraMoves(eDomain));
 	}
 }
 
@@ -3580,9 +3580,9 @@ void CvTeam::changeProjectCount(ProjectTypes eIndex, int iChange) {
 			changeTechShareCount((kProject.getTechShare() - 1), iChange);
 		}
 
-		for (int iVictory = 0; iVictory < GC.getNumVictoryInfos(); ++iVictory) {
-			if (kProject.getVictoryThreshold(iVictory) > 0) {
-				m_abCanLaunch[iVictory] = GC.getGameINLINE().testVictory((VictoryTypes)iVictory, getID());
+		for (VictoryTypes eVictory = (VictoryTypes)0; eVictory < GC.getNumVictoryInfos(); eVictory = (VictoryTypes)(eVictory + 1)) {
+			if (kProject.getVictoryThreshold(eVictory) > 0) {
+				setCanLaunch(eVictory, GC.getGameINLINE().testVictory(eVictory, getID()));
 			}
 		}
 
@@ -4980,11 +4980,6 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 			kPlayer.changeAssets(kTech.getAssetValue() * iChange);
 			kPlayer.changePower(kTech.getPowerValue() * iChange);
 			kPlayer.changeTechScore(getTechScore(eTech) * iChange);
-			// K-Mod. Processing for new xml fields
-			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
-				kPlayer.changeCommerceRateModifier(eCommerce, kTech.getCommerceModifier(eCommerce) * iChange);
-				kPlayer.changeSpecialistExtraCommerce(eCommerce, kTech.getSpecialistExtraCommerce(eCommerce) * iChange);
-			}
 
 			UnitTypes eFreeUnit = kPlayer.getTechFreeUnit(eTech, false);
 			if (eFreeUnit != NO_UNIT) {
@@ -4995,6 +4990,11 @@ void CvTeam::processTech(TechTypes eTech, int iChange) {
 					else
 						kPlayer.initUnit(eFreeUnit, pCapitalCity->getX_INLINE(), pCapitalCity->getY_INLINE());
 				}
+			}
+
+			for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+				kPlayer.changeCommerceRateModifier(eCommerce, kTech.getCommerceModifier(eCommerce)* iChange);
+				kPlayer.changeSpecialistExtraCommerce(eCommerce, kTech.getSpecialistExtraCommerce(eCommerce) * iChange);
 			}
 
 			bool bYieldUpdated = false;

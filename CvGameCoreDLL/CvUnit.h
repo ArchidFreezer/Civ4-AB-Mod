@@ -282,8 +282,8 @@ public:
 
 	bool canEspionage(const CvPlot* pPlot, bool bTestVisible = false) const;
 	bool espionage(EspionageMissionTypes eMission, int iData);
-	bool testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iModifier); // (K-Mod added bMission)
-	int getSpyInterceptPercent(TeamTypes eTargetTeam, bool bMission) const; // (K-Mod added bMission)
+	bool testSpyIntercepted(PlayerTypes eTargetPlayer, bool bMission, int iModifier = 0);
+	int getSpyInterceptPercent(TeamTypes eTargetTeam, bool bMission) const;
 	bool isIntruding() const;
 
 	bool canGoldenAge(const CvPlot* pPlot, bool bTestVisible = false) const;																// Exposed to Python

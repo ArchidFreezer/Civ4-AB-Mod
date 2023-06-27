@@ -17,9 +17,11 @@ CvTalkingHeadMessage::CvTalkingHeadMessage(int iMessageTurn, int iLen, LPCWSTR p
 	m_eMessageType(eType),
 	m_eFromPlayer(NO_PLAYER),
 	m_eTarget(NO_CHATTARGET),
-	m_bShown(false) {}
+	m_bShown(false) {
+}
 
-CvTalkingHeadMessage::~CvTalkingHeadMessage(void) {}
+CvTalkingHeadMessage::~CvTalkingHeadMessage(void) {
+}
 
 
 void CvTalkingHeadMessage::read(FDataStreamBase& stream) {

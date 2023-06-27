@@ -272,6 +272,7 @@ bool isPromotionValid(PromotionTypes ePromotion, UnitTypes eUnit, bool bLeader) 
 		return false;
 	}
 
+
 	if (kUnit.isOnlyDefensive()) {
 		if ((kPromotion.getCityAttackPercent() != 0) ||
 			(kPromotion.getWithdrawalChange() != 0) ||
@@ -744,8 +745,9 @@ int estimateCollateralWeight(const CvPlot* pPlot, TeamTypes eAttackTeam, TeamTyp
 		iBaseCollateral *= 110;
 	} else {
 		TeamTypes ePlotBonusTeam = eDefenceTeam;
-		if (ePlotBonusTeam == NO_TEAM)
+		if (ePlotBonusTeam == NO_TEAM) {
 			ePlotBonusTeam = pPlot->getTeam() == eAttackTeam ? NO_TEAM : pPlot->getTeam();
+		}
 
 		iBaseCollateral *= (pPlot->isCity() ? 130 : 110) + pPlot->defenseModifier(ePlotBonusTeam, false);
 
@@ -770,15 +772,16 @@ int estimateCollateralWeight(const CvPlot* pPlot, TeamTypes eAttackTeam, TeamTyp
 			// Kludge! I'm only checking for immunity against the unit's own combat type.
 			// Ideally we'd know what kind of collateral damage we're expecting to be hit by, and check for immunity vs that.
 			// Or we could check all types... But the reality is, there are always going to be mods and fringe cases where
-			// the esitmate is inaccurate. And currently in K-Mod, all instances of immunity are to the units own type anyway.
+			// the estimate is inaccurate. And currently in K-Mod, all instances of immunity are to the units own type anyway.
 			// Whichever way we do the estimate, cho-ku-nu is going to mess it up anyway. (Unless I change the game mechanics.)
 			if (pLoopUnit->getUnitCombatType() != NO_UNITCOMBAT && pLoopUnit->getUnitInfo().getUnitCombatCollateralImmune(pLoopUnit->getUnitCombatType()))
 				iResistanceSum += 100;
 			else
 				iResistanceSum += pLoopUnit->getCollateralDamageProtection();
 		}
-		if (iUnits > 0)
+		if (iUnits > 0) {
 			iBaseCollateral = iBaseCollateral * (iUnits * 100 - iResistanceSum) / (iUnits * 100);
+		}
 	}
 	return iBaseCollateral; // note, a factor of 100 is included in the result.
 }
@@ -795,7 +798,7 @@ int getEspionageModifier(TeamTypes eOurTeam, TeamTypes eTargetTeam) {
 	int iTargetPoints = 10 * kTargetTeam.getEspionagePointsEver() / std::max(1, iPopScale + kTargetTeam.getTotalPopulation(false));
 	int iOurPoints = 10 * kOurTeam.getEspionagePointsEver() / std::max(1, iPopScale + kOurTeam.getTotalPopulation(false));
 
-	return GC.getDefineINT("ESPIONAGE_SPENDING_MULTIPLIER") * std::max(1, 2 * iTargetPoints + iOurPoints) / std::max(1, iTargetPoints + 2 * iOurPoints);
+	return GC.getDefineINT("ESPIONAGE_SPENDING_MULTIPLIER") * std::max(1, (2 * iTargetPoints + iOurPoints)) / std::max(1, iTargetPoints + 2 * iOurPoints);
 }
 
 void setTradeItem(TradeData* pItem, TradeableItems eItemType, int iData) {
@@ -1307,7 +1310,6 @@ int pathCost(FAStarNode* parent, FAStarNode* node, int data, const void* pointer
 
 	// end symmetry breaking.
 
-	// lets try this without cheating, shall we?
 	if (!pToPlot->isRevealed(eTeam, false))
 		return iWorstCost;
 

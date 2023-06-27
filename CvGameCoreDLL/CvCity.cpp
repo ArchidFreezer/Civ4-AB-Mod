@@ -2707,7 +2707,7 @@ int CvCity::getProductionDifference(int iProductionNeeded, int iProduction, int 
 		return 0;
 	}
 
-	int iFoodProduction = ((bFoodProduction) ? std::max(0, (getYieldRate(YIELD_FOOD) - foodConsumption(true))) : 0);
+	int iFoodProduction = bFoodProduction ? std::max(0, getYieldRate(YIELD_FOOD) - foodConsumption()) : 0;
 
 	int iOverflow = ((bOverflow) ? (getOverflowProduction() + getFeatureProduction()) : 0);
 
@@ -6118,12 +6118,14 @@ void CvCity::changeForeignTradeRouteModifier(int iChange) {
 
 // K-Mod - Trade culture calculation
 int CvCity::getTradeCultureRateTimes100(int iLevel) const {
+	// Note: iLevel currently isn't used.
+
 	// Note: GC.getNumCultureLevelInfos() is 7 with the standard xml, which means legendary culture is level 6.
 	// So we have 3, 4, 4, 5, 5, 6, 6
 	int iPercent = (GC.getNumCultureLevelInfos() + (int)getCultureLevel()) / 2;
 
 	if (iPercent > 0) {
-		// 1% of culture rate for each culture level.
+		// (originally this was 1% of culture rate for each culture level.)
 		return (m_aiCommerceRate[COMMERCE_CULTURE] * iPercent) / 100;
 	}
 	return 0;
@@ -6859,11 +6861,7 @@ int CvCity::getAdditionalBaseYieldRateByBuilding(YieldTypes eIndex, BuildingType
 		if (iPlayerTradeYieldModifier > 0 && (kBuilding.getTradeRouteModifier() != 0 || kBuilding.getForeignTradeRouteModifier() != 0)) {
 			int iTotalTradeYield = 0;
 			int iNewTotalTradeYield = 0;
-#ifdef _MOD_FRACTRADE
 			int iTradeProfitDivisor = 100;
-#else
-			int iTradeProfitDivisor = 10000;
-#endif
 
 			for (int iI = 0; iI < getTradeRoutes(); ++iI) {
 				CvCity* pCity = getTradeCity(iI);
@@ -6882,10 +6880,8 @@ int CvCity::getAdditionalBaseYieldRateByBuilding(YieldTypes eIndex, BuildingType
 				}
 			}
 
-#ifdef _MOD_FRACTRADE
 			iTotalTradeYield /= 100;
 			iNewTotalTradeYield /= 100;
-#endif
 			iExtraRate += iNewTotalTradeYield - iTotalTradeYield;
 		}
 
@@ -10364,6 +10360,11 @@ void CvCity::doPlotCultureTimes100(bool bUpdate, PlayerTypes ePlayer, int iCultu
 	}
 
 	// K-Mod - increased culture range, added a percentage based distance bonus (decreasing the importance flat rate bonus).
+	// Experimental culture profile...
+	// Ae^(-bx). A = 10 (no effect), b = log(full_range_ratio)/range, x = distance from centre
+	//
+	// (iScale-1)(iDistance - iRange)^2/(iRange^2) + 1   // This approximates the exponential pretty well
+	// In our case, 10^(-x/R), where x is distance, and R is max range. So it's 10 times culture at the centre compared to the edge.
 	const int iScale = 10;
 	const int iCultureRange = eCultureLevel + 3;
 
@@ -10680,7 +10681,7 @@ void CvCity::doReligion() {
 							iDivisor /= 100;
 
 							// now iDivisor is in the range [1, 1+iDistanceFactor] * iDivisorBase
-							// this is approximately in the range [4, 60], depending on what the xml value are. (the value currently being tested and tuned.)
+							// this is approximately in the range [5, 50], depending on what the xml value are. (the value currently being tested and tuned.)
 							iSpread /= iDivisor;
 
 							iRandThreshold = std::max(iRandThreshold, iSpread);
@@ -12645,6 +12646,7 @@ void CvCity::changeDisabledBuildingCount(BuildingTypes eIndex, int iChange) {
 bool CvCity::isObsoleteBuilding(BuildingTypes eBuilding) const {
 	return GET_PLAYER(getOwnerINLINE()).isObsoleteBuilding(eBuilding);
 }
+
 
 int CvCity::getAdditionalBombardDefenseByBuilding(BuildingTypes eBuilding) const {
 	FAssertMsg(eBuilding >= 0, "eBuilding expected to be >= 0");

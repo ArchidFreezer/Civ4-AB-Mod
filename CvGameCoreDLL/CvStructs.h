@@ -393,7 +393,8 @@ struct DllExport CvWidgetDataStruct {
 };
 
 struct DllExport CvPlotIndicatorData {
-	CvPlotIndicatorData() : m_eVisibility(PLOT_INDICATOR_VISIBLE_ALWAYS), m_bFlashing(false), m_pUnit(NULL), m_bTestEnemyVisibility(false), m_bVisibleOnlyIfSelected(false), m_bPersistentRotation(false) {}
+	CvPlotIndicatorData() : m_eVisibility(PLOT_INDICATOR_VISIBLE_ALWAYS), m_bFlashing(false), m_pUnit(NULL), m_bTestEnemyVisibility(false), m_bVisibleOnlyIfSelected(false), m_bPersistentRotation(false) {
+	}
 	CvString m_strIcon;
 	CvString m_strLabel;
 	NiColor m_kColor;

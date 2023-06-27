@@ -54,13 +54,6 @@
 	<ElementType name="DomainExtraMoves" content="eltOnly">
 		<element type="DomainExtraMove" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
-	<ElementType name="iCommerce" content="textOnly" dt:type="int"/>
-	<ElementType name="CommerceModifiers" content="eltOnly">
-		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
-	<ElementType name="SpecialistExtraCommerces" content="eltOnly">
-		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
-	</ElementType>
 	<ElementType name="bFlexible" content="textOnly" dt:type="boolean"/>
 	<ElementType name="CommerceFlexible" content="eltOnly">
 		<element type="bFlexible" minOccurs="0" maxOccurs="*"/>
@@ -119,6 +112,13 @@
 	<ElementType name="bLimitedBordersTrading" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFreeTradeAgreementTrading" content="textOnly" dt:type="boolean"/>	
 	<ElementType name="bNonAggressionTrading" content="textOnly" dt:type="boolean"/>	
+	<ElementType name="iCommerce" content="textOnly" dt:type="int"/>
+	<ElementType name="SpecialistExtraCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="CommerceModifiers" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="TechInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>

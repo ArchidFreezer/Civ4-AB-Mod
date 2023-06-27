@@ -875,8 +875,8 @@ CvTechInfo::CvTechInfo() :
 	m_piForestPlotYieldChange(NULL),
 	m_piRiverPlotYieldChange(NULL),
 	m_piSeaPlotYieldChange(NULL),
-	m_piCommerceModifier(NULL), // K-Mod
-	m_piSpecialistExtraCommerce(NULL), // K-Mod
+	m_piSpecialistExtraCommerce(NULL),
+	m_piCommerceModifier(NULL),
 	m_pbCommerceFlexible(NULL),
 	m_pbTerrainTrade(NULL) {
 }
@@ -894,8 +894,8 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piForestPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_piRiverPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
-	SAFE_DELETE_ARRAY(m_piCommerceModifier); // K-Mod
-	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce); // K-Mod
+	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce);
+	SAFE_DELETE_ARRAY(m_piCommerceModifier);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
 }
@@ -1235,15 +1235,14 @@ int CvTechInfo::getFlavorValue(int i) const {
 	return m_piFlavorValue ? m_piFlavorValue[i] : -1;
 }
 
-int CvTechInfo::getCommerceModifier(int i) const {
-	FAssertMsg(m_piCommerceModifier, "Tech info not initialised");
-	FASSERT_BOUNDS(0, NUM_COMMERCE_TYPES, i, "CvTechInfo::getCommerceModifier");
-
-	return m_piCommerceModifier ? m_piCommerceModifier[i] : 0;
+bool CvTechInfo::isCommerceFlexible(int i) const {
+	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_pbCommerceFlexible ? m_pbCommerceFlexible[i] : false;
 }
 
-int* CvTechInfo::getCommerceModifierArray() const {
-	return m_piCommerceModifier;
+bool CvTechInfo::isTerrainTrade(int i) const {
+	return m_pbTerrainTrade ? m_pbTerrainTrade[i] : false;
 }
 
 int CvTechInfo::getSpecialistExtraCommerce(int i) const {
@@ -1255,14 +1254,16 @@ int CvTechInfo::getSpecialistExtraCommerce(int i) const {
 int* CvTechInfo::getSpecialistExtraCommerceArray() const {
 	return m_piSpecialistExtraCommerce;
 }
-bool CvTechInfo::isCommerceFlexible(int i) const {
-	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
-	FAssertMsg(i > -1, "Index out of bounds");
-	return m_pbCommerceFlexible ? m_pbCommerceFlexible[i] : false;
+
+int CvTechInfo::getCommerceModifier(int i) const {
+	FAssertMsg(m_piCommerceModifier, "Tech info not initialised");
+	FASSERT_BOUNDS(0, NUM_COMMERCE_TYPES, i, "CvTechInfo::getCommerceModifier");
+
+	return m_piCommerceModifier ? m_piCommerceModifier[i] : 0;
 }
 
-bool CvTechInfo::isTerrainTrade(int i) const {
-	return m_pbTerrainTrade ? m_pbTerrainTrade[i] : false;
+int* CvTechInfo::getCommerceModifierArray() const {
+	return m_piCommerceModifier;
 }
 
 void CvTechInfo::read(FDataStreamBase* stream) {
@@ -1342,13 +1343,13 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	m_piSeaPlotYieldChange = new int[NUM_YIELD_TYPES];
 	stream->Read(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
 
-	SAFE_DELETE_ARRAY(m_piCommerceModifier)
-	m_piCommerceModifier = new int[NUM_COMMERCE_TYPES];
-	stream->Read(NUM_COMMERCE_TYPES, m_piCommerceModifier);
-	
-	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce)
+	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce);
 	m_piSpecialistExtraCommerce = new int[NUM_COMMERCE_TYPES];
 	stream->Read(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce);
+
+	SAFE_DELETE_ARRAY(m_piCommerceModifier);
+	m_piCommerceModifier = new int[NUM_COMMERCE_TYPES];
+	stream->Read(NUM_COMMERCE_TYPES, m_piCommerceModifier);
 
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	m_pbCommerceFlexible = new bool[NUM_COMMERCE_TYPES];
@@ -1448,8 +1449,8 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(NUM_YIELD_TYPES, m_piForestPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piRiverPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
-	stream->Write(NUM_COMMERCE_TYPES, m_piCommerceModifier); // K-Mod. uiFlag >= 2
-	stream->Write(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce); // K-Mod. uiFlag >= 1
+	stream->Write(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce);
+	stream->Write(NUM_COMMERCE_TYPES, m_piCommerceModifier);
 	stream->Write(NUM_COMMERCE_TYPES, m_pbCommerceFlexible);
 	stream->Write(GC.getNumTerrainInfos(), m_pbTerrainTrade);
 
@@ -1537,7 +1538,6 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bCanFoundOnPeaks, "bCanFoundOnPeaks");
 	pXML->GetChildXmlValByName(&m_iGridX, "iGridX");
 	pXML->GetChildXmlValByName(&m_iGridY, "iGridY");
-
 	pXML->SetList(&m_piCommerceModifier, "CommerceModifiers", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_piSpecialistExtraCommerce, "SpecialistExtraCommerces", NUM_COMMERCE_TYPES);
 	pXML->SetList(&m_pbCommerceFlexible, "CommerceFlexible", NUM_COMMERCE_TYPES);
@@ -15821,6 +15821,7 @@ CvArtInfoUnit::CvArtInfoUnit() :
 	m_fTrailTaper(0.0f),
 	m_fTrailFadeStartTime(0.0f),
 	m_fTrailFadeFalloff(0.0f),
+	m_fBattleDistance(0.0f),
 	m_fRangedDeathTime(0.0f),
 	m_fExchangeAngle(0.0f),
 	m_bSmoothMove(false),
@@ -16934,6 +16935,8 @@ CvLandscapeInfo::CvLandscapeInfo() :
 	m_fTextureScaleX(0.0f),
 	m_fTextureScaleY(0.0f),
 	m_fZScale(0.0f),
+	m_fPeakScale(0.0f),
+	m_fHillScale(0.0f),
 	m_bUseTerrainShader(false),
 	m_bUseLightmap(false),
 	m_bRandomMap(false) {

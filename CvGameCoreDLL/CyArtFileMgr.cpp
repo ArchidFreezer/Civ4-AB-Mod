@@ -10,7 +10,8 @@ CyArtFileMgr::CyArtFileMgr() : m_pArtFileMgr(NULL) {
 	m_pArtFileMgr = &ARTFILEMGR;
 }
 
-CyArtFileMgr::CyArtFileMgr(CvArtFileMgr* pArtFileMgr) : m_pArtFileMgr(pArtFileMgr) {}
+CyArtFileMgr::CyArtFileMgr(CvArtFileMgr* pArtFileMgr) : m_pArtFileMgr(pArtFileMgr) {
+}
 
 void CyArtFileMgr::Reset() {
 	if (m_pArtFileMgr) {

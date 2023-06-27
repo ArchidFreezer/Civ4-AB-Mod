@@ -27,7 +27,8 @@ void CvGameAI::AI_init() {
 }
 
 
-void CvGameAI::AI_uninit() {}
+void CvGameAI::AI_uninit() {
+}
 
 
 void CvGameAI::AI_reset() {

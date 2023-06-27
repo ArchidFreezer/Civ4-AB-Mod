@@ -20,7 +20,8 @@ CyMapGenerator::CyMapGenerator() : m_pMapGenerator(NULL) {
 	m_pMapGenerator = &CvMapGenerator::GetInstance();
 }
 
-CyMapGenerator::CyMapGenerator(CvMapGenerator* pMapGenerator) : m_pMapGenerator(pMapGenerator) {}
+CyMapGenerator::CyMapGenerator(CvMapGenerator* pMapGenerator) : m_pMapGenerator(pMapGenerator) {
+}
 
 bool CyMapGenerator::canPlaceBonusAt(int /*BonusTypes*/ eBonus, int iX, int iY, bool bIgnoreLatitude) {
 	return m_pMapGenerator ? m_pMapGenerator->canPlaceBonusAt((BonusTypes)eBonus, iX, iY, bIgnoreLatitude) : false;

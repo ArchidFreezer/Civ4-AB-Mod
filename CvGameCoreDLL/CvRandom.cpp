@@ -30,7 +30,8 @@ void CvRandom::init(unsigned long ulSeed) {
 }
 
 
-void CvRandom::uninit() {}
+void CvRandom::uninit() {
+}
 
 
 // FUNCTION: reset()

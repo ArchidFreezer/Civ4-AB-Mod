@@ -9,9 +9,11 @@ CvPopupInfo::CvPopupInfo(ButtonPopupTypes eButtonPopupType, int iData1, int iDat
 	m_bOption1(bOption1),
 	m_bOption2(bOption2),
 	m_eButtonPopupType(eButtonPopupType),
-	m_bPendingDelete(false) {}
+	m_bPendingDelete(false) {
+}
 
-CvPopupInfo::~CvPopupInfo() {}
+CvPopupInfo::~CvPopupInfo() {
+}
 
 const CvPopupInfo& CvPopupInfo::operator=(const CvPopupInfo& other) {
 	setButtonPopupType(other.getButtonPopupType());

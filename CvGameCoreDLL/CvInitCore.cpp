@@ -1659,3 +1659,4 @@ void CvInitCore::write(FDataStreamBase* pStream) {
 	pStream->Write(MAX_PLAYERS, m_abPlayableCiv);
 	pStream->Write(MAX_PLAYERS, m_abMinorNationCiv);
 }
+

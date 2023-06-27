@@ -7,9 +7,11 @@ CvReplayMessage::CvReplayMessage(int iTurn, ReplayMessageTypes eType, PlayerType
 	m_eType(eType),
 	m_iPlotX(-1),
 	m_iPlotY(-1),
-	m_eColor(NO_COLOR) {}
+	m_eColor(NO_COLOR) {
+}
 
-CvReplayMessage::~CvReplayMessage() {}
+CvReplayMessage::~CvReplayMessage() {
+}
 
 const CvReplayMessage& CvReplayMessage::operator=(const CvReplayMessage& other) {
 	m_iTurn = other.m_iTurn;

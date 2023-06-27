@@ -375,11 +375,9 @@ public:
 	int getPrereqAndTech(int i) const;
 	int getPrereqOrTech(int i) const;
 	int getEnabledWorldView(int i) const;
+	int getSpecialistExtraCommerce(int i) const; // Exposed to Python
+	int getCommerceModifier(int i) const; // Exposed to Python
 
-	int getCommerceModifier(int i) const; // K-Mod, Exposed to Python
-	int* getCommerceModifierArray() const; // K-Mod
-	int getSpecialistExtraCommerce(int i) const; // K-Mod, Exposed to Python
-	int* getSpecialistExtraCommerceArray() const; // K-Mod
 	bool isCommerceFlexible(int i) const;	// Exposed to Python
 	bool isTerrainTrade(int i) const;			// Exposed to Python
 	bool isPrereqAndTech(int i) const;
@@ -389,6 +387,8 @@ public:
 	int* getForestPlotYieldChangeArray() const;
 	int* getRiverPlotYieldChangeArray() const;
 	int* getSeaPlotYieldChangeArray() const;
+	int* getSpecialistExtraCommerceArray() const;
+	int* getCommerceModifierArray() const;
 
 	void read(FDataStreamBase*);
 	void write(FDataStreamBase*);
@@ -462,8 +462,8 @@ protected:
 	int* m_piForestPlotYieldChange;
 	int* m_piRiverPlotYieldChange;
 	int* m_piSeaPlotYieldChange;
-	int* m_piCommerceModifier; // K-Mod
-	int* m_piSpecialistExtraCommerce; // K-Mod
+	int* m_piSpecialistExtraCommerce;
+	int* m_piCommerceModifier;
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbTerrainTrade;
@@ -1833,7 +1833,6 @@ public:
 	int* getRiverPlotYieldChangeArray() const;
 	int getGlobalSeaPlotYieldChange(int i) const;				// Exposed to Python
 	int* getGlobalSeaPlotYieldChangeArray() const;
-
 	int getCommerceChange(int i) const;				// Exposed to Python
 	int* getCommerceChangeArray() const;
 	int getObsoleteSafeCommerceChange(int i) const;				// Exposed to Python

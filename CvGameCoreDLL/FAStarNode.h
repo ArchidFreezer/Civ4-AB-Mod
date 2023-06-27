@@ -19,16 +19,16 @@
 #define		FASTARNODE_H
 #pragma		once
 
-#define ASNL_ADDOPEN			0
-#define ASNL_STARTOPEN		1
-#define ASNL_DELETEOPEN		2
-#define ASNL_ADDCLOSED		3
+#define ASNL_ADDOPEN        0
+#define ASNL_STARTOPEN      1
+#define ASNL_DELETEOPEN     2
+#define ASNL_ADDCLOSED      3
 
-#define ASNC_INITIALADD		0
-#define ASNC_OPENADD_UP		1
-#define ASNC_CLOSEDADD_UP	2
-#define ASNC_PARENTADD_UP	3
-#define ASNC_NEWADD				4
+#define ASNC_INITIALADD     0
+#define ASNC_OPENADD_UP     1
+#define ASNC_CLOSEDADD_UP   2
+#define ASNC_PARENTADD_UP   3
+#define ASNC_NEWADD         4
 
 enum FAStarListType {
 	NO_FASTARLIST = -1,

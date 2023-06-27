@@ -105,7 +105,6 @@ protected:
 	void AI_defenseAirMove();
 	void AI_carrierAirMove();
 	void AI_missileAirMove();
-
 	void AI_networkAutomated();
 	void AI_cityAutomated();
 
@@ -174,7 +173,6 @@ protected:
 	bool AI_assaultSeaTransport(bool bAttackBarbs = false, bool bLocal = false); // K-mod added bLocal
 	bool AI_assaultSeaReinforce(bool bAttackBarbs = false); // BBAI
 	bool AI_transportGoTo(CvPlot* pEndTurnPlot, CvPlot* pTargetPlot, int iFlags, MissionAITypes eMissionAI); // K-Mod
-
 	bool AI_settlerSeaTransport();
 	bool AI_settlerSeaFerry();
 	bool AI_specialSeaTransportMissionary();
@@ -228,9 +226,7 @@ protected:
 	bool AI_seaRetreatFromCityDanger();
 	bool AI_airRetreatFromCityDanger();
 	bool AI_airAttackDamagedSkip();
-
 	bool AI_followBombard();
-
 	bool AI_potentialEnemy(TeamTypes eTeam, const CvPlot* pPlot = NULL);
 
 	bool AI_defendPlot(CvPlot* pPlot);
