@@ -424,6 +424,8 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iStarSignScalePercent = 0;
 	m_iStarSignAngerTimer = 0;
 	m_iDisabledPowerTimer = 0;
+	m_iWarWearinessTimer = 0;
+	m_iEventAnger = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -820,6 +822,7 @@ void CvCity::doTurn() {
 	setCurrAirlift(0);
 
 	doDisabledPower();
+	doWarWeariness();
 
 	AI_doTurn();
 
@@ -10923,6 +10926,8 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iStarSignScalePercent);
 	pStream->Read(&m_iStarSignAngerTimer);
 	pStream->Read(&m_iDisabledPowerTimer);
+	pStream->Read(&m_iWarWearinessTimer);
+	pStream->Read(&m_iEventAnger);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11171,6 +11176,8 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iStarSignScalePercent);
 	pStream->Write(m_iStarSignAngerTimer);
 	pStream->Write(m_iDisabledPowerTimer);
+	pStream->Write(m_iWarWearinessTimer);
+	pStream->Write(m_iEventAnger);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -13265,4 +13272,43 @@ void CvCity::doPowerStatusChange() {
 	updateCommerce();
 	updatePowerHealth();
 	setInfoDirty(true);
+}
+
+int CvCity::getWarWearinessTimer() const {
+	return m_iWarWearinessTimer;
+}
+
+void CvCity::changeWarWearinessTimer(int iChange) {
+	m_iWarWearinessTimer += iChange;
+}
+
+void CvCity::doWarWeariness() {
+	if (getWarWearinessTimer() > 0) {
+		changeWarWearinessTimer(-20);
+	}
+	if (getEventAnger() > 0) {
+		int iTurnCheck = 10;
+		iTurnCheck *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getAnarchyPercent();
+		iTurnCheck /= 100;
+		if (GC.getGameINLINE().getElapsedGameTurns() % iTurnCheck == 0) {
+			changeEventAnger(-1);
+		}
+	}
+}
+
+int CvCity::getEventAnger() const {
+	return m_iEventAnger;
+}
+
+void CvCity::changeEventAnger(int iChange) {
+	if (iChange != 0) {
+		m_iEventAnger += iChange;
+		FAssert(getEventAnger() >= 0);
+
+		AI_setAssignWorkDirty(true);
+
+		if (getTeam() == GC.getGameINLINE().getActiveTeam()) {
+			setInfoDirty(true);
+		}
+	}
 }

@@ -538,6 +538,12 @@ public:
 	int getSpySwitchReligionChange() const;
 	int getSpyEscapeChange() const;
 	int getSpyInterceptChange() const;
+	int getSpyRevoltChange() const;
+	int getSpyUnhappyChange() const;
+	int getSpyWarWearinessChange() const;
+	int getSpyReligionRemovalChange() const;
+	int getSpyCorporationRemovalChange() const;
+	int getSpyCultureChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -631,6 +637,12 @@ protected:
 	int m_iSpySwitchReligionChange;
 	int m_iSpyEscapeChange;
 	int m_iSpyInterceptChange;
+	int m_iSpyRevoltChange;
+	int m_iSpyUnhappyChange;
+	int m_iSpyWarWearinessChange;
+	int m_iSpyReligionRemovalChange;
+	int m_iSpyCorporationRemovalChange;
+	int m_iSpyCultureChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -6386,6 +6398,9 @@ public:
 	int getCounterespionageMod() const;
 	int getDifficultyMod() const;
 	int getAttitudeModifier() const;
+	int getWarWearinessCounter() const;
+	int getRemoveReligionsCostFactor() const;
+	int getRemoveCorporationsCostFactor() const;
 
 	bool isPassive() const;
 	bool isTwoPhases() const;
@@ -6427,6 +6442,9 @@ protected:
 	int m_iCounterespionageMod;
 	int m_iDifficultyMod;
 	int m_iAttitudeModifier;
+	int m_iWarWearinessCounter;
+	int m_iRemoveReligionsCostFactor;
+	int m_iRemoveCorporationsCostFactor;
 
 	bool m_bIsPassive;
 	bool m_bIsTwoPhases;
