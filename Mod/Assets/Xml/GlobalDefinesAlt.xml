@@ -30,4 +30,8 @@
 		<DefineName>GLOBAL_WARMING_PROB</DefineName>
 		<iDefineIntVal>20</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>DISABLE_POWER_TURNS</DefineName>
+		<iDefineIntVal>6</iDefineIntVal>
+	</Define>	
 </Civ4Defines>

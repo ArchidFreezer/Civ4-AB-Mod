@@ -1617,6 +1617,11 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyPreparationModifier(0),
 	m_iSpyPoisonModifier(0),
 	m_iSpyDestroyImprovementChange(0),
+	m_iSpyDiploPenaltyChange(0),
+	m_iSpyNukeCityChange(0),
+	m_iSpyDisablePowerChange(0),
+	m_iSpySwitchCivicChange(0),
+	m_iSpySwitchReligionChange(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1658,6 +1663,26 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSpyDiploPenaltyChange() const {
+	return m_iSpyDiploPenaltyChange;
+}
+
+int CvPromotionInfo::getSpyNukeCityChange() const {
+	return m_iSpyNukeCityChange;
+}
+
+int CvPromotionInfo::getSpyDisablePowerChange() const {
+	return m_iSpyDisablePowerChange;
+}
+
+int CvPromotionInfo::getSpySwitchCivicChange() const {
+	return m_iSpySwitchCivicChange;
+}
+
+int CvPromotionInfo::getSpySwitchReligionChange() const {
+	return m_iSpySwitchReligionChange;
 }
 
 bool CvPromotionInfo::isSpyRadiation() const {
@@ -2021,6 +2046,11 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyPreparationModifier);
 	stream->Read(&m_iSpyPoisonModifier);
 	stream->Read(&m_iSpyDestroyImprovementChange);
+	stream->Read(&m_iSpyDiploPenaltyChange);
+	stream->Read(&m_iSpyNukeCityChange);
+	stream->Read(&m_iSpyDisablePowerChange);
+	stream->Read(&m_iSpySwitchCivicChange);
+	stream->Read(&m_iSpySwitchReligionChange);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2143,6 +2173,11 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyPreparationModifier);
 	stream->Write(m_iSpyPoisonModifier);
 	stream->Write(m_iSpyDestroyImprovementChange);
+	stream->Write(m_iSpyDiploPenaltyChange);
+	stream->Write(m_iSpyNukeCityChange);
+	stream->Write(m_iSpyDisablePowerChange);
+	stream->Write(m_iSpySwitchCivicChange);
+	stream->Write(m_iSpySwitchReligionChange);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2257,6 +2292,11 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpyPreparationModifier, "iSpyPreparationModifier");
 	pXML->GetChildXmlValByName(&m_iSpyPoisonModifier, "iSpyPoisonModifier");
 	pXML->GetChildXmlValByName(&m_iSpyEvasionChange, "iSpyEvasionChange");
+	pXML->GetChildXmlValByName(&m_iSpyDiploPenaltyChange, "iSpyDiploPenaltyChange");
+	pXML->GetChildXmlValByName(&m_iSpyNukeCityChange, "iSpyNukeCityChange");
+	pXML->GetChildXmlValByName(&m_iSpyDisablePowerChange, "iSpyDisablePowerChange");
+	pXML->GetChildXmlValByName(&m_iSpySwitchCivicChange, "iSpySwitchCivicChange");
+	pXML->GetChildXmlValByName(&m_iSpySwitchReligionChange, "iSpySwitchReligionChange");
 	pXML->GetChildXmlValByName(&m_iSpyDestroyImprovementChange, "iSpyDestroyImprovementChange");
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
@@ -19795,7 +19835,41 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML) {
 //  PURPOSE :   Default constructor
 //
 //------------------------------------------------------------------------------------------------------
-CvEspionageMissionInfo::CvEspionageMissionInfo() {
+CvEspionageMissionInfo::CvEspionageMissionInfo() :
+	m_iCost(0),
+	m_bIsPassive(false),
+	m_bIsTwoPhases(false),
+	m_bTargetsCity(false),
+	m_bSelectPlot(false),
+	m_iTechPrereq(NO_TECH),
+	m_iVisibilityLevel(0),
+	m_bInvestigateCity(false),
+	m_bSeeDemographics(false),
+	m_bNoActiveMissions(false),
+	m_bSeeResearch(false),
+	m_bDestroyImprovement(false),
+	m_bNuke(false),
+	m_bDisablePower(false),
+	m_iDestroyBuildingCostFactor(0),
+	m_iDestroyUnitCostFactor(0),
+	m_iDestroyProjectCostFactor(0),
+	m_iDestroyProductionCostFactor(0),
+	m_iBuyUnitCostFactor(0),
+	m_iBuyCityCostFactor(0),
+	m_iStealTreasuryTypes(0),
+	m_iCityInsertCultureAmountFactor(0),
+	m_iCityInsertCultureCostFactor(0),
+	m_iCityPoisonWaterCounter(0),
+	m_iCityUnhappinessCounter(0),
+	m_iCityRevoltCounter(0),
+	m_iBuyTechCostFactor(0),
+	m_iSwitchCivicCostFactor(0),
+	m_iSwitchReligionCostFactor(0),
+	m_iPlayerAnarchyCounter(0),
+	m_iCounterespionageNumTurns(0),
+	m_iCounterespionageMod(0),
+	m_iAttitudeModifier(0),
+	m_iDifficultyMod(0) {
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -19806,6 +19880,18 @@ CvEspionageMissionInfo::CvEspionageMissionInfo() {
 //
 //------------------------------------------------------------------------------------------------------
 CvEspionageMissionInfo::~CvEspionageMissionInfo() {
+}
+
+bool CvEspionageMissionInfo::isNuke() const {
+	return m_bNuke;
+}
+
+bool CvEspionageMissionInfo::isDisablePower() const {
+	return m_bDisablePower;
+}
+
+int CvEspionageMissionInfo::getAttitudeModifier() const {
+	return m_iAttitudeModifier;
 }
 
 int CvEspionageMissionInfo::getCost() const {
@@ -19947,6 +20033,8 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
 	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
 
+	pXML->GetChildXmlValByName(&m_bNuke, "bNuke");
+	pXML->GetChildXmlValByName(&m_bDisablePower, "bDisablePower");
 	pXML->GetChildXmlValByName(&m_iVisibilityLevel, "iVisibilityLevel");
 	pXML->GetChildXmlValByName(&m_bInvestigateCity, "bInvestigateCity");
 	pXML->GetChildXmlValByName(&m_bSeeDemographics, "bSeeDemographics");
@@ -19973,6 +20061,7 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iCounterespionageNumTurns, "iCounterespionageNumTurns");
 	pXML->GetChildXmlValByName(&m_iCounterespionageMod, "iCounterespionageMod");
 	pXML->GetChildXmlValByName(&m_iDifficultyMod, "iDifficultyMod");
+	pXML->GetChildXmlValByName(&m_iAttitudeModifier, "iAttitudeModifier");
 
 	return true;
 }

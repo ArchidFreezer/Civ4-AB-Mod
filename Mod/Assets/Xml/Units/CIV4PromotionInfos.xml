@@ -498,6 +498,45 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Commando.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,3</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Conspiracy 1 -->
+			<Type>PROMOTION_CONSPIRACY1</Type>
+			<Description>TXT_KEY_PROMOTION_CONSPIRACY1</Description>
+			<Sound>AS2D_PING</Sound>
+			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
+			<iSpySwitchCivicChange>50</iSpySwitchCivicChange>
+			<iSpySwitchReligionChange>50</iSpySwitchReligionChange>				
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Conspiracy1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Conspiracy 2 -->
+			<Type>PROMOTION_CONSPIRACY2</Type>
+			<Description>TXT_KEY_PROMOTION_CONSPIRACY2</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_CONSPIRACY1</PromotionPrereq>
+			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
+			<iSpyDisablePowerChange>50</iSpyDisablePowerChange>		
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Conspiracy2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Conspiracy 3 -->
+			<Type>PROMOTION_CONSPIRACY3</Type>
+			<Description>TXT_KEY_PROMOTION_CONSPIRACY3</Description>
+			<Sound>AS2D_PING</Sound>
+			<PromotionPrereq>PROMOTION_CONSPIRACY2</PromotionPrereq>
+			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
+			<iSpyNukeCityChange>50</iSpyNukeCityChange>		
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>Art/Interface/Buttons/Promotions/Conspiracy3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Cover -->
 			<Type>PROMOTION_COVER</Type>
 			<Description>TXT_KEY_PROMOTION_COVER</Description>
@@ -1147,29 +1186,6 @@
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,15</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Shock -->
-			<Type>PROMOTION_SHOCK</Type>
-			<Description>TXT_KEY_PROMOTION_SHOCK</Description>
-			<Sound>AS2D_IF_LEVELUP</Sound>
-			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_COMBAT1</PromotionType>
-				<PromotionType>PROMOTION_DRILL1</PromotionType>
-			</PrereqOrPromotions>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-					<iUnitCombatMod>25</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-			</OrUnitCombatTypes>
-			<HotKey/>
-			<Button>,Art/Interface/Buttons/Promotions/Shock.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,5</Button>
-		</PromotionInfo>
 		<PromotionInfo> <!-- Sentry -->
 			<Type>PROMOTION_SENTRY</Type>
 			<Description>TXT_KEY_PROMOTION_SENTRY</Description>
@@ -1192,6 +1208,29 @@
 			</OrUnitCombatTypes>
 			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Sentry.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,6</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Shock -->
+			<Type>PROMOTION_SHOCK</Type>
+			<Description>TXT_KEY_PROMOTION_SHOCK</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_COMBAT1</PromotionType>
+				<PromotionType>PROMOTION_DRILL1</PromotionType>
+			</PrereqOrPromotions>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<HotKey/>
+			<Button>,Art/Interface/Buttons/Promotions/Shock.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,5</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Tactics -->
 			<Type>PROMOTION_TACTICS</Type>

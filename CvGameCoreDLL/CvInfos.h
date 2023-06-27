@@ -531,6 +531,11 @@ public:
 	int getSpyPreparationModifier() const;
 	int getSpyPoisonModifier() const;
 	int getSpyDestroyImprovementChange() const;
+	int getSpyDiploPenaltyChange() const;
+	int getSpyNukeCityChange() const;
+	int getSpyDisablePowerChange() const;
+	int getSpySwitchCivicChange() const;
+	int getSpySwitchReligionChange() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -617,6 +622,11 @@ protected:
 	int m_iSpyPreparationModifier;
 	int m_iSpyPoisonModifier;
 	int m_iSpyDestroyImprovementChange;
+	int m_iSpyDiploPenaltyChange;
+	int m_iSpyNukeCityChange;
+	int m_iSpyDisablePowerChange;
+	int m_iSpySwitchCivicChange;
+	int m_iSpySwitchReligionChange;
 
 	bool m_bLeader;
 	bool m_bBlitz;
@@ -6361,6 +6371,8 @@ public:
 	bool isSeeDemographics() const;
 	bool isNoActiveMissions() const;
 	bool isSeeResearch() const;
+	bool isNuke() const;
+	bool isDisablePower() const;
 
 	bool isDestroyImprovement() const;
 	int getDestroyBuildingCostFactor() const;
@@ -6382,6 +6394,7 @@ public:
 	int getCounterespionageNumTurns() const;
 	int getCounterespionageMod() const;
 	int getDifficultyMod() const;
+	int getAttitudeModifier() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6400,6 +6413,8 @@ protected:
 	bool m_bSeeDemographics;
 	bool m_bNoActiveMissions;
 	bool m_bSeeResearch;
+	bool m_bNuke;
+	bool m_bDisablePower;
 
 	bool m_bDestroyImprovement;
 	int m_iDestroyBuildingCostFactor;
@@ -6421,6 +6436,7 @@ protected:
 	int m_iCounterespionageNumTurns;
 	int m_iCounterespionageMod;
 	int m_iDifficultyMod;
+	int m_iAttitudeModifier;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
