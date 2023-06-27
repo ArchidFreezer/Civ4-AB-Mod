@@ -1614,6 +1614,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iUnitRangePercentChange(0),
 	m_iPromotionGroup(0),
 	m_iSpyEvasionChange(0),
+	m_iSpyPreparationModifier(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1654,6 +1655,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSpyPreparationModifier() const {
+	return m_iSpyPreparationModifier;
 }
 
 int CvPromotionInfo::getSpyEvasionChange() const {
@@ -1998,6 +2003,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUnitRangePercentChange);
 	stream->Read(&m_iPromotionGroup);
 	stream->Read(&m_iSpyEvasionChange);
+	stream->Read(&m_iSpyPreparationModifier);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2116,6 +2122,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUnitRangePercentChange);
 	stream->Write(m_iPromotionGroup);
 	stream->Write(m_iSpyEvasionChange);
+	stream->Write(m_iSpyPreparationModifier);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2225,6 +2232,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUpgradeDiscount, "iUpgradeDiscount");
 	pXML->GetChildXmlValByName(&m_iExperiencePercent, "iExperiencePercent");
 	pXML->GetChildXmlValByName(&m_iKamikazePercent, "iKamikazePercent");
+	pXML->GetChildXmlValByName(&m_iSpyPreparationModifier, "iSpyPreparationModifier");
 	pXML->GetChildXmlValByName(&m_iSpyEvasionChange, "iSpyEvasionChange");
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
