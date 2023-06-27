@@ -107,6 +107,7 @@ protected:
 	void AI_missileAirMove();
 	void AI_networkAutomated();
 	void AI_cityAutomated();
+	void AI_shadowMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -228,6 +229,8 @@ protected:
 	bool AI_airAttackDamagedSkip();
 	bool AI_followBombard();
 	bool AI_potentialEnemy(TeamTypes eTeam, const CvPlot* pPlot = NULL);
+	bool AI_moveToTarget(CvUnit* pTarget, bool bForce);
+	bool AI_protectTarget(CvUnit* pTarget);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

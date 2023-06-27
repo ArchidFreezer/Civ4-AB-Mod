@@ -23,6 +23,7 @@
 #include <set>
 #include "CvEventReporter.h"
 #include "CvIniOptions.h"
+#include "CvPopupInfo.h"
 
 #include "BetterBTSAI.h"
 
@@ -551,6 +552,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_ESPIONAGE:
 		case MISSION_DIE_ANIMATION:
 		case MISSION_UPDATE_WORLD_VIEWS:
+		case MISSION_SHADOW:
 			break;
 
 		default:
@@ -715,6 +717,7 @@ void CvSelectionGroup::startMission() {
 		case MISSION_GREAT_WORK:
 		case MISSION_INFILTRATE:
 		case MISSION_GOLDEN_AGE:
+		case MISSION_SHADOW:
 			break;
 			// K-Mod. Let fast units carry out the pillage action first.
 			// (This is based on the idea from BBAI, which had a buggy implementation.)
@@ -1002,6 +1005,13 @@ void CvSelectionGroup::startMission() {
 					pUnitNode = NULL; // allow one unit at a time to do espionage
 					break;
 
+				case MISSION_SHADOW:
+					if (pLoopUnit->setShadowUnit(GC.getMapINLINE().plotINLINE(headMissionQueueNode()->m_data.iData1, headMissionQueueNode()->m_data.iData2), headMissionQueueNode()->m_data.iFlags)) {
+						setAutomateType(AUTOMATE_SHADOW);
+						bAction = true;
+					}
+					break;
+
 				case MISSION_DIE_ANIMATION:
 					bAction = true;
 					break;
@@ -1229,6 +1239,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_LEAD:
 				case MISSION_ESPIONAGE:
 				case MISSION_DIE_ANIMATION:
+				case MISSION_SHADOW:
 					break;
 
 				case MISSION_BUILD:
@@ -1312,6 +1323,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_LEAD:
 			case MISSION_ESPIONAGE:
 			case MISSION_DIE_ANIMATION:
+			case MISSION_SHADOW:
 				bDone = true;
 				break;
 
@@ -1602,6 +1614,12 @@ bool CvSelectionGroup::canDoInterfaceMode(InterfaceModeTypes eInterfaceMode) {
 				return true;
 			}
 			break;
+
+		case INTERFACEMODE_SHADOW_UNIT:
+			if (pLoopUnit->canShadow()) {
+				return true;
+			}
+			break;
 		}
 
 		pUnitNode = nextUnitNode(pUnitNode);
@@ -1680,6 +1698,25 @@ bool CvSelectionGroup::canDoInterfaceModeAt(InterfaceModeTypes eInterfaceMode, C
 		case INTERFACEMODE_REBASE:
 			if (pLoopUnit != NULL) {
 				if (pLoopUnit->canMoveInto(pPlot)) {
+					return true;
+				}
+			}
+			break;
+
+		case INTERFACEMODE_SHADOW_UNIT:
+			if (pLoopUnit != NULL) {
+				CvUnit* pLoopShadow = NULL;
+				CLLNode<IDInfo>* pUnitShadowNode = NULL;
+				int iValidShadowUnits = 0;
+				pUnitShadowNode = pPlot->headUnitNode();
+				while (pUnitShadowNode != NULL) {
+					pLoopShadow = ::getUnit(pUnitShadowNode->m_data);
+					pUnitShadowNode = pPlot->nextUnitNode(pUnitShadowNode);
+					if (pLoopUnit->canShadowAt(pPlot, pLoopShadow)) {
+						iValidShadowUnits++;
+					}
+				}
+				if (iValidShadowUnits > 0) {
 					return true;
 				}
 			}
@@ -3225,6 +3262,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 				return true;
 			break;
 
+		case MISSION_SHADOW:
+			if (pLoopUnit->canShadowAt(GC.getMapINLINE().plotINLINE(iData1, iData2)))
+				return true;
+			break;
+
 		case MISSION_DIE_ANIMATION:
 			return false;
 			break;
@@ -3403,7 +3445,8 @@ void CvSelectionGroup::setAutomateType(AutomateTypes eNewValue) {
 	FAssert(getOwnerINLINE() != NO_PLAYER);
 	FAssert(isHuman() || eNewValue == NO_AUTOMATE); // The AI shouldn't use automation.
 
-	if (getAutomateType() != eNewValue) {
+	AutomateTypes eOldValue = getAutomateType();
+	if (eOldValue != eNewValue) {
 		m_eAutomateType = eNewValue;
 
 		clearMissionQueue();
@@ -3411,6 +3454,10 @@ void CvSelectionGroup::setAutomateType(AutomateTypes eNewValue) {
 
 		// if canceling automation, cancel on cargo as well
 		if (eNewValue == NO_AUTOMATE) {
+			if (eOldValue == AUTOMATE_SHADOW) {
+				getHeadUnit()->clearShadowUnit();
+			}
+
 			CvPlot* pPlot = plot();
 			if (pPlot != NULL) {
 				CLLNode<IDInfo>* pUnitNode = pPlot->headUnitNode();

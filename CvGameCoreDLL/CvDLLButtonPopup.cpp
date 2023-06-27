@@ -619,6 +619,11 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn* pPopupReturn, C
 			CvMessageControl::getInstance().sendToggleWorldView(GC.getGameINLINE().getActivePlayer(), (WorldViewTypes)pPopupReturn->getButtonClicked());
 		break;
 
+	case BUTTONPOPUP_SELECT_UNIT:
+		if (pPopupReturn->getButtonClicked() != 0)
+			GC.getGameINLINE().selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, MISSION_SHADOW, info.getData2(), info.getData3(), pPopupReturn->getButtonClicked());
+		break;
+
 	default:
 		FAssert(false);
 		break;
@@ -842,6 +847,9 @@ bool CvDLLButtonPopup::launchButtonPopup(CvPopup* pPopup, CvPopupInfo& info) {
 		break;
 	case BUTTONPOPUP_TOGGLE_ANY_WORLD_VIEW:
 		bLaunched = launchToggleAnyWorldViewPopup(pPopup, info);
+		break;
+	case BUTTONPOPUP_SELECT_UNIT:
+		bLaunched = launchSelectShadowUnitPopup(pPopup, info);
 		break;
 	default:
 		FAssert(false);
@@ -2294,4 +2302,44 @@ bool CvDLLButtonPopup::launchToggleAnyWorldViewPopup(CvPopup* pPopup, CvPopupInf
 	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, 1, WIDGET_GENERAL);
 	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
 	return true;
+}
+
+bool CvDLLButtonPopup::launchSelectShadowUnitPopup(CvPopup* pPopup, CvPopupInfo& info) {
+	int iUnitID = info.getData1();
+	int iX = info.getData2();
+	int iY = info.getData3();
+	PlayerTypes ePlayer = GC.getGameINLINE().getActivePlayer();
+	if (ePlayer == NO_PLAYER)
+		return false;
+
+	CvUnit* pUnit = GET_PLAYER(ePlayer).getUnit(iUnitID);
+	if (pUnit == NULL)
+		return false;
+
+	CvPlot* pPlot = GC.getMapINLINE().plotINLINE(iX, iY);
+	if (pPlot == NULL)
+		return false;
+
+	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_CHOOSE_UNIT_TO_SHADOW"));
+
+	int iCount = 1;
+
+	CvWStringBuffer szBuffer;
+	CLLNode<IDInfo>* pUnitNode = pPlot->headUnitNode();
+	while (pUnitNode != NULL) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = pPlot->nextUnitNode(pUnitNode);
+
+		if (pUnit->canShadowAt(pPlot, pLoopUnit) && pLoopUnit->getID() != 0) {
+			szBuffer.clear();
+			GAMETEXT.setUnitHelp(szBuffer, pLoopUnit, true);
+			gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, CvWString(szBuffer.getCString()), GC.getUnitInfo(pLoopUnit->getUnitType()).getButton(), pLoopUnit->getID(), WIDGET_GENERAL);
+			iCount++;
+		}
+	}
+
+	gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, 0, WIDGET_GENERAL);
+	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+
+	return (true);
 }
