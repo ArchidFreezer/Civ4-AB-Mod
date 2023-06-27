@@ -240,6 +240,10 @@ void CvUnit::uninit() {
 	SAFE_DELETE_ARRAY(m_paiExtraFeatureAttackPercent);
 	SAFE_DELETE_ARRAY(m_paiExtraFeatureDefensePercent);
 	SAFE_DELETE_ARRAY(m_paiExtraUnitCombatModifier);
+
+	if (m_pSpy != NULL)
+		delete m_pSpy;
+
 }
 
 
@@ -311,23 +315,6 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iTerritoryUnboundCount = 0;
 	m_iCanMovePeaksCount = 0;
 	m_iLoyaltyCount = 0;
-	m_iSpyEvasionChanceExtra = 0;
-	m_iSpyPoisonChangeExtra = 0;
-	m_iSpyDestroyImprovementChange = 0;
-	m_iSpyRadiationCount = 0;
-	m_iSpyDiplomacyPenalty = 0;
-	m_iSpyNukeCityChange = 0;
-	m_iSpySwitchCivicChange = 0;
-	m_iSpySwitchReligionChange = 0;
-	m_iSpyDisablePowerChange = 0;
-	m_iSpyEscapeChanceExtra = 0;
-	m_iSpyInterceptChanceExtra = 0;
-	m_iSpyUnhappyChange = 0;
-	m_iSpyRevoltChange = 0;
-	m_iSpyWarWearinessChange = 0;
-	m_iSpyReligionRemovalChange = 0;
-	m_iSpyCorporationRemovalChange = 0;
-	m_iSpyCultureChange = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -342,12 +329,13 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
-	m_eOriginalSpymaster = NO_PLAYER;
 	m_eUnitType = eUnit;
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
 	m_iBaseCombat = (NO_UNIT != m_eUnitType) ? m_pUnitInfo->getCombat() : 0;
 	m_eLeaderUnitType = NO_UNIT;
 	m_iCargoCapacity = (NO_UNIT != m_eUnitType) ? m_pUnitInfo->getCargoSpace() : 0;
+	m_pSpy = (m_pUnitInfo && m_pUnitInfo->isSpy()) ? m_pSpy = new CvSpy : NULL;
+	if (m_pSpy) m_pSpy->reset();
 
 	m_combatUnit.reset();
 	m_transportUnit.reset();
@@ -9652,7 +9640,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpySwitchCivicChange(kPromotion.getSpySwitchCivicChange() * iChange);
 		changeSpySwitchReligionChange(kPromotion.getSpySwitchReligionChange() * iChange);
 		changeSpyDisablePowerChange(kPromotion.getSpyDisablePowerChange() * iChange);
-		changeSpyEscapeExtra(kPromotion.getSpyEscapeChange() * iChange);
+		changeSpyEscapeChanceExtra(kPromotion.getSpyEscapeChange() * iChange);
 		changeSpyInterceptChanceExtra(kPromotion.getSpyInterceptChange() * iChange);
 		changeSpyUnhappyChange(kPromotion.getSpyUnhappyChange() * iChange);
 		changeSpyRevoltChange(kPromotion.getSpyRevoltChange() * iChange);
@@ -9803,24 +9791,6 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iTerritoryUnboundCount);
 	pStream->Read(&m_iCanMovePeaksCount);
 	pStream->Read(&m_iLoyaltyCount);
-	pStream->Read(&m_iSpyEvasionChanceExtra);
-	pStream->Read(&m_iSpyPreparationModifier);
-	pStream->Read(&m_iSpyPoisonChangeExtra);
-	pStream->Read(&m_iSpyDestroyImprovementChange);
-	pStream->Read(&m_iSpyRadiationCount);
-	pStream->Read(&m_iSpyDiplomacyPenalty);
-	pStream->Read(&m_iSpyNukeCityChange);
-	pStream->Read(&m_iSpySwitchCivicChange);
-	pStream->Read(&m_iSpySwitchReligionChange);
-	pStream->Read(&m_iSpyDisablePowerChange);
-	pStream->Read(&m_iSpyEscapeChanceExtra);
-	pStream->Read(&m_iSpyInterceptChanceExtra);
-	pStream->Read(&m_iSpyUnhappyChange);
-	pStream->Read(&m_iSpyRevoltChange);
-	pStream->Read(&m_iSpyWarWearinessChange);
-	pStream->Read(&m_iSpyReligionRemovalChange);
-	pStream->Read(&m_iSpyCorporationRemovalChange);
-	pStream->Read(&m_iSpyCultureChange);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -9837,7 +9807,6 @@ void CvUnit::read(FDataStreamBase* pStream) {
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
-	pStream->Read((int*)&m_eOriginalSpymaster);
 	pStream->Read((int*)&m_eUnitType);
 	FAssert(NO_UNIT != m_eUnitType);
 	m_pUnitInfo = (NO_UNIT != m_eUnitType) ? &GC.getUnitInfo(m_eUnitType) : NULL;
@@ -9866,6 +9835,9 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Read(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+
+	m_pSpy = (m_pUnitInfo && m_pUnitInfo->isSpy()) ? m_pSpy = new CvSpy : NULL;
+	if (m_pSpy) m_pSpy->read(pStream);
 }
 
 
@@ -9936,24 +9908,6 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iTerritoryUnboundCount);
 	pStream->Write(m_iCanMovePeaksCount);
 	pStream->Write(m_iLoyaltyCount);
-	pStream->Write(m_iSpyEvasionChanceExtra);
-	pStream->Write(m_iSpyPreparationModifier);
-	pStream->Write(m_iSpyPoisonChangeExtra);
-	pStream->Write(m_iSpyDestroyImprovementChange);
-	pStream->Write(m_iSpyRadiationCount);
-	pStream->Write(m_iSpyDiplomacyPenalty);
-	pStream->Write(m_iSpyNukeCityChange);
-	pStream->Write(m_iSpySwitchCivicChange);
-	pStream->Write(m_iSpySwitchReligionChange);
-	pStream->Write(m_iSpyDisablePowerChange);
-	pStream->Write(m_iSpyEscapeChanceExtra);
-	pStream->Write(m_iSpyInterceptChanceExtra);
-	pStream->Write(m_iSpyUnhappyChange);
-	pStream->Write(m_iSpyRevoltChange);
-	pStream->Write(m_iSpyWarWearinessChange);
-	pStream->Write(m_iSpyReligionRemovalChange);
-	pStream->Write(m_iSpyCorporationRemovalChange);
-	pStream->Write(m_iSpyCultureChange);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -9968,7 +9922,6 @@ void CvUnit::write(FDataStreamBase* pStream) {
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
-	pStream->Write(m_eOriginalSpymaster);
 	pStream->Write(m_eUnitType);
 	pStream->Write(m_eLeaderUnitType);
 
@@ -9995,6 +9948,9 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Write(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+
+	if (m_pSpy) m_pSpy->write(pStream);
+
 }
 
 // Protected Functions...
@@ -11871,11 +11827,11 @@ void CvUnit::awardSpyExperience(TeamTypes eTargetTeam, int iModifier) {
 }
 
 void CvUnit::setOriginalSpymaster(PlayerTypes ePlayer) {
-	m_eOriginalSpymaster = ePlayer;
+	if (m_pSpy) m_pSpy->setOriginalSpymaster(ePlayer);
 }
 
 PlayerTypes CvUnit::getOriginalSpymaster() const {
-	return m_eOriginalSpymaster;
+	return m_pSpy ? m_pSpy->getOriginalSpymaster() : NO_PLAYER;
 }
 
 bool CvUnit::isDoubleAgent() const {
@@ -11902,39 +11858,39 @@ int CvUnit::getSpyEvasionChance() const {
 }
 
 int CvUnit::getSpyEvasionChanceExtra() const {
-	return m_iSpyEvasionChanceExtra;
+	return m_pSpy ? m_pSpy->getEvasionChanceExtra() : 0;
 }
 
 void CvUnit::changeSpyEvasionChanceExtra(int iChange) {
-	m_iSpyEvasionChanceExtra += iChange;
+	if (m_pSpy) m_pSpy->changeEvasionChanceExtra(iChange);
 }
 
 int CvUnit::getSpyPreparationModifier() const {
-	return m_iSpyPreparationModifier;
+	return m_pSpy ? m_pSpy->getPreparationModifier() : 0;
 }
 
 void CvUnit::changeSpyPreparationModifier(int iChange) {
-	m_iSpyPreparationModifier += iChange;
+	if (m_pSpy) m_pSpy->changePreparationModifier(iChange);
 }
 
 int CvUnit::getSpyPoisonChangeExtra() const {
-	return m_iSpyPoisonChangeExtra;
+	return m_pSpy ? m_pSpy->getPoisonChangeExtra() : 0;
 }
 
 void CvUnit::changeSpyPoisonChangeExtra(int iChange) {
-	m_iSpyPoisonChangeExtra += iChange;
+	if (m_pSpy) m_pSpy->changePoisonChangeExtra(iChange);
 }
 
 int CvUnit::getSpyDestroyImprovementChange() const {
-	return m_iSpyDestroyImprovementChange;
+	return m_pSpy ? m_pSpy->getDestroyImprovementChange() : 0;
 }
 
 void CvUnit::changeSpyDestroyImprovementChange(int iChange) {
-	m_iSpyDestroyImprovementChange += iChange;
+	if (m_pSpy) m_pSpy->changeDestroyImprovementChange(iChange);
 }
 
 int CvUnit::getSpyRadiationCount() const {
-	return m_iSpyRadiationCount;
+	return m_pSpy ? m_pSpy->getRadiationCount() : 0;
 }
 
 bool CvUnit::isSpyRadiation() const {
@@ -11942,23 +11898,23 @@ bool CvUnit::isSpyRadiation() const {
 }
 
 void CvUnit::changeSpyRadiationCount(int iChange) {
-	m_iSpyRadiationCount += iChange;
+	if (m_pSpy) m_pSpy->changeRadiationCount(iChange);
 }
 
 int CvUnit::getSpyDiplomacyPenalty() const {
-	return m_iSpyDiplomacyPenalty;
+	return m_pSpy ? m_pSpy->getDiplomacyPenalty() : 0;
 }
 
 void CvUnit::changeSpyDiplomacyPenalty(int iChange) {
-	m_iSpyDiplomacyPenalty += iChange;
+	if (m_pSpy) m_pSpy->changeDiplomacyPenalty(iChange);
 }
 
 int CvUnit::getSpyNukeCityChange() const {
-	return m_iSpyNukeCityChange;
+	return m_pSpy ? m_pSpy->getNukeCityChange() : 0;
 }
 
 void CvUnit::changeSpyNukeCityChange(int iChange) {
-	m_iSpyNukeCityChange += iChange;
+	if (m_pSpy) m_pSpy->changeNukeCityChange(iChange);
 }
 
 bool CvUnit::spyNukeAffected(const CvPlot* pPlot, TeamTypes eTeam, int iRange) const {
@@ -12060,35 +12016,35 @@ bool CvUnit::spyNuke(int iX, int iY, bool bReveal) {
 }
 
 int CvUnit::getSpySwitchCivicChange() const {
-	return m_iSpySwitchCivicChange;
+	return m_pSpy ? m_pSpy->getSwitchCivicChange() : 0;
 }
 
 void CvUnit::changeSpySwitchCivicChange(int iChange) {
-	m_iSpySwitchCivicChange += iChange;
+	if (m_pSpy) m_pSpy->changeSwitchCivicChange(iChange);
 }
 
 int CvUnit::getSpySwitchReligionChange() const {
-	return m_iSpySwitchReligionChange;
+	return m_pSpy ? m_pSpy->getSwitchReligionChange() : 0;
 }
 
 void CvUnit::changeSpySwitchReligionChange(int iChange) {
-	m_iSpySwitchReligionChange += iChange;
+	if (m_pSpy) m_pSpy->changeSwitchReligionChange(iChange);
 }
 
 int CvUnit::getSpyDisablePowerChange() const {
-	return m_iSpyDisablePowerChange;
+	return m_pSpy ? m_pSpy->getDisablePowerChange() : 0;
 }
 
 void CvUnit::changeSpyDisablePowerChange(int iChange) {
-	m_iSpyDisablePowerChange += iChange;
+	if (m_pSpy) m_pSpy->changeDisablePowerChange(iChange);
 }
 
 int CvUnit::getSpyEscapeChanceExtra() const {
-	return m_iSpyEscapeChanceExtra;
+	return m_pSpy ? m_pSpy->getEscapeChanceExtra() : 0;
 }
 
-void CvUnit::changeSpyEscapeExtra(int iChange) {
-	m_iSpyEscapeChanceExtra += iChange;
+void CvUnit::changeSpyEscapeChanceExtra(int iChange) {
+	if (m_pSpy) m_pSpy->changeEscapeChanceExtra(iChange);
 }
 
 int CvUnit::getSpyEscapeChance() const {
@@ -12096,11 +12052,11 @@ int CvUnit::getSpyEscapeChance() const {
 }
 
 int CvUnit::getSpyInterceptChanceExtra() const {
-	return m_iSpyInterceptChanceExtra;
+	return m_pSpy ? m_pSpy->getInterceptChanceExtra() : 0;
 }
 
 void CvUnit::changeSpyInterceptChanceExtra(int iChange) {
-	m_iSpyInterceptChanceExtra += iChange;
+	if (m_pSpy) m_pSpy->changeInterceptChanceExtra(iChange);
 }
 
 int CvUnit::getSpyInterceptChance() const {
@@ -12108,49 +12064,49 @@ int CvUnit::getSpyInterceptChance() const {
 }
 
 int CvUnit::getSpyUnhappyChange() const {
-	return m_iSpyUnhappyChange;
+	return m_pSpy ? m_pSpy->getUnhappyChange() : 0;
 }
 
 void CvUnit::changeSpyUnhappyChange(int iChange) {
-	m_iSpyUnhappyChange += iChange;
+	if (m_pSpy) m_pSpy->changeUnhappyChange(iChange);
 }
 
 int CvUnit::getSpyRevoltChange() const {
-	return m_iSpyRevoltChange;
+	return m_pSpy ? m_pSpy->getRevoltChange() : 0;
 }
 
 void CvUnit::changeSpyRevoltChange(int iChange) {
-	m_iSpyRevoltChange += iChange;
+	if (m_pSpy) m_pSpy->changeRevoltChange(iChange);
 }
 
 int CvUnit::getSpyWarWearinessChange() const {
-	return m_iSpyWarWearinessChange;
+	return m_pSpy ? m_pSpy->getWarWearinessChange() : 0;
 }
 
 void CvUnit::changeSpyWarWearinessChange(int iChange) {
-	m_iSpyWarWearinessChange += iChange;
+	if (m_pSpy) m_pSpy->changeWarWearinessChange(iChange);
 }
 
 int CvUnit::getSpyReligionRemovalChange() const {
-	return m_iSpyReligionRemovalChange;
+	return m_pSpy ? m_pSpy->getReligionRemovalChange() : 0;
 }
 
 void CvUnit::changeSpyReligionRemovalChange(int iChange) {
-	m_iSpyReligionRemovalChange += iChange;
+	if (m_pSpy) m_pSpy->changeReligionRemovalChange(iChange);
 }
 
 int CvUnit::getSpyCorporationRemovalChange() const {
-	return m_iSpyCorporationRemovalChange;
+	return m_pSpy ? m_pSpy->getCorporationRemovalChange() : 0;
 }
 
 void CvUnit::changeSpyCorporationRemovalChange(int iChange) {
-	m_iSpyCorporationRemovalChange += iChange;
+	if (m_pSpy) m_pSpy->changeCorporationRemovalChange(iChange);
 }
 
 int CvUnit::getSpyCultureChange() const {
-	return m_iSpyCultureChange;
+	return m_pSpy ? m_pSpy->getCultureChange() : 0;
 }
 
 void CvUnit::changeSpyCultureChange(int iChange) {
-	m_iSpyCultureChange += iChange;
+	if (m_pSpy) m_pSpy->changeCultureChange(iChange);
 }
