@@ -6749,6 +6749,13 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		}
 	}
 
+	if (kPromotion.getSpyInterceptChange()) {
+		if (AI_getUnitAIType() == UNITAI_SPY) {
+			// If we are already going down the interception line in promotions then give it extra weight
+			iValue += kPromotion.getSpyInterceptChange() + getSpyInterceptChance();
+		}
+	}
+
 	if (kPromotion.isEnemyRoute()) {
 		if (AI_getUnitAIType() == UNITAI_PILLAGE) {
 			iValue += 40;
@@ -6828,6 +6835,8 @@ int CvUnitAI::AI_promotionValue(PromotionTypes ePromotion) {
 		iValue += (iTemp * 40);
 	} else if (AI_getUnitAIType() == UNITAI_PIRATE_SEA) {
 		iValue += (iTemp * 20);
+	} else if (AI_getUnitAIType() == UNITAI_SPY) {
+		iValue += (iTemp * 10);
 	}
 
 	iTemp = kPromotion.getMovesChange();
