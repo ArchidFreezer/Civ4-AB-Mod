@@ -11468,12 +11468,12 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		int iProdCost = MAX_INT;
 
 		if (NO_TECH == eTech) {
-			for (int iTech = 0; iTech < GC.getNumTechInfos(); ++iTech) {
-				if (canStealTech(eTargetPlayer, (TechTypes)iTech)) {
-					int iCost = kTeam.getResearchCost((TechTypes)iTech);
+			for (TechTypes eLoopTech = (TechTypes)0; eLoopTech < GC.getNumTechInfos(); eLoopTech = (TechTypes)(eLoopTech + 1)) {
+				if (canStealTech(eTargetPlayer, eLoopTech)) {
+					int iCost = kTeam.getResearchCost(eLoopTech);
 					if (iCost < iProdCost) {
 						iProdCost = iCost;
-						eTech = (TechTypes)iTech;
+						eTech = eLoopTech;
 					}
 				}
 			}
@@ -11484,6 +11484,11 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		if (NO_TECH != eTech) {
 			if (canStealTech(eTargetPlayer, eTech)) {
 				iMissionCost = iBaseMissionCost + ((100 + kMission.getBuyTechCostFactor()) * iProdCost) / 100;
+				if (pSpyUnit) {
+					int iCostReduction = pSpyUnit->getSpyBuyTechChange();
+					iMissionCost *= 100 - pSpyUnit->getSpyBuyTechChange();
+					iMissionCost /= 100;
+				}
 			}
 		}
 	} else if (kMission.getSwitchCivicCostFactor() > 0) {
@@ -12123,6 +12128,27 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 				pCity->changeFreeSpecialistCount(eTarget, -1);
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_SOMETHING_ASSASSINATED", GC.getSpecialistInfo(eTarget).getDescription(), pCity->getNameKey()).GetCString();
 				bSomethingHappened = true;
+			}
+		}
+	}
+
+	//////////////////////////////
+	// Sabatoge Research
+	if (kMission.getSabatogeResearchCostFactor() > 0) {
+		if (NULL != pPlot) {
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity) {
+				TechTypes eCurrResearch = GET_PLAYER(pCity->getOwnerINLINE()).getCurrentResearch();
+				GET_TEAM(pCity->getTeam()).setResearchProgress(eCurrResearch, 0, pCity->getOwnerINLINE());
+				bSomethingHappened = true;
+
+				if (bReveal) {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_RESEARCH_SABATAGED_CAUGHT", GC.getTechInfo(eCurrResearch).getDescription(), getCivilizationAdjectiveKey()).GetCString();
+				} else {
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_RESEARCH_SABATAGED", GC.getTechInfo(eCurrResearch).getDescription());
+					bShowExplosion = true;
+				}
 			}
 		}
 	}
