@@ -108,6 +108,7 @@ protected:
 	void AI_networkAutomated();
 	void AI_cityAutomated();
 	void AI_shadowMove();
+	void AI_autoEspionage();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
