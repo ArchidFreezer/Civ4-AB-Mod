@@ -2638,6 +2638,7 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 		break;
 
 	case AUTOMATE_HUNT:
+	case AUTOMATE_CITY_DEFENCE:
 		if (!canAttack())
 			return false;
 		break;

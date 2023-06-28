@@ -111,6 +111,7 @@ protected:
 	void AI_autoEspionage();
 	void AI_autoPillageMove();
 	void AI_searchAndDestroyMove();
+	void AI_cityDefence();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -234,6 +235,7 @@ protected:
 	bool AI_huntRange(int iRange, int iOddsThreshold, bool bStayInBorders = false, int iMinValue = 0);
 	bool AI_moveToTarget(CvUnit* pTarget, bool bForce);
 	bool AI_protectTarget(CvUnit* pTarget);
+	bool AI_returnToBorders();
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);
