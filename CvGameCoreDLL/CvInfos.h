@@ -1045,6 +1045,8 @@ public:
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
 
+	void addUpgradeUnitClassTypes(UnitClassTypes eUnitClass);
+
 	CultureLevelTypes getMinCultureLevel() const;
 	UnitRangeTypes getRangeType() const;
 
@@ -1114,6 +1116,9 @@ public:
 	bool isCombatType(int i) const;
 	bool isPrereqAndTech(int i) const;
 	bool isPrereqOrBonus(int i) const;
+	bool isUpgradeUnitClassTypes(UnitClassTypes eUnitClass);
+
+	std::vector<UnitClassTypes> getUpgradeUnitClassTypes() const;
 
 	const TCHAR* getEarlyArtDefineTag(int i, UnitArtStyleTypes eStyle) const;				// Exposed to Python
 	void setEarlyArtDefineTag(int i, const TCHAR* szVal);
@@ -1324,6 +1329,7 @@ protected:
 	std::vector<int> m_viSubCombatTypes;
 	std::vector<int> m_viPrereqAndTechs;
 	std::vector<int> m_viPrereqOrBonuses;
+	std::vector<UnitClassTypes> m_viUpgradeUnitClassTypes;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

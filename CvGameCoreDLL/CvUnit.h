@@ -104,7 +104,9 @@ public:
 	void clearShadowUnit();
 
 	bool isAutoPromoting() const;
+	bool isAutoUpgrading() const;
 	void setAutoPromoting(bool bNewValue);
+	void setAutoUpgrading(bool bNewValue);
 
 	void setDesiredDiscoveryTech(TechTypes eTech);
 	void waitForTech(int iFlag, int eTech);
@@ -982,6 +984,7 @@ protected:
 	bool m_bCivicEnabled;
 	bool m_bGroupPromotionChanged;
 	bool m_bAutoPromoting;
+	bool m_bAutoUpgrading;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
