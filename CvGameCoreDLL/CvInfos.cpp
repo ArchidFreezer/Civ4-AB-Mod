@@ -1629,6 +1629,10 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyReligionRemovalChange(0),
 	m_iSpyCorporationRemovalChange(0),
 	m_iSpyCultureChange(0),
+	m_iSpyResearchSabotageChange(0),
+	m_iSpyDestroyProductionChange(0),
+	m_iSpyDestroyProjectChange(0),
+	m_iSpyDestroyBuildingChange(0),
 	m_bLeader(false),
 	m_bBlitz(false),
 	m_bAmphib(false),
@@ -1670,6 +1674,22 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSpyResearchSabotageChange() const {
+	return m_iSpyResearchSabotageChange;
+}
+
+int CvPromotionInfo::getSpyDestroyProjectChange() const {
+	return m_iSpyDestroyProjectChange;
+}
+
+int CvPromotionInfo::getSpyDestroyBuildingChange() const {
+	return m_iSpyDestroyBuildingChange;
+}
+
+int CvPromotionInfo::getSpyDestroyProductionChange() const {
+	return m_iSpyDestroyProductionChange;
 }
 
 int CvPromotionInfo::getSpyCultureChange() const {
@@ -2098,6 +2118,10 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyReligionRemovalChange);
 	stream->Read(&m_iSpyCorporationRemovalChange);
 	stream->Read(&m_iSpyCultureChange);
+	stream->Read(&m_iSpyResearchSabotageChange);
+	stream->Read(&m_iSpyDestroyProjectChange);
+	stream->Read(&m_iSpyDestroyBuildingChange);
+	stream->Read(&m_iSpyDestroyProductionChange);
 
 	stream->Read(&m_bLeader);
 	stream->Read(&m_bBlitz);
@@ -2233,6 +2257,10 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyReligionRemovalChange);
 	stream->Write(m_iSpyCorporationRemovalChange);
 	stream->Write(m_iSpyCultureChange);
+	stream->Write(m_iSpyResearchSabotageChange);
+	stream->Write(m_iSpyDestroyProjectChange);
+	stream->Write(m_iSpyDestroyBuildingChange);
+	stream->Write(m_iSpyDestroyProductionChange);
 
 	stream->Write(m_bLeader);
 	stream->Write(m_bBlitz);
@@ -2355,11 +2383,15 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iSpyNukeCityChange, "iSpyNukeCityChange");
 	pXML->GetChildXmlValByName(&m_iSpyDisablePowerChange, "iSpyDisablePowerChange");
 	pXML->GetChildXmlValByName(&m_iSpyWarWearinessChange, "iSpyWarWearinessChange");
+	pXML->GetChildXmlValByName(&m_iSpyResearchSabotageChange, "iSpyResearchSabotageChange");
 	pXML->GetChildXmlValByName(&m_iSpyReligionRemovalChange, "iSpyReligionRemovalChange");
 	pXML->GetChildXmlValByName(&m_iSpyCorporationRemovalChange, "iSpyCorporationRemovalChange");
 	pXML->GetChildXmlValByName(&m_iSpySwitchCivicChange, "iSpySwitchCivicChange");
 	pXML->GetChildXmlValByName(&m_iSpySwitchReligionChange, "iSpySwitchReligionChange");
+	pXML->GetChildXmlValByName(&m_iSpyDestroyProjectChange, "iSpyDestroyProjectChange");
+	pXML->GetChildXmlValByName(&m_iSpyDestroyBuildingChange, "iSpyDestroyBuildingChange");
 	pXML->GetChildXmlValByName(&m_iSpyDestroyImprovementChange, "iSpyDestroyImprovementChange");
+	pXML->GetChildXmlValByName(&m_iSpyDestroyProductionChange, "iSpyDestroyProductionChange");
 	pXML->GetChildXmlValByName(&m_iSpyCultureChange, "iSpyCultureChange");
 	pXML->GetChildXmlValByName(&m_bUnitRangeUnbound, "bUnitRangeUnbound");
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
@@ -19935,6 +19967,7 @@ CvEspionageMissionInfo::CvEspionageMissionInfo() :
 	m_iRemoveCorporationsCostFactor(0),
 	m_iRemoveReligionsCostFactor(0),
 	m_iWarWearinessCounter(0),
+	m_iSabatogeResearchCostFactor(0),
 	m_iDifficultyMod(0) {
 }
 
@@ -19946,6 +19979,10 @@ CvEspionageMissionInfo::CvEspionageMissionInfo() :
 //
 //------------------------------------------------------------------------------------------------------
 CvEspionageMissionInfo::~CvEspionageMissionInfo() {
+}
+
+int CvEspionageMissionInfo::getSabatogeResearchCostFactor() const {
+	return m_iSabatogeResearchCostFactor;
 }
 
 int CvEspionageMissionInfo::getWarWearinessCounter() const {
@@ -20114,6 +20151,7 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bNuke, "bNuke");
 	pXML->GetChildXmlValByName(&m_bDisablePower, "bDisablePower");
 	pXML->GetChildXmlValByName(&m_iWarWearinessCounter, "iWarWearinessCounter");
+	pXML->GetChildXmlValByName(&m_iSabatogeResearchCostFactor, "iSabatogeResearchCostFactor");
 	pXML->GetChildXmlValByName(&m_iRemoveReligionsCostFactor, "iRemoveReligionsCostFactor");
 	pXML->GetChildXmlValByName(&m_iRemoveCorporationsCostFactor, "iRemoveCorporationsCostFactor");
 	pXML->GetChildXmlValByName(&m_iVisibilityLevel, "iVisibilityLevel");
