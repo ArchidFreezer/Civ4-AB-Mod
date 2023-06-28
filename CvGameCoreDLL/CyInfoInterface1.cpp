@@ -631,6 +631,7 @@ void CyInfoPythonInterface1() {
 		.def("isCenterInCity", &CvBuildingInfo::isCenterInCity, "bool ()")
 		.def("isStateReligion", &CvBuildingInfo::isStateReligion, "bool ()")
 		.def("isAllowsNukes", &CvBuildingInfo::isAllowsNukes, "bool ()")
+		.def("isShowInCity", &CvBuildingInfo::isShowInCity, "bool ()")
 
 		.def("getConstructSound", &CvBuildingInfo::getConstructSound, "string ()")
 		.def("getHotKey", &CvBuildingInfo::getHotKey, "string ()")

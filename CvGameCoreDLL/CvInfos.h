@@ -1855,6 +1855,7 @@ public:
 	bool isAutoBuild() const;
 	bool isForceDisableStarSigns() const;
 	bool isStarSignGoodOnly() const;
+	bool isShowInCity() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -2086,6 +2087,7 @@ protected:
 	bool m_bAutoBuild;
 	bool m_bForceDisableStarSigns;
 	bool m_bStarSignGoodOnly;
+	bool m_bShowInCity;
 
 	CultureLevelTypes m_eMinCultureLevel;
 

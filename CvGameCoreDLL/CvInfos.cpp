@@ -6503,6 +6503,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bAutoBuild(false),
 	m_bForceDisableStarSigns(false),
 	m_bStarSignGoodOnly(false),
+	m_bShowInCity(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
 	m_piHappinessTraits(NULL),
@@ -6599,6 +6600,10 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+}
+
+bool CvBuildingInfo::isShowInCity() const {
+	return m_bShowInCity;
 }
 
 bool CvBuildingInfo::isForceDisableStarSigns() const {
@@ -7723,6 +7728,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAutoBuild);
 	stream->Read(&m_bForceDisableStarSigns);
 	stream->Read(&m_bStarSignGoodOnly);
+	stream->Read(&m_bShowInCity);
 
 	stream->ReadString(m_szConstructSound);
 	stream->ReadString(m_szArtDefineTag);
@@ -8138,6 +8144,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bAutoBuild);
 	stream->Write(m_bForceDisableStarSigns);
 	stream->Write(m_bStarSignGoodOnly);
+	stream->Write(m_bShowInCity);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -8282,6 +8289,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	setMovieDefineTag(szTextVal);
 
 	pXML->GetChildXmlValByName(&m_bAutoBuild, "bAutoBuild");
+	pXML->GetChildXmlValByName(&m_bShowInCity, "bShowInCity");
 	pXML->GetChildXmlValByName(szTextVal, "HolyCity");
 	m_iHolyCity = pXML->FindInInfoClass(szTextVal);
 

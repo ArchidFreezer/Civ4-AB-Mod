@@ -8064,6 +8064,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_AURORA</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_AURORA</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8110,6 +8111,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_AUYANTEPUI</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_AUYANTEPUI</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8141,6 +8143,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BARRINGER_CRATER</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_BARRINGER_CRATER</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8186,6 +8189,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BASALT_ORGAN</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_BASALT_ORGAN</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8218,6 +8222,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_DEAD_SEA</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_DEAD_SEA</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8252,6 +8257,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_DEVILS_TABLE</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_DEVILS_TABLE</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8285,6 +8291,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GREAT_BARRIER</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_GREAT_BARRIER</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8318,6 +8325,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SOPKA</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_SOPKA</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8349,6 +8357,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_KRAKATOA</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_KRAKATOA</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8383,6 +8392,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BAIKAL</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+<!--			<bShowInCity>1</bShowInCity> -->
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_BAIKAL</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8415,6 +8425,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_EVEREST</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_EVEREST</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8448,6 +8459,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_FUJI</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_FUJI</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8480,6 +8492,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_KILIMANJARO</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_KILIMANJARO</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8513,6 +8526,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SINAI</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_SINAI</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8556,6 +8570,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NGORONGORO_CRATER</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_NGORONGORO_CRATER</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8598,6 +8613,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NUKUORO</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_NUKUORO</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8630,6 +8646,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_PAMUKKALE</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_PAMUKKALE</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8662,6 +8679,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_PRAVCICKA_BRANA</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_PRAVCICKA_BRANA</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8703,6 +8721,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SHARK_BAY</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_SHARK_BAY</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8743,6 +8762,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SUGARLOAF</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_SUGARLOAF</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8780,6 +8800,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ULURU</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_ULURU</FeatureType>
 			</PrereqVicinityFeatures>
@@ -8816,6 +8837,7 @@
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_VICTORIA_FALLS</ArtDefineTag>
 			<bAutoBuild>1</bAutoBuild>
+			<bShowInCity>1</bShowInCity>
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_VICTORIA_FALLS</FeatureType>
 			</PrereqVicinityFeatures>

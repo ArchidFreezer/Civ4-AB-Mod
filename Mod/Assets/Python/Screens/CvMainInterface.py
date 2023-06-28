@@ -1720,7 +1720,7 @@ class CvMainInterface:
 				for i in xrange( gc.getNumBuildingInfos() ):
 	## Graphical Only ##
 					BuildingInfo = gc.getBuildingInfo(i)
-					if BuildingInfo.isGraphicalOnly(): continue
+					if BuildingInfo.isGraphicalOnly() and not BuildingInfo.isShowInCity(): continue
 	## Graphical Only ##
 					iNumBuilding = pHeadSelectedCity.getNumBuilding(i)
 					if iNumBuilding > 0:

@@ -416,6 +416,7 @@
 	<ElementType name="bPrereqPower" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iWorkableRadius" content="textOnly" dt:type="int"/>
 	<ElementType name="bAutoBuild" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bShowInCity" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bForceDisableStarSigns" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bStarSignGoodOnly" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
@@ -434,6 +435,7 @@
 		<element type="ArtDefineTag"/>
 		<element type="MovieDefineTag" minOccurs="0"/>
 		<element type="bAutoBuild" minOccurs="0"/>
+		<element type="bShowInCity" minOccurs="0"/>
 		<element type="HolyCity" minOccurs="0"/>
 		<element type="ReligionType" minOccurs="0"/>
 		<element type="StateReligion" minOccurs="0"/>
