@@ -11461,6 +11461,10 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 
 		if (iNumTotalGold > 0) {
 			iMissionCost = (iBaseMissionCost * iNumTotalGold) / 100;
+			if (pSpyUnit != NULL) {
+				iNumTotalGold *= 100 + pSpyUnit->getSpyStealTreasuryChange();
+				iNumTotalGold /= 100;
+			}
 		}
 	} else if (kMission.getBuyTechCostFactor() > 0) {
 		// Buy (Steal) Tech

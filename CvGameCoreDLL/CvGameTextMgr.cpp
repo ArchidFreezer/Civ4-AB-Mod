@@ -1076,6 +1076,11 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_BUY_TECH_TEXT", pUnit->getSpyBuyTechChange()));
 		}
 
+		if (pUnit->getSpyStealTreasuryChange() > 0) {
+			szString.append(NEWLINE);
+			szString.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_STEAL_TREASURY_TEXT", pUnit->getSpyStealTreasuryChange()));
+		}
+
 		if (pUnit->getUnitInfo().isNoRevealMap()) {
 			szString.append(NEWLINE);
 			szString.append(gDLL->getText("TXT_KEY_UNIT_VISIBILITY_MOVE_RANGE"));
@@ -15079,6 +15084,10 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer& szBuffer, EspionageMis
 
 				if (NULL != pCity) {
 					iNumTotalGold = kPlayer.getEspionageGoldQuantity(eMission, eTargetPlayer, pCity);
+					if (pSpyUnit != NULL) {
+						iNumTotalGold *= 100 + pSpyUnit->getSpyStealTreasuryChange();
+						iNumTotalGold /= 100;
+					}
 				}
 			}
 

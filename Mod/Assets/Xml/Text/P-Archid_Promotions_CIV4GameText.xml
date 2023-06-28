@@ -202,6 +202,18 @@
 		<Italian>Lealte</Italian>
 		<Spanish>Lealtad</Spanish>
 	</TEXT>	
+		<TEXT> <!-- Safecracker I -->
+		<Tag>TXT_KEY_PROMOTION_SAFECRACKER1</Tag>
+		<English>Safecracker I</English>
+	</TEXT>
+	<TEXT> <!-- Safecracker II -->
+		<Tag>TXT_KEY_PROMOTION_SAFECRACKER2</Tag>
+		<English>Safecracker II</English>
+	</TEXT>
+	<TEXT> <!-- Safecracker III -->
+		<Tag>TXT_KEY_PROMOTION_SAFECRACKER3</Tag>
+		<English>Safecracker III</English>
+	</TEXT>
 	<TEXT> <!-- Steal Tech I -->
 		<Tag>TXT_KEY_PROMOTION_STEALTECH1</Tag>
 		<English>Steal Tech I</English>
@@ -401,4 +413,8 @@
 		<Tag>TXT_KEY_PROMOTION_SPY_BUY_TECH_TEXT</Tag>
 		<English>[ICON_BULLET]%d1_percent%% steal tech cost reduction</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SPY_STEAL_TREASURY_TEXT</Tag>
+		<English>[ICON_BULLET]%d1_percent%% steal treasury gold increase</English>
+	</TEXT>	
 </Civ4GameText>
