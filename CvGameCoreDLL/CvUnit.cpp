@@ -2681,6 +2681,11 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_AIR_RECON:
+		if (!canRecon(NULL))
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;
