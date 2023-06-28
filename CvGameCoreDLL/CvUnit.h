@@ -433,6 +433,8 @@ public:
 	bool canBuildRoute() const;																						// Exposed to Python
 	DllExport BuildTypes getBuildType() const;														// Exposed to Python
 	int workRate(bool bMax) const;															// Exposed to Python
+	int getWorkRateModifier() const;
+	void changeWorkRateModifier(int iChange);
 
 	bool isAnimal() const;																								// Exposed to Python
 	bool isNoBadGoodies() const;																					// Exposed to Python
@@ -972,6 +974,7 @@ protected:
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;
 	int m_iLoyaltyCount;
+	int m_iWorkRateModifier;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;

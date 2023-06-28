@@ -315,6 +315,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iTerritoryUnboundCount = 0;
 	m_iCanMovePeaksCount = 0;
 	m_iLoyaltyCount = 0;
+	m_iWorkRateModifier = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -6608,7 +6609,7 @@ int CvUnit::workRate(bool bMax) const {
 		}
 	}
 
-	int iRate = m_pUnitInfo->getWorkRate();
+	int iRate = m_pUnitInfo->getWorkRate() + getWorkRateModifier();
 
 	iRate *= std::max(0, (GET_PLAYER(getOwnerINLINE()).getWorkerSpeedModifier() + 100));
 	iRate /= 100;
@@ -9859,6 +9860,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyDestroyProductionChange(kPromotion.getSpyDestroyProductionChange() * iChange);
 		changeSpyBuyTechChange(kPromotion.getSpyBuyTechChange() * iChange);
 		changeSpyStealTreasuryChange(kPromotion.getSpyStealTreasuryChange() * iChange);
+		changeWorkRateModifier(kPromotion.getWorkRateModifier() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -10002,6 +10004,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iTerritoryUnboundCount);
 	pStream->Read(&m_iCanMovePeaksCount);
 	pStream->Read(&m_iLoyaltyCount);
+	pStream->Read(&m_iWorkRateModifier);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -10122,6 +10125,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iTerritoryUnboundCount);
 	pStream->Write(m_iCanMovePeaksCount);
 	pStream->Write(m_iLoyaltyCount);
+	pStream->Write(m_iWorkRateModifier);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -12655,4 +12659,12 @@ bool CvUnit::isAutoUpgrading() const {
 
 void CvUnit::setAutoUpgrading(bool bNewValue) {
 	m_bAutoUpgrading = bNewValue;
+}
+
+int CvUnit::getWorkRateModifier() const {
+	return m_iWorkRateModifier;
+}
+
+void CvUnit::changeWorkRateModifier(int iChange) {
+	m_iWorkRateModifier += iChange;
 }
