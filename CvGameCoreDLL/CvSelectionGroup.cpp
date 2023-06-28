@@ -553,6 +553,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot() {
 		case MISSION_DIE_ANIMATION:
 		case MISSION_UPDATE_WORLD_VIEWS:
 		case MISSION_SHADOW:
+		case MISSION_WAIT_FOR_TECH:
 			break;
 
 		default:
@@ -719,8 +720,13 @@ void CvSelectionGroup::startMission() {
 		case MISSION_GOLDEN_AGE:
 		case MISSION_SHADOW:
 			break;
-			// K-Mod. Let fast units carry out the pillage action first.
-			// (This is based on the idea from BBAI, which had a buggy implementation.)
+
+		case MISSION_WAIT_FOR_TECH:
+			bDelete = true;
+			break;
+
+		// K-Mod. Let fast units carry out the pillage action first.
+		// (This is based on the idea from BBAI, which had a buggy implementation.)
 		case MISSION_PILLAGE:
 			{
 				// Fast units pillage first
@@ -1016,6 +1022,10 @@ void CvSelectionGroup::startMission() {
 					bAction = true;
 					break;
 
+				case MISSION_WAIT_FOR_TECH:
+					pLoopUnit->waitForTech(headMissionQueueNode()->m_data.iFlags, headMissionQueueNode()->m_data.iData1);
+					break;
+
 				default:
 					FAssert(false);
 					break;
@@ -1240,6 +1250,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 				case MISSION_ESPIONAGE:
 				case MISSION_DIE_ANIMATION:
 				case MISSION_SHADOW:
+				case MISSION_WAIT_FOR_TECH:
 					break;
 
 				case MISSION_BUILD:
@@ -1324,6 +1335,7 @@ bool CvSelectionGroup::continueMission_bulk(int iSteps) {
 			case MISSION_ESPIONAGE:
 			case MISSION_DIE_ANIMATION:
 			case MISSION_SHADOW:
+			case MISSION_WAIT_FOR_TECH:
 				bDone = true;
 				break;
 
@@ -3264,6 +3276,11 @@ bool CvSelectionGroup::canDoMission(int iMission, int iData1, int iData2, CvPlot
 
 		case MISSION_SHADOW:
 			if (pLoopUnit->canShadowAt(GC.getMapINLINE().plotINLINE(iData1, iData2)))
+				return true;
+			break;
+
+		case MISSION_WAIT_FOR_TECH:
+			if (pLoopUnit->canDiscover(NULL))
 				return true;
 			break;
 
