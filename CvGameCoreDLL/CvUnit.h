@@ -103,6 +103,9 @@ public:
 	CvUnit* getShadowUnit() const;
 	void clearShadowUnit();
 
+	bool isAutoPromoting() const;
+	void setAutoPromoting(bool bNewValue);
+
 	void setDesiredDiscoveryTech(TechTypes eTech);
 	void waitForTech(int iFlag, int eTech);
 	TechTypes getDesiredDiscoveryTech() const;
@@ -978,6 +981,7 @@ protected:
 	bool m_bAirCombat;
 	bool m_bCivicEnabled;
 	bool m_bGroupPromotionChanged;
+	bool m_bAutoPromoting;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
