@@ -5685,6 +5685,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Trireme -->
 			<Class>UNITCLASS_TRIREME</Class>
@@ -5754,6 +5757,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Caravel -->
 			<Class>UNITCLASS_CARAVEL</Class>
@@ -5812,6 +5818,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Caravel: Portugese Carrack -->
 			<Class>UNITCLASS_CARAVEL</Class>
@@ -5871,6 +5880,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Galleon -->
 			<Class>UNITCLASS_GALLEON</Class>
@@ -5924,6 +5936,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Galleon: Netherlands East Indiaman -->
 			<Class>UNITCLASS_GALLEON</Class>
@@ -5979,6 +5994,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Privateer -->
 			<Class>UNITCLASS_PRIVATEER</Class>
@@ -6041,6 +6059,7 @@
 			<HotKey/>
 			<FreePromotions>
 				<PromotionType>PROMOTION_SENTRY</PromotionType>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Frigate -->
@@ -6098,6 +6117,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Ship of the Line -->
 			<Class>UNITCLASS_SHIP_OF_THE_LINE</Class>
@@ -6167,6 +6189,9 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<HotKey/>
+			<FreePromotions>
+				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
 		</UnitInfo>
 <!-- Steam -->
 		<UnitInfo> <!-- Ironclad -->
