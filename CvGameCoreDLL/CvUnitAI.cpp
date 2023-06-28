@@ -8448,6 +8448,8 @@ bool CvUnitAI::AI_chokeDefend() {
 
 
 // Returns true if a mission was pushed...
+// Heals the unit if it's damage is greater than the percent provided
+// The damage percent is the damage taken so AI_heal(30) will heal a unit if it is at 69/100 health
 bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 	PROFILE_FUNC();
 
@@ -8461,15 +8463,13 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 
 	CvSelectionGroup* pGroup = getGroup();
 
-	if (iDamagePercent == 0) {
-		iDamagePercent = 10;
-	}
-
-	bool bRetreat = false;
-
+	// If we can heal in 1 turn then do it, irrespective of the daamge we have taken
 	if (getGroup()->getNumUnits() == 1) {
-		if (getDamage() > 0) {
+		// We don't want to hang around whilst being attacked from a fort if we are on our own
+		if (plot()->isSubjectToFortAttack())
+			return false;
 
+		if (getDamage() > 0) {
 			if (plot()->isCity() || (healTurns(plot()) == 1)) {
 				if (!(isAlwaysHeal())) {
 					getGroup()->pushMission(MISSION_HEAL, -1, -1, 0, false, false, MISSIONAI_HEAL);
@@ -8477,16 +8477,17 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 				}
 			}
 		}
-		return false;
 	}
 
-	iMaxPath = std::min(iMaxPath, 2);
+	iMaxPath = std::max(iMaxPath, 2);
 
 	int iTotalDamage = 0;
 	int iTotalHitpoints = 0;
 	int iHurtUnitCount = 0;
 	std::vector<CvUnit*> aeDamagedUnits;
 
+	// If we are grouped and this routine is called set a minimum threshold
+	iDamagePercent = std::max(10, iDamagePercent);
 	CLLNode<IDInfo>* pEntityNode = getGroup()->headUnitNode();
 	while (pEntityNode != NULL) {
 		CvUnit* pLoopUnit = ::getUnit(pEntityNode->m_data);
@@ -8507,8 +8508,6 @@ bool CvUnitAI::AI_heal(int iDamagePercent, int iMaxPath) {
 
 
 		if (pLoopUnit->getDamage() > iDamageThreshold) {
-			bRetreat = true;
-
 			if (!(pLoopUnit->hasMoved())) {
 				if (!(pLoopUnit->isAlwaysHeal())) {
 					if (pLoopUnit->healTurns(pLoopUnit->plot()) <= iMaxPath) {
