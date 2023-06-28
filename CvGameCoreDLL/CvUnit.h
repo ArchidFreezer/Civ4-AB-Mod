@@ -167,6 +167,8 @@ public:
 	void setOriginalSpymaster(PlayerTypes ePlayer);
 	PlayerTypes getOriginalSpymaster() const;
 
+	CvCity* getClosestSafeCity() const;
+
 
 	bool canTradeUnit(PlayerTypes eReceivingPlayer);
 	void tradeUnit(PlayerTypes eReceivingPlayer);
