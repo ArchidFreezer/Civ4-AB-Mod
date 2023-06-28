@@ -197,6 +197,10 @@ bool CvUnitAI::AI_update() {
 			AI_autoPillageMove();
 			break;
 
+		case AUTOMATE_HUNT:
+			AI_searchAndDestroyMove();
+			break;
+
 		default:
 			FAssert(false);
 			break;
@@ -1427,6 +1431,51 @@ void CvUnitAI::AI_workerMove() {
 	return;
 }
 
+
+bool CvUnitAI::AI_huntRange(int iRange, int iOddsThreshold, bool bStayInBorders, int iMinValue) {
+	PROFILE_FUNC();
+
+	int iBestValue = iMinValue;
+	CvPlot* pBestPlot = NULL;
+
+	for (int iDX = -(iRange); iDX <= iRange; iDX++) {
+		for (int iDY = -(iRange); iDY <= iRange; iDY++) {
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+
+			if (pLoopPlot != NULL) {
+				if (AI_plotValid(pLoopPlot)) {
+					if (!bStayInBorders || (pLoopPlot->getOwnerINLINE() == getOwnerINLINE())) {
+						if (pLoopPlot->isVisibleEnemyUnit(this)) {
+							int iPathTurns;
+							if (!atPlot(pLoopPlot) && canMoveInto(pLoopPlot, true) && generatePath(pLoopPlot, 0, true, &iPathTurns) && (iPathTurns <= iRange)) {
+								if (pLoopPlot->getNumVisibleEnemyDefenders(this) <= getGroup()->getNumUnits()) {
+									if (pLoopPlot->getNumVisibleAdjacentEnemyDefenders(this) <= ((getGroup()->getNumUnits() * 3) / 2)) {
+										int iValue = pLoopPlot->getNumVisiblePotentialEnemyDefenders(this) == 0 ? 100 : AI_getWeightedOdds(pLoopPlot, true);
+										if (iValue >= iOddsThreshold) {
+											if (iValue > iBestValue) {
+												iBestValue = iValue;
+												pBestPlot = getPathEndTurnPlot();
+												FAssert(!atPlot(pBestPlot));
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		FAssert(!atPlot(pBestPlot));
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_SINGLE_ATTACK, false, false);
+		return true;
+	}
+
+	return false;
+}
 
 void CvUnitAI::AI_barbAttackMove() {
 	PROFILE_FUNC();
@@ -17506,6 +17555,43 @@ void CvUnitAI::AI_autoPillageMove() {
 
 	// We are bored so lets just go find anything to pillage
 	if (AI_pillageRange(25, 0, false, false, bPillageBarbarians, bIgnoreDanger))
+		return;
+
+	if (AI_retreatToCity())
+		return;
+
+	if (AI_safety())
+		return;
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+void CvUnitAI::AI_searchAndDestroyMove() {
+	PROFILE_FUNC();
+
+	if (AI_goody(4))
+		return;
+
+	if (AI_heal())
+		return;
+
+	if (AI_huntRange(1, 20, false, 10))
+		return;
+
+	if (AI_huntRange(3, 40, false, 15))
+		return;
+
+	if (AI_exploreRange(2))
+		return;
+
+	if (AI_huntRange(5, 60, false, 10))
+		return;
+
+	if (AI_exploreRange(5))
+		return;
+
+	if (AI_patrol())
 		return;
 
 	if (AI_retreatToCity())

@@ -110,6 +110,7 @@ protected:
 	void AI_shadowMove();
 	void AI_autoEspionage();
 	void AI_autoPillageMove();
+	void AI_searchAndDestroyMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -230,6 +231,7 @@ protected:
 	bool AI_airAttackDamagedSkip();
 	bool AI_followBombard();
 	bool AI_potentialEnemy(TeamTypes eTeam, const CvPlot* pPlot = NULL);
+	bool AI_huntRange(int iRange, int iOddsThreshold, bool bStayInBorders = false, int iMinValue = 0);
 	bool AI_moveToTarget(CvUnit* pTarget, bool bForce);
 	bool AI_protectTarget(CvUnit* pTarget);
 
