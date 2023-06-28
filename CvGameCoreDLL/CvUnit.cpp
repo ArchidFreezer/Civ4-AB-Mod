@@ -2639,6 +2639,7 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 
 	case AUTOMATE_HUNT:
 	case AUTOMATE_CITY_DEFENCE:
+	case AUTOMATE_BORDER_PATROL:
 		if (!canAttack())
 			return false;
 		break;
