@@ -4673,6 +4673,9 @@ void CvPlayer::found(int iX, int iY) {
 bool CvPlayer::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool bIgnoreCost) const {
 	PROFILE_FUNC();
 
+	if (eUnit == NO_UNIT)
+		return false;
+
 	const CvTeam& kTeam = GET_TEAM(getTeam());
 	const CvUnitInfo& kUnit = GC.getUnitInfo(eUnit);
 	UnitClassTypes eUnitClass = (UnitClassTypes)kUnit.getUnitClassType();
