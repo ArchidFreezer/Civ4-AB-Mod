@@ -5899,6 +5899,11 @@ void CvGameTextMgr::parsePromotionHelp(CvWStringBuffer& szBuffer, PromotionTypes
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_BUY_TECH_TEXT", kPromotion.getSpyBuyTechChange()));
 	}
 
+	if (kPromotion.getSpyStealTreasuryChange() != 0) {
+		szBuffer.append(pcNewline);
+		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_SPY_STEAL_TREASURY_TEXT", kPromotion.getSpyStealTreasuryChange()));
+	}
+
 	if (kPromotion.isUnitRangeUnbound()) {
 		szBuffer.append(pcNewline);
 		szBuffer.append(gDLL->getText("TXT_KEY_PROMOTION_RANGE_UNBOUND"));
