@@ -2632,6 +2632,11 @@ bool CvUnit::canAutomate(AutomateTypes eAutomate) const {
 			return false;
 		break;
 
+	case AUTOMATE_PILLAGE:
+		if (!getUnitInfo().isPillage())
+			return false;
+		break;
+
 	default:
 		FAssert(false);
 		break;

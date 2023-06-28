@@ -17,6 +17,7 @@
 #include "CvInfos.h"
 #include "FProfiler.h"
 #include "FAStarNode.h"
+#include "CvIniOptions.h"
 
 // interface uses
 #include "CvDLLInterfaceIFaceBase.h"
@@ -190,6 +191,10 @@ bool CvUnitAI::AI_update() {
 
 		case AUTOMATE_ESPIONAGE:
 			AI_autoEspionage();
+			break;
+
+		case AUTOMATE_PILLAGE:
+			AI_autoPillageMove();
 			break;
 
 		default:
@@ -2710,7 +2715,7 @@ void CvUnitAI::AI_pillageMove() {
 	}
 
 	if ((area()->getAreaAIType(getTeam()) == AREAAI_OFFENSIVE) || isEnemy(plot()->getTeam())) {
-		if (AI_pillage(20)) {
+		if (AI_pillageRange(25, 20)) {
 			return;
 		}
 	}
@@ -3256,7 +3261,7 @@ void CvUnitAI::AI_exploreMove() {
 	}
 
 	if (!isHuman()) {
-		if (AI_pillage()) {
+		if (AI_pillageRange(25)) {
 			return;
 		}
 	}
@@ -5024,7 +5029,7 @@ void CvUnitAI::AI_exploreSeaMove() {
 	}
 
 	if (!isHuman()) {
-		if (AI_pillage()) {
+		if (AI_pillageRange(25)) {
 			return;
 		}
 	}
@@ -11509,74 +11514,6 @@ bool CvUnitAI::AI_seaBombardRange(int iMaxRange) {
 
 
 // Returns true if a mission was pushed...
-bool CvUnitAI::AI_pillage(int iBonusValueThreshold, int iFlags) {
-	PROFILE_FUNC();
-
-	int iBestValue = 0;
-	CvPlot* pBestPlot = NULL;
-	CvPlot* pBestPillagePlot = NULL;
-
-	for (int iI = 0; iI < GC.getMapINLINE().numPlotsINLINE(); iI++) {
-		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
-
-		if (AI_plotValid(pLoopPlot) && !(pLoopPlot->isBarbarian())) {
-			if (pLoopPlot->isOwned() && isEnemy(pLoopPlot->getTeam(), pLoopPlot)) {
-				CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
-
-				if (pWorkingCity != NULL) {
-					if (!(pWorkingCity == area()->getTargetCity(getOwnerINLINE())) && canPillage(pLoopPlot)) {
-						if (!(pLoopPlot->isVisibleEnemyUnit(this))) {
-							if (GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_PILLAGE, getGroup(), 1) == 0) {
-								int iValue = AI_pillageValue(pLoopPlot, iBonusValueThreshold);
-								iValue *= 1000;
-
-								// if not at war with this plot owner, then devalue plot if we already inside this owner's borders
-								// (because declaring war will pop us some unknown distance away)
-								if (!isEnemy(pLoopPlot->getTeam()) && plot()->getTeam() == pLoopPlot->getTeam()) {
-									iValue /= 10;
-								}
-
-								if (iValue > iBestValue) {
-									int iPathTurns;
-									if (generatePath(pLoopPlot, iFlags, true, &iPathTurns)) {
-										iValue /= (iPathTurns + 1);
-
-										if (iValue > iBestValue) {
-											iBestValue = iValue;
-											pBestPlot = getPathEndTurnPlot();
-											pBestPillagePlot = pLoopPlot;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	if ((pBestPlot != NULL) && (pBestPillagePlot != NULL)) {
-		if (atPlot(pBestPillagePlot) && !isEnemy(pBestPillagePlot->getTeam())) {
-			// rather than declare war, just find something else to do, since we may already be deep in enemy territory
-			return false;
-		}
-
-		if (atPlot(pBestPillagePlot)) {
-			if (isEnemy(pBestPillagePlot->getTeam())) {
-				getGroup()->pushMission(MISSION_PILLAGE, -1, -1, 0, false, false, MISSIONAI_PILLAGE, pBestPillagePlot);
-				return true;
-			}
-		} else {
-			FAssert(!atPlot(pBestPlot));
-			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), iFlags, false, false, MISSIONAI_PILLAGE, pBestPillagePlot);
-			return true;
-		}
-	}
-
-	return false;
-}
-
 bool CvUnitAI::AI_canPillage(CvPlot& kPlot) const {
 	if (isEnemy(kPlot.getTeam(), &kPlot)) {
 		return true;
@@ -11609,7 +11546,7 @@ bool CvUnitAI::AI_canPillage(CvPlot& kPlot) const {
 
 
 // Returns true if a mission was pushed...
-bool CvUnitAI::AI_pillageRange(int iRange, int iBonusValueThreshold, int iFlags) {
+bool CvUnitAI::AI_pillageRange(int iRange, int iBonusValueThreshold, bool bCheckCity, bool bWarOnly, bool bPillageBarbarians, bool bIgnoreDanger, int iFlags) {
 	PROFILE_FUNC();
 
 	int iSearchRange = AI_searchRange(iRange);
@@ -11621,46 +11558,64 @@ bool CvUnitAI::AI_pillageRange(int iRange, int iBonusValueThreshold, int iFlags)
 	for (int iDX = -(iSearchRange); iDX <= iSearchRange; iDX++) {
 		for (int iDY = -(iSearchRange); iDY <= iSearchRange; iDY++) {
 			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
-			if (pLoopPlot != NULL) {
-				if (AI_plotValid(pLoopPlot) && !(pLoopPlot->isBarbarian())) {
-					if (potentialWarAction(pLoopPlot)) {
-						CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
-						if (pWorkingCity != NULL) {
-							if (!(pWorkingCity == area()->getTargetCity(getOwnerINLINE())) && canPillage(pLoopPlot)) {
-								if (!(pLoopPlot->isVisibleEnemyUnit(this))) {
-									if (GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_PILLAGE, getGroup()) == 0) {
-										int iPathTurns;
-										if (generatePath(pLoopPlot, iFlags, true, &iPathTurns, iRange)) {
-											if (getPathFinder().GetFinalMoves() == 0) {
-												iPathTurns++;
-											}
 
-											if (iPathTurns <= iRange) {
-												int iValue = AI_pillageValue(pLoopPlot, iBonusValueThreshold);
+			if (pLoopPlot == NULL)
+				continue;
 
-												iValue *= 1000;
+			// Check of the plot meets our requirements, and if so get the value of the pillage
+			if (!AI_plotValid(pLoopPlot))
+				continue;
 
-												iValue /= (iPathTurns + 1);
+			if (!canPillage(pLoopPlot))
+				continue;
 
-												// if not at war with this plot owner, then devalue plot if we already inside this owner's borders
-												// (because declaring war will pop us some unknown distance away)
-												if (!isEnemy(pLoopPlot->getTeam()) && plot()->getTeam() == pLoopPlot->getTeam()) {
-													iValue /= 10;
-												}
+			if (pLoopPlot->isBarbarian() && !bPillageBarbarians)
+				continue;
 
-												if (iValue > iBestValue) {
-													iBestValue = iValue;
-													pBestPlot = getPathEndTurnPlot();
-													pBestPillagePlot = pLoopPlot;
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+			// Do we need the pillage action to be an act of war?
+			if (bWarOnly && !potentialWarAction(pLoopPlot))
+				continue;
+
+			// Do we need a city working the plot
+			CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
+			if (pWorkingCity == NULL && bCheckCity)
+				continue;
+
+			// Are we willing to get attacked
+			if (pLoopPlot->isVisibleEnemyUnit(this) || !bIgnoreDanger)
+				continue;
+
+			// Don't pillage cities we are targetting, we may want those improvements
+			if (pWorkingCity == area()->getTargetCity(getOwnerINLINE()))
+				continue;
+
+			// Ignore this plot if someone else is there first
+			if (GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pLoopPlot, MISSIONAI_PILLAGE, getGroup()) != 0)
+				continue;
+
+			// Check if we can get to the plot
+			int iPathTurns;
+			if (!generatePath(pLoopPlot, iFlags, true, &iPathTurns, iRange))
+				continue;
+
+			// Now check the range
+			if (getPathFinder().GetFinalMoves() == 0)
+				iPathTurns++;
+
+			int iValue = AI_pillageValue(pLoopPlot, iBonusValueThreshold);
+			iValue *= 1000;
+			iValue /= (iPathTurns + 1);
+
+			// if not at war with this plot owner, then devalue plot if we already inside this owner's borders
+			// (because declaring war will pop us some unknown distance away)
+			if (!isEnemy(pLoopPlot->getTeam()) && plot()->getTeam() == pLoopPlot->getTeam()) {
+				iValue /= 10;
+			}
+
+			if (iValue > iBestValue) {
+				iBestValue = iValue;
+				pBestPlot = getPathEndTurnPlot();
+				pBestPillagePlot = pLoopPlot;
 			}
 		}
 	}
@@ -11685,7 +11640,6 @@ bool CvUnitAI::AI_pillageRange(int iRange, int iBonusValueThreshold, int iFlags)
 
 	return false;
 }
-
 
 // Returns true if a mission was pushed...
 bool CvUnitAI::AI_found(int iFlags) {
@@ -17510,5 +17464,57 @@ void CvUnitAI::AI_autoEspionage() {
 	}
 
 	getGroup()->pushMission(MISSION_SKIP, -1, -1, 0, false, false, MISSIONAI_ATTACK_SPY);
+	return;
+}
+
+void CvUnitAI::AI_autoPillageMove() {
+	PROFILE_FUNC();
+
+	bool bPillageBarbarians = getOptionBOOL("Automations__PillageBarbarians", false);
+	bool bIgnoreDanger = getOptionBOOL("Automations__PillageIgnoreDanger", false);
+
+	if (AI_heal(30))
+		return;
+
+	// If we can pillage a bonus improvement someone is using in one turn go for it
+	// note: having 2 moves doesn't necessarily mean we can move & pillage in the same turn, but it's a good enough approximation.
+	if (plot()->isOwned() && plot()->getOwnerINLINE() != getOwnerINLINE())
+		if (AI_pillageRange(getGroup()->baseMoves() > 1 ? 1 : 0, 11, true, false, bPillageBarbarians, bIgnoreDanger))
+			return;
+
+	// Lets travel a bit wider for a bonus improvement to hit
+	if (AI_pillageRange(3, 11, true, false, bPillageBarbarians, bIgnoreDanger))
+		return;
+
+	// If there are no bonuses how about some other improvements
+	if (AI_pillageRange(3, 0, true, false, bPillageBarbarians, bIgnoreDanger))
+		return;
+
+	if (AI_heal(50, 3))
+		return;
+
+	if (!isEnemy(plot()->getTeam()))
+		if (AI_heal())
+			return;
+
+	// Lets check for high value bonus improvements outside of a city range if we are in enemy territory
+	if ((area()->getAreaAIType(getTeam()) == AREAAI_OFFENSIVE) || isEnemy(plot()->getTeam()))
+		if (AI_pillageRange(15, 40, false, false))
+			return;
+
+	if (AI_heal())
+		return;
+
+	// We are bored so lets just go find anything to pillage
+	if (AI_pillageRange(25, 0, false, false, bPillageBarbarians, bIgnoreDanger))
+		return;
+
+	if (AI_retreatToCity())
+		return;
+
+	if (AI_safety())
+		return;
+
+	getGroup()->pushMission(MISSION_SKIP);
 	return;
 }
