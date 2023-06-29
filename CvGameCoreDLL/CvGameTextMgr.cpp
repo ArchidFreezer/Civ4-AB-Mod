@@ -6717,6 +6717,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(CvWString::format(L"\n%c%+.2f%c %s", gDLL->getSymbolID(BULLET_CHAR), (float)GC.getCivicInfo(eCivic).getGoldPerMilitaryUnit() * fInflationFactor / 100, GC.getCommerceInfo(COMMERCE_GOLD).getChar(), gDLL->getText("TXT_KEY_CIVIC_MILITARY_SUPPORT_COSTS").GetCString()));
 	}
 
+	// City Defence
+	if (kCivic.getCultureDefenceChange() > 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_INCREASES_CULTURE_DEFENCE", kCivic.getCultureDefenceChange()));
+	}
+
 	BuildingTypes eLoopBuilding;
 	bFirst = true;
 	bool bNewPrereqAnd = false;
@@ -7082,6 +7088,9 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	// Worldview revolt chance...
 	buildWorldViewRevoltTurnChangeString(szBuffer, eTech, true, bPlayerContext);
 
+	// Culture Defense
+	buildCultureDefenceString(szBuffer, eTech, true, bPlayerContext);
+
 	//	Build farm, irrigation, etc...
 	for (BuildTypes eBuild = (BuildTypes)0; eBuild < GC.getNumBuildInfos(); eBuild = (BuildTypes)(eBuild + 1)) {
 		buildImprovementString(szBuffer, eTech, eBuild, true, bPlayerContext);
@@ -7127,6 +7136,11 @@ void CvGameTextMgr::setTechHelp(CvWStringBuffer& szBuffer, TechTypes eTech, bool
 	if (kTech.isCaptureCities()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_TECH_ALLOW_CITY_CAPTURE"));
+	}
+
+	if (kTech.getCultureDefenceModifier() != 0) {
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_CULTURE_DEFENCE_HELP", kTech.getCultureDefenceModifier()));
 	}
 
 	bool bFirst = true;
@@ -16747,3 +16761,13 @@ void CvGameTextMgr::buildWorldViewRevoltTurnChangeString(CvWStringBuffer& szBuff
 		}
 	}
 }
+
+void CvGameTextMgr::buildCultureDefenceString(CvWStringBuffer& szBuffer, TechTypes eTech, bool bList, bool bPlayerContext) {
+	if (GC.getTechInfo(eTech).getCultureDefenceModifier() != 0) {
+		if (bList) {
+			szBuffer.append(NEWLINE);
+		}
+		szBuffer.append(gDLL->getText("TXT_KEY_TECH_CULTURE_DEFENSE_HELP", GC.getTechInfo(eTech).getCultureDefenceModifier()));
+	}
+}
+
