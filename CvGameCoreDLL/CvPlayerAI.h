@@ -195,6 +195,7 @@ public:
 
 	int AI_unitImpassableCount(UnitTypes eUnit) const;
 	int AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea) const;
+	int AI_unitValue(const CvUnit* pUnit, UnitAITypes eUnitAI, CvArea* pArea) const;
 	int AI_totalUnitAIs(UnitAITypes eUnitAI) const;
 	int AI_totalAreaUnitAIs(CvArea* pArea, UnitAITypes eUnitAI) const;
 	int AI_totalWaterAreaUnitAIs(CvArea* pArea, UnitAITypes eUnitAI) const;
@@ -204,6 +205,7 @@ public:
 	int AI_neededWorkers(CvArea* pArea) const;
 	int AI_neededMissionaries(CvArea* pArea, ReligionTypes eReligion) const;
 	int AI_neededExecutives(CvArea* pArea, CorporationTypes eCorporation) const;
+	int AI_neededSlavers(CvArea* pArea, bool bAggresive = false) const;
 	int AI_unitCostPerMil() const; // K-Mod
 	int AI_maxUnitCostPerMil(CvArea* pArea = 0, int iBuildProb = -1) const; // K-Mod
 	int AI_nukeWeight() const; // K-Mod

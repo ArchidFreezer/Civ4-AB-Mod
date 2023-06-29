@@ -2,8 +2,10 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
 <!-- Sid Meier's Civilization 4 -->
 <!-- Copyright Firaxis Games 2005 -->
-<!-- -->
 <!-- Basic Infos -->
+<!-- ========== NOTE ======================    -->
+<!-- Changes must be reflected in CvEnums.h    -->
+<!-- ========== NOTE ======================    -->
 <Civ4UnitAIInfos xmlns="x-schema:CIV4BasicInfoSchema.xml">
 	<UnitAIInfos>
 		<UnitAIInfo>
@@ -173,6 +175,14 @@
 		<UnitAIInfo>
 			<Type>UNITAI_ATTACK_CITY_LEMMING</Type>
 			<Description>UNITAI_ATTACK_CITY_LEMMING</Description>
+		</UnitAIInfo>
+		<UnitAIInfo>
+			<Type>UNITAI_SLAVE</Type>
+			<Description>UNITAI_SLAVE</Description>
+		</UnitAIInfo>
+		<UnitAIInfo>
+			<Type>UNITAI_SLAVER</Type>
+			<Description>UNITAI_SLAVER</Description>
 		</UnitAIInfo>
 	</UnitAIInfos>
 </Civ4UnitAIInfos>

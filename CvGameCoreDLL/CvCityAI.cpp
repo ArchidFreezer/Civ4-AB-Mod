@@ -516,7 +516,7 @@ void CvCityAI::AI_chooseProduction() {
 	int iBuildUnitProb = AI_buildUnitProb();
 	iBuildUnitProb /= kPlayer.AI_isDoStrategy(AI_STRATEGY_ECONOMY_FOCUS) ? 2 : 1; // K-Mod
 
-	int iExistingWorkers = kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_WORKER);
+	int iExistingWorkers = kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_WORKER) + kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_SLAVE);
 	int iNeededWorkers = kPlayer.AI_neededWorkers(pArea);
 	// Sea worker need independent of whether water area is militarily relevant
 	int iNeededSeaWorkers = (bMaybeWaterArea) ? AI_neededSeaWorkers() : 0;
@@ -789,6 +789,19 @@ void CvCityAI::AI_chooseProduction() {
 					return;
 				}
 				bChooseWorker = true;
+			}
+		}
+	}
+
+	// If slavers have hit us in the area pump some units to protect any we have left
+	if (area()->getSlaveMemoryPerPlayer(getOwnerINLINE())) {
+		int iWorkerDefenceNeeded = 2;
+		iWorkerDefenceNeeded += std::max(0, AI_neededDefenders() - plot()->plotCount(PUF_isUnitAIType, UNITAI_CITY_DEFENSE, -1, getOwnerINLINE()));
+
+		if (kPlayer.AI_totalAreaUnitAIs(pArea, UNITAI_ATTACK) < iWorkerDefenceNeeded) {
+			if (AI_chooseUnit(UNITAI_ATTACK)) {
+				if (gCityLogLevel >= 2) logBBAI("      City %S uses enslaved worker defender", getName().GetCString());
+				return;
 			}
 		}
 	}
@@ -2956,6 +2969,15 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 			iValue += iTempValue;
 		}
 
+		// If we have slavers in the area then slave markets are good if we have the capacity to settle them or we need extra workers
+		if ((kBuilding.isSlaveMarket() && getSlaveMarketCount() < 1 && kOwner.isActiveSlaver(area())) || iPass > 0) {
+			iValue += std::max(0, std::max(0, m_iWorkersNeeded - m_iWorkersHave));
+			// If this is the capital we really should have a slave market if we are a slaver
+			if (isCapital()) {
+				iValue += 250;
+			}
+		}
+
 		if (iPass > 0) {
 			// K-Mod. The value of golden age buildings. (This was not counted by the original AI.)
 			{
@@ -3915,6 +3937,12 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				iTempValue *= 100 + getTotalCommerceRateModifier(COMMERCE_ESPIONAGE) + kBuilding.getCommerceModifier(COMMERCE_ESPIONAGE);
 				iValue += iTempValue / 100;
 			}
+
+			// If we are a slaver then put a very high value on slave markets
+			if (kBuilding.isSlaveMarket() && kOwner.isWorldViewActivated(WORLD_VIEW_SLAVERY) && (getSlaveMarketCount() < 1)) {
+				iValue += iValue;
+			}
+
 		}
 
 		if (!bNeutralFlags && iValue <= iThreshold) {
@@ -5423,7 +5451,7 @@ void CvCityAI::AI_updateBestBuild() {
 						int iLoop;
 						for (CvSelectionGroup* pLoopSelectionGroup = kOwner.firstSelectionGroup(&iLoop); pLoopSelectionGroup; pLoopSelectionGroup = kOwner.nextSelectionGroup(&iLoop)) {
 							if (pLoopSelectionGroup->AI_getMissionAIPlot() == pLoopPlot && pLoopSelectionGroup->AI_getMissionAIType() == MISSIONAI_BUILD) {
-								FAssert(pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER_SEA);
+								FAssert(pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_WORKER_SEA || pLoopSelectionGroup->getHeadUnitAI() == UNITAI_SLAVE);
 								pLoopSelectionGroup->clearMissionQueue();
 							}
 						}
@@ -9198,4 +9226,19 @@ void CvCityAI::write(FDataStreamBase* pStream) {
 // K-Mod
 void CvCityAI::AI_ClearConstructionValueCache() {
 	m_aiConstructionValue.assign(GC.getNumBuildingClassInfos(), -1);
+}
+
+
+SlaveRevoltActions CvCityAI::AI_bestSlaveRevoltAction() {
+	// The basic rule should be that if the player is rich then addressing the concerns is preferred, then supression
+	//  and only ignore the city if there is no other option.
+	if (GET_PLAYER(getOwnerINLINE()).getGold() > (GC.getSLAVERY_REVOLT_ADDRESS_COST() * 2))
+		return SLAVE_REVOLT_ADDRESS;
+	else if (canSuppressSlaveRevolt())
+		return SLAVE_REVOLT_SUPPRESS;
+	else if (canAddressSlaveRevolt())
+		return SLAVE_REVOLT_ADDRESS;
+	else
+		return SLAVE_REVOLT_IGNORE;
+
 }

@@ -299,6 +299,21 @@
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER3</Tag>
 		<English>Safecracker III</English>
 	</TEXT>
+
+<!-- +++ Slaver +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SLAVER1</Tag>
+		<English>Slaver I</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SLAVER2</Tag>
+		<English>Slaver II</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SLAVER3</Tag>
+		<English>Slaver III</English>
+	</TEXT>
+
 <!-- +++ Steal Tech +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_STEALTECH1</Tag>
@@ -311,6 +326,11 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_STEALTECH3</Tag>
 		<English>Steal Tech III</English>
+	</TEXT>
+
+	<TEXT> <!-- Slaver Hunter -->
+		<Tag>TXT_KEY_PROMOTION_SLAVER_HUNTER</Tag>
+		<English>Slaver Hunter</English>
 	</TEXT>
 
 <!-- +++ Work Rate +++ -->
@@ -353,6 +373,10 @@
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_RANGE_MODIFY</Tag>
 		<English>%D1_Change% Range modification</English>
+	</TEXT>
+	<TEXT> <!-- Slaver Help Text -->
+		<Tag>TXT_KEY_PROMOTION_ENSLAVE_TEXT</Tag>
+		<English>[ICON_BULLET]+%d1_Num to the max units enslaved per turn</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_LOYAL_TEXT_SPY</Tag>

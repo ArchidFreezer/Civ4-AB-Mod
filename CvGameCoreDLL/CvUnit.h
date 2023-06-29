@@ -7,6 +7,7 @@
 
 #include "CvDLLEntity.h"
 #include "CvSpy.h"
+#include "CvUnitMeshGroups.h"
 
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
 
@@ -86,6 +87,8 @@ public:
 	void uninit();
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
+
+	void addUnitCombatType(UnitCombatTypes eUnitCombat);
 
 	void convert(CvUnit* pUnit);																																	// Exposed to Python
 	void kill(bool bDelay, PlayerTypes ePlayer = NO_PLAYER);														// Exposed to Python
@@ -180,6 +183,45 @@ public:
 	PlayerTypes getOriginalSpymaster() const;
 
 	CvCity* getClosestSafeCity() const;
+
+	// Slaver Units
+	bool canBecomeSlaver() const;
+	bool isAlwaysHostile() const;
+	bool isFixedAI() const;
+	bool isHiddenNationality() const;
+	void becomeSlaver();
+	void setAlwaysHostile(bool bHostile);
+	void setFixedAI(bool bFixed);
+	void setHiddenNationality(bool bHidden);
+	void setInvisibleType(InvisibleTypes eInvisible);
+	void setUnitCombatType(UnitCombatTypes eCombat);
+
+	// Slavery
+	int getMaxSlaves() const;
+	int getSlaveControlCount() const;
+	int getSlaveCount(SpecialistTypes eSlaveSpecialist) const;
+	int getSlaveCountTotal() const;
+	int getMeleeWaveSize() const;
+	int getRangedWaveSize() const;
+	bool canEnslave() const;													// Exposed to Python 
+	bool canSellSlave(const CvPlot* pPlot) const;
+	bool canWorkCity(const CvPlot* pPlot) const;
+	bool enslaveUnit(CvUnit* pWinner, CvUnit* pLoser);
+	bool isSlave() const;
+	bool isSlaver() const;
+	bool isWorldViewEnabled() const;
+	bool sellSlaves();
+	void changeMaxSlaves(int iChange);
+	void changeSlaveControlCount(int iChange);
+	void changeSlaveCount(SpecialistTypes eSlaveSpecialist, int iChange);
+	void checkWorldViewStatus();
+	void setMaxSlaves(int iValue);
+	void setSlaverGraphics();
+	void setSlaveSpecialistType(SpecialistTypes eSpecialistType);
+	SpecialistTypes getSlaveSpecialistType() const;
+	UnitTypes getSlaveUnit() const;
+	CvPlot* getBestSlaveMarket(bool bCurrentAreaOnly = true);
+	CvUnit* getSlaver(CvUnit* pWinner);
 
 	// Influence Driven War
 	float doVictoryInfluence(CvUnit* pLoserUnit, bool bAttacking, bool bWithdrawal);
@@ -418,6 +460,8 @@ public:
 	InvisibleTypes getInvisibleType() const;										// Exposed to Python								
 	int getNumSeeInvisibleTypes() const;									// Exposed to Python
 	InvisibleTypes getSeeInvisibleType(int i) const;									// Exposed to Python
+	void changeSeeInvisibleCount(InvisibleTypes eInvisibleType, int iChange);
+	bool isSeeInvisible(InvisibleTypes eInvisibleType) const;
 
 	int flavorValue(FlavorTypes eFlavor) const;														// Exposed to Python		
 
@@ -978,6 +1022,9 @@ protected:
 	int m_iRangeUnboundCount;
 	int m_iTerritoryUnboundCount;
 	int m_iCanMovePeaksCount;
+	int m_iMaxSlaves;
+	int m_iSlaveSpecialistType;
+	int m_iSlaveControlCount;
 	int m_iLoyaltyCount;
 	int m_iWorkRateModifier;
 
@@ -991,17 +1038,24 @@ protected:
 	bool m_bAirCombat;
 	bool m_bCivicEnabled;
 	bool m_bGroupPromotionChanged;
+	bool m_bWorldViewEnabled;
 	bool m_bAutoPromoting;
 	bool m_bAutoUpgrading;
 	bool m_bImmobile;
+	bool m_bFixedAI;
+	bool m_bAlwaysHostile;
+	bool m_bHiddenNationality;
 
+	InvisibleTypes m_eInvisible;
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;
 	TechTypes m_eDesiredDiscoveryTech;
+	UnitCombatTypes m_eUnitCombatType;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
 	CvUnitInfo* m_pUnitInfo;
 	CvSpy* m_pSpy;
+	CvUnitMeshGroups* m_pCustomUnitMeshGroup;
 
 	IDInfo m_combatUnit;
 	IDInfo m_transportUnit;
@@ -1021,6 +1075,10 @@ protected:
 	int* m_paiExtraFeatureAttackPercent;
 	int* m_paiExtraFeatureDefensePercent;
 	int* m_paiExtraUnitCombatModifier;
+	int* m_paiEnslavedCount;
+	int* m_paiSeeInvisibleCount;
+
+	std::vector<UnitCombatTypes> m_vExtraUnitCombatTypes;
 
 	std::map<BuildTypes, std::map< FeatureTypes, int> > m_mmBuildLeavesFeatures;
 

@@ -485,6 +485,12 @@
 	<ElementType name="ObsoleteTech" content="textOnly"/>
 	<ElementType name="bWorkerTrade" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bMilitaryTrade" content="textOnly" dt:type="boolean"/>
+	<ElementType name="WorldViewType" content="textOnly"/>
+	<ElementType name="PrereqWorldViews" content="eltOnly">
+		<element type="WorldViewType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SlaveSpecialistType" content="textOnly"/>
+	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
@@ -539,6 +545,7 @@
 		<element type="bRenderAlways" minOccurs="0"/>
 		<element type="bSuicide" minOccurs="0"/>
 		<element type="bSingleBuild" minOccurs="0"/>
+		<element type="bSlave" minOccurs="0"/>
 		<element type="bLineOfSight" minOccurs="0"/>
 		<element type="bHiddenNationality" minOccurs="0"/>
 		<element type="bAlwaysHostile" minOccurs="0"/>
@@ -556,6 +563,7 @@
 		<element type="ReligionSpreads" minOccurs="0"/>
 		<element type="CorporationSpreads" minOccurs="0"/>
 		<element type="GreatPeoples" minOccurs="0"/>
+		<element type="SlaveSpecialistType" minOccurs="0"/>
 		<element type="Buildings" minOccurs="0"/>
 		<element type="ForceBuildings" minOccurs="0"/>
 		<element type="HolyCity" minOccurs="0"/>
@@ -578,6 +586,7 @@
 		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
 		<element type="PrereqVicinityImprovements" minOccurs="0"/>
 		<element type="PrereqVicinityFeatures" minOccurs="0"/>
+		<element type="PrereqWorldViews" minOccurs="0"/>
 		<element type="iMinPopulation" minOccurs="0"/>
 		<element type="MinCultureLevel" minOccurs="0"/>
 		<element type="bPrereqPower" minOccurs="0"/>
@@ -822,6 +831,7 @@
 		<element type="PromotionType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bCanMovePeaks" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iEnslaveCountChange" content="textOnly" dt:type="int"/>
 	<ElementType name="bLoyal" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bSpyRadiation" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iSpyPreparationModifier" content="textOnly" dt:type="int"/>
@@ -865,6 +875,7 @@
 		<element type="PrereqOrPromotions" minOccurs="0"/>
 		<element type="TechPrereq" minOccurs="0"/>
 		<element type="StateReligionPrereq" minOccurs="0"/>
+		<element type="SeeInvisibles" minOccurs="0"/>
 		<element type="bCityPrereq" minOccurs="0"/>
 		<element type="iPromotionGroup" minOccurs="0"/>
 		<element type="bLeader" minOccurs="0"/>
@@ -878,6 +889,7 @@
 		<element type="bImmuneToFirstStrikes" minOccurs="0"/>
 		<element type="bLoyal" minOccurs="0"/>
 		<element type="bSpyRadiation" minOccurs="0"/>
+		<element type="iEnslaveCountChange" minOccurs="0"/>
 		<element type="iVisibilityChange" minOccurs="0"/>
 		<element type="iMovesChange" minOccurs="0"/>
 		<element type="iMoveDiscountChange" minOccurs="0"/>

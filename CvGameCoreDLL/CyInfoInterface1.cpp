@@ -160,6 +160,7 @@ void CyInfoPythonInterface1() {
 		.def("getNumNotCombatTypes", &CvPromotionInfo::getNumNotCombatTypes, "int ()")
 		.def("getNumOrCombatTypes", &CvPromotionInfo::getNumOrCombatTypes, "int ()")
 		.def("getNumPrereqOrPromotions", &CvPromotionInfo::getNumPrereqOrPromotions, "int ()")
+		.def("getEnslaveCountChange", &CvPromotionInfo::getEnslaveCountChange, "int ()")
 
 		.def("isLeader", &CvPromotionInfo::isLeader, "bool ()")
 		.def("isBlitz", &CvPromotionInfo::isBlitz, "bool ()")
@@ -306,6 +307,8 @@ void CyInfoPythonInterface1() {
 		.def("getObsoleteTech", &CvUnitInfo::getObsoleteTech, "int ()")
 		.def("getNumPrereqAndTechs", &CvUnitInfo::getNumPrereqAndTechs, "int ()")
 		.def("getNumPrereqOrBonuses", &CvUnitInfo::getNumPrereqOrBonuses, "int ()")
+		.def("getNumPrereqWorldViews", &CvUnitInfo::getNumPrereqWorldViews, "int ()")
+		.def("getSlaveSpecialistType", &CvUnitInfo::getSlaveSpecialistType, "int ()")
 
 		.def("isAnimal", &CvUnitInfo::isAnimal, "bool ()")
 		.def("isFoodProduction", &CvUnitInfo::isFoodProduction, "bool ()")
@@ -343,6 +346,7 @@ void CyInfoPythonInterface1() {
 		.def("isHiddenNationality", &CvUnitInfo::isHiddenNationality, "bool ()")
 		.def("isAlwaysHostile", &CvUnitInfo::isAlwaysHostile, "bool ()")
 		.def("isSingleBuild", &CvUnitInfo::isSingleBuild, "bool ()")
+		.def("isSlave", &CvUnitInfo::isSlave, "bool ()")
 
 		.def("getUnitMaxSpeed", &CvUnitInfo::getUnitMaxSpeed, "float ()")
 		.def("getUnitPadTime", &CvUnitInfo::getUnitPadTime, "float ()")
@@ -374,6 +378,7 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqVicinityFeature", &CvUnitInfo::getPrereqVicinityFeature, "int (int i)")
 		.def("getPrereqAndTech", &CvUnitInfo::getPrereqAndTech, "int (int i)")
 		.def("getPrereqOrBonus", &CvUnitInfo::getPrereqOrBonus, "int (int i)")
+		.def("getPrereqWorldView", &CvUnitInfo::getPrereqWorldView, "int (int i)")
 
 		.def("getUpgradeUnitClass", &CvUnitInfo::getUpgradeUnitClass, "bool (int i)")
 		.def("getTargetUnitClass", &CvUnitInfo::getTargetUnitClass, "bool (int i)")
@@ -405,6 +410,7 @@ void CyInfoPythonInterface1() {
 		.def("isPrereqOrBonus", &CvUnitInfo::isPrereqOrBonus, "bool (int i)")
 		.def("isCombatType", &CvUnitInfo::isCombatType, "bool (int i)")
 		.def("isSubCombatType", &CvUnitInfo::isSubCombatType, "bool (int i)")
+		.def("isPrereqWorldView", &CvUnitInfo::isPrereqWorldView, "bool (int i)")
 
 		.def("getEarlyArtDefineTag", &CvUnitInfo::getEarlyArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
 		.def("getLateArtDefineTag", &CvUnitInfo::getLateArtDefineTag, "string (int i, UnitArtStyleTypes eStyle)")
@@ -608,6 +614,7 @@ void CyInfoPythonInterface1() {
 		.def("getNumPrereqAndBuildingClasses", &CvBuildingInfo::getNumPrereqAndBuildingClasses, "int ()")
 		.def("getNumPrereqOrBuildingClasses", &CvBuildingInfo::getNumPrereqOrBuildingClasses, "int ()")
 		.def("getWorkableRadius", &CvBuildingInfo::getWorkableRadius, "int ()")
+		.def("getNumPrereqWorldViews", &CvBuildingInfo::getNumPrereqWorldViews, "int ()")
 
 		.def("isTeamShare", &CvBuildingInfo::isTeamShare, "bool ()")
 		.def("isWater", &CvBuildingInfo::isWater, "bool ()")
@@ -631,6 +638,7 @@ void CyInfoPythonInterface1() {
 		.def("isCenterInCity", &CvBuildingInfo::isCenterInCity, "bool ()")
 		.def("isStateReligion", &CvBuildingInfo::isStateReligion, "bool ()")
 		.def("isAllowsNukes", &CvBuildingInfo::isAllowsNukes, "bool ()")
+		.def("isSlaveMarket", &CvBuildingInfo::isSlaveMarket, "bool ()")
 		.def("isShowInCity", &CvBuildingInfo::isShowInCity, "bool ()")
 
 		.def("getConstructSound", &CvBuildingInfo::getConstructSound, "string ()")
@@ -684,6 +692,7 @@ void CyInfoPythonInterface1() {
 		.def("getPrereqVicinityFeature", &CvBuildingInfo::getPrereqVicinityFeature, "int (int i)")
 		.def("getPrereqAndBuildingClass", &CvBuildingInfo::getPrereqAndBuildingClass, "int (int i)")
 		.def("getPrereqOrBuildingClass", &CvBuildingInfo::getPrereqOrBuildingClass, "int (int i)")
+		.def("getPrereqWorldView", &CvBuildingInfo::getPrereqWorldView, "int (int i)")
 
 		.def("isCommerceFlexible", &CvBuildingInfo::isCommerceFlexible, "bool (int i)")
 		.def("isCommerceChangeOriginalOwner", &CvBuildingInfo::isCommerceChangeOriginalOwner, "bool (int i)")
@@ -696,6 +705,7 @@ void CyInfoPythonInterface1() {
 		.def("isPrereqVicinityFeature", &CvBuildingInfo::isPrereqVicinityFeature, "bool (int i)")
 		.def("isPrereqAndBuildingClass", &CvBuildingInfo::isPrereqAndBuildingClass, "bool (BuildingClassTypes eBuildingClass)")
 		.def("isPrereqOrBuildingClass", &CvBuildingInfo::isPrereqOrBuildingClass, "bool (BuildingClassTypes eBuildingClass)")
+		.def("isPrereqWorldView", &CvBuildingInfo::isPrereqWorldView, "bool (int i)")
 
 		.def("getSpecialistYieldChange", &CvBuildingInfo::getSpecialistYieldChange, "int (int i, int j)")
 		.def("getBonusYieldModifier", &CvBuildingInfo::getBonusYieldModifier, "int (int i, int j)")

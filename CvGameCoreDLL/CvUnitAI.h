@@ -107,6 +107,8 @@ protected:
 	void AI_missileAirMove();
 	void AI_networkAutomated();
 	void AI_cityAutomated();
+	void AI_slaveMove();
+	void AI_slaverMove();
 	void AI_shadowMove();
 	void AI_autoEspionage();
 	void AI_autoPillageMove();
@@ -117,7 +119,7 @@ protected:
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
-	bool AI_shadow(UnitAITypes eUnitAI, int iMax = -1, int iMaxRatio = -1, bool bWithCargoOnly = true, bool bOutsideCityOnly = false, int iMaxPath = MAX_INT);
+	bool AI_shadow(UnitAITypes eUnitAI, int iMax = -1, int iMaxRatio = -1, bool bWithCargoOnly = true, bool bOutsideCityOnly = false, int iMaxPath = MAX_INT, bool bIgnoreMoves = false);
 	// K-Mod. I've created AI_omniGroup with the intention of using it to phase out AI_group and AI_groupMergeRange.
 	bool AI_omniGroup(UnitAITypes eUnitAI, int iMaxGroup = -1, int iMaxOwnUnitAI = -1, bool bStackOfDoom = false, int iFlags = 0, int iMaxPath = -1, bool bMergeGroups = true, bool bSafeOnly = true, bool bIgnoreFaster = false, bool bIgnoreOwnUnitType = false, bool bBiggerOnly = true, int iMinUnitAI = -1, bool bWithCargoOnly = false, bool bIgnoreBusyTransports = false);
 	bool AI_group(UnitAITypes eUnitAI, int iMaxGroup = -1, int iMaxOwnUnitAI = -1, int iMinUnitAI = -1, bool bIgnoreFaster = false, bool bIgnoreOwnUnitType = false, bool bStackOfDoom = false, int iMaxPath = MAX_INT, bool bAllowRegrouping = false, bool bWithCargoOnly = false, bool bInCityOnly = false, MissionAITypes eIgnoreMissionAIType = NO_MISSIONAI);
@@ -145,7 +147,7 @@ protected:
 	bool AI_spreadCorporationAirlift();
 	bool AI_discover(bool bThisTurnOnly = false, bool bFirstResearchOnly = false);
 	bool AI_lead(std::vector<UnitAITypes>& aeAIUnitTypes);
-	bool AI_join(int iMaxCount = MAX_INT);
+	bool AI_join(int iMaxCount = MAX_INT, bool bCitySize = false);
 	bool AI_construct(int iMaxCount = MAX_INT, int iMaxSingleBuildingCount = MAX_INT, int iThreshold = 15);
 	bool AI_switchHurry();
 	bool AI_hurry();
@@ -235,6 +237,8 @@ protected:
 	bool AI_followBombard();
 	bool AI_potentialEnemy(TeamTypes eTeam, const CvPlot* pPlot = NULL);
 	bool AI_huntRange(int iRange, int iOddsThreshold, bool bStayInBorders = false, int iMinValue = 0);
+	bool AI_sellSlaves(bool bForce = false);
+	bool AI_toggleWorldView(WorldViewTypes eWorldView);
 	bool AI_moveToTarget(CvUnit* pTarget, bool bForce);
 	bool AI_protectTarget(CvUnit* pTarget);
 	bool AI_returnToBorders();
@@ -242,6 +246,9 @@ protected:
 	bool AI_caravan(bool bAnyCity = false);
 	bool AI_defensiveAirStrike();
 	bool AI_airBombCities();
+	bool AI_becomeSlaver();
+	bool AI_enslave(int iRange, int iOddsThreshold);
+	bool AI_slaverExplore(int iRange);
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

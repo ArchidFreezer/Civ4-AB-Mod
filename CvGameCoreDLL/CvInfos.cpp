@@ -696,6 +696,7 @@ CvSpecialistInfo::CvSpecialistInfo() :
 	m_iStarSignMitigateChange(0),
 	m_iStarSignScaleChange(0),
 	m_bVisible(false),
+	m_bSlave(false),
 	m_piYieldChange(NULL),
 	m_piCommerceChange(NULL),
 	m_piFlavorValue(NULL),
@@ -713,6 +714,10 @@ CvSpecialistInfo::~CvSpecialistInfo() {
 	SAFE_DELETE_ARRAY(m_piYieldChange);
 	SAFE_DELETE_ARRAY(m_piCommerceChange);
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
+}
+
+bool CvSpecialistInfo::isSlave() const {
+	return m_bSlave;
 }
 
 int CvSpecialistInfo::getStarSignMitigateChange() const {
@@ -792,6 +797,7 @@ bool CvSpecialistInfo::read(CvXMLLoadUtility* pXML) {
 	setTexture(szTextVal);
 
 	pXML->GetChildXmlValByName(&m_bVisible, "bVisible");
+	pXML->GetChildXmlValByName(&m_bSlave, "bSlave");
 
 	pXML->GetChildXmlValByName(szTextVal, "GreatPeopleUnitClass");
 	m_iGreatPeopleUnitClass = pXML->FindInInfoClass(szTextVal);
@@ -875,6 +881,7 @@ CvTechInfo::CvTechInfo() :
 	m_piForestPlotYieldChange(NULL),
 	m_piRiverPlotYieldChange(NULL),
 	m_piSeaPlotYieldChange(NULL),
+	m_piWorldViewRevoltTurnChange(NULL),
 	m_piSpecialistExtraCommerce(NULL),
 	m_piCommerceModifier(NULL),
 	m_pbCommerceFlexible(NULL),
@@ -894,10 +901,17 @@ CvTechInfo::~CvTechInfo() {
 	SAFE_DELETE_ARRAY(m_piForestPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_piRiverPlotYieldChange);
 	SAFE_DELETE_ARRAY(m_piSeaPlotYieldChange);
+	SAFE_DELETE_ARRAY(m_piWorldViewRevoltTurnChange);
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce);
 	SAFE_DELETE_ARRAY(m_piCommerceModifier);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbTerrainTrade);
+}
+
+int CvTechInfo::getWorldViewRevoltTurnChange(int i) const {
+	FAssertMsg(i < NUM_WORLD_VIEWS, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piWorldViewRevoltTurnChange ? m_piWorldViewRevoltTurnChange[i] : 0;
 }
 
 int CvTechInfo::getNumEnabledWorldViews() const {
@@ -1343,6 +1357,10 @@ void CvTechInfo::read(FDataStreamBase* stream) {
 	m_piSeaPlotYieldChange = new int[NUM_YIELD_TYPES];
 	stream->Read(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
 
+	SAFE_DELETE_ARRAY(m_piWorldViewRevoltTurnChange);
+	m_piWorldViewRevoltTurnChange = new int[NUM_WORLD_VIEWS];
+	stream->Read(NUM_WORLD_VIEWS, m_piWorldViewRevoltTurnChange);
+
 	SAFE_DELETE_ARRAY(m_piSpecialistExtraCommerce);
 	m_piSpecialistExtraCommerce = new int[NUM_COMMERCE_TYPES];
 	stream->Read(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce);
@@ -1449,6 +1467,7 @@ void CvTechInfo::write(FDataStreamBase* stream) {
 	stream->Write(NUM_YIELD_TYPES, m_piForestPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piRiverPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piSeaPlotYieldChange);
+	stream->Write(NUM_WORLD_VIEWS, m_piWorldViewRevoltTurnChange);
 	stream->Write(NUM_COMMERCE_TYPES, m_piSpecialistExtraCommerce);
 	stream->Write(NUM_COMMERCE_TYPES, m_piCommerceModifier);
 	stream->Write(NUM_COMMERCE_TYPES, m_pbCommerceFlexible);
@@ -1547,6 +1566,7 @@ bool CvTechInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piForestPlotYieldChange, "ForestPlotYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piRiverPlotYieldChange, "RiverPlotYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piSeaPlotYieldChange, "SeaPlotYieldChanges", NUM_YIELD_TYPES);
+	pXML->SetListPairInfo(&m_piWorldViewRevoltTurnChange, "WorldViewRevoltTurnChanges", NUM_WORLD_VIEWS);
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
 	pXML->GetChildXmlValByName(szTextVal, "Quote");
@@ -1613,6 +1633,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iUnitRangeChange(0),
 	m_iUnitRangePercentChange(0),
 	m_iPromotionGroup(0),
+	m_iEnslaveCountChange(0),
 	m_iSpyEvasionChange(0),
 	m_iSpyPreparationModifier(0),
 	m_iSpyPoisonModifier(0),
@@ -1677,6 +1698,15 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getSeeInvisibleType(int i) const {
+	FAssert(i < (int)m_viSeeInvisibleTypes.size());
+	return m_viSeeInvisibleTypes[i];
+}
+
+int CvPromotionInfo::getNumSeeInvisibleTypes() const {
+	return (int)m_viSeeInvisibleTypes.size();
 }
 
 int CvPromotionInfo::getNumBuildLeaveFeatures() const {
@@ -1789,6 +1819,10 @@ int CvPromotionInfo::getSpyEvasionChange() const {
 
 bool CvPromotionInfo::isLoyal() const {
 	return m_bLoyal;
+}
+
+int CvPromotionInfo::getEnslaveCountChange() const {
+	return m_iEnslaveCountChange;
 }
 
 bool CvPromotionInfo::isCanMovePeaks() const {
@@ -2124,6 +2158,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iUnitRangeChange);
 	stream->Read(&m_iUnitRangePercentChange);
 	stream->Read(&m_iPromotionGroup);
+	stream->Read(&m_iEnslaveCountChange);
 	stream->Read(&m_iSpyEvasionChange);
 	stream->Read(&m_iSpyPreparationModifier);
 	stream->Read(&m_iSpyPoisonModifier);
@@ -2222,6 +2257,13 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 		stream->Read(&iElement);
 		m_viPrereqOrPromotions.push_back(iElement);
 	}
+	stream->Read(&iNumElements);
+	m_viSeeInvisibleTypes.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viSeeInvisibleTypes.push_back(iElement);
+	}
+
 	int iElement2;
 	stream->Read(&iNumElements);
 	m_vpBuildLeaveFeatures.clear();
@@ -2275,6 +2317,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iUnitRangeChange);
 	stream->Write(m_iUnitRangePercentChange);
 	stream->Write(m_iPromotionGroup);
+	stream->Write(m_iEnslaveCountChange);
 	stream->Write(m_iSpyEvasionChange);
 	stream->Write(m_iSpyPreparationModifier);
 	stream->Write(m_iSpyPoisonModifier);
@@ -2343,6 +2386,11 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viSeeInvisibleTypes.size());
+	for (std::vector<int>::iterator it = m_viSeeInvisibleTypes.begin(); it != m_viSeeInvisibleTypes.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->Write(m_vpBuildLeaveFeatures.size());
 	for (std::vector<std::pair <int, int> >::iterator it = m_vpBuildLeaveFeatures.begin(); it != m_vpBuildLeaveFeatures.end(); ++it) {
 		stream->Write((*it).first);
@@ -2372,6 +2420,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(szTextVal, "StateReligionPrereq");
 	m_iStateReligionPrereq = pXML->FindInInfoClass(szTextVal);
 
+	pXML->SetVectorInfo(m_viSeeInvisibleTypes, "SeeInvisibles");
 	pXML->GetChildXmlValByName(&m_bCityPrereq, "bCityPrereq");
 	pXML->GetChildXmlValByName(&m_iPromotionGroup, "iPromotionGroup");
 	pXML->GetChildXmlValByName(&m_bLeader, "bLeader");
@@ -2388,6 +2437,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bImmuneToFirstStrikes, "bImmuneToFirstStrikes");
 	pXML->GetChildXmlValByName(&m_bLoyal, "bLoyal");
 	pXML->GetChildXmlValByName(&m_bSpyRadiation, "bSpyRadiation");
+	pXML->GetChildXmlValByName(&m_iEnslaveCountChange, "iEnslaveCountChange");
 	pXML->GetChildXmlValByName(&m_iVisibilityChange, "iVisibilityChange");
 	pXML->GetChildXmlValByName(&m_iMovesChange, "iMovesChange");
 	pXML->GetChildXmlValByName(&m_iMoveDiscountChange, "iMoveDiscountChange");
@@ -3161,6 +3211,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iCommandType(NO_COMMAND),
 	m_iMinPopulation(0),
 	m_iObsoleteTech(NO_TECH),
+	m_iSlaveSpecialistType(NO_SPECIALIST),
 	m_eRangeType(UNITRANGE_RANGE),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_bAnimal(false),
@@ -3205,6 +3256,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_bPrereqPower(false),
 	m_bWorkerTrade(false),
 	m_bMilitaryTrade(false),
+	m_bSlave(false),
 	m_bFixedAI(false),
 	m_fUnitMaxSpeed(0.0f),
 	m_fUnitPadTime(0.0f),
@@ -3303,6 +3355,30 @@ CvUnitInfo::~CvUnitInfo() {
 
 bool CvUnitInfo::isFixedAI() const {
 	return m_bFixedAI;
+}
+
+int CvUnitInfo::getPrereqWorldView(int i) const {
+	return (getNumPrereqWorldViews() > i) ? m_viPrereqWorldViews[i] : NO_WORLD_VIEW;
+}
+
+int CvUnitInfo::getNumPrereqWorldViews() const {
+	return (int)m_viPrereqWorldViews.size();
+}
+
+bool CvUnitInfo::isPrereqWorldView(int i) const {
+	return (std::find(m_viPrereqWorldViews.begin(), m_viPrereqWorldViews.end(), i) != m_viPrereqWorldViews.end());
+}
+
+int CvUnitInfo::getSlaveSpecialistType() const {
+	if (m_iSlaveSpecialistType == NULL) {
+		return GC.getDefineINT("SLAVERY_DEFAULT_SLAVE_SPECIALIST");
+	} else {
+		return m_iSlaveSpecialistType == NO_SPECIALIST ? GC.getDefineINT("SLAVERY_DEFAULT_SLAVE_SPECIALIST") : m_iSlaveSpecialistType;
+	}
+}
+
+bool CvUnitInfo::isSlave() const {
+	return m_bSlave;
 }
 
 bool CvUnitInfo::isWorkerTrade() const {
@@ -4392,6 +4468,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iCommandType);
 	stream->Read(&m_iMinPopulation);
 	stream->Read(&m_iObsoleteTech);
+	stream->Read(&m_iSlaveSpecialistType);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -4441,6 +4518,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bPrereqPower);
 	stream->Read(&m_bWorkerTrade);
 	stream->Read(&m_bMilitaryTrade);
+	stream->Read(&m_bSlave);
 	stream->Read(&m_bFixedAI);
 
 	stream->Read(&m_fUnitMaxSpeed);
@@ -4702,6 +4780,13 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 		m_viPrereqOrBonuses.push_back(iElement);
 	}
 
+	stream->Read(&iNumElements);
+	m_viPrereqWorldViews.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqWorldViews.push_back(iElement);
+	}
+
 	stream->ReadString(m_szFormationType);
 
 	updateArtDefineButton();
@@ -4791,6 +4876,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iCommandType);
 	stream->Write(m_iMinPopulation);
 	stream->Write(m_iObsoleteTech);
+	stream->Write(m_iSlaveSpecialistType);
 
 	stream->Write(m_eRangeType);
 	stream->Write(m_eMinCultureLevel);
@@ -4837,6 +4923,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bPrereqPower);
 	stream->Write(m_bWorkerTrade);
 	stream->Write(m_bMilitaryTrade);
+	stream->Write(m_bSlave);
 	stream->Write(m_bFixedAI);
 
 	stream->Write(m_fUnitMaxSpeed);
@@ -4952,6 +5039,11 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 		stream->Write(*it);
 	}
 
+	stream->Write(m_viPrereqWorldViews.size());
+	for (std::vector<int>::iterator it = m_viPrereqWorldViews.begin(); it != m_viPrereqWorldViews.end(); ++it) {
+		stream->Write(*it);
+	}
+
 	stream->WriteString(m_szFormationType);
 }
 
@@ -5031,6 +5123,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bRenderAlways, "bRenderAlways", false);
 	pXML->GetChildXmlValByName(&m_bSuicide, "bSuicide");
 	pXML->GetChildXmlValByName(&m_bSingleBuild, "bSingleBuild", false);
+	pXML->GetChildXmlValByName(&m_bSlave, "bSlave", false);
 	pXML->GetChildXmlValByName(&m_bLineOfSight, "bLineOfSight", false);
 	pXML->GetChildXmlValByName(&m_bHiddenNationality, "bHiddenNationality", false);
 	pXML->GetChildXmlValByName(&m_bAlwaysHostile, "bAlwaysHostile", false);
@@ -5057,6 +5150,9 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListPairInfos(&m_piFeaturePassableTech, "FeaturePassableTechs", GC.getNumFeatureInfos());
 
 	pXML->SetListInfoBool(&m_pbGreatPeoples, "GreatPeoples", GC.getNumSpecialistInfos());
+
+	pXML->GetChildXmlValByName(szTextVal, "SlaveSpecialistType");
+	m_iSlaveSpecialistType = pXML->FindInInfoClass(szTextVal);
 
 	pXML->SetListInfoBool(&m_pbBuildings, "Buildings", GC.getNumBuildingInfos());
 	pXML->SetListInfoBool(&m_pbForceBuildings, "ForceBuildings", GC.getNumBuildingInfos());
@@ -5099,6 +5195,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVectorInfo(m_viPrereqVicinityOrBonus, "PrereqVicinityOrBonus");
 	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");
 	pXML->SetVectorInfo(m_viPrereqNotBuildingClasses, "PrereqNotBuildingClasses");
+	pXML->SetVectorInfo(m_viPrereqWorldViews, "PrereqWorldViews");
 	pXML->GetChildXmlValByName(&m_iMinPopulation, "iMinPopulation");
 	pXML->GetChildXmlEnumValByName(&m_eMinCultureLevel, "MinCultureLevel", NO_CULTURELEVEL);
 	pXML->GetChildXmlValByName(&m_bPrereqPower, "bPrereqPower");
@@ -6551,6 +6648,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bAutoBuild(false),
 	m_bForceDisableStarSigns(false),
 	m_bStarSignGoodOnly(false),
+	m_bSlaveMarket(false),
 	m_bShowInCity(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
@@ -6648,6 +6746,22 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+}
+
+int CvBuildingInfo::getPrereqWorldView(int i) const {
+	return (getNumPrereqWorldViews() > i) ? m_viPrereqWorldViews[i] : NO_WORLD_VIEW;
+}
+
+int CvBuildingInfo::getNumPrereqWorldViews() const {
+	return (int)m_viPrereqWorldViews.size();
+}
+
+bool CvBuildingInfo::isPrereqWorldView(int i) const {
+	return (std::find(m_viPrereqWorldViews.begin(), m_viPrereqWorldViews.end(), i) != m_viPrereqWorldViews.end());
+}
+
+bool CvBuildingInfo::isSlaveMarket() const {
+	return m_bSlaveMarket;
 }
 
 bool CvBuildingInfo::isShowInCity() const {
@@ -7776,6 +7890,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bAutoBuild);
 	stream->Read(&m_bForceDisableStarSigns);
 	stream->Read(&m_bStarSignGoodOnly);
+	stream->Read(&m_bSlaveMarket);
 	stream->Read(&m_bShowInCity);
 
 	stream->ReadString(m_szConstructSound);
@@ -7879,6 +7994,13 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	for (int i = 0; i < iNumElements; ++i) {
 		stream->Read(&iElement);
 		m_viPrereqNotBuildingClasses.push_back(iElement);
+	}
+
+	stream->Read(&iNumElements);
+	m_viPrereqWorldViews.clear();
+	for (int i = 0; i < iNumElements; ++i) {
+		stream->Read(&iElement);
+		m_viPrereqWorldViews.push_back(iElement);
 	}
 
 	SAFE_DELETE_ARRAY(m_piProductionTraits);
@@ -8192,6 +8314,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bAutoBuild);
 	stream->Write(m_bForceDisableStarSigns);
 	stream->Write(m_bStarSignGoodOnly);
+	stream->Write(m_bSlaveMarket);
 	stream->Write(m_bShowInCity);
 
 	stream->WriteString(m_szConstructSound);
@@ -8265,6 +8388,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 
 	stream->Write(m_viPrereqNotBuildingClasses.size());
 	for (std::vector<int>::iterator it = m_viPrereqNotBuildingClasses.begin(); it != m_viPrereqNotBuildingClasses.end(); ++it) {
+		stream->Write(*it);
+	}
+
+	stream->Write(m_viPrereqWorldViews.size());
+	for (std::vector<int>::iterator it = m_viPrereqWorldViews.begin(); it != m_viPrereqWorldViews.end(); ++it) {
 		stream->Write(*it);
 	}
 
@@ -8444,6 +8572,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bNukeImmune, "bNukeImmune");
 	pXML->GetChildXmlValByName(&m_bPrereqReligion, "bPrereqReligion");
 	pXML->GetChildXmlValByName(&m_bCenterInCity, "bCenterInCity");
+	pXML->GetChildXmlValByName(&m_bSlaveMarket, "bSlaveMarket");
 	pXML->GetChildXmlValByName(&m_bStateReligion, "bStateReligion");
 	pXML->GetChildXmlValByName(&m_bForceDisableStarSigns, "bForceDisableStarSigns");
 	pXML->GetChildXmlValByName(&m_bStarSignGoodOnly, "bStarSignGoodOnly");
@@ -8549,6 +8678,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVectorInfo(m_viPrereqOrBuildingClasses, "PrereqOrBuildingClasses");
 	pXML->SetVectorInfo(m_viPrereqNotBuildingClasses, "PrereqNotBuildingClasses");
 	pXML->SetVectorInfo(m_viReplacementBuildingClasses, "ReplacedByBuildingClasses");
+	pXML->SetVectorInfo(m_viPrereqWorldViews, "PrereqWorldViews");
 
 	m_bAnySpecialistYieldChange = pXML->SetListPairInfoArray(&m_ppaiSpecialistYieldChange, "SpecialistYieldChanges", GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
 	m_bAnyBonusYieldModifier = pXML->SetListPairInfoArray(&m_ppaiBonusYieldModifier, "BonusYieldModifiers", GC.getNumBonusInfos(), NUM_YIELD_TYPES);

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+<!-- Become Slaver -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_BECOME_SLAVER</Tag>
+		<English>Become Slaver</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_BECOME_SLAVER_HELP</Tag>
+		<English>Order the selected unit to convert to a slaver unit. This changes the default AI and cannot be reversed.</English>
+	</TEXT>
+
 <!-- Go To and Sentry -->
 	<TEXT>
 		<Tag>TXT_KEY_INTERFACEMODE_GO_TO_SENTRY</Tag>
@@ -51,6 +61,20 @@
 		<German>Lässt eine sich bewegende Einheit aktiv werden, wenn sie sich einer feindlichen Einheit desselben Einheitentyps nähert</German>
 		<Italian>L'unit&#224;si muove finch&#233; un'unit&#224; nemica non diventa visibile.</Italian>
 		<Spanish>La unidad se mueve hasta que una unidad enemiga del mismo tipo se sit&#250;e al alcance de la visibilidad.</Spanish>
+	</TEXT>
+
+<!-- Sell Slave -->
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_SELL_SLAVE</Tag>
+		<English>Sell Slave</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_SELL_SLAVE_HELP</Tag>
+		<English>Sell a slave to either work in the city itself or build improvements.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MESSAGE_SLAVE_SOLD</Tag>
+		<English>Your slave has been sold in %s1</English>
 	</TEXT>
 
 <!-- Sentry Until Healed -->

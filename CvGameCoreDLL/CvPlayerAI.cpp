@@ -472,7 +472,11 @@ void CvPlayerAI::AI_doTurnUnitsPost() {
 							int iCityExp = 0;
 							iCityExp += pPlotCity->getFreeExperience();
 							iCityExp += pPlotCity->getDomainFreeExperience(pLoopUnit->getDomainType());
-							iCityExp += pPlotCity->getUnitCombatFreeExperience(pLoopUnit->getUnitCombatType());
+							for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+								if (pLoopUnit->isUnitCombatType(eUnitCombat)) {
+									iCityExp += pPlotCity->getUnitCombatFreeExperience(eUnitCombat);
+								}
+							}
 							if (iCityExp > 0) {
 								if (iExp < iCityExp && GC.getGameINLINE().getGameTurn() - pLoopUnit->getGameTurnCreated() > 8) {
 									int iDefenders = pLoopUnit->plot()->plotCount(PUF_canDefendGroupHead, -1, -1, getID(), NO_TEAM, PUF_isCityAIType);
@@ -909,17 +913,21 @@ int CvPlayerAI::AI_movementPriority(CvSelectionGroup* pGroup) const {
 
 	FAssert(pHeadUnit->getDomainType() == DOMAIN_LAND);
 
-	if (pHeadUnit->AI_getUnitAIType() == UNITAI_WORKER)
+	// Move slaves first as they may complete an improvement that would otherwise waste a round for a worker starting it
+	if (pHeadUnit->AI_getUnitAIType() == UNITAI_SLAVE)
 		return 9;
 
-	if (pHeadUnit->AI_getUnitAIType() == UNITAI_EXPLORE)
+	if (pHeadUnit->AI_getUnitAIType() == UNITAI_WORKER)
 		return 10;
 
-	if (pHeadUnit->bombardRate() > 0)
+	if (pHeadUnit->AI_getUnitAIType() == UNITAI_EXPLORE)
 		return 11;
 
-	if (pHeadUnit->collateralDamage() > 0)
+	if (pHeadUnit->bombardRate() > 0)
 		return 12;
+
+	if (pHeadUnit->collateralDamage() > 0)
+		return 13;
 
 	if (pGroup->isStranded())
 		return 505;
@@ -1271,7 +1279,7 @@ bool CvPlayerAI::AI_acceptUnit(CvUnit* pUnit) const {
 	}
 
 	if (AI_isFinancialTrouble()) {
-		if (pUnit->AI_getUnitAIType() == UNITAI_WORKER) {
+		if (pUnit->AI_getUnitAIType() == UNITAI_WORKER || pUnit->AI_getUnitAIType() == UNITAI_SLAVE) {
 			if (AI_neededWorkers(pUnit->area()) > 0) {
 				return true;
 			}
@@ -1332,6 +1340,8 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_ANIMAL:
 	case UNITAI_SETTLE:
 	case UNITAI_WORKER:
+	case UNITAI_SLAVE:
+	case UNITAI_SLAVER:
 	case UNITAI_ATTACK:
 	case UNITAI_ATTACK_CITY:
 	case UNITAI_COLLATERAL:
@@ -4967,6 +4977,17 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 					iUtilityValue = std::max(iUtilityValue, 8 * iWeight);
 					break;
 
+				case UNITAI_SLAVE:
+					iUtilityValue = std::max(iUtilityValue, 4 * iWeight);
+					break;
+
+					// Slavers have value in both peace and war
+				case UNITAI_SLAVER:
+					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
+					iUtilityValue += (bCapitalAlone ? 100 : 400);
+					iTotalUnitValue += 1 * iWeight;
+					break;
+
 				case UNITAI_ATTACK:
 					iOffenceValue = std::max(iOffenceValue, (bWarPlan ? 7 : 4) * iWeight + (AI_isDoStrategy(AI_STRATEGY_DAGGER) ? 5 * iWeight : 0));
 					iMilitaryValue += (bWarPlan ? 3 : 1) * iWeight;
@@ -8246,6 +8267,13 @@ int CvPlayerAI::AI_unitImpassableCount(UnitTypes eUnit) const {
 	return iCount;
 }
 
+int CvPlayerAI::AI_unitValue(const CvUnit* pUnit, UnitAITypes eUnitAI, CvArea* pArea) const {
+	if (pUnit->isFixedAI() && pUnit->AI_getUnitAIType() != eUnitAI)
+		return 0;
+	else
+		return AI_unitValue(pUnit->getUnitType(), eUnitAI, pArea);
+}
+
 // K-Mod note: currently, unit promotions are considered in CvCityAI::AI_bestUnitAI rather than here.
 int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea) const {
 	PROFILE_FUNC();
@@ -8288,6 +8316,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			}
 			break;
 
+		case UNITAI_SLAVE:
 		case UNITAI_WORKER:
 			for (int iI = 0; iI < GC.getNumBuildInfos(); iI++) {
 				if (kUnit.getBuilds(iI)) {
@@ -8603,6 +8632,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 			break;
 
 		case UNITAI_ATTACK_CITY_LEMMING:
+		case UNITAI_SLAVER:
 			bValid = false;
 			break;
 
@@ -8635,6 +8665,15 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		for (BuildTypes eLoopBuild = (BuildTypes)0; eLoopBuild < GC.getNumBuildInfos(); eLoopBuild = (BuildTypes)(eLoopBuild + 1)) {
 			if (kUnit.getBuilds(eLoopBuild)) {
 				iValue += 50;
+			}
+		}
+		iValue += (kUnit.getMoves() * 100);
+		break;
+
+	case UNITAI_SLAVE:
+		for (BuildTypes eLoopBuild = (BuildTypes)0; eLoopBuild < GC.getNumBuildInfos(); eLoopBuild = (BuildTypes)(eLoopBuild + 1)) {
+			if (kUnit.getBuilds(eLoopBuild)) {
+				iValue += 25;
 			}
 		}
 		iValue += (kUnit.getMoves() * 100);
@@ -11279,7 +11318,7 @@ int CvPlayerAI::AI_espionageVal(PlayerTypes eTargetPlayer, EspionageMissionTypes
 				SpecialistTypes eSpecialist = (SpecialistTypes)iData;
 				// We need to discount slaves and ordinary specialists who provide GPP
 				CvSpecialistInfo& kSpecialist = GC.getSpecialistInfo(eSpecialist);
-				if (kSpecialist.getGreatPeopleRateChange() > 0) {
+				if (kSpecialist.isSlave() || kSpecialist.getGreatPeopleRateChange() > 0) {
 					iValue = 0;
 				} else if (pCity->getSpecialistCount(eSpecialist) > 0) {
 					iValue += pCity->AI_permanentSpecialistValue(eSpecialist);
@@ -14356,12 +14395,12 @@ int CvPlayerAI::AI_eventValue(EventTypes eEvent, const EventTriggeredData& kTrig
 	{
 		int iPromotionValue = 0;
 
-		for (int i = 0; i < GC.getNumUnitCombatInfos(); ++i) {
-			if (NO_PROMOTION != kEvent.getUnitCombatPromotion(i)) {
+		for (UnitCombatTypes eUnitCombat = (UnitCombatTypes)0; eUnitCombat < GC.getNumUnitCombatInfos(); eUnitCombat = (UnitCombatTypes)(eUnitCombat + 1)) {
+			if (NO_PROMOTION != kEvent.getUnitCombatPromotion(eUnitCombat)) {
 				int iLoop;
 				for (CvUnit* pLoopUnit = firstUnit(&iLoop); NULL != pLoopUnit; pLoopUnit = nextUnit(&iLoop)) {
-					if (pLoopUnit->getUnitCombatType() == i) {
-						if (!pLoopUnit->isHasPromotion((PromotionTypes)kEvent.getUnitCombatPromotion(i))) {
+					if (pLoopUnit->isUnitCombatType(eUnitCombat)) {
+						if (!pLoopUnit->isHasPromotion((PromotionTypes)kEvent.getUnitCombatPromotion(eUnitCombat))) {
 							iPromotionValue += 5 * pLoopUnit->baseCombatStr();
 						}
 					}
@@ -16651,7 +16690,7 @@ void CvPlayerAI::AI_convertUnitAITypesForCrush() {
 		}
 
 		if (bValid) {
-			int iValue = AI_unitValue(pLoopUnit->getUnitType(), UNITAI_ATTACK_CITY, pLoopUnit->area());
+			int iValue = AI_unitValue(pLoopUnit, UNITAI_ATTACK_CITY, pLoopUnit->area());
 			unit_list.push_back(std::make_pair(iValue, pLoopUnit->getID()));
 		}
 	}
@@ -18137,6 +18176,19 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 		}
 		break;
 
+	case UNITAI_SLAVE:
+		if (GC.getGame().getGameTurn() - pUnit->getGameTurnCreated() <= 10 ||
+			!pUnit->plot()->isCity() ||
+			pUnit->plot()->getPlotCity()->AI_getWorkersNeeded() > 0) {
+			// Low value as slaves are used up on use so don't drain the treasury for long
+			iValue *= 2;
+		}
+		break;
+
+	case UNITAI_SLAVER:
+		iValue *= 3;
+		break;
+
 	case UNITAI_ATTACK:
 	case UNITAI_COUNTER:
 		iValue *= 4;
@@ -18643,12 +18695,17 @@ int CvPlayerAI::AI_militaryUnitTradeVal(CvUnit* pUnit) const {
 
 		iValue = 200;
 	}
-	iValue += AI_unitValue(eUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
+	iValue += AI_unitValue(pUnit, (UnitAITypes)GC.getUnitInfo(eUnit).getDefaultUnitAIType(), getCapitalCity()->area());
 
 	return iValue;
 }
 
+// This function will return 0 if the world view activated status should remain in its current state
+// Positive values indicate that the WV should be activated, negative values that is should be repealed
 int CvPlayerAI::AI_worldViewValue(WorldViewTypes eWorldView) const {
+	if (!canChangeWorldViews())
+		return 0;
+
 	int iValue = 0;
 	switch (eWorldView) {
 	case WORLD_VIEW_SLAVERY:
@@ -18660,6 +18717,60 @@ int CvPlayerAI::AI_worldViewValue(WorldViewTypes eWorldView) const {
 	return iValue;
 }
 
+// Initial value is based on the risk of slave revolts across the civ
+// Eventually this should also take into account potential diplomacy
 int CvPlayerAI::AI_worldViewSlaveryValue() const {
-	return 0;
+	int iValue = 0;
+	WorldViewTypes eWorldView = WORLD_VIEW_SLAVERY;
+
+	int iTotalPop = 0;
+	int iRiskPop = 0;
+
+	std::vector<CvCity*> riskCities;
+	int iLoop;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+		iTotalPop += pLoopCity->getPopulation();
+		// We care about any city with > 10% chance of revolt
+		if (pLoopCity->getSlaveRevoltRiskPercent() > 10) {
+			iRiskPop += pLoopCity->getPopulation();
+			riskCities.push_back(pLoopCity);
+		}
+	}
+
+	if (iRiskPop == 0) // Deal with the simple case first where there is no risk involved
+		iValue = isWorldViewActivated(eWorldView) ? 0 : 1;
+	else if (iRiskPop * 4 > iTotalPop) // If over 25% of the population is at risk then switch out
+		iValue = isWorldViewActivated(eWorldView) ? -1 : 0;
+	else // Low risk so keep on slaving
+		iValue = isWorldViewActivated(eWorldView) ? 0 : 1;
+
+	return iValue;
+}
+
+int CvPlayerAI::AI_neededSlavers(CvArea* pArea, bool bAggresive) const {
+	FAssert(pArea != NULL);
+
+	if (!isWorldViewEnabled(WORLD_VIEW_SLAVERY))
+		return 0;
+
+	int iAreaNeutrals = 0;
+	int iAreaEnemies = 0;
+	// Check if there are other non-team civs cities in the area
+	// We do not count the number of cities, just the presence of neutral or enemy civs
+	if (pArea->getNumCities() != pArea->getCitiesPerPlayer(getID())) {
+		for (PlayerTypes eLoopPlayer = (PlayerTypes)0; eLoopPlayer < MAX_PLAYERS; eLoopPlayer = (PlayerTypes)(eLoopPlayer + 1)) {
+			const CvPlayer& kLoopPlayer = GET_PLAYER(eLoopPlayer);
+			if (kLoopPlayer.isAlive()) {
+				TeamTypes eLoopTeam = kLoopPlayer.getTeam();
+				if (eLoopTeam != getTeam() && (pArea->getCitiesPerPlayer(eLoopPlayer) > 0) && GET_TEAM(getTeam()).isHasMet(eLoopTeam)) {
+					atWar(eLoopTeam, getTeam()) ? iAreaEnemies++ : iAreaNeutrals++;
+				}
+			}
+		}
+	}
+	int iExistingAreaSlavers = AI_totalAreaUnitAIs(pArea, UNITAI_SLAVER);
+	int iEnemySlavers = iAreaEnemies ? iAreaEnemies - iExistingAreaSlavers + 1 : 0;
+	int iNeutralSlavers = iAreaNeutrals ? std::min(2, iAreaNeutrals) - iExistingAreaSlavers : 0;
+	int iBarbarianSlavers = iExistingAreaSlavers ? 0 : 1;
+	return std::max(iEnemySlavers, std::max(iNeutralSlavers, iBarbarianSlavers));
 }

@@ -580,6 +580,11 @@
 <!-- ************ -->
 <!-- Workers      -->
 <!-- ************ -->
+		<UnitClassInfo> <!-- Slave -->
+			<Type>UNITCLASS_SLAVE</Type>
+			<Description>TXT_KEY_UNIT_SLAVE</Description>
+			<DefaultUnit>UNIT_SLAVE</DefaultUnit>
+		</UnitClassInfo>		
 		<UnitClassInfo> <!-- Worker -->
 			<Type>UNITCLASS_WORKER</Type>
 			<Description>TXT_KEY_UNIT_WORKER</Description>

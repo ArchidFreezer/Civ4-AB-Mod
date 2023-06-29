@@ -1390,6 +1390,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_1</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1427,6 +1428,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_2</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1464,6 +1466,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_3</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1501,6 +1504,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_4</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1538,6 +1542,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_5</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1575,6 +1580,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_6</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1612,6 +1618,7 @@
 					<iCorporationSpread>40</iCorporationSpread>
 				</CorporationSpread>
 			</CorporationSpreads>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<PrereqCorporation>CORPORATION_7</PrereqCorporation>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
@@ -1736,6 +1743,9 @@
 			<Combat>UNITCOMBAT_SPY</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_SPY</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_SPY</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ESPIONAGE_PEDIA_SR</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SPY_STRATEGY</Strategy>
@@ -1839,6 +1849,7 @@
 			<GreatPeoples>
 				<GreatPeopleType>SPECIALIST_GREAT_ARTIST</GreatPeopleType>
 			</GreatPeoples>
+			<SlaveSpecialistType>SPECIALIST_ARTIST_SLAVE</SlaveSpecialistType>
 			<Buildings>
 				<BuildingType>BUILDING_CORPORATION_7</BuildingType>
 			</Buildings>
@@ -1921,6 +1932,7 @@
 			<GreatPeoples>
 				<GreatPeopleType>SPECIALIST_GREAT_ENGINEER</GreatPeopleType>
 			</GreatPeoples>
+			<SlaveSpecialistType>SPECIALIST_ENGINEER_SLAVE</SlaveSpecialistType>
 			<Buildings>
 				<BuildingType>BUILDING_CORPORATION_4</BuildingType>
 				<BuildingType>BUILDING_CORPORATION_5</BuildingType>
@@ -2093,6 +2105,7 @@
 			<GreatPeoples>
 				<GreatPeopleType>SPECIALIST_GREAT_MERCHANT</GreatPeopleType>
 			</GreatPeoples>
+			<SlaveSpecialistType>SPECIALIST_MERCHANT_SLAVE</SlaveSpecialistType>
 			<Buildings>
 				<BuildingType>BUILDING_CORPORATION_1</BuildingType>
 				<BuildingType>BUILDING_CORPORATION_2</BuildingType>
@@ -2172,6 +2185,7 @@
 			<GreatPeoples>
 				<GreatPeopleType>SPECIALIST_GREAT_PRIEST</GreatPeopleType>
 			</GreatPeoples>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<Buildings>
 				<BuildingType>BUILDING_JEWISH_SHRINE</BuildingType>
 				<BuildingType>BUILDING_CHRISTIAN_SHRINE</BuildingType>
@@ -2266,6 +2280,7 @@
 			<GreatPeoples>
 				<GreatPeopleType>SPECIALIST_GREAT_SCIENTIST</GreatPeopleType>
 			</GreatPeoples>
+			<SlaveSpecialistType>SPECIALIST_SCIENTIST_SLAVE</SlaveSpecialistType>
 			<Buildings>
 				<BuildingType>BUILDING_CORPORATION_3</BuildingType>
 				<BuildingType>BUILDING_CORPORATION_6</BuildingType>
@@ -2362,6 +2377,7 @@
 			<GreatPeoples>
 				<GreatPeopleType>SPECIALIST_GREAT_SPY</GreatPeopleType>
 			</GreatPeoples>
+			<SlaveSpecialistType>SPECIALIST_SPY_SLAVE</SlaveSpecialistType>
 			<Buildings>
 				<BuildingType>BUILDING_SCOTLAND_YARD</BuildingType>
 			</Buildings>
@@ -4345,6 +4361,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
 			<PrereqBuilding>BUILDING_BUDDHIST_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -4382,6 +4399,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_CHRISTIANITY</PrereqReligion>
 			<PrereqBuilding>BUILDING_CHRISTIAN_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -4419,6 +4437,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_CONFUCIANISM</PrereqReligion>
 			<PrereqBuilding>BUILDING_CONFUCIAN_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -4456,6 +4475,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_HINDUISM</PrereqReligion>
 			<PrereqBuilding>BUILDING_HINDU_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -4493,6 +4513,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_ISLAM</PrereqReligion>
 			<PrereqBuilding>BUILDING_ISLAMIC_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -4530,6 +4551,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_JUDAISM</PrereqReligion>
 			<PrereqBuilding>BUILDING_JEWISH_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -4567,6 +4589,7 @@
 					<iReligionSpread>20</iReligionSpread>
 				</ReligionSpread>
 			</ReligionSpreads>
+			<SlaveSpecialistType>SPECIALIST_PRIEST_SLAVE</SlaveSpecialistType>
 			<PrereqReligion>RELIGION_TAOISM</PrereqReligion>
 			<PrereqBuilding>BUILDING_TAOIST_MONASTERY</PrereqBuilding>
 			<iCost>40</iCost>
@@ -6757,6 +6780,9 @@
 			<Combat>UNITCOMBAT_RECON</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_SCOUT</Description>
 			<Civilopedia>TXT_KEY_UNIT_SCOUT_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SCOUT_STRATEGY</Strategy>
@@ -6804,6 +6830,9 @@
 			<Combat>UNITCOMBAT_RECON</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<SeeInvisibles>
+				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
+			</SeeInvisibles>
 			<Description>TXT_KEY_UNIT_EXPLORER</Description>
 			<Civilopedia>TXT_KEY_UNIT_EXPLORER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_EXPLORER_STRATEGY</Strategy>
@@ -7687,6 +7716,70 @@
 <!-- ************ -->
 <!-- Workers      -->
 <!-- ************ -->
+		<UnitInfo> <!-- Slave -->
+			<Class>UNITCLASS_SLAVE</Class>
+			<Type>UNIT_SLAVE</Type>
+			<Capture>UNITCLASS_SLAVE</Capture>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_SLAVE</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SLAVE</Description>
+			<Civilopedia>TXT_KEY_UNIT_SLAVE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_SLAVE_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_SLAVE_HELP</Help>
+			<Advisor>ADVISOR_ECONOMY</Advisor>
+			<bFood>1</bFood>
+			<bSingleBuild>1</bSingleBuild>
+			<bSlave>1</bSlave>
+			<UnitAIs>
+				<UnitAIType>UNITAI_SLAVE</UnitAIType>
+			</UnitAIs>
+			<Builds>
+				<BuildType>BUILD_ROAD</BuildType>
+				<BuildType>BUILD_RAILROAD</BuildType>
+				<BuildType>BUILD_FARM</BuildType>
+				<BuildType>BUILD_MINE</BuildType>
+				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_LUMBERMILL</BuildType>
+				<BuildType>BUILD_WINDMILL</BuildType>
+				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_PLANTATION</BuildType>
+				<BuildType>BUILD_QUARRY</BuildType>
+				<BuildType>BUILD_PASTURE</BuildType>
+				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_WELL</BuildType>
+				<BuildType>BUILD_WINERY</BuildType>
+				<BuildType>BUILD_COTTAGE</BuildType>
+				<BuildType>BUILD_FORT</BuildType>
+				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
+				<BuildType>BUILD_REMOVE_FOREST</BuildType>
+				<BuildType>BUILD_SCRUB_FALLOUT</BuildType>
+				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+			</Builds>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
+					<iProductionTrait>25</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
+			<iCost>-1</iCost>
+			<iMoves>1</iMoves>
+			<bNoRevealMap>1</bNoRevealMap>
+			<iWorkRate>500</iWorkRate>
+			<iAsset>1</iAsset>
+			<UnitMeshGroups>
+				<iGroupSize>2</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1</fPadTime>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>2</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SLAVE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<HotKey/>
+		</UnitInfo>
 		<UnitInfo> <!-- Worker -->
 			<Class>UNITCLASS_WORKER</Class>
 			<Type>UNIT_WORKER</Type>
