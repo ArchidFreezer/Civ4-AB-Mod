@@ -47,6 +47,25 @@
 		</BuildInfo>
 
 <!-- ** Improvements ** -->
+		<BuildInfo> <!-- Apple Orchard -->
+			<Type>BUILD_APPLE_FARM</Type>
+			<Description>TXT_KEY_BUILD_APPLE_FARM</Description>
+			<Help/>
+			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<iTime>500</iTime>
+			<iCost>0</iCost>
+			<bKill>0</bKill>
+			<ImprovementType>IMPROVEMENT_APPLE_FARM</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_P</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/orchard.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Camp -->
 			<Type>BUILD_CAMP</Type>
 			<Description>TXT_KEY_BUILD_CAMP</Description>
@@ -191,6 +210,25 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildFort.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,9</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Lumberjack -->
+			<Type>BUILD_LUMBERJACK</Type>
+			<Description>TXT_KEY_BUILD_LUMBERJACK</Description>
+			<Help/>
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<iTime>400</iTime>
+			<iCost>0</iCost>
+			<bKill>0</bKill>
+			<ImprovementType>IMPROVEMENT_LUMBERJACK</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_L</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/lumberjack.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Lumbermill -->
 			<Type>BUILD_LUMBERMILL</Type>
 			<Description>TXT_KEY_BUILD_LUMBERMILL</Description>
@@ -244,6 +282,25 @@
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildMine.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,6,7</Button>
 		</BuildInfo>
+		<BuildInfo> <!-- Obsidian Camp -->
+			<Type>BUILD_OBSIDIAN_CAMP</Type>
+			<Description>TXT_KEY_BUILD_OBSIDIAN_CAMP</Description>
+			<Help/>
+			<PrereqTech>NONE</PrereqTech>
+			<ObsoleteTech>TECH_MACHINERY</ObsoleteTech>
+			<iTime>200</iTime>
+			<iCost>0</iCost>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_OBSIDIAN_CAMP</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<HotKey>KB_O</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/obsidian_camp.dds</Button>
+		</BuildInfo>
 		<BuildInfo> <!-- Offshore Platform -->
 			<Type>BUILD_OFFSHORE_PLATFORM</Type>
 			<Description>TXT_KEY_BUILD_OFFSHORE_PLATFORM</Description>
@@ -262,6 +319,25 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildOffshorePlatform.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,4,9</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Olive Orchard -->
+			<Type>BUILD_OLIVE_FARM</Type>
+			<Description>TXT_KEY_BUILD_OLIVE_FARM</Description>
+			<Help/>
+			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<iTime>500</iTime>
+			<iCost>0</iCost>
+			<bKill>0</bKill>
+			<ImprovementType>IMPROVEMENT_OLIVE_FARM</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_P</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/orchard.dds</Button>
 		</BuildInfo>
 		<BuildInfo> <!-- Pasture -->
 			<Type>BUILD_PASTURE</Type>
@@ -364,6 +440,43 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildQuarry.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,9</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Silk Farm -->
+			<Type>BUILD_SILK_FARM</Type>
+			<Description>TXT_KEY_BUILD_SILK_FARM</Description>
+			<Help/>
+			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<iTime>500</iTime>
+			<iCost>0</iCost>
+			<bKill>0</bKill>
+			<ImprovementType>IMPROVEMENT_SILK_FARM</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_P</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Builds/BuildPlantation.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,1,9</Button>
+		</BuildInfo>
+		<BuildInfo> <!-- Timber Camp -->
+			<Type>BUILD_TIMBER_CAMP</Type>
+			<Description>TXT_KEY_BUILD_TIMBER_CAMP</Description>
+			<PrereqTech>NONE</PrereqTech>
+			<iTime>200</iTime>
+			<iCost>0</iCost>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_TIMBER_CAMP</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_L</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/timber_camp.dds</Button>
 		</BuildInfo>
 		<BuildInfo> <!-- Watermill -->
 			<Type>BUILD_WATERMILL</Type>
