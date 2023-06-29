@@ -329,6 +329,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bGroupPromotionChanged = false;
 	m_bAutoPromoting = false;
 	m_bAutoUpgrading = false;
+	m_bImmobile = false;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -4083,6 +4084,14 @@ bool CvUnit::canPillage(const CvPlot* pPlot) const {
 		return false;
 	}
 
+	if (isBarbarian()) {
+		if (pPlot->getImprovementType() != NO_IMPROVEMENT) {
+			if (GC.getImprovementInfo(pPlot->getImprovementType()).isAnySpawn()) {
+				return false;
+			}
+		}
+	}
+
 	return true;
 }
 
@@ -6492,7 +6501,7 @@ bool CvUnit::canMove() const {
 		return false;
 	}
 
-	if (getImmobileTimer() > 0) {
+	if (isImmobile()) {
 		return false;
 	}
 
@@ -10027,6 +10036,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bGroupPromotionChanged);
 	pStream->Read(&m_bAutoPromoting);
 	pStream->Read(&m_bAutoUpgrading);
+	pStream->Read(&m_bImmobile);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -10165,6 +10175,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bGroupPromotionChanged);
 	pStream->Write(m_bAutoPromoting);
 	pStream->Write(m_bAutoUpgrading);
+	pStream->Write(m_bImmobile);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -11464,6 +11475,7 @@ int CvUnit::getRange() const {
 	int iRange = MAX_INT;
 	const CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
 	switch (getRangeType()) {
+	case UNITRANGE_IMMOBILE:
 	case UNITRANGE_HOME:
 	case UNITRANGE_TERRITORY:
 		iRange = 0;
@@ -11520,11 +11532,17 @@ void CvUnit::changeTerritoryUnboundCount(int iChange) {
 }
 
 UnitRangeTypes CvUnit::getRangeType() const {
+	if (isImmobile())
+		return UNITRANGE_IMMOBILE;
+
 	if (!isEnabled())
 		return UNITRANGE_HOME;
 
 	UnitRangeTypes ePlayerUnitRangeType = GET_PLAYER(getOwnerINLINE()).getUnitRangeType(&(this->getUnitInfo()));
 	switch (m_pUnitInfo->getRangeType()) {
+	case UNITRANGE_IMMOBILE:
+		return UNITRANGE_IMMOBILE;
+		break;
 	case UNITRANGE_HOME:
 		return UNITRANGE_HOME;
 		break;
@@ -12733,4 +12751,12 @@ void CvUnit::changeBuildLeaveFeatureCount(BuildTypes eBuild, FeatureTypes eFeatu
 			m_mmBuildLeavesFeatures[eBuild][eFeature] = itFeature->second + iCount;
 		}
 	}
+}
+
+void CvUnit::setImmobile(bool bImmobile) {
+	m_bImmobile = bImmobile;
+}
+
+bool CvUnit::isImmobile() const {
+	return m_bImmobile || getImmobileTimer() > 0;
 }

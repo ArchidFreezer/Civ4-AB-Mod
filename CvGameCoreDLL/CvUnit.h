@@ -218,6 +218,8 @@ public:
 	void setExtraRangePercent(int iModifier);
 	void changeExtraRangePercent(int iChange);
 	int getExtraRangePercent() const;
+	bool isImmobile() const;
+	void setImmobile(bool bImmobile);
 
 	void setCivicEnabled(bool bEnable);
 	bool isCivicEnabled() const;
@@ -991,6 +993,7 @@ protected:
 	bool m_bGroupPromotionChanged;
 	bool m_bAutoPromoting;
 	bool m_bAutoUpgrading;
+	bool m_bImmobile;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_eCapturingPlayer;

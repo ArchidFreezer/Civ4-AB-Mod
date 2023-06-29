@@ -961,6 +961,7 @@ enum FontSymbols					// Exposed to Python
 	RANGE_BOUND_CHAR,
 	TERRITORY_BOUND_CHAR,
 	HOME_BOUND_CHAR,
+	IMMOBILE_CHAR,
 
 #ifdef _USRDLL
 	MAX_NUM_SYMBOLS
@@ -2824,6 +2825,7 @@ enum CivilopediaWidgetShowTypes {
 };
 
 enum UnitRangeTypes {
+	UNITRANGE_IMMOBILE,
 	UNITRANGE_HOME,
 	UNITRANGE_TERRITORY,
 	UNITRANGE_RANGE,

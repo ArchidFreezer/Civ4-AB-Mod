@@ -1290,4 +1290,20 @@
 		<English>Your have attacked your enemies from your fortifications</English>
 	</TEXT>
 
+<!-- Unit Spawning -->
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SPAWN_ANIMAL</Tag>
+		<English>[ICON_BULLET]Spawns animal units until eliminated</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SPAWN_BARBARIAN</Tag>
+		<English>[ICON_BULLET]Spawns barbarian units until eliminated</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MESSAGE_LAIR_DESTROYED</Tag>
+		<English>Lair destroyed!</English>
+		<French>Antre Détruite!</French>
+		<German>Ein Unterschlupf wurde zerstört!</German>
+	</TEXT>
+
 </Civ4GameText>
