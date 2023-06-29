@@ -331,7 +331,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_eFacingDirection = DIRECTION_SOUTH;
 	m_iImmobileTimer = 0;
 	m_iExtraRange = 0;
-	m_iExtraRangePercent = 0;
+	m_iExtraRangeModifier = 0;
 	m_iRangeUnboundCount = 0;
 	m_iTerritoryUnboundCount = 0;
 	m_iCanMovePeaksCount = 0;
@@ -9973,7 +9973,7 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeKamikazePercent((kPromotion.getKamikazePercent()) * iChange);
 		changeCargoSpace(kPromotion.getCargoChange() * iChange);
 		changeExtraRange(kPromotion.getUnitRangeChange() * iChange);
-		changeExtraRangePercent(kPromotion.getUnitRangePercentChange() * iChange);
+		changeExtraRangeModifier(kPromotion.getUnitRangeModifier() * iChange);
 		changeMaxSlaves(kPromotion.getEnslaveCountChange() * iChange);
 		changeSpyEvasionChanceExtra(kPromotion.getSpyEvasionChange() * iChange);
 		changeSpyPreparationModifier(kPromotion.getSpyPreparationModifier() * iChange);
@@ -10152,7 +10152,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read((int*)&m_eFacingDirection);
 	pStream->Read(&m_iImmobileTimer);
 	pStream->Read(&m_iExtraRange);
-	pStream->Read(&m_iExtraRangePercent);
+	pStream->Read(&m_iExtraRangeModifier);
 	pStream->Read(&m_iRangeUnboundCount);
 	pStream->Read(&m_iTerritoryUnboundCount);
 	pStream->Read(&m_iCanMovePeaksCount);
@@ -10316,7 +10316,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_eFacingDirection);
 	pStream->Write(m_iImmobileTimer);
 	pStream->Write(m_iExtraRange);
-	pStream->Write(m_iExtraRangePercent);
+	pStream->Write(m_iExtraRangeModifier);
 	pStream->Write(m_iRangeUnboundCount);
 	pStream->Write(m_iTerritoryUnboundCount);
 	pStream->Write(m_iCanMovePeaksCount);
@@ -11662,7 +11662,7 @@ int CvUnit::getRange() const {
 		// Get the base range of the unit scaled to the world size
 		iRange = (GC.getINITIAL_UNIT_RANGE() + kOwner.getExtraRange() + getExtraRange()) * (GC.getMapINLINE().getWorldSize() + 1);
 		// Apply any percentage modifiers
-		iRange *= (100 + kOwner.getExtraRangePercent() + getExtraRangePercent());
+		iRange *= (100 + kOwner.getExtraRangeModifier() + getExtraRangeModifier());
 		iRange /= 100;
 		break;
 	case UNITRANGE_UNLIMITED:
@@ -11687,18 +11687,18 @@ int CvUnit::getExtraRange() const {
 	return m_iExtraRange;
 }
 
-void CvUnit::setExtraRangePercent(int iModifier) {
-	m_iExtraRangePercent = iModifier;
+void CvUnit::setExtraRangeModifier(int iModifier) {
+	m_iExtraRangeModifier = iModifier;
 }
 
-void CvUnit::changeExtraRangePercent(int iChange) {
+void CvUnit::changeExtraRangeModifier(int iChange) {
 	if (iChange > 0) {
-		m_iExtraRangePercent += iChange;
+		m_iExtraRangeModifier += iChange;
 	}
 }
 
-int CvUnit::getExtraRangePercent() const {
-	return m_iExtraRangePercent;
+int CvUnit::getExtraRangeModifier() const {
+	return m_iExtraRangeModifier;
 }
 
 void CvUnit::changeRangeUnboundCount(int iChange) {
