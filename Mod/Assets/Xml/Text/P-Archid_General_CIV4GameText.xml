@@ -1270,6 +1270,12 @@
 		<English>+1 unhappy</English>
 </TEXT>
 
+<!-- Build Leaves Features -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BUILD_FEATURE_LEAVES</Tag>
+		<English>[ICON_BULLET]%s1_build leaves %s2_featurelist</English>
+	</TEXT>
+
 <!-- Fort Attack -->
 	<TEXT>
 		<Tag>TXT_KEY_MISC_FORT_ATTACKED_ENEMY</Tag>

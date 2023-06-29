@@ -386,6 +386,8 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 			m_paiExtraUnitCombatModifier[eUnitCombat] = 0;
 		}
 
+		m_mmBuildLeavesFeatures.clear();
+
 		AI_reset();
 	}
 }
@@ -5825,7 +5827,7 @@ bool CvUnit::build(BuildTypes eBuild) {
 
 	GET_PLAYER(getOwnerINLINE()).changeGold(-(GET_PLAYER(getOwnerINLINE()).getBuildCost(plot(), eBuild)));
 
-	bool bFinished = plot()->changeBuildProgress(eBuild, workRate(false), getTeam());
+	bool bFinished = plot()->changeBuildProgress(eBuild, workRate(false), this);
 
 	finishMoves(); // needs to be after the work has been processed because movesLeft() can affect workRate()...
 
@@ -9882,6 +9884,11 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 			changeExtraDomainModifier(eDomain, kPromotion.getDomainModifierPercent(eDomain) * iChange);
 		}
 
+		for (int i = 0; i < kPromotion.getNumBuildLeaveFeatures(); i++) {
+			std::pair<int, int> pPair = kPromotion.getBuildLeaveFeature(i);
+			changeBuildLeaveFeatureCount((BuildTypes)pPair.first, (FeatureTypes)pPair.second, iChange);
+		}
+
 		if (IsSelected()) {
 			gDLL->getInterfaceIFace()->setDirty(SelectionButtons_DIRTY_BIT, true);
 			gDLL->getInterfaceIFace()->setDirty(InfoPane_DIRTY_BIT, true);
@@ -10053,6 +10060,25 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Read(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
 
+	int iOuterMapCount;
+	pStream->Read(&iOuterMapCount);
+	for (int i = 0; i < iOuterMapCount; i++) {
+		BuildTypes eBuild;
+		pStream->Read((int*)&eBuild);
+
+		std::map <FeatureTypes, int> mFeatureCount;
+		int iInnerMapCount;
+		pStream->Read(&iInnerMapCount);
+		for (int j = 0; j < iInnerMapCount; j++) {
+			FeatureTypes eFeature;
+			pStream->Read((int*)&eFeature);
+			int iCount;
+			pStream->Read(&iCount);
+			mFeatureCount[eFeature] = iCount;
+		}
+		m_mmBuildLeavesFeatures[eBuild] = mFeatureCount;
+	}
+
 	m_pSpy = (m_pUnitInfo && m_pUnitInfo->isSpy()) ? m_pSpy = new CvSpy : NULL;
 	if (m_pSpy) m_pSpy->read(pStream);
 }
@@ -10169,6 +10195,16 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Write(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+
+	pStream->Write(m_mmBuildLeavesFeatures.size());
+	for (std::map<BuildTypes, std::map< FeatureTypes, int> >::iterator itB = m_mmBuildLeavesFeatures.begin(); itB != m_mmBuildLeavesFeatures.end(); itB++) {
+		pStream->Write(itB->first);
+		pStream->Write((itB->second).size());
+		for (std::map< FeatureTypes, int>::iterator itF = (itB->second).begin(); itF != (itB->second).end(); itF++) {
+			pStream->Write(itF->first);
+			pStream->Write(itF->second);
+		}
+	}
 
 	if (m_pSpy) m_pSpy->write(pStream);
 
@@ -12667,4 +12703,34 @@ int CvUnit::getWorkRateModifier() const {
 
 void CvUnit::changeWorkRateModifier(int iChange) {
 	m_iWorkRateModifier += iChange;
+}
+
+bool CvUnit::isBuildLeaveFeature(BuildTypes eBuild, FeatureTypes eFeature) const {
+	std::map<BuildTypes, std::map< FeatureTypes, int> >::const_iterator itBuild = m_mmBuildLeavesFeatures.find(eBuild);
+	if (itBuild != m_mmBuildLeavesFeatures.end()) {
+		std::map< FeatureTypes, int>::const_iterator itFeature = (itBuild->second).find(eFeature);
+		if (itFeature != (itBuild->second).end()) {
+			return (itFeature->second > 0);
+		}
+	}
+	return false;
+}
+
+void CvUnit::changeBuildLeaveFeatureCount(BuildTypes eBuild, FeatureTypes eFeature, int iCount) {
+	// Check if we have any existing values for builds
+	std::map<BuildTypes, std::map< FeatureTypes, int> >::iterator itBuild = m_mmBuildLeavesFeatures.find(eBuild);
+	if (itBuild == m_mmBuildLeavesFeatures.end()) {
+		// We have no existing mapping for this build type so we have to set the count
+		m_mmBuildLeavesFeatures[eBuild][eFeature] = iCount;
+	} else {
+		// We have some existing features for the build so check if we have the feature we are looking for
+		std::map< FeatureTypes, int>::iterator itFeature = (itBuild->second).find(eFeature);
+		if (itFeature == (itBuild->second).end()) {
+			// We do not have this feature in the map so we can set the count
+			m_mmBuildLeavesFeatures[eBuild][eFeature] = iCount;
+		} else {
+			// We have the feature so we need to modify the count
+			m_mmBuildLeavesFeatures[eBuild][eFeature] = itFeature->second + iCount;
+		}
+	}
 }

@@ -551,6 +551,7 @@ public:
 	int getSpyBuyTechChange() const;
 	int getSpyStealTreasuryChange() const;
 	int getWorkRateModifier() const;
+	int getNumBuildLeaveFeatures() const;
 
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
@@ -587,6 +588,8 @@ public:
 	bool isNotCombatType(int i) const;
 	bool isOrCombatType(int i) const;
 	bool isPrereqOrPromotion(int i) const;
+
+	std::pair<int, int> getBuildLeaveFeature(int i) const;
 
 	void read(FDataStreamBase* stream);
 	void write(FDataStreamBase* stream);
@@ -690,6 +693,8 @@ protected:
 	std::vector<int> m_viNotCombatTypes;
 	std::vector<int> m_viOrCombatTypes;
 	std::vector<int> m_viPrereqOrPromotions;
+
+	std::vector< std::pair <int, int> > m_vpBuildLeaveFeatures;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
