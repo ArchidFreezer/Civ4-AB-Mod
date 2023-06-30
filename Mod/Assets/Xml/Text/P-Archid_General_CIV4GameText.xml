@@ -1453,5 +1453,8 @@
 		<French>Eclair</French>
 		<Polish>B&#244;yskawiczna</Polish>
 	</TEXT>
-
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GLOBAL_FOUND_POP</Tag>
+		<English>[ICON_BULLET]%D1_Change Population in New Cities</English>
+	</TEXT>
 </Civ4GameText>

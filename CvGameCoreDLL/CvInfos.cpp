@@ -6625,6 +6625,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iAreaHealth(0),
 	m_iGlobalHealth(0),
 	m_iGlobalPopulationChange(0),
+	m_iGlobalFoundPopulationChange(0),
 	m_iFreeTechs(0),
 	m_iDefenseModifier(0),
 	m_iBombardDefenseModifier(0),
@@ -7134,6 +7135,10 @@ int CvBuildingInfo::getGlobalHealth() const {
 
 int CvBuildingInfo::getGlobalPopulationChange() const {
 	return m_iGlobalPopulationChange;
+}
+
+int CvBuildingInfo::getGlobalFoundPopulationChange() const {
+	return m_iGlobalFoundPopulationChange;
 }
 
 int CvBuildingInfo::getFreeTechs() const {
@@ -7861,6 +7866,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iAreaHealth);
 	stream->Read(&m_iGlobalHealth);
 	stream->Read(&m_iGlobalPopulationChange);
+	stream->Read(&m_iGlobalFoundPopulationChange);
 	stream->Read(&m_iFreeTechs);
 	stream->Read(&m_iDefenseModifier);
 	stream->Read(&m_iBombardDefenseModifier);
@@ -8287,6 +8293,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iAreaHealth);
 	stream->Write(m_iGlobalHealth);
 	stream->Write(m_iGlobalPopulationChange);
+	stream->Write(m_iGlobalFoundPopulationChange);
 	stream->Write(m_iFreeTechs);
 	stream->Write(m_iDefenseModifier);
 	stream->Write(m_iBombardDefenseModifier);
@@ -8650,6 +8657,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iTradeRouteModifier, "iTradeRouteModifier");
 	pXML->GetChildXmlValByName(&m_iForeignTradeRouteModifier, "iForeignTradeRouteModifier");
 	pXML->GetChildXmlValByName(&m_iGlobalPopulationChange, "iGlobalPopulationChange");
+	pXML->GetChildXmlValByName(&m_iGlobalFoundPopulationChange, "iGlobalFoundPopulationChange");
 	pXML->GetChildXmlValByName(&m_iFreeTechs, "iFreeTechs");
 	pXML->GetChildXmlValByName(&m_iDefenseModifier, "iDefense");
 	pXML->GetChildXmlValByName(&m_iBombardDefenseModifier, "iBombardDefense");

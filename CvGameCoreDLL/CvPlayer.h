@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getFoundCityPopulationChange() const;
+	void changeFoundCityPopulationChange(int iChange);
+
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
 	int getCultureDefenceModifier() const;
@@ -1307,6 +1310,7 @@ protected:
 	int m_iNumSlaves;
 	int m_iCultureDefenceChange;
 	int m_iCultureDefenceModifier;
+	int m_iFoundCityPopulationChange;
 
 	uint m_uiStartTime;  // XXX save these?
 

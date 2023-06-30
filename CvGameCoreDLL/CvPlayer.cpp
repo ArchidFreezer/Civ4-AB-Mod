@@ -524,6 +524,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iNumSlaves = 0;
 	m_iCultureDefenceChange = 0;
 	m_iCultureDefenceModifier = 0;
+	m_iFoundCityPopulationChange = 0;
 
 	m_uiStartTime = 0;
 
@@ -4638,8 +4639,8 @@ void CvPlayer::found(int iX, int iY) {
 		}
 	}
 
-	for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++) {
-		BuildingTypes eLoopBuilding = ((BuildingTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iI)));
+	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
+		BuildingTypes eLoopBuilding = ((BuildingTypes)(GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass)));
 
 		if (eLoopBuilding != NO_BUILDING) {
 			if (GC.getBuildingInfo(eLoopBuilding).getFreeStartEra() != NO_ERA) {
@@ -4650,6 +4651,10 @@ void CvPlayer::found(int iX, int iY) {
 				}
 			}
 		}
+	}
+
+	if (getFoundCityPopulationChange() > 0) {
+		pCity->setPopulation(std::max(1, pCity->getPopulation() + getFoundCityPopulationChange()));
 	}
 
 	if (getAdvancedStartPoints() >= 0) {
@@ -5373,6 +5378,7 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pAr
 	changeStarSignGoodOnlyCount(kBuilding.isStarSignGoodOnly() ? iChange : 0);
 	changeStarSignMitigatePercent(kBuilding.getGlobalStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kBuilding.getGlobalStarSignScaleChangePercent() * iChange);
+	changeFoundCityPopulationChange(kBuilding.getGlobalFoundPopulationChange() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeSeaPlotYield(eYield, kBuilding.getGlobalSeaPlotYieldChange(eYield) * iChange);
@@ -14045,6 +14051,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iNumSlaves);
 	pStream->Read(&m_iCultureDefenceChange);
 	pStream->Read(&m_iCultureDefenceModifier);
+	pStream->Read(&m_iFoundCityPopulationChange);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14538,6 +14545,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iNumSlaves);
 	pStream->Write(m_iCultureDefenceChange);
 	pStream->Write(m_iCultureDefenceModifier);
+	pStream->Write(m_iFoundCityPopulationChange);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20110,3 +20118,12 @@ int CvPlayer::getCultureDefenceModifier() const {
 void CvPlayer::changeCultureDefenceModifier(int iChange) {
 	m_iCultureDefenceModifier += iChange;
 }
+
+int CvPlayer::getFoundCityPopulationChange() const {
+	return m_iFoundCityPopulationChange;
+}
+
+void CvPlayer::changeFoundCityPopulationChange(int iChange) {
+	m_iFoundCityPopulationChange += iChange;
+}
+
