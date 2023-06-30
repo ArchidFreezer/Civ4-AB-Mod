@@ -113,7 +113,7 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 
 			if (CollectionUtils.hasElements(aInfo.yieldChanges)) {
 				for (Integer val: aInfo.yieldChanges) {
-					info.addYieldChange(val);
+					info.addYieldChange(JaxbUtils.unmarshallInteger(val));
 				}
 			}
 			info.setAITradeModifier(JaxbUtils.unmarshallInteger(aInfo.aITradeModifier));
@@ -142,7 +142,7 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 			if (CollectionUtils.hasElements(aInfo.terrainBooleans)) {
 				for (String val: aInfo.terrainBooleans) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addTerrainBoolean(val);
+						info.addTerrainBoolean(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -150,7 +150,7 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 			if (CollectionUtils.hasElements(aInfo.featureBooleans)) {
 				for (String val: aInfo.featureBooleans) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addFeatureBoolean(val);
+						info.addFeatureBoolean(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -158,7 +158,7 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 			if (CollectionUtils.hasElements(aInfo.featureTerrainBooleans)) {
 				for (String val: aInfo.featureTerrainBooleans) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addFeatureTerrainBoolean(val);
+						info.addFeatureTerrainBoolean(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -174,7 +174,7 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 		BonusMap map = new BonusMap();
 		for (IBonusInfo info: v.values()) {
 			AdaptedBonus aInfo = new AdaptedBonus();
-			aInfo.type = info.getType();
+			aInfo.type = JaxbUtils.marshallString(info.getType());
 			aInfo.description = JaxbUtils.marshallMandatoryString(info.getDescription());
 			aInfo.civilopedia = JaxbUtils.marshallString(info.getCivilopedia());
 			aInfo.help = JaxbUtils.marshallString(info.getHelp());
@@ -187,7 +187,7 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 			if (CollectionUtils.hasElements(info.getYieldChanges())) {
 				aInfo.yieldChanges = new ArrayList<Integer>();
 				for(Integer val: info.getYieldChanges()) {
-					aInfo.yieldChanges.add(val);
+					aInfo.yieldChanges.add(JaxbUtils.marshallMandatoryInteger(val));
 				}
 			}
 			aInfo.aITradeModifier = JaxbUtils.marshallInteger(info.getAITradeModifier());
@@ -216,21 +216,21 @@ public class BonusMapAdapter extends XmlAdapter<BonusMapAdapter.BonusMap, Map<St
 			if (CollectionUtils.hasElements(info.getTerrainBooleans())) {
 				aInfo.terrainBooleans = new ArrayList<String>();
 				for(String val: info.getTerrainBooleans()) {
-					aInfo.terrainBooleans.add(val);
+					aInfo.terrainBooleans.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getFeatureBooleans())) {
 				aInfo.featureBooleans = new ArrayList<String>();
 				for(String val: info.getFeatureBooleans()) {
-					aInfo.featureBooleans.add(val);
+					aInfo.featureBooleans.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getFeatureTerrainBooleans())) {
 				aInfo.featureTerrainBooleans = new ArrayList<String>();
 				for(String val: info.getFeatureTerrainBooleans()) {
-					aInfo.featureTerrainBooleans.add(val);
+					aInfo.featureTerrainBooleans.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.useLSystem = JaxbUtils.marshallBoolean(info.isUseLSystem());
