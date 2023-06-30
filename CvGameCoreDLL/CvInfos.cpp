@@ -6666,6 +6666,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_bForceDisableStarSigns(false),
 	m_bStarSignGoodOnly(false),
 	m_bSlaveMarket(false),
+	m_bPrereqVicinityBonusUnconnectedAllowed(false),
 	m_bShowInCity(false),
 	m_eMinCultureLevel(NO_CULTURELEVEL),
 	m_piProductionTraits(NULL),
@@ -6703,8 +6704,12 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_pbCommerceChangeOriginalOwner(NULL),
 	m_ppaiSpecialistYieldChange(NULL),
 	m_ppaiBonusYieldModifier(NULL),
+	m_ppaiVicinityBonusYieldChange(NULL),
+	m_ppaiBonusYieldChange(NULL),
 	m_bAnySpecialistYieldChange(false),
-	m_bAnyBonusYieldModifier(false)
+	m_bAnyBonusYieldModifier(false),
+	m_bAnyBonusYieldChange(false),
+	m_bAnyVicinityBonusYieldChange(false)
 {
 }
 
@@ -6763,6 +6768,61 @@ CvBuildingInfo::~CvBuildingInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
 	}
+
+	if (m_ppaiVicinityBonusYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiVicinityBonusYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiVicinityBonusYieldChange);
+	}
+
+	if (m_ppaiBonusYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange);
+	}
+
+}
+
+int CvBuildingInfo::getBonusYieldChange(int i, int j) const {
+	FAssertMsg(i < GC.getNumBonusInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiBonusYieldChange ? m_ppaiBonusYieldChange[i][j] : -1;
+}
+
+int* CvBuildingInfo::getBonusYieldChangeArray(int i) const {
+	FAssertMsg(i < GC.getNumBonusInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiBonusYieldChange[i];
+}
+
+bool CvBuildingInfo::isAnyBonusYieldChange() const {
+	return m_bAnyBonusYieldChange;
+}
+
+bool CvBuildingInfo::isPrereqVicinityBonusUnconnectedAllowed() const {
+	return m_bPrereqVicinityBonusUnconnectedAllowed;
+}
+
+int CvBuildingInfo::getVicinityBonusYieldChange(int i, int j) const {
+	FAssertMsg(i < GC.getNumBonusInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiVicinityBonusYieldChange ? m_ppaiVicinityBonusYieldChange[i][j] : -1;
+}
+
+int* CvBuildingInfo::getVicinityBonusYieldChangeArray(int i) const {
+	FAssertMsg(i < GC.getNumBonusInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiVicinityBonusYieldChange[i];
+}
+
+bool CvBuildingInfo::isAnyVicinityBonusYieldChange() const {
+	return m_bAnyVicinityBonusYieldChange;
 }
 
 int CvBuildingInfo::getPrereqWorldView(int i) const {
@@ -7913,6 +7973,7 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_bForceDisableStarSigns);
 	stream->Read(&m_bStarSignGoodOnly);
 	stream->Read(&m_bSlaveMarket);
+	stream->Read(&m_bPrereqVicinityBonusUnconnectedAllowed);
 	stream->Read(&m_bShowInCity);
 
 	stream->ReadString(m_szConstructSound);
@@ -8202,6 +8263,53 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 			}
 		}
 	}
+
+	if (m_ppaiVicinityBonusYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiVicinityBonusYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiVicinityBonusYieldChange);
+	}
+
+	m_ppaiVicinityBonusYieldChange = new int* [GC.getNumBonusInfos()];
+	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+		m_ppaiVicinityBonusYieldChange[i] = new int[NUM_YIELD_TYPES];
+		stream->Read(NUM_YIELD_TYPES, m_ppaiVicinityBonusYieldChange[i]);
+	}
+
+	m_bAnyVicinityBonusYieldChange = false;
+	for (int i = 0; !m_bAnyVicinityBonusYieldChange && i < GC.getNumBonusInfos(); i++) {
+		for (int j = 0; j < NUM_YIELD_TYPES; j++) {
+			if (m_ppaiVicinityBonusYieldChange[i][j] != 0) {
+				m_bAnyVicinityBonusYieldChange = true;
+				break;
+			}
+		}
+	}
+
+	if (m_ppaiBonusYieldChange != NULL) {
+		for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+			SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiBonusYieldChange);
+	}
+
+	m_ppaiBonusYieldChange = new int* [GC.getNumBonusInfos()];
+	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+		m_ppaiBonusYieldChange[i] = new int[NUM_YIELD_TYPES];
+		stream->Read(NUM_YIELD_TYPES, m_ppaiBonusYieldChange[i]);
+	}
+
+	m_bAnyBonusYieldChange = false;
+	for (int i = 0; !m_bAnyBonusYieldChange && i < GC.getNumBonusInfos(); i++) {
+		for (int j = 0; j < NUM_YIELD_TYPES; j++) {
+			if (m_ppaiBonusYieldChange[i][j] != 0) {
+				m_bAnyBonusYieldChange = true;
+				break;
+			}
+		}
+	}
+
 }
 
 //
@@ -8338,6 +8446,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_bForceDisableStarSigns);
 	stream->Write(m_bStarSignGoodOnly);
 	stream->Write(m_bSlaveMarket);
+	stream->Write(m_bPrereqVicinityBonusUnconnectedAllowed);
 	stream->Write(m_bShowInCity);
 
 	stream->WriteString(m_szConstructSound);
@@ -8461,6 +8570,14 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
 		stream->Write(NUM_YIELD_TYPES, m_ppaiBonusYieldModifier[i]);
 	}
+
+	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+		stream->Write(NUM_YIELD_TYPES, m_ppaiVicinityBonusYieldChange[i]);
+	}
+
+	for (int i = 0; i < GC.getNumBonusInfos(); i++) {
+		stream->Write(NUM_YIELD_TYPES, m_ppaiBonusYieldChange[i]);
+	}
 }
 
 //
@@ -8513,6 +8630,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetVectorInfo(m_viPrereqOrTerrains, "PrereqOrTerrains");
 	pXML->SetVectorInfo(m_viPrereqVicinityAndBonus, "PrereqVicinityAndBonus");
 	pXML->SetVectorInfo(m_viPrereqVicinityOrBonus, "PrereqVicinityOrBonus");
+	pXML->GetChildXmlValByName(&m_bPrereqVicinityBonusUnconnectedAllowed, "bPrereqVicinityBonusUnconnectedAllowed");
 	pXML->SetVectorInfo(m_viPrereqVicinityImprovements, "PrereqVicinityImprovements");
 	pXML->SetVectorInfo(m_viPrereqVicinityFeatures, "PrereqVicinityFeatures");
 	pXML->GetChildXmlValByName(&m_iMinPopulation, "iMinPopulation");
@@ -8706,6 +8824,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 
 	m_bAnySpecialistYieldChange = pXML->SetListPairInfoArray(&m_ppaiSpecialistYieldChange, "SpecialistYieldChanges", GC.getNumSpecialistInfos(), NUM_YIELD_TYPES);
 	m_bAnyBonusYieldModifier = pXML->SetListPairInfoArray(&m_ppaiBonusYieldModifier, "BonusYieldModifiers", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
+	m_bAnyBonusYieldChange = pXML->SetListPairInfoArray(&m_ppaiBonusYieldChange, "BonusYieldChanges", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
+	m_bAnyVicinityBonusYieldChange = pXML->SetListPairInfoArray(&m_ppaiVicinityBonusYieldChange, "VicinityBonusYieldChanges", GC.getNumBonusInfos(), NUM_YIELD_TYPES);
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 	pXML->SetListPairInfo(&m_piImprovementFreeSpecialist, "ImprovementFreeSpecialists", GC.getNumImprovementInfos());

@@ -422,6 +422,21 @@
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="bSlaveMarket" content="textOnly" dt:type="boolean"/>
+	<ElementType name="BonusYieldChange" content="eltOnly">
+		<element type="BonusType"/>
+		<element type="YieldChanges"/>
+	</ElementType>
+	<ElementType name="BonusYieldChanges" content="eltOnly">
+		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="VicinityBonusYieldChange" content="eltOnly">
+		<element type="BonusType"/>
+		<element type="YieldChanges"/>
+	</ElementType>
+	<ElementType name="VicinityBonusYieldChanges" content="eltOnly">
+		<element type="VicinityBonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="bPrereqVicinityBonusUnconnectedAllowed" content="textOnly" dt:type="boolean"/>
 	<ElementType name="BuildingInfo" content="eltOnly">
 		<element type="BuildingClass"/>
 		<element type="Type"/>
@@ -457,6 +472,7 @@
 		<element type="PrereqOrTerrains" minOccurs="0"/>
 		<element type="PrereqVicinityAndBonus" minOccurs="0"/>
 		<element type="PrereqVicinityOrBonus" minOccurs="0"/>
+		<element type="bPrereqVicinityBonusUnconnectedAllowed" minOccurs="0"/>
 		<element type="PrereqVicinityImprovements" minOccurs="0"/>
 		<element type="PrereqVicinityFeatures" minOccurs="0"/>
 		<element type="PrereqWorldViews" minOccurs="0"/>
@@ -601,6 +617,7 @@
 		<element type="ReplacedByBuildingClasses" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
+		<element type="VicinityBonusYieldChanges" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists" minOccurs="0"/>
 		<element type="Flavors" minOccurs="0"/>
 		<element type="HotKey" minOccurs="0"/>

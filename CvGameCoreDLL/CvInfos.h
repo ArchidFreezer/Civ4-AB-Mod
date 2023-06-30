@@ -1893,6 +1893,7 @@ public:
 	bool isForceDisableStarSigns() const;
 	bool isStarSignGoodOnly() const;
 	bool isSlaveMarket() const;
+	bool isPrereqVicinityBonusUnconnectedAllowed() const;
 	bool isShowInCity() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
@@ -1985,11 +1986,17 @@ public:
 	int getSpecialistYieldChange(int i, int j) const;			// Exposed to Python
 	int* getSpecialistYieldChangeArray(int i) const;
 
-	int getBonusYieldModifier(int i, int j) const;				// Exposed to Python
+	int getBonusYieldModifier(int i, int j) const;
 	int* getBonusYieldModifierArray(int i) const;
+	int getBonusYieldChange(int i, int j) const;
+	int* getBonusYieldChangeArray(int i) const;
+	int getVicinityBonusYieldChange(int i, int j) const;
+	int* getVicinityBonusYieldChangeArray(int i) const;
 
 	bool isAnySpecialistYieldChange() const;
 	bool isAnyBonusYieldModifier() const;
+	bool isAnyBonusYieldChange() const;
+	bool isAnyVicinityBonusYieldChange() const;
 
 	// Other
 
@@ -2129,6 +2136,7 @@ protected:
 	bool m_bForceDisableStarSigns;
 	bool m_bStarSignGoodOnly;
 	bool m_bSlaveMarket;
+	bool m_bPrereqVicinityBonusUnconnectedAllowed;
 	bool m_bShowInCity;
 
 	CultureLevelTypes m_eMinCultureLevel;
@@ -2176,8 +2184,12 @@ protected:
 
 	int** m_ppaiSpecialistYieldChange;
 	int** m_ppaiBonusYieldModifier;
+	int** m_ppaiBonusYieldChange;
+	int** m_ppaiVicinityBonusYieldChange;
 	bool m_bAnySpecialistYieldChange;
 	bool m_bAnyBonusYieldModifier;
+	bool m_bAnyBonusYieldChange;
+	bool m_bAnyVicinityBonusYieldChange;
 
 	// Vectors
 	std::vector<int> m_viPrereqAndTechs;
