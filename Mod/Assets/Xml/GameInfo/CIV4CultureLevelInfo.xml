@@ -50,31 +50,31 @@
 			<SpeedThresholds>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_ETERNITY</GameSpeedType>
-					<iThreshold>30</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_SNAIL</GameSpeedType>
-					<iThreshold>23</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_MARATHON</GameSpeedType>
-					<iThreshold>15</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_EPIC</GameSpeedType>
-					<iThreshold>8</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_NORMAL</GameSpeedType>
-					<iThreshold>5</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_QUICK</GameSpeedType>
-					<iThreshold>3</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 				<SpeedThreshold>
 					<GameSpeedType>GAMESPEED_BLITZ</GameSpeedType>
-					<iThreshold>2</iThreshold>
+					<iThreshold>0</iThreshold>
 				</SpeedThreshold>
 			</SpeedThresholds>
 		</CultureLevelInfo>
