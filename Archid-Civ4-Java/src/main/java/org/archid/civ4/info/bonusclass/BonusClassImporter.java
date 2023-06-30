@@ -13,7 +13,7 @@ public class BonusClassImporter extends AbstractImporter<IInfos<IBonusClassInfo>
 	static Logger log = Logger.getLogger(BonusClassImporter.class.getName());
 
 	public BonusClassImporter(EInfo infoEnum) {
-		super(infoEnum, new DefaultXmlFormatter("BonusClass"));
+		super(infoEnum, new DefaultXmlFormatter("bonusclass"));
 	}
 
 	@Override

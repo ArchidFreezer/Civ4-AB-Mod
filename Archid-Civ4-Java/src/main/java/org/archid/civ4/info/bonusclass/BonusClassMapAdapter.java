@@ -40,7 +40,7 @@ public class BonusClassMapAdapter extends XmlAdapter<BonusClassMapAdapter.BonusC
 		for (IBonusClassInfo info: v.values()) {
 			AdaptedBonusClass aInfo = new AdaptedBonusClass();
 			aInfo.type = JaxbUtils.marshallString(info.getType());
-			aInfo.unique = JaxbUtils.marshallInteger(info.getUnique());
+			aInfo.unique = JaxbUtils.marshallMandatoryInteger(info.getUnique());
 
 			map.entries.add(aInfo);
 		}
