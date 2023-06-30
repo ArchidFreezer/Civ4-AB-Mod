@@ -267,8 +267,8 @@
 			<ArtDefineTag>ART_DEF_BUILDING_BARRACKS</ArtDefineTag>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>50</iCost>
@@ -305,8 +305,8 @@
 			<ArtDefineTag>ART_DEF_BUILDING_ZULU_IKHANDA</ArtDefineTag>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>60</iCost>
@@ -382,8 +382,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
 			<iCost>175</iCost>
@@ -404,22 +404,22 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BROADCASTTOWER</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_DRAMA</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_MUSIC</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_MOVIES</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -478,8 +478,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
@@ -511,7 +511,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -551,8 +551,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
@@ -584,7 +584,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<UnitCombatFreeExperiences>
@@ -700,8 +700,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -740,8 +740,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -781,8 +781,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -813,14 +813,14 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_COLOSSEUM</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_MUSIC</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<HotKey/>
@@ -842,8 +842,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>100</iCost>
@@ -883,8 +883,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -902,7 +902,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
@@ -936,8 +936,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iHurryAngerModifier>-50</iHurryAngerModifier>
@@ -956,7 +956,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
@@ -990,8 +990,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -1009,7 +1009,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
@@ -1043,8 +1043,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>90</iCost>
@@ -1062,7 +1062,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
@@ -1170,8 +1170,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -1193,7 +1193,7 @@
 			<DomainProductionModifiers>
 				<DomainProductionModifier>
 					<DomainType>DOMAIN_SEA</DomainType>
-					<iProductionModifier>50</iProductionModifier>
+					<iModifier>50</iModifier>
 				</DomainProductionModifier>
 			</DomainProductionModifiers>
 			<Flavors>
@@ -1222,8 +1222,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>250</iCost>
@@ -1246,18 +1246,18 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_OIL</BonusType>
-					<iHealthChange>-2</iHealthChange>
+					<iChange>-2</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_COAL</BonusType>
-					<iHealthChange>-2</iHealthChange>
+					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1286,8 +1286,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>250</iCost>
@@ -1314,24 +1314,24 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>4</iSpecialistCount>
+					<iCount>4</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_OIL</BonusType>
-					<iHealthChange>-2</iHealthChange>
+					<iChange>-2</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_COAL</BonusType>
-					<iHealthChange>-2</iHealthChange>
+					<iChange>-2</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COAL</BonusType>
-					<iProductonModifier>50</iProductonModifier>
+					<iModifier>50</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -1360,8 +1360,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -1379,22 +1379,22 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_GEMS</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_GOLD</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_SILVER</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -1423,8 +1423,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -1445,22 +1445,22 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_GEMS</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_GOLD</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_SILVER</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -1493,8 +1493,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>60</iCost>
@@ -1507,15 +1507,15 @@
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_CORN</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_RICE</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_WHEAT</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1544,8 +1544,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>60</iCost>
@@ -1568,15 +1568,15 @@
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_CORN</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_RICE</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_WHEAT</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1614,26 +1614,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_GROCER</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_SPICES</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_SUGAR</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_WINE</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_BANANA</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1672,26 +1672,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_GROCER</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_SPICES</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_SUGAR</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_WINE</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_BANANA</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1720,8 +1720,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -1736,15 +1736,15 @@
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_CLAM</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_CRAB</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_FISH</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1773,8 +1773,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -1790,15 +1790,15 @@
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_CLAM</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_CRAB</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_FISH</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<Flavors>
@@ -1900,24 +1900,24 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iFreeSpecialistCount>2</iFreeSpecialistCount>
+					<iCount>2</iCount>
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<ConstructSound>AS2D_BUILD_FACTORY</ConstructSound>
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_OIL</BonusType>
-					<iHealthChange>-1</iHealthChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_COAL</BonusType>
-					<iHealthChange>-1</iHealthChange>
+					<iChange>-1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<PrereqAndBuildingClasses>
@@ -1966,7 +1966,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
@@ -1996,8 +1996,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -2021,7 +2021,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<Flavors>
@@ -2054,8 +2054,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>120</iCost>
@@ -2080,7 +2080,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<Flavors>
@@ -2124,7 +2124,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
@@ -2168,13 +2168,13 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iFreeSpecialistCount>2</iFreeSpecialistCount>
+					<iCount>2</iCount>
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LABORATORY</ConstructSound>
@@ -2282,8 +2282,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2308,7 +2308,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
@@ -2338,8 +2338,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2364,11 +2364,11 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_LIBRARY</ConstructSound>
@@ -2398,8 +2398,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bWater>1</bWater>
@@ -2439,8 +2439,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<FreePromotion>PROMOTION_NAVIGATION1</FreePromotion>
@@ -2491,26 +2491,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_FUR</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_IVORY</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_SILK</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_WHALE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -2549,26 +2549,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_FUR</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_IVORY</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_SILK</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_WHALE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -2636,8 +2636,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2683,8 +2683,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2706,7 +2706,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
@@ -2736,8 +2736,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2788,8 +2788,8 @@
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
+					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<iChange>1</iChange>
 				</HappinessTrait>
 			</HappinessTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -2884,7 +2884,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_OBSERVATORY</ConstructSound>
@@ -2923,13 +2923,13 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+					<iCount>1</iCount>
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<ConstructSound>AS2D_BUILD_OBSERVATORY</ConstructSound>
@@ -3086,8 +3086,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<iCost>220</iCost>
@@ -3105,7 +3105,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BARRACKS</ConstructSound>
@@ -3139,12 +3139,12 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_INDUSTRIOUS</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNukeImmune>1</bNukeImmune>
@@ -3269,19 +3269,19 @@
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_COW</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_DEER</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_PIG</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_SHEEP</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<PrereqAndBuildingClasses>
@@ -3325,33 +3325,33 @@
 			<BonusHealthChanges>
 				<BonusHealthChange>
 					<BonusType>BONUS_COW</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_DEER</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_PIG</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 				<BonusHealthChange>
 					<BonusType>BONUS_SHEEP</BonusType>
-					<iHealthChange>1</iHealthChange>
+					<iChange>1</iChange>
 				</BonusHealthChange>
 			</BonusHealthChanges>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_DRAMA</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_MUSIC</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 				<BonusHappinessChange>
 					<BonusType>BONUS_MOVIES</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<PrereqAndBuildingClasses>
@@ -3382,8 +3382,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3409,14 +3409,14 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_THEATRE</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_DYE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -3444,8 +3444,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3472,14 +3472,14 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_COLOSSEUM</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_HORSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -3507,8 +3507,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_CREATIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3539,14 +3539,14 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_THEATRE</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_DYE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<Flavors>
@@ -3574,8 +3574,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PHILOSOPHICAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3626,8 +3626,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PHILOSOPHICAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bNeverCapture>1</bNeverCapture>
@@ -3679,8 +3679,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
@@ -3695,7 +3695,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -3724,8 +3724,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_PROTECTIVE</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<FreePromotion>PROMOTION_GUERILLA1</FreePromotion>
@@ -3741,7 +3741,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<UnitCombatFreeExperiences>
@@ -3797,7 +3797,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
@@ -3839,26 +3839,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -3950,13 +3950,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_BUDDHISM</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -4008,7 +4008,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CHRISTIAN</ConstructSound>
@@ -4050,26 +4050,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CHRISTIAN</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -4161,13 +4161,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_CHRISTIANITY</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -4219,7 +4219,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CONFUCIAN</ConstructSound>
@@ -4261,26 +4261,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_CONFUCIAN</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -4372,13 +4372,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -4430,7 +4430,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_HINDU</ConstructSound>
@@ -4472,26 +4472,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_HINDU</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_HINDU_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -4583,13 +4583,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_HINDUISM</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -4641,7 +4641,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_ISLAMIC</ConstructSound>
@@ -4683,26 +4683,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_ISLAMIC</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -4794,13 +4794,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_ISLAM</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -4852,7 +4852,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_JEWISH</ConstructSound>
@@ -4894,26 +4894,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_JEWISH</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -5005,13 +5005,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_JUDAISM</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -5063,7 +5063,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_TAOIST</ConstructSound>
@@ -5105,26 +5105,26 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_TAOIST</ConstructSound>
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
-					<iHappinessChange>1</iHappinessChange>
+					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -5216,13 +5216,13 @@
 			<ReligionChanges>
 				<ReligionChange>
 					<ReligionType>RELIGION_TAOISM</ReligionType>
-					<iReligionChange>1</iReligionChange>
+					<iChange>1</iChange>
 				</ReligionChange>
 			</ReligionChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -5282,7 +5282,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -5293,7 +5293,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<SpecialistYieldChanges>
@@ -5453,7 +5453,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -5482,8 +5482,8 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_SPIRITUAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
+					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
@@ -5565,7 +5565,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -5964,7 +5964,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_IRON</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -6017,7 +6017,7 @@
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iFreeSpecialistCount>2</iFreeSpecialistCount>
+					<iCount>2</iCount>
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -6029,7 +6029,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -6146,7 +6146,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6202,7 +6202,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6259,7 +6259,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -6356,7 +6356,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SPY</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -6367,7 +6367,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6426,7 +6426,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<HotKey/>
@@ -6475,7 +6475,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6531,7 +6531,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6589,7 +6589,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<HotKey/>
@@ -6682,7 +6682,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<HotKey/>
@@ -6776,7 +6776,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_GOLD</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6840,7 +6840,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6887,7 +6887,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_ALUMINUM</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -6945,7 +6945,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7000,7 +7000,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_COPPER</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -7059,13 +7059,13 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_IVORY</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
+					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<Flavors>
@@ -7122,7 +7122,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7177,7 +7177,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7227,7 +7227,7 @@
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+					<iCount>1</iCount>
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<CommerceChangeOriginalOwners>
@@ -7238,7 +7238,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7378,7 +7378,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7433,7 +7433,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7481,7 +7481,7 @@
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
-					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -7533,13 +7533,13 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
-					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -7581,7 +7581,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7629,7 +7629,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -7668,14 +7668,14 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<ConstructSound>AS2D_BUILD_IRONWORKS</ConstructSound>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
-					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -7754,7 +7754,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7800,7 +7800,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -7846,7 +7846,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_MARBLE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqAndBuildingClasses>
@@ -7895,7 +7895,7 @@
 			<ImprovementFreeSpecialists>
 				<ImprovementFreeSpecialist>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
-					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+					<iCount>1</iCount>
 				</ImprovementFreeSpecialist>
 			</ImprovementFreeSpecialists>
 			<Flavors>
@@ -7954,7 +7954,7 @@
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_SLAVE_MARKET</BuildingClassType>
-					<iNumBuildingNeeded>3</iNumBuildingNeeded>
+					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -8006,19 +8006,19 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
-					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -8067,7 +8067,7 @@
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
-					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -8101,13 +8101,13 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
 					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
 			<PrereqAndBuildingClasses>
@@ -8147,7 +8147,7 @@
 			<BonusProductionModifiers>
 				<BonusProductionModifier>
 					<BonusType>BONUS_STONE</BonusType>
-					<iProductonModifier>100</iProductonModifier>
+					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
 			<Flavors>
@@ -8197,7 +8197,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>3</iSpecialistCount>
+					<iCount>3</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<SpecialistYieldChanges>
@@ -8660,13 +8660,13 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<FreeSpecialistCounts>
 				<FreeSpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+					<iCount>1</iCount>
 				</FreeSpecialistCount>
 			</FreeSpecialistCounts>
 			<HotKey/>
@@ -8705,11 +8705,11 @@
 			<ImprovementFreeSpecialists>
 				<ImprovementFreeSpecialist>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
-					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+					<iCount>1</iCount>
 				</ImprovementFreeSpecialist>
 				<ImprovementFreeSpecialist>
 					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
-					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+					<iCount>1</iCount>
 				</ImprovementFreeSpecialist>
 			</ImprovementFreeSpecialists>
 			<HotKey/>
@@ -8817,7 +8817,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<HotKey/>
@@ -8858,7 +8858,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<HotKey/>
@@ -8896,7 +8896,7 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iCount>2</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<HotKey/>
