@@ -719,6 +719,7 @@
 	<ElementType name="iStarSignMitigateChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iStarSignScaleChangePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iCultureDefenceChange" content="textOnly" dt:type="int"/>
+	<ElementType name="iIndex" content="textOnly" dt:type="int"/>
 	<ElementType name="CivicInfo" content="eltOnly">
 		<element type="CivicOptionType"/>
 		<element type="Type"/>
@@ -727,6 +728,7 @@
 		<element type="Strategy"/>
 		<element type="Help" minOccurs="0"/>
 		<element type="Button"/>
+		<element type="iIndex"/>
 		<element type="TechPrereq" minOccurs="0"/>
 		<element type="bEnableStarSigns" minOccurs="0"/>
 		<element type="iStarSignMitigateChangePercent" minOccurs="0"/>
