@@ -3165,6 +3165,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		return;
 
 	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
 
 	if (!isObsoleteBuilding(eBuilding) || bObsolete) {
 		if (iChange > 0) {
@@ -3241,6 +3242,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
 			changeCommerceRateModifier(eCommerce, (kBuilding.getCommerceModifier(eCommerce) * iChange));
 			changeCommerceHappinessPer(eCommerce, (kBuilding.getCommerceHappiness(eCommerce) * iChange));
+			if (kBuilding.isAnyTechCommerceChange()) {
+				for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+					if (GET_TEAM(kOwner.getTeam()).isHasTech(eTech)) {
+						changeBuildingCommerceChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eCommerce, (kBuilding.getTechCommerceChange(eTech, eCommerce) * iChange));
+					}
+				}
+			}
 		}
 
 		for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
@@ -3302,10 +3310,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		updateExtraBuildingHappiness();
 		updateExtraBuildingHealth();
 
-		GET_PLAYER(getOwnerINLINE()).changeAssets(kBuilding.getAssetValue() * iChange);
+		kOwner.changeAssets(kBuilding.getAssetValue() * iChange);
 
 		area()->changePower(getOwnerINLINE(), (kBuilding.getPowerValue() * iChange));
-		GET_PLAYER(getOwnerINLINE()).changePower(kBuilding.getPowerValue() * iChange);
+		kOwner.changePower(kBuilding.getPowerValue() * iChange);
 
 		for (PlayerTypes ePlayer = (PlayerTypes)0; ePlayer < MAX_PLAYERS; ePlayer = (PlayerTypes)(ePlayer + 1))	{
 			if (GET_PLAYER(ePlayer).getTeam() == getTeam()) {
@@ -3323,7 +3331,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 			BuildingTypes eLoopBuilding = NO_BUILDING;
 			if (getOwnerINLINE() != NO_PLAYER) {
-				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(getOwnerINLINE()).getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+				eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(kOwner.getCivilizationType()).getCivilizationBuildings(eBuildingClass);
 			} else {
 				eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
 			}
@@ -3352,13 +3360,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			}
 		}
 
-		GET_PLAYER(getOwnerINLINE()).changeWondersScore(getWonderScore((BuildingClassTypes)(kBuilding.getBuildingClassType()))* iChange);
+		kOwner.changeWondersScore(getWonderScore((BuildingClassTypes)(kBuilding.getBuildingClassType()))* iChange);
 	}
 
 	// We don't update the building class counts if the building still exists, even if it is non functional
 	if (!(bObsolete || bDisable)) {
 		GET_TEAM(getTeam()).changeBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType(), iChange);
-		GET_PLAYER(getOwnerINLINE()).changeBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType(), iChange);
+		kOwner.changeBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType(), iChange);
 	}
 
 	updateBuildingCommerce();
@@ -7592,6 +7600,7 @@ int CvCity::getAdditionalBaseCommerceRateByBuildingImpl(CommerceTypes eIndex, Bu
 	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "eBuilding expected to be < GC.getNumBuildingInfos()");
 
 	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
 	int iExtraRate = 0;
 
 	iExtraRate += kBuilding.getObsoleteSafeCommerceChange(eIndex);
@@ -7599,8 +7608,8 @@ int CvCity::getAdditionalBaseCommerceRateByBuildingImpl(CommerceTypes eIndex, Bu
 		iExtraRate += kBuilding.getCommerceChange(eIndex);
 		iExtraRate += getBuildingCommerceChange((BuildingClassTypes)kBuilding.getBuildingClassType(), eIndex);
 		if (kBuilding.getReligionType() != NO_RELIGION) {
-			if (kBuilding.getReligionType() == GET_PLAYER(getOwnerINLINE()).getStateReligion()) {
-				iExtraRate += GET_PLAYER(getOwnerINLINE()).getStateReligionBuildingCommerce(eIndex);
+			if (kBuilding.getReligionType() == kPlayer.getStateReligion()) {
+				iExtraRate += kPlayer.getStateReligionBuildingCommerce(eIndex);
 			}
 		}
 		if (kBuilding.getGlobalReligionCommerce() != NO_RELIGION) {
@@ -7615,6 +7624,15 @@ int CvCity::getAdditionalBaseCommerceRateByBuildingImpl(CommerceTypes eIndex, Bu
 		for (SpecialistTypes eSpecialist = (SpecialistTypes)0; eSpecialist < GC.getNumSpecialistInfos(); eSpecialist = (SpecialistTypes)(eSpecialist + 1)) {
 			if (kBuilding.getFreeSpecialistCount(eSpecialist) != 0) {
 				iExtraRate += getAdditionalBaseCommerceRateBySpecialistImpl(eIndex, eSpecialist, kBuilding.getFreeSpecialistCount(eSpecialist));
+			}
+		}
+
+		// Techs
+		if (kBuilding.isAnyTechCommerceChange()) {
+			for (TechTypes eTech = (TechTypes)0; eTech < GC.getNumTechInfos(); eTech = (TechTypes)(eTech + 1)) {
+				if (GET_TEAM(kPlayer.getTeam()).isHasTech(eTech)) {
+					iExtraRate += (kBuilding.getTechCommerceChange(eTech, eIndex));
+				}
 			}
 		}
 	}
