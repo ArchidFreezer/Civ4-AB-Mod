@@ -60,6 +60,9 @@ public:
 	void setUpgradeAnywhereCount(int iNewValue);
 	void changeUpgradeAnywhereCount(int iChange);
 
+	int getFreeSpecialistCount(SpecialistTypes eIndex) const;
+	void changeFreeSpecialistCount(SpecialistTypes eIndex, int iChange);
+
 	int getCultureDefenceChange() const;
 	void changeCultureDefenceChange(int iChange);
 	int getCultureDefenceModifier() const;
@@ -1417,6 +1420,7 @@ protected:
 	int* m_paiUpkeepCount;
 	int* m_paiSpecialistValidCount;
 	int* m_paiObsoleteBuildingCount;
+	int* m_piFreeSpecialistCount;
 
 	bool* m_pabResearchingTech;
 	bool* m_pabLoyalMember;

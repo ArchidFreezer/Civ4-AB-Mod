@@ -5655,6 +5655,7 @@ CvCivicInfo::CvCivicInfo() :
 	m_paiBuildingHappinessChanges(NULL),
 	m_paiBuildingHealthChanges(NULL),
 	m_paiFeatureHappinessChanges(NULL),
+	m_piFreeSpecialistCount(NULL),
 	m_pabHurry(NULL),
 	m_pabSpecialBuildingNotRequired(NULL),
 	m_pabSpecialistValid(NULL),
@@ -5680,6 +5681,7 @@ CvCivicInfo::~CvCivicInfo() {
 	SAFE_DELETE_ARRAY(m_paiBuildingHappinessChanges);
 	SAFE_DELETE_ARRAY(m_paiBuildingHealthChanges);
 	SAFE_DELETE_ARRAY(m_paiFeatureHappinessChanges);
+	SAFE_DELETE_ARRAY(m_piFreeSpecialistCount);
 	SAFE_DELETE_ARRAY(m_pabHurry);
 	SAFE_DELETE_ARRAY(m_pabSpecialBuildingNotRequired);
 	SAFE_DELETE_ARRAY(m_pabSpecialistValid);
@@ -5689,6 +5691,12 @@ CvCivicInfo::~CvCivicInfo() {
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
 	}
+}
+
+int CvCivicInfo::getFreeSpecialistCount(int i) const {
+	FAssertMsg(i < GC.getNumSpecialistInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piFreeSpecialistCount ? m_piFreeSpecialistCount[i] : false;
 }
 
 int CvCivicInfo::getCityDefenceModifier() const {
@@ -6159,6 +6167,10 @@ void CvCivicInfo::read(FDataStreamBase* stream) {
 	m_pabSpecialistValid = new bool[GC.getNumSpecialistInfos()];
 	stream->Read(GC.getNumSpecialistInfos(), m_pabSpecialistValid);
 
+	SAFE_DELETE_ARRAY(m_piFreeSpecialistCount);
+	m_piFreeSpecialistCount = new int[GC.getNumSpecialistInfos()];
+	stream->Read(GC.getNumSpecialistInfos(), m_piFreeSpecialistCount);
+
 	if (m_ppiImprovementYieldChanges != NULL) {
 		for (int i = 0; i < GC.getNumImprovementInfos(); i++) {
 			SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges[i]);
@@ -6256,6 +6268,7 @@ void CvCivicInfo::write(FDataStreamBase* stream) {
 	stream->Write(GC.getNumHurryInfos(), m_pabHurry);
 	stream->Write(GC.getNumSpecialBuildingInfos(), m_pabSpecialBuildingNotRequired);
 	stream->Write(GC.getNumSpecialistInfos(), m_pabSpecialistValid);
+	stream->Write(GC.getNumSpecialistInfos(), m_piFreeSpecialistCount);
 
 	for (int i = 0; i < GC.getNumImprovementInfos(); i++) {
 		stream->Write(NUM_YIELD_TYPES, m_ppiImprovementYieldChanges[i]);
@@ -6348,6 +6361,7 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetListInfoBool(&m_pabHurry, "Hurrys", GC.getNumHurryInfos());
 	pXML->SetListInfoBool(&m_pabSpecialBuildingNotRequired, "SpecialBuildingNotRequireds", GC.getNumSpecialBuildingInfos());
 	pXML->SetListInfoBool(&m_pabSpecialistValid, "SpecialistValids", GC.getNumSpecialistInfos());
+	pXML->SetListPairInfo(&m_piFreeSpecialistCount, "FreeSpecialistCounts", GC.getNumSpecialistInfos());
 
 	pXML->SetListPairInfo(&m_paiBuildingHappinessChanges, "BuildingHappinessChanges", GC.getNumBuildingClassInfos());
 	pXML->SetListPairInfo(&m_paiBuildingHealthChanges, "BuildingHealthChanges", GC.getNumBuildingClassInfos());
