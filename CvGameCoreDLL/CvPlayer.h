@@ -41,7 +41,10 @@ public:
 	bool isNoCapitalUnhappiness() const;
 	void changeNoCapitalUnhappinessCount(int iChange);
 
+	int getPopulationGrowthRateModifier() const;
 	int getFoundCityPopulationChange() const;
+	void setPopulationGrowthRateModifier(int iNewValue);
+	void changePopulationGrowthRateModifier(int iChange);
 	void changeFoundCityPopulationChange(int iChange);
 
 	int getCultureDefenceChange() const;
@@ -1318,6 +1321,7 @@ protected:
 	int m_iFoundCityPopulationChange;
 	int m_iForeignTradeRouteModifier;
 	int m_iNoCapitalUnhappinessCount;
+	int m_iPopulationGrowthRateModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 
