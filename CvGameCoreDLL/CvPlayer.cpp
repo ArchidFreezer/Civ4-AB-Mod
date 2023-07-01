@@ -526,6 +526,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iCultureDefenceModifier = 0;
 	m_iFoundCityPopulationChange = 0;
 	m_iForeignTradeRouteModifier = 0;
+	m_iNoCapitalUnhappinessCount = 0;
 
 	m_uiStartTime = 0;
 
@@ -13863,6 +13864,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeStarSignScalePercent(kCivic.getStarSignScaleChangePercent() * iChange);
 	changeCultureDefenceChange(kCivic.getCultureDefenceChange() * iChange);
 	changeForeignTradeRouteModifier(kCivic.getForeignTradeRouteModifier() * iChange);
+	changeNoCapitalUnhappinessCount(kCivic.isNoCapitalUnhappiness() ? iChange : 0);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14052,6 +14054,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iFoundCityPopulationChange);
 	pStream->Read(&m_iChoosingFreeTechCount);
 	pStream->Read(&m_iForeignTradeRouteModifier);
+	pStream->Read(&m_iNoCapitalUnhappinessCount);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14540,6 +14543,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iFoundCityPopulationChange);
 	pStream->Write(m_iChoosingFreeTechCount);
 	pStream->Write(m_iForeignTradeRouteModifier);
+	pStream->Write(m_iNoCapitalUnhappinessCount);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20126,4 +20130,12 @@ int CvPlayer::getForeignTradeRouteModifier() const {
 
 void CvPlayer::changeForeignTradeRouteModifier(int iChange) {
 	m_iForeignTradeRouteModifier += iChange;
+}
+
+bool CvPlayer::isNoCapitalUnhappiness() const {
+	return m_iNoCapitalUnhappinessCount > 0;
+}
+
+void CvPlayer::changeNoCapitalUnhappinessCount(int iChange) {
+	m_iNoCapitalUnhappinessCount += iChange;
 }

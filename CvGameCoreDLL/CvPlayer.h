@@ -38,6 +38,8 @@ public:
 
 	int getForeignTradeRouteModifier() const;
 	void changeForeignTradeRouteModifier(int iChange);
+	bool isNoCapitalUnhappiness() const;
+	void changeNoCapitalUnhappinessCount(int iChange);
 
 	int getFoundCityPopulationChange() const;
 	void changeFoundCityPopulationChange(int iChange);
@@ -1315,6 +1317,7 @@ protected:
 	int m_iCultureDefenceModifier;
 	int m_iFoundCityPopulationChange;
 	int m_iForeignTradeRouteModifier;
+	int m_iNoCapitalUnhappinessCount;
 
 	uint m_uiStartTime;  // XXX save these?
 

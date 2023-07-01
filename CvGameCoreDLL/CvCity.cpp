@@ -6000,7 +6000,7 @@ int CvCity::getNoUnhappinessCount() const {
 
 
 bool CvCity::isNoUnhappiness() const {
-	return (getNoUnhappinessCount() > 0);
+	return getNoUnhappinessCount() > 0 || (isCapital() && GET_PLAYER(getOwnerINLINE()).isNoCapitalUnhappiness());
 }
 
 
