@@ -1543,6 +1543,7 @@ public:
 	int getPopulationGrowthRateModifier() const;
 	int getTaxRateAngerModifier() const;
 	int getDistantUnitSupplyCostModifier() const;
+	int getCityDefenceModifier() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1639,9 +1640,10 @@ protected:
 	int m_iPopulationGrowthRateModifier;
 	int m_iTaxRateAngerModifier;
 	int m_iDistantUnitSupplyCostModifier;
+	int m_iUnhealthyPopulationModifier;
+	int m_iCityDefenceModifier;
 
 	bool m_bMilitaryFoodProduction;
-	int m_iUnhealthyPopulationModifier; // K-Mod
 	bool m_bBuildingOnlyHealthy;
 	bool m_bNoForeignTrade;
 	bool m_bNoCorporations;

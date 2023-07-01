@@ -6474,6 +6474,12 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer& szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_CONSCRIPTION", getWorldSizeMaxConscript(eCivic)));
 	}
 
+	// City Defence
+	if (kCivic.getCityDefenceModifier() != 0) {
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_CITY_DEFENCE_MOD", kCivic.getCityDefenceModifier()));
+	}
+
 	//	Population Unhealthiness
 	if (kCivic.getUnhealthyPopulationModifier() != 0) {
 		// If the modifier is less than -100, display the old NoUnhealth. text
