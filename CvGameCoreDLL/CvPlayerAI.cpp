@@ -10291,6 +10291,11 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 
 	iValue += (GC.getCivicInfo(eCivic).getAIWeight() * iCities);
 
+	if (kCivic.getDistantUnitSupplyCostModifier() != 0) {
+		int iTemp = kCivic.getDistantUnitSupplyCostModifier() * calculateUnitSupply();
+		iTemp /= 100;
+		iValue -= iTemp;
+	}
 	iValue += -(GC.getCivicInfo(eCivic).getAnarchyLength() * iCities);
 
 	iValue -= getSingleCivicUpkeep(eCivic, true) * iMaintenanceFactor / 100; // K-Mod. (note. upkeep modifiers are included in getSingleCivicUpkeep.)
