@@ -1457,6 +1457,15 @@
 		<Tag>TXT_KEY_BUILDING_GLOBAL_FOUND_POP</Tag>
 		<English>[ICON_BULLET]%D1_Change Population in New Cities</English>
 	</TEXT>
+<!-- Sea Crossing -->
+	<TEXT>
+		<Tag>TXT_KEY_ROUTE_SEA_TUNNEL</Tag>
+		<English>Sea Tunnel</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_SEA_BRIDGE</Tag>
+		<English>Sea Bridge</English>
+	</TEXT>
 <!-- Generic -->
 	<TEXT>
 		<Tag>TXT_KEY_ON</Tag>

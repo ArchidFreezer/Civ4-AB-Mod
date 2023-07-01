@@ -3006,9 +3006,10 @@ public:
 	CvRouteInfo();
 	virtual ~CvRouteInfo();
 
+	bool isSeaTunnel() const;
+
 	int getAdvancedStartCost() const;				// Exposed to Python
 	int getAdvancedStartCostIncrease() const;				// Exposed to Python
-
 	int getValue() const;								// Exposed to Python
 	int getMovementCost() const;				// Exposed to Python
 	int getFlatMovementCost() const;		// Exposed to Python
@@ -3028,9 +3029,10 @@ public:
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
 
+	int m_bSeaTunnel;
+
 	int m_iAdvancedStartCost;
 	int m_iAdvancedStartCostIncrease;
-
 	int m_iValue;
 	int m_iMovementCost;
 	int m_iFlatMovementCost;
@@ -3139,6 +3141,7 @@ public:
 	bool isOutsideBorders() const;				// Exposed to Python
 	bool isPeakMakesValid() const;				// Exposed to Python
 	bool isAnySpawn() const;
+	bool isSeaBridge() const;
 
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
@@ -3218,6 +3221,7 @@ protected:
 	bool m_bPermanent;
 	bool m_bOutsideBorders;
 	bool m_bPeakMakesValid;
+	bool m_bSeaBridge;
 
 	CvString m_szArtDefineTag;
 

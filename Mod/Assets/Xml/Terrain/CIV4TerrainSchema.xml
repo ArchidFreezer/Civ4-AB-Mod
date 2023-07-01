@@ -406,6 +406,7 @@
 	<ElementType name="iAppearanceProbability" content="textOnly" dt:type="int"/>
 	<ElementType name="iAnimalSpawnRatePercentage" content="textOnly" dt:type="int"/>
 	<ElementType name="iBarbarianSpawnRatePercentage" content="textOnly" dt:type="int"/>
+	<ElementType name="bSeaBridge" content="textOnly" dt:type="boolean"/>
 	<ElementType name="ImprovementInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -418,6 +419,7 @@
 		<element type="HillsYieldChange" minOccurs="0"/>
 		<element type="IrrigatedYieldChange" minOccurs="0"/>
 		<element type="bActsAsCity" minOccurs="0"/>
+		<element type="bSeaBridge" minOccurs="0"/>
 		<element type="bHillsMakesValid" minOccurs="0"/>
 		<element type="bPeakMakesValid" minOccurs="0"/>
 		<element type="bFreshWaterMakesValid" minOccurs="0"/>
