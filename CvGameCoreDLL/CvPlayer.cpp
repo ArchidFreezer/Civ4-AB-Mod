@@ -528,6 +528,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iForeignTradeRouteModifier = 0;
 	m_iNoCapitalUnhappinessCount = 0;
 	m_iPopulationGrowthRateModifier = 0;
+	m_iTaxRateAngerModifier = 0;
 
 	m_uiStartTime = 0;
 
@@ -13867,6 +13868,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeForeignTradeRouteModifier(kCivic.getForeignTradeRouteModifier() * iChange);
 	changeNoCapitalUnhappinessCount(kCivic.isNoCapitalUnhappiness() ? iChange : 0);
 	changePopulationGrowthRateModifier(kCivic.getPopulationGrowthRateModifier() * iChange);
+	changeTaxRateAngerModifier(kCivic.getTaxRateAngerModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -14058,6 +14060,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iForeignTradeRouteModifier);
 	pStream->Read(&m_iNoCapitalUnhappinessCount);
 	pStream->Read(&m_iPopulationGrowthRateModifier);
+	pStream->Read(&m_iTaxRateAngerModifier);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14548,6 +14551,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iForeignTradeRouteModifier);
 	pStream->Write(m_iNoCapitalUnhappinessCount);
 	pStream->Write(m_iPopulationGrowthRateModifier);
+	pStream->Write(m_iTaxRateAngerModifier);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20154,4 +20158,16 @@ void CvPlayer::setPopulationGrowthRateModifier(int iNewValue) {
 
 void CvPlayer::changePopulationGrowthRateModifier(int iChange) {
 	setPopulationGrowthRateModifier(getPopulationGrowthRateModifier() + iChange);
+}
+
+int CvPlayer::getTaxRateAngerModifier() const {
+	return m_iTaxRateAngerModifier;
+}
+
+void CvPlayer::setTaxRateAngerModifier(int iNewValue) {
+	m_iTaxRateAngerModifier = iNewValue;
+}
+
+void CvPlayer::changeTaxRateAngerModifier(int iChange) {
+	setTaxRateAngerModifier(getTaxRateAngerModifier() + iChange);
 }

@@ -1541,6 +1541,7 @@ public:
 	int getCultureDefenceChange() const;
 	int getForeignTradeRouteModifier() const;
 	int getPopulationGrowthRateModifier() const;
+	int getTaxRateAngerModifier() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1634,6 +1635,7 @@ protected:
 	int m_iCultureDefenceChange;
 	int m_iForeignTradeRouteModifier;
 	int m_iPopulationGrowthRateModifier;
+	int m_iTaxRateAngerModifier;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod
