@@ -1555,6 +1555,7 @@ public:
 	bool isUnitTerritoryUnbound() const;
 	bool isEnableStarSigns() const;
 	bool isNoCapitalUnhappiness() const;
+	bool isUpgradeAnywhere() const;
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
 	const wchar* getWeLoveTheKing();
@@ -1651,6 +1652,7 @@ protected:
 	bool m_bUnitTerritoryUnbound;
 	bool m_bEnableStarSigns;
 	bool m_bNoCapitalUnhappiness;
+	bool m_bUpgradeAnywhere;
 
 	CvWString m_szWeLoveTheKingKey;
 
