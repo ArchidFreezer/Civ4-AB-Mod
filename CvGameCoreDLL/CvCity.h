@@ -32,6 +32,11 @@ public:
 	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, int iX = 0, int iY = 0, bool bConstructorCall = false);
 	void setupGraphical();
 
+	int getSpecialistHappiness() const;
+	int getSpecialistGoodHappiness() const;
+	int getSpecialistBadHappiness() const;
+	void changeSpecialistHappiness(int iChange);
+
 	void kill(bool bUpdatePlotGroups);		// Exposed to Python
 
 	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
@@ -1151,6 +1156,7 @@ protected:
 	int m_iDisabledPowerTimer;
 	int m_iWarWearinessTimer;
 	int m_iEventAnger;
+	int m_iSpecialistHappiness;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

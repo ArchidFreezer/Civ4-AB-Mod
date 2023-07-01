@@ -695,6 +695,7 @@ CvSpecialistInfo::CvSpecialistInfo() :
 	m_iMissionType(NO_MISSION),
 	m_iStarSignMitigateChange(0),
 	m_iStarSignScaleChange(0),
+	m_iHappinessChange(0),
 	m_bVisible(false),
 	m_bSlave(false),
 	m_piYieldChange(NULL),
@@ -714,6 +715,10 @@ CvSpecialistInfo::~CvSpecialistInfo() {
 	SAFE_DELETE_ARRAY(m_piYieldChange);
 	SAFE_DELETE_ARRAY(m_piCommerceChange);
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
+}
+
+int CvSpecialistInfo::getHappinessChange() const {
+	return m_iHappinessChange;
 }
 
 bool CvSpecialistInfo::isSlave() const {
@@ -808,6 +813,7 @@ bool CvSpecialistInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piYieldChange, "Yields", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piCommerceChange, "Commerces", NUM_COMMERCE_TYPES);
 	pXML->GetChildXmlValByName(&m_iExperience, "iExperience");
+	pXML->GetChildXmlValByName(&m_iHappinessChange, "iHappinessChange");
 
 	pXML->SetListPairEnum(&m_piFlavorValue, "Flavors", GC.getNumFlavorTypes());
 
