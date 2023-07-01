@@ -1539,6 +1539,7 @@ public:
 	int getStarSignScaleChangePercent() const;
 	int getStarSignMitigateChangePercent() const;
 	int getCultureDefenceChange() const;
+	int getForeignTradeRouteModifier() const;
 
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1629,6 +1630,7 @@ protected:
 	int m_iStarSignScaleChangePercent;
 	int m_iStarSignMitigateChangePercent;
 	int m_iCultureDefenceChange;
+	int m_iForeignTradeRouteModifier;
 
 	bool m_bMilitaryFoodProduction;
 	int m_iUnhealthyPopulationModifier; // K-Mod

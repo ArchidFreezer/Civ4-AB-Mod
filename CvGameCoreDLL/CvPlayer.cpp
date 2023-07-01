@@ -525,6 +525,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iCultureDefenceChange = 0;
 	m_iCultureDefenceModifier = 0;
 	m_iFoundCityPopulationChange = 0;
+	m_iForeignTradeRouteModifier = 0;
 
 	m_uiStartTime = 0;
 
@@ -13861,6 +13862,7 @@ void CvPlayer::processCivics(CivicTypes eCivic, int iChange) {
 	changeStarSignMitigatePercent(kCivic.getStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kCivic.getStarSignScaleChangePercent() * iChange);
 	changeCultureDefenceChange(kCivic.getCultureDefenceChange() * iChange);
+	changeForeignTradeRouteModifier(kCivic.getForeignTradeRouteModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeYieldRateModifier(eYield, kCivic.getYieldModifier(eYield) * iChange);
@@ -13981,10 +13983,6 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iFreeMilitaryUnitsPopulationPercent);
 	pStream->Read(&m_iGoldPerUnit);
 	pStream->Read(&m_iGoldPerMilitaryUnit);
-	if (uiFlag < 3) {
-		m_iGoldPerUnit *= 100;
-		m_iGoldPerMilitaryUnit *= 100;
-	}
 	pStream->Read(&m_iExtraUnitCost);
 	pStream->Read(&m_iNumMilitaryUnits);
 	pStream->Read(&m_iHappyPerMilitaryUnit);
@@ -14052,6 +14050,8 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iCultureDefenceChange);
 	pStream->Read(&m_iCultureDefenceModifier);
 	pStream->Read(&m_iFoundCityPopulationChange);
+	pStream->Read(&m_iChoosingFreeTechCount);
+	pStream->Read(&m_iForeignTradeRouteModifier);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14063,14 +14063,6 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bFoundedFirstCity);
 	pStream->Read(&m_bStrike);
 	pStream->Read(&m_bStarSignProcessed);
-
-	if (uiFlag >= 4)
-		pStream->Read(&m_iChoosingFreeTechCount);
-	else if (uiFlag >= 2) {
-		bool bFreeTech = false;
-		pStream->Read(&bFreeTech);
-		m_iChoosingFreeTechCount = bFreeTech ? 1 : 0;
-	}
 
 	pStream->Read((int*)&m_eID);
 	pStream->Read((int*)&m_ePersonalityType);
@@ -14546,6 +14538,8 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iCultureDefenceChange);
 	pStream->Write(m_iCultureDefenceModifier);
 	pStream->Write(m_iFoundCityPopulationChange);
+	pStream->Write(m_iChoosingFreeTechCount);
+	pStream->Write(m_iForeignTradeRouteModifier);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -14557,7 +14551,6 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bFoundedFirstCity);
 	pStream->Write(m_bStrike);
 	pStream->Write(m_bStarSignProcessed);
-	pStream->Write(m_iChoosingFreeTechCount); // K-Mod (bool for 2 <= uiFlag < 4. then int.)
 
 	pStream->Write(m_eID);
 	pStream->Write(m_ePersonalityType);
@@ -20127,3 +20120,10 @@ void CvPlayer::changeFoundCityPopulationChange(int iChange) {
 	m_iFoundCityPopulationChange += iChange;
 }
 
+int CvPlayer::getForeignTradeRouteModifier() const {
+	return m_iForeignTradeRouteModifier;
+}
+
+void CvPlayer::changeForeignTradeRouteModifier(int iChange) {
+	m_iForeignTradeRouteModifier += iChange;
+}

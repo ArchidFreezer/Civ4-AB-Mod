@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getForeignTradeRouteModifier() const;
+	void changeForeignTradeRouteModifier(int iChange);
+
 	int getFoundCityPopulationChange() const;
 	void changeFoundCityPopulationChange(int iChange);
 
@@ -1311,6 +1314,7 @@ protected:
 	int m_iCultureDefenceChange;
 	int m_iCultureDefenceModifier;
 	int m_iFoundCityPopulationChange;
+	int m_iForeignTradeRouteModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 
