@@ -1574,8 +1574,8 @@ public:
 	int* getCommerceModifierArray() const;
 	int getCapitalCommerceModifier(int i) const;				// Exposed to Python
 	int* getCapitalCommerceModifierArray() const;
-	int getSpecialistExtraCommerce(int i) const;				// Exposed to Python
-	int* getSpecialistExtraCommerceArray() const;
+	int getSpecialistCommerceChange(int i) const;				// Exposed to Python
+	int* getSpecialistCommerceChangesArray() const;
 	int getBuildingHappinessChanges(int i) const;				// Exposed to Python
 	int getBuildingHealthChanges(int i) const;				// Exposed to Python
 	int getFeatureHappinessChanges(int i) const;				// Exposed to Python
@@ -1666,7 +1666,7 @@ protected:
 	int* m_piTradeYieldModifier;
 	int* m_piCommerceModifier;
 	int* m_piCapitalCommerceModifier;
-	int* m_piSpecialistExtraCommerce;
+	int* m_piSpecialistCommerceChanges;
 	int* m_piFreeSpecialistCount;
 	int* m_paiBuildingHappinessChanges;
 	int* m_paiBuildingHealthChanges;

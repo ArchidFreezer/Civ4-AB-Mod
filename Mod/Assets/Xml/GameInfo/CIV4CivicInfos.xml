@@ -41,11 +41,11 @@
 			<TechPrereq>TECH_CONSTITUTION</TechPrereq>
 			<Upkeep>UPKEEP_HIGH</Upkeep>
 			<iLargestCityHappiness>3</iLargestCityHappiness>
-			<SpecialistExtraCommerces>
+			<SpecialistCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
-			</SpecialistExtraCommerces>
+			</SpecialistCommerceChanges>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_PRIME_MINISTER</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo> <!-- Government - Police State -->
