@@ -941,8 +941,8 @@
 		<BuildingClassInfo> <!-- Mount Fuji -->
 			<Type>BUILDINGCLASS_FUJI</Type>
 			<Description>TXT_KEY_BUILDING_FUJI</Description>
-			<bMonument>1</bMonument>
 			<iCategory>4</iCategory>
+			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_FUJI</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Mount Kilimanjaro -->
