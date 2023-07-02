@@ -42,6 +42,10 @@ public:
 	CultureLevelTypes getFoundCityCultureLevel() const;
 	void changeFoundCityCultureLevels(CultureLevelTypes eCultureLevel, bool bAdd);
 
+	int getBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce) const;
+	void setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
+	void changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
+
 	int getForeignTradeRouteModifier() const;
 	void changeForeignTradeRouteModifier(int iChange);
 	bool isNoCapitalUnhappiness() const;
@@ -1438,6 +1442,7 @@ protected:
 	std::vector<BuildingTypes> m_civicDisabledBuildings;
 	std::vector<UnitTypes> m_civicDisabledUnits;
 	std::vector<CultureLevelTypes> m_foundCityCultureLevels;
+	std::vector<BuildingCommerceChange> m_buildingClassCommerceChanges;
 
 	CivicTypes* m_paeCivics;
 
