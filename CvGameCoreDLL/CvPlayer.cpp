@@ -538,6 +538,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iAttitudeChange = 0;
 	m_iGoldPercentDividendPerTurn = 0;
 	m_iOccupationTimeChange = 0;
+	m_iGoldenAgeGreatGeneralChange = 0;
 
 	m_uiStartTime = 0;
 
@@ -2502,6 +2503,7 @@ void CvPlayer::doTurn() {
 	}
 
 	if (getGoldenAgeTurns() > 0) {
+		changeCombatExperience(getGoldenAgeGreatGeneralChange());
 		changeGoldenAgeTurns(-1);
 	}
 
@@ -14109,6 +14111,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iAttitudeChange);
 	pStream->Read(&m_iGoldPercentDividendPerTurn);
 	pStream->Read(&m_iOccupationTimeChange);
+	pStream->Read(&m_iGoldenAgeGreatGeneralChange);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14628,6 +14631,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iAttitudeChange);
 	pStream->Write(m_iGoldPercentDividendPerTurn);
 	pStream->Write(m_iOccupationTimeChange);
+	pStream->Write(m_iGoldenAgeGreatGeneralChange);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19322,6 +19326,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeFoundCityPopulationChange(kTrait.getFoundCityPopulationChange() * iChange);
 	changeGoldPercentDividendPerTurn(kTrait.getGoldPercentDividendPerTurn() * iChange);
 	changeOccupationTimeChange(kTrait.getOccupationTimeChange() * iChange);
+	changeGoldenAgeGreatGeneralChange(kTrait.getGoldenAgeGreatGeneralChange() * iChange);
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
@@ -20412,4 +20417,12 @@ int CvPlayer::getOccupationTimeChange() const {
 
 void CvPlayer::changeOccupationTimeChange(int iChange) {
 	m_iOccupationTimeChange += iChange;
+}
+
+int CvPlayer::getGoldenAgeGreatGeneralChange() const {
+	return m_iGoldenAgeGreatGeneralChange;
+}
+
+void CvPlayer::changeGoldenAgeGreatGeneralChange(int iChange) {
+	m_iGoldenAgeGreatGeneralChange += iChange;
 }
