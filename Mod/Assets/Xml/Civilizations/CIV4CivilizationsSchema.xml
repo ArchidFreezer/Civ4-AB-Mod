@@ -328,6 +328,13 @@
 	<ElementType name="BaseYieldFromUnits" content="eltOnly">
 		<element type="iYield" minOccurs="0"/>
 	</ElementType>
+	<ElementType name="BuildingClassYieldChange" content="eltOnly">
+		<element type="BuildingClassType"/>
+		<element type="YieldChanges"/>
+	</ElementType>
+	<ElementType name="BuildingClassYieldChanges" content="eltOnly">
+		<element type="BuildingClassYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BaseCommerceFromUnits" content="eltOnly">
 		<element type="iCommerce" minOccurs="0"/>
 	</ElementType>
@@ -387,6 +394,7 @@
 		<element type="CommerceChanges" minOccurs="0"/>
 		<element type="CommerceModifiers" minOccurs="0"/>
 		<element type="BuildingClassCommerceChanges" minOccurs="0"/>
+		<element type="BuildingClassYieldChanges" minOccurs="0"/>
 		<element type="BaseCommerceFromUnits" minOccurs="0"/>
 		<element type="CommerceFromUnitModifiers" minOccurs="0"/>
 		<element type="FreePromotions" minOccurs="0"/>
