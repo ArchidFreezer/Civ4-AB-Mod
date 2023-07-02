@@ -39,6 +39,9 @@ public:
 	int getAttitudeChange() const;
 	void changeAttitudeChange(int iChange);
 
+	CultureLevelTypes getFoundCityCultureLevel() const;
+	void changeFoundCityCultureLevels(CultureLevelTypes eCultureLevel, bool bAdd);
+
 	int getForeignTradeRouteModifier() const;
 	void changeForeignTradeRouteModifier(int iChange);
 	bool isNoCapitalUnhappiness() const;
@@ -1434,6 +1437,7 @@ protected:
 	std::vector<EventTriggerTypes> m_triggersFired;
 	std::vector<BuildingTypes> m_civicDisabledBuildings;
 	std::vector<UnitTypes> m_civicDisabledUnits;
+	std::vector<CultureLevelTypes> m_foundCityCultureLevels;
 
 	CivicTypes* m_paeCivics;
 
