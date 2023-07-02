@@ -15408,6 +15408,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iStarSignScaleChangePercent(0),
 	m_iAttitudeChange(0),
 	m_iFoundCityPopulationChange(0),
+	m_iGoldPercentDividendPerTurn(0),
 	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
@@ -15452,6 +15453,10 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassCommerceChange);
 	}
 
+}
+
+int CvTraitInfo::getGoldPercentDividendPerTurn() const {
+	return m_iGoldPercentDividendPerTurn;
 }
 
 int CvTraitInfo::getSeaPlotYieldChange(int i) const {
@@ -15651,6 +15656,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iAttitudeChange, "iAttitudeChange");
 	pXML->GetChildXmlValByName(&m_iFoundCityPopulationChange, "iFoundCityPopulationChange");
+	pXML->GetChildXmlValByName(&m_iGoldPercentDividendPerTurn, "iGoldPercentDividendPerTurn");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);

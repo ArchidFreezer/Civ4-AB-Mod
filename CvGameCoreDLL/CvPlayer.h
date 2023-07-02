@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getGoldPercentDividendPerTurn() const;
+	void changeGoldPercentDividendPerTurn(int iChange);
+
 	int getAttitudeChange() const;
 	void changeAttitudeChange(int iChange);
 
@@ -1352,6 +1355,7 @@ protected:
 	int m_iDistantUnitSupplyCostModifier;
 	int m_iUpgradeAnywhereCount;
 	int m_iAttitudeChange;
+	int m_iGoldPercentDividendPerTurn;
 
 	uint m_uiStartTime;  // XXX save these?
 

@@ -536,6 +536,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iDistantUnitSupplyCostModifier = 0;
 	m_iUpgradeAnywhereCount = 0;
 	m_iAttitudeChange = 0;
+	m_iGoldPercentDividendPerTurn = 0;
 
 	m_uiStartTime = 0;
 
@@ -11215,6 +11216,11 @@ void CvPlayer::doGold() {
 
 	int iGoldChange = calculateGoldRate();
 
+	if (getGoldPercentDividendPerTurn() != 0) {
+		iGoldChange = iGoldChange * (100 + getGoldPercentDividendPerTurn());
+		iGoldChange /= 100;
+	}
+
 	FAssert(isHuman() || isBarbarian() || ((getGold() + iGoldChange) >= 0) || isAnarchy());
 
 	changeGold(iGoldChange);
@@ -14095,6 +14101,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iDistantUnitSupplyCostModifier);
 	pStream->Read(&m_iUpgradeAnywhereCount);
 	pStream->Read(&m_iAttitudeChange);
+	pStream->Read(&m_iGoldPercentDividendPerTurn);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14612,6 +14619,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iDistantUnitSupplyCostModifier);
 	pStream->Write(m_iUpgradeAnywhereCount);
 	pStream->Write(m_iAttitudeChange);
+	pStream->Write(m_iGoldPercentDividendPerTurn);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19304,6 +19312,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeAttitudeChange(kTrait.getAttitudeChange() * iChange);
 	changeFoundCityCultureLevels(kTrait.getFoundCityCultureLevel(), bNewValue);
 	changeFoundCityPopulationChange(kTrait.getFoundCityPopulationChange() * iChange);
+	changeGoldPercentDividendPerTurn(kTrait.getGoldPercentDividendPerTurn() * iChange);
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
@@ -20378,4 +20387,12 @@ void CvPlayer::setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass,
 
 void CvPlayer::changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange) {
 	setBuildingClassCommerceChange(eBuildingClass, eCommerce, getBuildingClassCommerceChange(eBuildingClass, eCommerce) + iChange);
+}
+
+int CvPlayer::getGoldPercentDividendPerTurn() const {
+	return m_iGoldPercentDividendPerTurn;
+}
+
+void CvPlayer::changeGoldPercentDividendPerTurn(int iChange) {
+	m_iGoldPercentDividendPerTurn += iChange;
 }

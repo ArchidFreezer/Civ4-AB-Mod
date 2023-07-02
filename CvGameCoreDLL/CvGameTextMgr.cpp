@@ -5120,6 +5120,11 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer& szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_FOUND_CITY_CULTURE_LEVEL", GC.getCultureLevelInfo(kTrait.getFoundCityCultureLevel()).getDescription()));
 		}
 
+		// Gold Interest Modifier
+		if (kTrait.getGoldPercentDividendPerTurn() != 0) {
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_GOLD_DIVIDEND", kTrait.getGoldPercentDividendPerTurn()));
+		}
+
 		// Wonder Production Effects
 		if ((kTrait.getMaxGlobalBuildingProductionModifier() != 0)
 			|| (kTrait.getMaxTeamBuildingProductionModifier() != 0)
