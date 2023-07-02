@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getAttitudeChange() const;
+	void changeAttitudeChange(int iChange);
+
 	int getForeignTradeRouteModifier() const;
 	void changeForeignTradeRouteModifier(int iChange);
 	bool isNoCapitalUnhappiness() const;
@@ -1341,6 +1344,7 @@ protected:
 	int m_iTaxRateAngerModifier;
 	int m_iDistantUnitSupplyCostModifier;
 	int m_iUpgradeAnywhereCount;
+	int m_iAttitudeChange;
 
 	uint m_uiStartTime;  // XXX save these?
 

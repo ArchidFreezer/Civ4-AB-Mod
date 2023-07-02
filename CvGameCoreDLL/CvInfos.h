@@ -4507,6 +4507,7 @@ public:
 	int getUnitRangeModifier() const;
 	int getStarSignScaleChangePercent() const;
 	int getStarSignMitigateChangePercent() const;
+	int getAttitudeChange() const;
 
 	bool isUnitRangeUnbound() const;
 	bool isUnitTerritoryUnbound() const;
@@ -4548,6 +4549,7 @@ protected:
 	int m_iUnitRangeModifier;
 	int m_iStarSignScaleChangePercent;
 	int m_iStarSignMitigateChangePercent;
+	int m_iAttitudeChange;
 
 	bool m_bUnitRangeUnbound;
 	bool m_bUnitTerritoryUnbound;

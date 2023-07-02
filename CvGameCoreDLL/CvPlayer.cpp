@@ -533,6 +533,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iTaxRateAngerModifier = 0;
 	m_iDistantUnitSupplyCostModifier = 0;
 	m_iUpgradeAnywhereCount = 0;
+	m_iAttitudeChange = 0;
 
 	m_uiStartTime = 0;
 
@@ -14082,6 +14083,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iTaxRateAngerModifier);
 	pStream->Read(&m_iDistantUnitSupplyCostModifier);
 	pStream->Read(&m_iUpgradeAnywhereCount);
+	pStream->Read(&m_iAttitudeChange);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14576,6 +14578,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iTaxRateAngerModifier);
 	pStream->Write(m_iDistantUnitSupplyCostModifier);
 	pStream->Write(m_iUpgradeAnywhereCount);
+	pStream->Write(m_iAttitudeChange);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19254,6 +19257,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeExtraRangeModifier(kTrait.getUnitRangeModifier() * iChange);
 	changeStarSignMitigatePercent(kTrait.getStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent() * iChange);
+	changeAttitudeChange(kTrait.getAttitudeChange() * iChange);
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
@@ -20247,4 +20251,12 @@ void CvPlayer::changeFreeSpecialistCount(SpecialistTypes eIndex, int iChange) {
 		}
 		AI_makeAssignWorkDirty();
 	}
+}
+
+int CvPlayer::getAttitudeChange() const {
+	return m_iAttitudeChange;
+}
+
+void CvPlayer::changeAttitudeChange(int iChange) {
+	m_iAttitudeChange += iChange;
 }
