@@ -15407,6 +15407,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iStarSignMitigateChangePercent(0),
 	m_iStarSignScaleChangePercent(0),
 	m_iAttitudeChange(0),
+	m_iFoundCityPopulationChange(0),
 	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
@@ -15440,6 +15441,10 @@ CvTraitInfo::~CvTraitInfo() {
 	SAFE_DELETE_ARRAY(m_paiCommerceFromUnitModifier);
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+}
+
+int CvTraitInfo::getFoundCityPopulationChange() const {
+	return m_iFoundCityPopulationChange;
 }
 
 CultureLevelTypes CvTraitInfo::getFoundCityCultureLevel() const {
@@ -15595,6 +15600,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
 	pXML->GetChildXmlValByName(&m_iAttitudeChange, "iAttitudeChange");
+	pXML->GetChildXmlValByName(&m_iFoundCityPopulationChange, "iFoundCityPopulationChange");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);

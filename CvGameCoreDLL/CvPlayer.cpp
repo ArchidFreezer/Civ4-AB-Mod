@@ -19285,6 +19285,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeStarSignScalePercent(kTrait.getStarSignScaleChangePercent() * iChange);
 	changeAttitudeChange(kTrait.getAttitudeChange() * iChange);
 	changeFoundCityCultureLevels(kTrait.getFoundCityCultureLevel(), bNewValue);
+	changeFoundCityPopulationChange(kTrait.getFoundCityPopulationChange() * iChange);
 
 	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
 		changeExtraBuildingHappiness(eBuilding, GC.getBuildingInfo(eBuilding).getHappinessTraits(eTrait) * iChange);
