@@ -55,6 +55,10 @@ public:
 	void setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
 	void changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange);
 
+	int getBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield) const;
+	void setBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield, int iNewValue);
+	void changeBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield, int iChange);
+
 	int getForeignTradeRouteModifier() const;
 	void changeForeignTradeRouteModifier(int iChange);
 	bool isNoCapitalUnhappiness() const;
@@ -1455,6 +1459,7 @@ protected:
 	std::vector<UnitTypes> m_civicDisabledUnits;
 	std::vector<CultureLevelTypes> m_foundCityCultureLevels;
 	std::vector<BuildingCommerceChange> m_buildingClassCommerceChanges;
+	std::vector<BuildingYieldChange> m_buildingClassYieldChanges;
 
 	CivicTypes* m_paeCivics;
 
