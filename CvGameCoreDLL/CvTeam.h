@@ -64,6 +64,7 @@ public:
 	void setHasNonAggression(TeamTypes eIndex, bool bNewValue);
 
 	void changeBuildingCommerceChange(BuildingTypes eBuilding, CommerceTypes eCommerce, int iChange);
+	void changeBuildingYieldChange(BuildingTypes eBuilding, YieldTypes eYield, int iChange);
 
 	void doTurn();
 
