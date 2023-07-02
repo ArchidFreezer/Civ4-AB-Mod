@@ -19334,6 +19334,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 		changeTradeYieldModifier(eYield, kTrait.getTradeYieldModifier(eYield) * iChange);
 		changeBaseYieldFromUnit(eYield, kTrait.getBaseYieldFromUnit(eYield) * iChange);
 		changeYieldFromUnitModifier(eYield, kTrait.getYieldFromUnitModifier(eYield) * iChange);
+		changeSeaPlotYield(eYield, kTrait.getSeaPlotYieldChange(eYield) * iChange);
 	}
 }
 
