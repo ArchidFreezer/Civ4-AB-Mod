@@ -4679,6 +4679,10 @@ void CvPlayer::found(int iX, int iY) {
 			}
 		}
 
+		for (CommerceTypes eCommerce = (CommerceTypes)0; eCommerce < NUM_COMMERCE_TYPES; eCommerce = (CommerceTypes)(eCommerce + 1)) {
+			pCity->changeBuildingCommerceChange(eBuildingClass, eCommerce, getBuildingClassCommerceChange(eBuildingClass, eCommerce));
+		}
+
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			pCity->changeBuildingYieldChange(eBuildingClass, eYield, getBuildingClassYieldChange(eBuildingClass, eYield));
 		}
@@ -20398,32 +20402,37 @@ int CvPlayer::getBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, 
 	return 0;
 }
 
-void CvPlayer::setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange) {
+void CvPlayer::setBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iNewValue) {
+	int iOldValue = getBuildingClassCommerceChange(eBuildingClass, eCommerce);
+	if (iOldValue == iNewValue) return;
+
+	bool bFound = false;
 	for (std::vector<BuildingCommerceChange>::iterator it = m_buildingClassCommerceChanges.begin(); it != m_buildingClassCommerceChanges.end(); ++it) {
 		if ((*it).eBuildingClass == eBuildingClass && (*it).eCommerce == eCommerce) {
-			if ((*it).iChange != iChange) {
-				if (iChange == 0) {
-					m_buildingClassCommerceChanges.erase(it);
-				} else {
-					(*it).iChange = iChange;
-				}
-
-				updateBuildingCommerce();
+			// We have a match either set the new value or delete the entry
+			bFound = true;
+			if (iNewValue == 0) {
+				m_buildingClassCommerceChanges.erase(it);
+			} else {
+				(*it).iChange = iNewValue;
 			}
-
-			return;
+			break;
 		}
 	}
 
-	if (0 != iChange) {
+	if (iNewValue != 0 && !bFound) {
 		BuildingCommerceChange kChange;
 		kChange.eBuildingClass = eBuildingClass;
 		kChange.eCommerce = eCommerce;
-		kChange.iChange = iChange;
+		kChange.iChange = iNewValue;
 		m_buildingClassCommerceChanges.push_back(kChange);
-
-		updateBuildingCommerce();
 	}
+
+	int iLoop;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop)) {
+		pLoopCity->changeBuildingCommerceChange(eBuildingClass, eCommerce, iNewValue - iOldValue);
+	}
+
 }
 
 void CvPlayer::changeBuildingClassCommerceChange(BuildingClassTypes eBuildingClass, CommerceTypes eCommerce, int iChange) {
