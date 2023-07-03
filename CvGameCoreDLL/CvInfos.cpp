@@ -15415,6 +15415,7 @@ CvTraitInfo::CvTraitInfo() :
 	m_iMaxCivicAnarchyTurns(0),
 	m_iMaxReligionAnarchyTurns(0),
 	m_iCityHealRateChange(0),
+	m_iGoldenAgeDurationModifier(0),
 	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
@@ -15467,6 +15468,10 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassYieldChange);
 	}
 
+}
+
+int CvTraitInfo::getGoldenAgeDurationModifier() const {
+	return m_iGoldenAgeDurationModifier;
 }
 
 int CvTraitInfo::getCityHealRateChange() const {
@@ -15732,6 +15737,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iUnitWithdrawalHealRate, "iUnitWithdrawalHealRate");
 	pXML->GetChildXmlValByName(&m_iWarWearinessModifier, "iWarWearinessModifier");
 	pXML->GetChildXmlValByName(&m_iCityHealRateChange, "iCityHealRateChange");
+	pXML->GetChildXmlValByName(&m_iGoldenAgeDurationModifier, "iGoldenAgeDurationModifier");
 	pXML->SetList(&m_paiExtraYieldThreshold, "ExtraYieldThresholds", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiTradeYieldModifier, "TradeYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_paiBaseYieldFromUnit, "BaseYieldFromUnits", NUM_YIELD_TYPES);
