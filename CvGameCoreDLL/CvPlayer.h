@@ -43,6 +43,10 @@ public:
 	void changeSettlerSpreadReligionCount(int iChange);
 	void changeSettlerBuildTempleCount(int iChange);
 
+	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
+	void changeBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
+	void setBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
+
 	int getCityHealRateChange() const;
 	void changeCityHealRateChange(int iChange);
 
@@ -1508,6 +1512,8 @@ protected:
 
 	std::vector< std::pair<int, PlayerVoteTypes> > m_aVote;
 	std::vector< std::pair<UnitClassTypes, int> > m_aUnitExtraCosts;
+
+	std::map<BuildingClassTypes, int> m_mBuildingClassProductionModifiers;
 
 	CvMessageQueue m_listGameMessages;
 	CvPopupQueue m_listPopups;

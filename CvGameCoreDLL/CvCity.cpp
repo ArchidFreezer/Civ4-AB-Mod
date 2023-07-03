@@ -2712,6 +2712,7 @@ int CvCity::getProductionModifier(BuildingTypes eBuilding) const {
 	if (eBuilding != NO_BUILDING) {
 		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 		iMultiplier += getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
+		iMultiplier += kPlayer.getBuildingClassProductionModifier((BuildingClassTypes)kBuilding.getBuildingClassType());
 
 		for (BonusTypes eBonus = (BonusTypes)0; eBonus < GC.getNumBonusInfos(); eBonus = (BonusTypes)(eBonus + 1)) {
 			if (hasBonus(eBonus)) {
