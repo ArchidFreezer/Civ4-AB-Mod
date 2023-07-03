@@ -569,4 +569,8 @@
 		<Tag>TXT_KEY_PROMOTION_BUILD_LEAVE_FEATURE_TEXT</Tag>
 		<English>[ICON_BULLET]%s1_build in %s2_feature</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_CARRY_RELIGION</Tag>
+		<English>[ICON_BULLET]Unit Carries State [ICON_RELIGION][NEWLINE]</English>
+	</TEXT>
 </Civ4GameText>
