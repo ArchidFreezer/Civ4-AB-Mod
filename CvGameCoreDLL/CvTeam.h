@@ -30,6 +30,8 @@ public:
 	void shareCounters(TeamTypes eTeam);
 	void processBuilding(BuildingTypes eBuilding, int iChange);
 
+	void obsoletePromotions(TechTypes eObsoleteTech);
+
 	bool isStarSignImpacted() const;
 	void doStarSignChange();
 	void changeStarSignImpactedCount(int iChange);

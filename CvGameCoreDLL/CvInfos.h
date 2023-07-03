@@ -563,6 +563,8 @@ public:
 	int getNumBuildLeaveFeatures() const;
 	int getNumSeeInvisibleTypes() const;
 
+	TechTypes getObsoleteTech() const;
+
 	bool isLeader() const;				// Exposed to Python
 	bool isBlitz() const;				// Exposed to Python
 	bool isAmphib() const;				// Exposed to Python
@@ -674,6 +676,8 @@ protected:
 	int m_iSpyBuyTechChange;
 	int m_iSpyStealTreasuryChange;
 	int m_iWorkRateModifier;
+
+	TechTypes m_eObsoleteTech;
 
 	bool m_bLeader;
 	bool m_bBlitz;

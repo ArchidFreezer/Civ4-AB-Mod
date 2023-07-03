@@ -9837,6 +9837,12 @@ bool CvUnit::canAcquirePromotion(PromotionTypes ePromotion) const {
 		}
 	}
 
+	if (kPromotion.getObsoleteTech() != NO_TECH) {
+		if (GET_TEAM(getTeam()).isHasTech(kPromotion.getObsoleteTech())) {
+			return false;
+		}
+	}
+
 	if (kPromotion.getStateReligionPrereq() != NO_RELIGION) {
 		if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != kPromotion.getStateReligionPrereq()) {
 			return false;
