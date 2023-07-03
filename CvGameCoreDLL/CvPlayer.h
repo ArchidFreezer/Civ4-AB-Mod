@@ -36,6 +36,13 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getMissionarySurvivalChance() const;
+	bool isSettlerSpreadReligion() const;
+	bool isSettlerBuildTemple() const;
+	void changeMissionarySurvivalChance(int iChange);
+	void changeSettlerSpreadReligionCount(int iChange);
+	void changeSettlerBuildTempleCount(int iChange);
+
 	int getCityHealRateChange() const;
 	void changeCityHealRateChange(int iChange);
 
@@ -1378,6 +1385,9 @@ protected:
 	int m_iMaxCivicAnarchyTurns;
 	int m_iMaxReligionAnarchyTurns;
 	int m_iCityHealRateChange;
+	int m_iMissionarySurvivalChance;
+	int m_iSettlerSpreadReligionCount;
+	int m_iSettlerBuildTempleCount;
 
 	uint m_uiStartTime;  // XXX save these?
 
