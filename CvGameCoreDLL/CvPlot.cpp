@@ -4394,6 +4394,7 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue) {
 
 				if (pLoopCity != NULL) {
 					pLoopCity->updateFeatureHappiness();
+					pLoopCity->updateImprovementHealth();
 				}
 			}
 		}

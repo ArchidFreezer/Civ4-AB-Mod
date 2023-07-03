@@ -3162,6 +3162,7 @@ public:
 	int getAnimalSpawnRatePercentage() const;
 	int getAppearanceProbability() const;
 	int getBarbarianSpawnRatePercentage() const;
+	int getHealthChangePartPercent() const;
 
 	bool isActsAsCity() const;				// Exposed to Python
 	bool isHillsMakesValid() const;				// Exposed to Python
@@ -3243,6 +3244,7 @@ protected:
 	int m_iAppearanceProbability;
 	int m_iAnimalSpawnRatePercentage;
 	int m_iBarbarianSpawnRatePercentage;
+	int m_iHealthChangePartPercent;
 
 	bool m_bActsAsCity;
 	bool m_bHillsMakesValid;

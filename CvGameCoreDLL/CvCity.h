@@ -32,6 +32,10 @@ public:
 	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, int iX = 0, int iY = 0, bool bConstructorCall = false);
 	void setupGraphical();
 
+	int getImprovementBadHealth() const;
+	int getImprovementGoodHealth() const;
+	void updateImprovementHealth();
+
 	int getSpecialistHappiness() const;
 	int getSpecialistGoodHappiness() const;
 	int getSpecialistBadHappiness() const;
@@ -1157,6 +1161,8 @@ protected:
 	int m_iWarWearinessTimer;
 	int m_iEventAnger;
 	int m_iSpecialistHappiness;
+	int m_iImprovementBadHealth;
+	int m_iImprovementGoodHealth;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;
