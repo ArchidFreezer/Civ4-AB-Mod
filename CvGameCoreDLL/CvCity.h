@@ -47,6 +47,10 @@ public:
 	void changeBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
 	void setBuildingClassProductionModifier(BuildingClassTypes eIndex, int iChange);
 
+	int getUnitCombatProductionModifier(UnitCombatTypes eUnitCombat) const;
+	void changeUnitCombatProductionModifier(UnitCombatTypes eIndex, int iChange);
+	void setUnitCombatProductionModifier(UnitCombatTypes eIndex, int iChange);
+
 	int getUnitHomeTurns(int iUnitID) const;
 	void doUnitHomeTurns();
 	void incrementUnitHomeTurn(int iUnitID);
@@ -1256,6 +1260,7 @@ protected:
 	BuildingChangeArray m_aBuildingHealthChange;
 
 	std::map<BuildingClassTypes, int> m_mBuildingClassProductionModifiers;
+	std::map<UnitCombatTypes, int> m_mUnitCombatProductionModifiers;
 	std::map<int, int> m_mUnitHomeTurns;
 
 	// CACHE: cache frequently used values

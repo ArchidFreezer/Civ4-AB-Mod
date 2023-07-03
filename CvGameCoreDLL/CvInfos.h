@@ -1995,6 +1995,7 @@ public:
 	int getPrereqNotBuildingClass(int i) const;
 	int getPrereqWorldView(int i) const;
 	int getBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
+	int getUnitCombatProductionModifier(UnitCombatTypes eBuildingClass) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -2249,6 +2250,7 @@ protected:
 
 	// Maps
 	std::map<int, int> m_mBuildingClassProductionModifiers;
+	std::map<int, int> m_mUnitCombatProductionModifiers;
 
 };
 
