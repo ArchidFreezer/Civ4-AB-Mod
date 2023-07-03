@@ -15393,7 +15393,6 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML) {
 CvTraitInfo::CvTraitInfo() :
 	m_iHealth(0),
 	m_iHappiness(0),
-	m_iMaxAnarchy(0),
 	m_iUpkeepModifier(0),
 	m_iLevelExperienceModifier(0),
 	m_iGreatPeopleRateModifier(0),
@@ -15413,6 +15412,8 @@ CvTraitInfo::CvTraitInfo() :
 	m_iGoldenAgeGreatGeneralChange(0),
 	m_iUnitWithdrawalHealRate(0),
 	m_iWarWearinessModifier(0),
+	m_iMaxCivicAnarchyTurns(0),
+	m_iMaxReligionAnarchyTurns(0),
 	m_eFoundCityCultureLevel(NO_CULTURELEVEL),
 	m_bUnitRangeUnbound(false),
 	m_bUnitTerritoryUnbound(false),
@@ -15465,6 +15466,14 @@ CvTraitInfo::~CvTraitInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiBuildingClassYieldChange);
 	}
 
+}
+
+int CvTraitInfo::getMaxCivicAnarchyTurns() const {
+	return m_iMaxCivicAnarchyTurns;
+}
+
+int CvTraitInfo::getMaxReligionAnarchyTurns() const {
+	return m_iMaxReligionAnarchyTurns;
 }
 
 int CvTraitInfo::getWarWearinessModifier() const {
@@ -15617,10 +15626,6 @@ int CvTraitInfo::getHappiness() const {
 	return m_iHappiness;
 }
 
-int CvTraitInfo::getMaxAnarchy() const {
-	return m_iMaxAnarchy;
-}
-
 int CvTraitInfo::getUpkeepModifier() const {
 	return m_iUpkeepModifier;
 }
@@ -15700,7 +15705,8 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iStarSignScaleChangePercent, "iStarSignScaleChangePercent");
 	pXML->GetChildXmlValByName(&m_iHealth, "iHealth");
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");
-	pXML->GetChildXmlValByName(&m_iMaxAnarchy, "iMaxAnarchy", -1);
+	pXML->GetChildXmlValByName(&m_iMaxCivicAnarchyTurns, "iMaxCivicAnarchyTurns", -1);
+	pXML->GetChildXmlValByName(&m_iMaxReligionAnarchyTurns, "iMaxReligionAnarchyTurns", -1);
 	pXML->GetChildXmlValByName(&m_iUpkeepModifier, "iUpkeepModifier");
 	pXML->GetChildXmlValByName(&m_iLevelExperienceModifier, "iLevelExperienceModifier");
 	pXML->GetChildXmlValByName(&m_iGreatPeopleRateModifier, "iGreatPeopleRateModifier");

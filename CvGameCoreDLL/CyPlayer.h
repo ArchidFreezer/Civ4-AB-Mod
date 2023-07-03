@@ -245,7 +245,6 @@ public:
 	bool isAnarchy();
 	void changeAnarchyTurns(int iChange);
 	int getStrikeTurns();
-	int getMaxAnarchyTurns();
 	int getAnarchyModifier();
 	int getGoldenAgeModifier();
 	int getHurryModifier();

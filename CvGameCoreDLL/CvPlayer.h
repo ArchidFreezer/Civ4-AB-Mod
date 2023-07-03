@@ -36,6 +36,10 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getMaxCivicAnarchyTurns() const;
+	int getMaxReligionAnarchyTurns() const;
+	void updateMaxAnarchyTurns();
+
 	int getUnitWithdrawalHealRate() const;
 	void changeUnitWithdrawalHealRate(int iChange);
 
@@ -517,9 +521,6 @@ public:
 
 	int getStrikeTurns() const;																																						// Exposed to Python
 	void changeStrikeTurns(int iChange);
-
-	int getMaxAnarchyTurns() const;																																				// Exposed to Python 
-	void updateMaxAnarchyTurns();
 
 	int getAnarchyModifier() const;																																				// Exposed to Python 
 	void changeAnarchyModifier(int iChange);
@@ -1260,7 +1261,6 @@ protected:
 	int m_iNumUnitGoldenAges;
 	int m_iStrikeTurns;
 	int m_iAnarchyTurns;
-	int m_iMaxAnarchyTurns;
 	int m_iAnarchyModifier;
 	int m_iGoldenAgeModifier;
 	int m_iGlobalHurryModifier;
@@ -1372,6 +1372,8 @@ protected:
 	int m_iOccupationTimeChange;
 	int m_iGoldenAgeGreatGeneralChange;
 	int m_iUnitWithdrawalHealRate;
+	int m_iMaxCivicAnarchyTurns;
+	int m_iMaxReligionAnarchyTurns;
 
 	uint m_uiStartTime;  // XXX save these?
 
