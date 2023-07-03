@@ -540,6 +540,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iGoldPercentDividendPerTurn = 0;
 	m_iOccupationTimeChange = 0;
 	m_iGoldenAgeGreatGeneralChange = 0;
+	m_iUnitWithdrawalHealRate = 0;
 
 	m_uiStartTime = 0;
 
@@ -14122,6 +14123,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iGoldPercentDividendPerTurn);
 	pStream->Read(&m_iOccupationTimeChange);
 	pStream->Read(&m_iGoldenAgeGreatGeneralChange);
+	pStream->Read(&m_iUnitWithdrawalHealRate);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14653,6 +14655,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iGoldPercentDividendPerTurn);
 	pStream->Write(m_iOccupationTimeChange);
 	pStream->Write(m_iGoldenAgeGreatGeneralChange);
+	pStream->Write(m_iUnitWithdrawalHealRate);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -19353,6 +19356,7 @@ void CvPlayer::setHasTrait(TraitTypes eTrait, bool bNewValue) {
 	changeGoldPercentDividendPerTurn(kTrait.getGoldPercentDividendPerTurn() * iChange);
 	changeOccupationTimeChange(kTrait.getOccupationTimeChange() * iChange);
 	changeGoldenAgeGreatGeneralChange(kTrait.getGoldenAgeGreatGeneralChange() * iChange);
+	changeUnitWithdrawalHealRate(kTrait.getUnitWithdrawalHealRate() * iChange);
 
 	for (BuildingClassTypes eBuildingClass = (BuildingClassTypes)0; eBuildingClass < GC.getNumBuildingClassInfos(); eBuildingClass = (BuildingClassTypes)(eBuildingClass + 1)) {
 		if (kTrait.isAnyBuildingClassCommerceChange(eBuildingClass)) {
@@ -20509,3 +20513,12 @@ void CvPlayer::setBuildingClassYieldChange(BuildingClassTypes eBuildingClass, Yi
 void CvPlayer::changeBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYield, int iChange) {
 	setBuildingClassYieldChange(eBuildingClass, eYield, getBuildingClassYieldChange(eBuildingClass, eYield) + iChange);
 }
+
+int CvPlayer::getUnitWithdrawalHealRate() const {
+	return m_iUnitWithdrawalHealRate;
+}
+
+void CvPlayer::changeUnitWithdrawalHealRate(int iChange) {
+	m_iUnitWithdrawalHealRate += iChange;
+}
+

@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getUnitWithdrawalHealRate() const;
+	void changeUnitWithdrawalHealRate(int iChange);
+
 	int getGoldenAgeGreatGeneralChange() const;
 	void changeGoldenAgeGreatGeneralChange(int iChange);
 
@@ -1368,6 +1371,7 @@ protected:
 	int m_iGoldPercentDividendPerTurn;
 	int m_iOccupationTimeChange;
 	int m_iGoldenAgeGreatGeneralChange;
+	int m_iUnitWithdrawalHealRate;
 
 	uint m_uiStartTime;  // XXX save these?
 

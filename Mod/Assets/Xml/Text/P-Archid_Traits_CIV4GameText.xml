@@ -137,4 +137,8 @@
 		<Tag>TXT_KEY_TRAIT_GOLDEN_AGE_GREAT_GENERAL_CHANGE</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%d1 Great General Points during Golden Age</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_UNIT_WITHDRAW_HEAL</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Heal %d1% on Combat Withdrawal</English>
+	</TEXT>
 </Civ4GameText>
