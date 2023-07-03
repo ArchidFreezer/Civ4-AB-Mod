@@ -6332,8 +6332,6 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
-	int iNumSibs = 0;				// the number of siblings the current xml node has
-
 	pXML->GetChildXmlValByName(szTextVal, "CivicOptionType");
 	m_iCivicOptionType = pXML->FindInInfoClass(szTextVal);
 
