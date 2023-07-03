@@ -12462,6 +12462,8 @@ CvFeatureInfo::CvFeatureInfo() :
 	m_iUniqueSize(0),
 	m_iMaxLatitude(0),
 	m_iMinLatitude(0),
+	m_iMinAdjacentWaterSize(0),
+	m_iMaxAdjacentWaterSize(0),
 	m_bUnique(false),
 	m_bNoCoast(false),
 	m_bNoRiver(false),
@@ -12500,6 +12502,14 @@ CvFeatureInfo::~CvFeatureInfo() {
 
 const char* CvFeatureInfo::getMovieArtDef() const {
 	return m_szMovieArtDef;
+}
+
+int CvFeatureInfo::getMaxAdjacentWaterSize() const {
+	return m_iMaxAdjacentWaterSize;
+}
+
+int CvFeatureInfo::getMinAdjacentWaterSize() const {
+	return m_iMinAdjacentWaterSize;
 }
 
 int CvFeatureInfo::getMaxLatitude() const {
@@ -12718,6 +12728,8 @@ bool CvFeatureInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAppearanceProbability, "iAppearance");
 	pXML->GetChildXmlValByName(&m_iDisappearanceProbability, "iDisappearance");
 	pXML->GetChildXmlValByName(&m_iGrowthProbability, "iGrowth");
+	pXML->GetChildXmlValByName(&m_iMinAdjacentWaterSize, "iMinAdjacentWaterSize");
+	pXML->GetChildXmlValByName(&m_iMaxAdjacentWaterSize, "iMaxAdjacentWaterSize", MAX_INT);
 	pXML->GetChildXmlValByName(&m_bNoCoast, "bNoCoast");
 	pXML->GetChildXmlValByName(&m_bNoRiver, "bNoRiver");
 	pXML->GetChildXmlValByName(&m_bNoAdjacent, "bNoAdjacent");

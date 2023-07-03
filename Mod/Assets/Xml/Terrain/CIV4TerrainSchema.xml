@@ -137,6 +137,8 @@
 	<ElementType name="bUnique" content="textOnly" dt:type="boolean"/>
 	<ElementType name="MovieDefineTag" content="textOnly"/>
 	<ElementType name="iUniqueSize" content="textOnly" dt:type="int"/>
+	<ElementType name="iMinAdjacentWaterSize" content="textOnly" dt:type="int"/>
+	<ElementType name="iMaxAdjacentWaterSize" content="textOnly" dt:type="int"/>
 	<ElementType name="FeatureInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -158,6 +160,8 @@
 		<element type="iAppearance" minOccurs="0"/>
 		<element type="iDisappearance" minOccurs="0"/>
 		<element type="iGrowth" minOccurs="0"/>
+		<element type="iMinAdjacentWaterSize" minOccurs="0"/>
+		<element type="iMaxAdjacentWaterSize" minOccurs="0"/> <!-- default: MAX_INT -->
 		<element type="iTurnDamage" minOccurs="0"/>
 		<element type="iWarmingDefense" minOccurs="0"/>
 		<element type="bNoCoast" minOccurs="0"/>

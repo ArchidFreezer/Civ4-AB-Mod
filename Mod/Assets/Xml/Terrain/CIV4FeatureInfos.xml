@@ -635,7 +635,8 @@
 			<bUnique>1</bUnique>
 			<iMovement>2</iMovement>
 			<iSeeThrough>1</iSeeThrough>
-			<bNoCoast>1</bNoCoast>
+			<iMinAdjacentWaterSize>1</iMinAdjacentWaterSize>
+			<iMaxAdjacentWaterSize>4</iMaxAdjacentWaterSize>
 			<bRequiresFlatlands>1</bRequiresFlatlands>
 			<bImpassable>1</bImpassable>
 			<bNoCity>1</bNoCity>

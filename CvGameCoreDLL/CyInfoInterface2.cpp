@@ -390,6 +390,7 @@ void CyInfoPythonInterface2() {
 		.def("getUniqueSize", &CvFeatureInfo::getUniqueSize, "int ()")
 		.def("getMaxLatitude", &CvFeatureInfo::getMaxLatitude, "int ()")
 		.def("getMinLatitude", &CvFeatureInfo::getMinLatitude, "int ()")
+		.def("getMinAdjacentWaterSize", &CvFeatureInfo::getMinAdjacentWaterSize, "int ()")
 
 		.def("isNoCoast", &CvFeatureInfo::isNoCoast, "bool ()")
 		.def("isNoRiver", &CvFeatureInfo::isNoRiver, "bool ()")

@@ -991,7 +991,7 @@ bool CvPlot::isAdjacentToLand() const {
 }
 
 
-bool CvPlot::isCoastalLand(int iMinWaterSize) const {
+bool CvPlot::isCoastalLand(int iMinWaterSize, int iMaxWaterSize) const {
 	PROFILE_FUNC();
 
 	if (isWater()) {
@@ -1003,7 +1003,8 @@ bool CvPlot::isCoastalLand(int iMinWaterSize) const {
 
 		if (pAdjacentPlot != NULL) {
 			if (pAdjacentPlot->isWater()) {
-				if (pAdjacentPlot->area()->getNumTiles() >= iMinWaterSize) {
+				int iNumWaterTiles = pAdjacentPlot->area()->getNumTiles();
+				if (iNumWaterTiles >= iMinWaterSize && iNumWaterTiles <= iMaxWaterSize) {
 					return true;
 				}
 			}
@@ -2874,6 +2875,10 @@ bool CvPlot::canHaveFeature(FeatureTypes eFeature, bool bIgnoreLatitude) const {
 	}
 
 	if (kFeature.isNoCoast() && isCoastalLand()) {
+		return false;
+	}
+
+	if ((kFeature.getMinAdjacentWaterSize() > 0 || kFeature.getMaxAdjacentWaterSize() < MAX_INT) && !isCoastalLand(kFeature.getMinAdjacentWaterSize(), kFeature.getMaxAdjacentWaterSize())) {
 		return false;
 	}
 

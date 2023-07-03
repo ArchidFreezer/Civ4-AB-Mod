@@ -3452,6 +3452,8 @@ public:
 	int getUniqueSize() const;
 	int getMaxLatitude() const;
 	int getMinLatitude() const;
+	int getMinAdjacentWaterSize() const;
+	int getMaxAdjacentWaterSize() const;
 
 	bool isNoCoast() const;						// Exposed to Python
 	bool isNoRiver() const;						// Exposed to Python
@@ -3511,6 +3513,8 @@ protected:
 	int m_iUniqueSize;
 	int m_iMaxLatitude;
 	int m_iMinLatitude;
+	int m_iMinAdjacentWaterSize;
+	int m_iMaxAdjacentWaterSize;
 
 	bool m_bNoCoast;
 	bool m_bNoRiver;
