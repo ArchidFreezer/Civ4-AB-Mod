@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getCityHealRateChange() const;
+	void changeCityHealRateChange(int iChange);
+
 	int getMaxCivicAnarchyTurns() const;
 	int getMaxReligionAnarchyTurns() const;
 	void updateMaxAnarchyTurns();
@@ -1374,6 +1377,7 @@ protected:
 	int m_iUnitWithdrawalHealRate;
 	int m_iMaxCivicAnarchyTurns;
 	int m_iMaxReligionAnarchyTurns;
+	int m_iCityHealRateChange;
 
 	uint m_uiStartTime;  // XXX save these?
 

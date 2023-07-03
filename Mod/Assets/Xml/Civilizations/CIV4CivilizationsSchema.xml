@@ -341,6 +341,7 @@
 		<element type="BuildingClassYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="iUnitWithdrawalHealRate" content="textOnly" dt:type="int"/>
+	<ElementType name="iCityHealRateChange" content="textOnly" dt:type="int"/>
 	<ElementType name="BaseCommerceFromUnits" content="eltOnly">
 		<element type="iCommerce" minOccurs="0"/>
 	</ElementType>
@@ -396,6 +397,7 @@
 		<element type="iOccupationTimeChange" minOccurs="0"/>
 		<element type="iUnitWithdrawalHealRate" minOccurs="0"/>
 		<element type="iWarWearinessModifier" minOccurs="0"/>
+		<element type="iCityHealRateChange" minOccurs="0"/>
 		<element type="ExtraYieldThresholds" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
 		<element type="BaseYieldFromUnits" minOccurs="0"/>
