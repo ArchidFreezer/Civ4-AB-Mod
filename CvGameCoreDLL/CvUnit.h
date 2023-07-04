@@ -88,6 +88,8 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	void doCultureOnDeath(CvPlot* pPlot);
+
 	void addUnitCombatType(UnitCombatTypes eUnitCombat);
 
 	void convert(CvUnit* pUnit);																																	// Exposed to Python

@@ -32,6 +32,9 @@ public:
 	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, int iX = 0, int iY = 0, bool bConstructorCall = false);
 	void setupGraphical();
 
+	bool isUnitCityDeathCulture() const;
+	void changeUnitCityDeathCultureCount(int iChange);
+
 	bool isApplyAllFreePromotionsOnMove() const;
 	void changeApplyAllFreePromotionsOnMove(int iChange);
 	void doPromotion(bool bIgnorePrereqs);
@@ -1172,6 +1175,7 @@ protected:
 	int m_iImprovementBadHealth;
 	int m_iImprovementGoodHealth;
 	int m_iApplyFreePromotionsOnMoveCount;
+	int m_iUnitCityDeathCultureCount;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

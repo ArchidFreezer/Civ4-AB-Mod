@@ -1925,6 +1925,8 @@ public:
 	bool isShowInCity() const;
 	bool isApplyAllFreePromotionsOnMove() const;
 	bool isApplyFreePromotionOnMove() const;
+	bool isUnitCityDeathCulture() const;
+	bool isUnitAllCityDeathCulture() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -2178,6 +2180,8 @@ protected:
 	bool m_bShowInCity;
 	bool m_bApplyAllFreePromotionsOnMove;
 	bool m_bApplyFreePromotionOnMove;
+	bool m_bUnitAllCityDeathCulture;
+	bool m_bUnitCityDeathCulture;
 
 	CultureLevelTypes m_eMinCultureLevel;
 

@@ -544,6 +544,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iMissionarySurvivalChance = 0;
 	m_iSettlerSpreadReligionCount = 0;
 	m_iSettlerBuildTempleCount = 0;
+	m_iUnitAllCityDeathCultureCount = 0;
 
 	m_uiStartTime = 0;
 
@@ -5447,6 +5448,7 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pAr
 	changeStarSignMitigatePercent(kBuilding.getGlobalStarSignMitigateChangePercent() * iChange);
 	changeStarSignScalePercent(kBuilding.getGlobalStarSignScaleChangePercent() * iChange);
 	changeFoundCityPopulationChange(kBuilding.getGlobalFoundPopulationChange() * iChange);
+	changeUnitAllCityDeathCultureCount(kBuilding.isUnitAllCityDeathCulture() ? iChange : 0);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changeSeaPlotYield(eYield, kBuilding.getGlobalSeaPlotYieldChange(eYield) * iChange);
@@ -14165,6 +14167,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iMissionarySurvivalChance);
 	pStream->Read(&m_iSettlerSpreadReligionCount);
 	pStream->Read(&m_iSettlerBuildTempleCount);
+	pStream->Read(&m_iUnitAllCityDeathCultureCount);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14713,6 +14716,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iMissionarySurvivalChance);
 	pStream->Write(m_iSettlerSpreadReligionCount);
 	pStream->Write(m_iSettlerBuildTempleCount);
+	pStream->Write(m_iUnitAllCityDeathCultureCount);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20661,4 +20665,12 @@ void CvPlayer::setBuildingClassProductionModifier(BuildingClassTypes eBuildingCl
 
 void CvPlayer::changeBuildingClassProductionModifier(BuildingClassTypes eBuildingClass, int iChange) {
 	setBuildingClassProductionModifier(eBuildingClass, getBuildingClassProductionModifier(eBuildingClass) + iChange);
+}
+
+bool CvPlayer::isUnitAllCityDeathCulture() const {
+	return (m_iUnitAllCityDeathCultureCount > 0);
+}
+
+void CvPlayer::changeUnitAllCityDeathCultureCount(int iChange) {
+	m_iUnitAllCityDeathCultureCount += iChange;
 }

@@ -1190,15 +1190,17 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 
 		if (pDefender->getCombatFirstStrikes() > 0) {
 			pDefender->changeCombatFirstStrikes(-1);
-		}
+}
 
 		if (isDead() || pDefender->isDead()) {
 			if (isDead()) { //attacker died
+				doCultureOnDeath(pPlot);
 				int iExperience = defenseXPValue();
 				iExperience = ((iExperience * iAttackerStrength) / iDefenderStrength);
 				iExperience = range(iExperience, GC.getDefineINT("MIN_EXPERIENCE_PER_COMBAT"), GC.getDefineINT("MAX_EXPERIENCE_PER_COMBAT"));
 				pDefender->changeExperience(iExperience, maxXPValue(), true, pPlot->getOwnerINLINE() == pDefender->getOwnerINLINE(), !isBarbarian());
 			} else { //defender died
+				pDefender->doCultureOnDeath(pPlot);
 				flankingStrikeCombat(pPlot, iAttackerStrength, iAttackerFirepower, iAttackerKillOdds, iDefenderDamage, pDefender);
 
 				int iExperience = pDefender->attackXPValue();
@@ -1436,9 +1438,15 @@ void CvUnit::updateCombat(bool bQuick) {
 			// Display the losers message including the influence driven war culture
 			CvWString szBuffer;
 			szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DIED_ATTACKING", getNameKey(), pDefender->getNameKey());
-			float fInfluenceRatio = 0.0;
+
+			// Process influence driven war victory
+			float fInfluenceRatio = 0.0f;
 			if (GC.getIDW_ENABLED()) {
 				fInfluenceRatio = pDefender->doVictoryInfluence(this, false, false);
+			}
+
+			// Display influence driven war loss if there is any
+			if (fInfluenceRatio != 0.0f) {
 				CvWString szTempBuffer;
 				szTempBuffer.Format(L" Influence: -%.1f%%", fInfluenceRatio);
 				szBuffer += szTempBuffer;
@@ -1451,7 +1459,8 @@ void CvUnit::updateCombat(bool bQuick) {
 			} else {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_KILLED_ENEMY_UNIT", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
 			}
-			if (GC.getIDW_ENABLED()) {
+			// Display influence driven war victory if there is any
+			if (fInfluenceRatio != 0.0f) {
 				CvWString szTempBuffer;
 				szTempBuffer.Format(L" Influence: +%.1f%%", fInfluenceRatio);
 				szBuffer += szTempBuffer;
@@ -1485,9 +1494,13 @@ void CvUnit::updateCombat(bool bQuick) {
 			}
 
 			// Process influence driven war victory
-			float fInfluenceRatio = 0.0;
+			float fInfluenceRatio = 0.0f;
 			if (GC.getIDW_ENABLED()) {
 				fInfluenceRatio = doVictoryInfluence(pDefender, true, false);
+			}
+
+			// Display influence driven war victory if there is any
+			if (fInfluenceRatio != 0.0f) {
 				CvWString szTempBuffer;
 				szTempBuffer.Format(L" Influence: +%.1f%%", fInfluenceRatio);
 				szBuffer += szTempBuffer;
@@ -1500,8 +1513,8 @@ void CvUnit::updateCombat(bool bQuick) {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
 			}
 
-			// Process influence driven war loss
-			if (GC.getIDW_ENABLED()) {
+			// Display influence driven war loss if there is any
+			if (fInfluenceRatio != 0.0f) {
 				CvWString szTempBuffer;
 				szTempBuffer.Format(L" Influence: -%.1f%%", fInfluenceRatio);
 				szBuffer += szTempBuffer;
@@ -12982,6 +12995,12 @@ float CvUnit::doVictoryInfluence(CvUnit* pLoserUnit, bool bAttacking, bool bWith
 	CvPlot* pWinnerPlot = plot();
 	CvPlot* pLoserPlot = pLoserUnit->plot();
 	CvPlot* pDefenderPlot = bAttacking ? pLoserPlot : pWinnerPlot;
+
+	// If the defender loses, but is in their own city with culture protection do nothing
+	if (pLoserPlot->isCity() && pLoserPlot->getPlotCity()->isUnitCityDeathCulture()) {
+		return 0.0f;
+	}
+
 	int iWinnerCultureBefore = pDefenderPlot->getCulture(getOwnerINLINE()); //used later for influence %
 
 	float fWinnerPlotMultiplier = GC.getIDW_WINNER_PLOT_MULTIPLIER(); // default 1.0 : same influence in WinnerPlot and LoserPlot
@@ -13355,5 +13374,14 @@ void CvUnit::setInvisibleType(InvisibleTypes eInvisible) {
 void CvUnit::addUnitCombatType(UnitCombatTypes eUnitCombat) {
 	if (!isUnitCombatType(eUnitCombat)) {
 		m_vExtraUnitCombatTypes.push_back(eUnitCombat);
+	}
+}
+
+void CvUnit::doCultureOnDeath(CvPlot* pPlot) {
+	if (pPlot == NULL) return;
+
+	PlayerTypes eOwner = getOwnerINLINE();
+	if (pPlot->isCity() && pPlot->getOwnerINLINE() == eOwner && pPlot->getPlotCity()->isUnitCityDeathCulture()) {
+		pPlot->getPlotCity()->changeCulture(eOwner, getLevel(), true, true);
 	}
 }

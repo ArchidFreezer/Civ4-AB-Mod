@@ -438,6 +438,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iImprovementBadHealth = 0;
 	m_iImprovementGoodHealth = 0;
 	m_iApplyFreePromotionsOnMoveCount = 0;
+	m_iUnitCityDeathCultureCount = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -3262,6 +3263,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		changeBuildingOnlyHealthyCount((kBuilding.isBuildingOnlyHealthy()) ? iChange : 0);
 		changeSlaveMarketCount(kBuilding.isSlaveMarket() ? iChange : 0);
 		changeApplyAllFreePromotionsOnMove(kBuilding.isApplyAllFreePromotionsOnMove() ? iChange : 0);
+		changeUnitCityDeathCultureCount(kBuilding.isUnitCityDeathCulture() ? iChange : 0);
 
 		for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 			changeSeaPlotYield(eYield, (kBuilding.getSeaPlotYieldChange(eYield) * iChange));
@@ -11091,6 +11093,7 @@ void CvCity::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iImprovementBadHealth);
 	pStream->Read(&m_iImprovementGoodHealth);
 	pStream->Read(&m_iApplyFreePromotionsOnMoveCount);
+	pStream->Read(&m_iUnitCityDeathCultureCount);
 
 	pStream->Read(&m_bNeverLost);
 	pStream->Read(&m_bBombarded);
@@ -11367,6 +11370,7 @@ void CvCity::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iImprovementBadHealth);
 	pStream->Write(m_iImprovementGoodHealth);
 	pStream->Write(m_iApplyFreePromotionsOnMoveCount);
+	pStream->Write(m_iUnitCityDeathCultureCount);
 
 	pStream->Write(m_bNeverLost);
 	pStream->Write(m_bBombarded);
@@ -14022,4 +14026,12 @@ void CvCity::doPromotion(bool bIgnorePrereqs) {
 			}
 		}
 	}
+}
+
+bool CvCity::isUnitCityDeathCulture() const {
+	return m_iUnitCityDeathCultureCount > 0 || GET_PLAYER(getOwnerINLINE()).isUnitAllCityDeathCulture();
+}
+
+void CvCity::changeUnitCityDeathCultureCount(int iChange) {
+	m_iUnitCityDeathCultureCount += iChange;
 }
