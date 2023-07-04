@@ -340,6 +340,8 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iSlaveControlCount = 0;
 	m_iLoyaltyCount = 0;
 	m_iWorkRateModifier = 0;
+	m_iExtraMorale = 0;
+	m_iEnemyMoraleModifier = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -358,6 +360,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_bFixedAI = (NO_UNIT != eUnit) ? GC.getUnitInfo(eUnit).isFixedAI() : false;
 	m_bAlwaysHostile = (NO_UNIT != eUnit) ? GC.getUnitInfo(eUnit).isAlwaysHostile() : false;
 	m_bHiddenNationality = (NO_UNIT != eUnit) ? GC.getUnitInfo(eUnit).isHiddenNationality() : false;
+	m_bRout = false;
 
 	m_eOwner = eOwner;
 	m_eCapturingPlayer = NO_PLAYER;
@@ -1132,6 +1135,12 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 					break;
 				}
 
+				// Check if attacker is routing
+				if (processRout(iAttackerDamage, -(pDefender->getEnemyMoraleModifier()))) {
+					setDamage(maxHitPoints(), pDefender->getOwnerINLINE());
+					break;
+				}
+
 				changeDamage(iAttackerDamage, pDefender->getOwnerINLINE());
 				combatData.bAttackerUninjured = false;
 				combat_log.push_back(-iAttackerDamage); // K-Mod
@@ -1156,11 +1165,17 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 		} else {
 			// Defender lost a round
 			if (pDefender->getCombatFirstStrikes() == 0) {
-				// Combat limit
+				// If the attacker has hit its combat limit then it withdraws from the fight
 				if (std::min(GC.getMAX_HIT_POINTS(), pDefender->getDamage() + iDefenderDamage) > combatLimit()) {
 					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
 					combat_log.push_back(combatLimit() - pDefender->getDamage()); // K-Mod
 					pDefender->setDamage(combatLimit(), getOwnerINLINE());
+					break;
+				}
+
+				// Check if defender is routing
+				if (pDefender->processRout(iDefenderDamage, -(getEnemyMoraleModifier()))) {
+					pDefender->setDamage(pDefender->maxHitPoints(), getOwnerINLINE());
 					break;
 				}
 
@@ -1180,8 +1195,9 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, bool bVisible) {
 					pyArgs.add(iDefenderDamage);
 					CvEventReporter::getInstance().genericEvent("combatLogHit", pyArgs.makeFunctionArgs());
 				}
-			} else if (bVisible && !combat_log.empty())
+			} else if (bVisible && !combat_log.empty()) {
 				combat_log.push_back(0);
+			}
 		}
 
 		if (getCombatFirstStrikes() > 0) {
@@ -1456,6 +1472,8 @@ void CvUnit::updateCombat(bool bQuick) {
 			// Display the winners message including the influence driven war culture
 			if (enslaveUnit(pDefender, this)) {
 				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_DEFEND_YOU_ENSLAVED_ENEMY_UNIT", getNameKey());
+			} else if (isRout()) {
+				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_ROUTED_ENEMY_UNIT", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
 			} else {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_KILLED_ENEMY_UNIT", pDefender->getNameKey(), getNameKey(), getVisualCivAdjective(pDefender->getTeam()));
 			}
@@ -1489,6 +1507,8 @@ void CvUnit::updateCombat(bool bQuick) {
 			bool bEnslaved = enslaveUnit(this, pDefender);
 			if (bEnslaved) {
 				szBuffer = gDLL->getText("TXT_KEY_SLAVERY_ATTACK_YOU_ENSLAVED_ENEMY_UNIT", pDefender->getNameKey());
+			} else if (pDefender->isRout()) {
+				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_ROUTED_ENEMY", getNameKey(), pDefender->getNameKey());
 			} else {
 				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_DESTROYED_ENEMY", getNameKey(), pDefender->getNameKey());
 			}
@@ -1535,7 +1555,7 @@ void CvUnit::updateCombat(bool bQuick) {
 				bAdvance = canAdvance(pPlot, ((pDefender->canDefend()) ? 1 : 0));
 
 				if (bAdvance && !bEnslaved) {
-					if (!isNoCapture()) {
+					if (!isNoCapture() || (pDefender->isRout() && pDefender->isMechUnit())) {
 						pDefender->setCapturingPlayer(getOwnerINLINE());
 					}
 				}
@@ -10047,6 +10067,8 @@ void CvUnit::setHasPromotionReal(PromotionTypes eIndex, bool bNewValue) {
 		changeSpyBuyTechChange(kPromotion.getSpyBuyTechChange() * iChange);
 		changeSpyStealTreasuryChange(kPromotion.getSpyStealTreasuryChange() * iChange);
 		changeWorkRateModifier(kPromotion.getWorkRateModifier() * iChange);
+		changeExtraMorale(kPromotion.getExtraMorale() * iChange);
+		changeEnemyMoraleModifier(kPromotion.getEnemyMoraleModifier() * iChange);
 
 		for (TerrainTypes eTerrain = (TerrainTypes)0; eTerrain < GC.getNumTerrainInfos(); eTerrain = (TerrainTypes)(eTerrain + 1)) {
 			changeExtraTerrainAttackPercent(eTerrain, kPromotion.getTerrainAttackPercent(eTerrain) * iChange);
@@ -10209,6 +10231,8 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iSlaveControlCount);
 	pStream->Read(&m_iLoyaltyCount);
 	pStream->Read(&m_iWorkRateModifier);
+	pStream->Read(&m_iExtraMorale);
+	pStream->Read(&m_iEnemyMoraleModifier);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -10229,6 +10253,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_bFixedAI);
 	pStream->Read(&m_bHiddenNationality);
 	pStream->Read(&m_bAlwaysHostile);
+	pStream->Read(&m_bRout);
 
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eCapturingPlayer);
@@ -10373,6 +10398,8 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iSlaveControlCount);
 	pStream->Write(m_iLoyaltyCount);
 	pStream->Write(m_iWorkRateModifier);
+	pStream->Write(m_iExtraMorale);
+	pStream->Write(m_iEnemyMoraleModifier);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -10391,6 +10418,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_bFixedAI);
 	pStream->Write(m_bHiddenNationality);
 	pStream->Write(m_bAlwaysHostile);
+	pStream->Write(m_bRout);
 
 	pStream->Write(m_eOwner);
 	pStream->Write(m_eCapturingPlayer);
@@ -13384,4 +13412,81 @@ void CvUnit::doCultureOnDeath(CvPlot* pPlot) {
 	if (pPlot->isCity() && pPlot->getOwnerINLINE() == eOwner && pPlot->getPlotCity()->isUnitCityDeathCulture()) {
 		pPlot->getPlotCity()->changeCulture(eOwner, getLevel(), true, true);
 	}
+}
+
+void CvUnit::setExtraMorale(int iValue) {
+	m_iExtraMorale = iValue;
+}
+
+void CvUnit::changeExtraMorale(int iChange) {
+	setExtraMorale(getExtraMorale() + iChange);
+}
+
+int CvUnit::getExtraMorale() const {
+	return m_iExtraMorale;
+}
+
+int CvUnit::getMorale() const {
+	return getMorale(0, 0);
+}
+
+// Morale is based on the initial value and the damage taken and is checked against 100
+// Base morale can be over 100 and a value of 1000 will prevent rout in most unmodified scenarios
+int CvUnit::getMorale(int iExtraDamage, int iModifier) const {
+	int iMorale = m_pUnitInfo->getMorale();
+
+	if (iMorale == -1) { // -1 indicates that the unit never has morale failure
+		return MAX_INT;
+	}
+	iMorale += getExtraMorale();
+
+	int iDamage = getDamage() + iExtraDamage;
+	if (iMorale > GC.getMIN_DAMAGE_MORALE() && (iDamage > 0)) {
+		// Morale decrease is based on the square of the damage done so that initialy there is little
+		// change, but at high damage levels the reduction is significant. E.g. a unit at
+		// 80% health has a 4% reduction in morale; 60% health -> 16% reduction;
+		// 40% health -> 36% reduction; 30% -> 49%; 20% -> 64%; 10% -> 81%
+		int iMoralePercLoss = iDamage * iDamage / 10000;
+		int iTempMorale = iMorale * (100 - iMoralePercLoss);
+		iTempMorale /= 100;
+		iMorale = std::max(GC.getMIN_DAMAGE_MORALE(), iTempMorale);
+	}
+
+	iMorale *= (100 + iModifier);
+	iMorale /= 100;
+
+	return iMorale;
+}
+
+
+bool CvUnit::processRout(int iExtraDamage, int iMoraleModifier) {
+	bool bRout = false;
+	// The first check is to see whether there is a need for a morale roll as no unit will rout
+	// until it has reached the min damage threshold
+	if (getDamage() + iExtraDamage > GC.getMIN_ROUT_DAMAGE()) {
+		bRout = GC.getGameINLINE().getSorenRandNum(100, "CombatRout") > getMorale(iExtraDamage, iMoraleModifier);
+	}
+
+	setRout(bRout);
+	return bRout;
+}
+
+int CvUnit::getEnemyMoraleModifier() const {
+	return m_iEnemyMoraleModifier;
+}
+
+void CvUnit::setEnemyMoraleModifier(int iValue) {
+	m_iEnemyMoraleModifier = iValue;
+}
+
+void CvUnit::changeEnemyMoraleModifier(int iChange) {
+	setEnemyMoraleModifier(getEnemyMoraleModifier() + iChange);
+}
+
+bool CvUnit::isRout() const {
+	return m_bRout;
+}
+
+void CvUnit::setRout(bool bValue) {
+	m_bRout = bValue;
 }

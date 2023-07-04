@@ -1671,6 +1671,8 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iSpyBuyTechChange(0),
 	m_iSpyStealTreasuryChange(0),
 	m_iWorkRateModifier(0),
+	m_iExtraMorale(0),
+	m_iEnemyMoraleModifier(0),
 	m_eObsoleteTech(NO_TECH),
 	m_bLeader(false),
 	m_bBlitz(false),
@@ -1714,6 +1716,14 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getExtraMorale() const {
+	return m_iExtraMorale;
+}
+
+int CvPromotionInfo::getEnemyMoraleModifier() const {
+	return m_iEnemyMoraleModifier;
 }
 
 bool CvPromotionInfo::isCarryReligion() const {
@@ -2207,6 +2217,8 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iSpyBuyTechChange);
 	stream->Read(&m_iSpyStealTreasuryChange);
 	stream->Read(&m_iWorkRateModifier);
+	stream->Read(&m_iExtraMorale);
+	stream->Read(&m_iEnemyMoraleModifier);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -2371,6 +2383,8 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iSpyBuyTechChange);
 	stream->Write(m_iSpyStealTreasuryChange);
 	stream->Write(m_iWorkRateModifier);
+	stream->Write(m_iExtraMorale);
+	stream->Write(m_iEnemyMoraleModifier);
 
 	stream->Write(m_eObsoleteTech);
 
@@ -2529,6 +2543,8 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_bUnitTerritoryUnbound, "bUnitTerritoryUnbound");
 	pXML->GetChildXmlValByName(&m_iUnitRangeChange, "iUnitRangeChange");
 	pXML->GetChildXmlValByName(&m_iUnitRangeModifier, "iUnitRangeModifier");
+	pXML->GetChildXmlValByName(&m_iExtraMorale, "iMoraleModifier");
+	pXML->GetChildXmlValByName(&m_iEnemyMoraleModifier, "iEnemyMoraleModifier");
 
 	pXML->SetListPairInfo(&m_piTerrainAttackPercent, "TerrainAttacks", GC.getNumTerrainInfos());
 	pXML->SetListPairInfo(&m_piTerrainDefensePercent, "TerrainDefenses", GC.getNumTerrainInfos());
@@ -3223,6 +3239,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iExtraCost(0),
 	m_iAssetValue(0),
 	m_iPowerValue(0),
+	m_iMorale(0),
 	m_iUnitClassType(NO_UNITCLASS),
 	m_iSpecialUnitType(NO_SPECIALUNIT),
 	m_iUnitCaptureClassType(NO_UNITCLASS),
@@ -3386,6 +3403,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getMorale() const {
+	return m_iMorale;
 }
 
 bool CvUnitInfo::isFixedAI() const {
@@ -4504,6 +4525,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iMinPopulation);
 	stream->Read(&m_iObsoleteTech);
 	stream->Read(&m_iSlaveSpecialistType);
+	stream->Read(&m_iMorale);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -4912,6 +4934,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iMinPopulation);
 	stream->Write(m_iObsoleteTech);
 	stream->Write(m_iSlaveSpecialistType);
+	stream->Write(m_iMorale);
 
 	stream->Write(m_eRangeType);
 	stream->Write(m_eMinCultureLevel);
@@ -5245,6 +5268,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCost, "iAdvancedStartCost");
 	pXML->GetChildXmlValByName(&m_iAdvancedStartCostIncrease, "iAdvancedStartCostIncrease");
 	pXML->GetChildXmlValByName(&m_iMinAreaSize, "iMinAreaSize", -1);
+	pXML->GetChildXmlValByName(&m_iMorale, "iMorale", 500);
 	pXML->GetChildXmlValByName(&m_iMoves, "iMoves");
 	pXML->GetChildXmlValByName(&m_iAirRange, "iAirRange");
 	pXML->GetChildXmlValByName(&m_iAirUnitCap, "iAirUnitCap");

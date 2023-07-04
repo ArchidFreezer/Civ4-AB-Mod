@@ -562,6 +562,8 @@ public:
 	int getWorkRateModifier() const;
 	int getNumBuildLeaveFeatures() const;
 	int getNumSeeInvisibleTypes() const;
+	int getExtraMorale() const;
+	int getEnemyMoraleModifier() const;
 
 	TechTypes getObsoleteTech() const;
 
@@ -677,6 +679,8 @@ protected:
 	int m_iSpyBuyTechChange;
 	int m_iSpyStealTreasuryChange;
 	int m_iWorkRateModifier;
+	int m_iExtraMorale;
+	int m_iEnemyMoraleModifier;
 
 	TechTypes m_eObsoleteTech;
 
@@ -1026,6 +1030,7 @@ public:
 	int getNumPrereqOrBonuses() const;				// Exposed to Python
 	int getSlaveSpecialistType() const;
 	int getNumPrereqWorldViews() const;
+	int getMorale() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1250,6 +1255,7 @@ protected:
 	int m_iMinPopulation;
 	int m_iObsoleteTech;
 	int m_iSlaveSpecialistType;
+	int m_iMorale;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;

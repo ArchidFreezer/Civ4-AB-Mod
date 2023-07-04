@@ -484,6 +484,7 @@
 	<ElementType name="SlaveSpecialistType" content="textOnly"/>
 	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bFixedAI" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iMorale" content="textOnly" dt:type="int"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
 		<element type="Type"/>
@@ -590,6 +591,7 @@
 		<element type="iAdvancedStartCost" minOccurs="0"/>
 		<element type="iAdvancedStartCostIncrease" minOccurs="0"/>
 		<element type="iMinAreaSize" minOccurs="0"/> <!-- Default: -1 -->
+		<element type="iMorale" minOccurs="0"/> <!-- Default: 750 -->
 		<element type="iMoves" minOccurs="0"/>
 		<element type="UnitRangeType" minOccurs="0"/> <!-- Default: UNITRANGE_UNLIMITED -->
 		<element type="bNoRevealMap" minOccurs="0"/>
@@ -858,6 +860,8 @@
 		<element type="FeatureType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bCarryReligion" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iExtraMorale" content="textOnly" dt:type="int"/>
+	<ElementType name="iEnemyMoraleModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="PromotionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description" minOccurs="0"/>
@@ -934,6 +938,8 @@
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>
 		<element type="iPillageChange" minOccurs="0"/>
+		<element type="iExtraMorale" minOccurs="0"/>
+		<element type="iEnemyMoraleModifier" minOccurs="0"/>
 		<element type="iUpgradeDiscount" minOccurs="0"/>
 		<element type="iExperiencePercent" minOccurs="0"/>
 		<element type="iWorkRateModifier" minOccurs="0"/>

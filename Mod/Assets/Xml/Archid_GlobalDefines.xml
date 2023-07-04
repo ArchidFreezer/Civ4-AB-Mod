@@ -625,5 +625,15 @@
 		<DefineName>SLAVER_LATE_UNIT_ART_DEF</DefineName>
 		<DefineTextVal>ART_DEF_UNIT_SLAVER</DefineTextVal>
 	</Define>
-
+<!-- Unit Morale/Rout -->
+	<Define> 
+		<DefineName>MIN_ROUT_DAMAGE</DefineName>
+		<!-- Damage that a unit must have taken before it thinks about routing. Max health is 1000 -->
+		<iDefineIntVal>750</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>MIN_DAMAGE_MORALE</DefineName>
+		<!-- Minimum value that a units morale can be reduced to through damage -->
+		<iDefineIntVal>10</iDefineIntVal>
+	</Define>
 </Civ4Defines>
