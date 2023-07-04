@@ -32,6 +32,10 @@ public:
 	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, int iX = 0, int iY = 0, bool bConstructorCall = false);
 	void setupGraphical();
 
+	bool isApplyAllFreePromotionsOnMove() const;
+	void changeApplyAllFreePromotionsOnMove(int iChange);
+	void doPromotion(bool bIgnorePrereqs);
+
 	int getImprovementBadHealth() const;
 	int getImprovementGoodHealth() const;
 	void updateImprovementHealth();
@@ -1167,6 +1171,7 @@ protected:
 	int m_iSpecialistHappiness;
 	int m_iImprovementBadHealth;
 	int m_iImprovementGoodHealth;
+	int m_iApplyFreePromotionsOnMoveCount;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

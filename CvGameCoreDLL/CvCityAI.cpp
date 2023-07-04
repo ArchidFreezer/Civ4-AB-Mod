@@ -3066,7 +3066,15 @@ int CvCityAI::AI_buildingValue(BuildingTypes eBuilding, int iFocusFlags, int iTh
 				iTemp *= getFreeExperience() + 1;
 				iTemp /= getFreeExperience() + 2;
 				iValue += iTemp;
+				if (kBuilding.isApplyFreePromotionOnMove() || kBuilding.isApplyAllFreePromotionsOnMove()) {
+					iTemp *= 2;
+				}
+
 				// cf. iValue += (kBuilding.getFreeExperience() * ((iHasMetCount > 0) ? 12 : 6));
+			}
+
+			if (kBuilding.isApplyAllFreePromotionsOnMove()) {
+				iValue += 25;
 			}
 
 			if (kBuilding.getCivicOption() != NO_CIVICOPTION) {

@@ -1923,6 +1923,8 @@ public:
 	bool isSlaveMarket() const;
 	bool isPrereqVicinityBonusUnconnectedAllowed() const;
 	bool isShowInCity() const;
+	bool isApplyAllFreePromotionsOnMove() const;
+	bool isApplyFreePromotionOnMove() const;
 
 	CultureLevelTypes getMinCultureLevel() const;
 
@@ -2174,6 +2176,8 @@ protected:
 	bool m_bSlaveMarket;
 	bool m_bPrereqVicinityBonusUnconnectedAllowed;
 	bool m_bShowInCity;
+	bool m_bApplyAllFreePromotionsOnMove;
+	bool m_bApplyFreePromotionOnMove;
 
 	CultureLevelTypes m_eMinCultureLevel;
 
