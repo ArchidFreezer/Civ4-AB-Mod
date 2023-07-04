@@ -1673,6 +1673,7 @@ CvPromotionInfo::CvPromotionInfo() :
 	m_iWorkRateModifier(0),
 	m_iExtraMorale(0),
 	m_iEnemyMoraleModifier(0),
+	m_iPlunderChange(0),
 	m_eObsoleteTech(NO_TECH),
 	m_bLeader(false),
 	m_bBlitz(false),
@@ -1716,6 +1717,10 @@ CvPromotionInfo::~CvPromotionInfo() {
 	SAFE_DELETE_ARRAY(m_piDomainModifierPercent);
 	SAFE_DELETE_ARRAY(m_pbTerrainDoubleMove);
 	SAFE_DELETE_ARRAY(m_pbFeatureDoubleMove);
+}
+
+int CvPromotionInfo::getPlunderChange() const {
+	return m_iPlunderChange;
 }
 
 int CvPromotionInfo::getExtraMorale() const {
@@ -2219,6 +2224,7 @@ void CvPromotionInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iWorkRateModifier);
 	stream->Read(&m_iExtraMorale);
 	stream->Read(&m_iEnemyMoraleModifier);
+	stream->Read(&m_iPlunderChange);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -2385,6 +2391,7 @@ void CvPromotionInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iWorkRateModifier);
 	stream->Write(m_iExtraMorale);
 	stream->Write(m_iEnemyMoraleModifier);
+	stream->Write(m_iPlunderChange);
 
 	stream->Write(m_eObsoleteTech);
 
@@ -2512,6 +2519,7 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iRevoltProtection, "iRevoltProtection");
 	pXML->GetChildXmlValByName(&m_iCollateralDamageProtection, "iCollateralDamageProtection");
 	pXML->GetChildXmlValByName(&m_iPillageChange, "iPillageChange");
+	pXML->GetChildXmlValByName(&m_iPlunderChange, "iPlunderChange");
 	pXML->GetChildXmlValByName(&m_iUpgradeDiscount, "iUpgradeDiscount");
 	pXML->GetChildXmlValByName(&m_iExperiencePercent, "iExperiencePercent");
 	pXML->GetChildXmlValByName(&m_iKamikazePercent, "iKamikazePercent");

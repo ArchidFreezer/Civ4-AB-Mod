@@ -88,6 +88,10 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	int getPlunderValue() const;
+	void changePlunderValue(int iChange);
+	void setPlunderValue(int iValue);
+
 	bool processRout(int iExtraDamage, int iMoraleModifier);
 	int getMorale() const;
 	int getMorale(int iExtraDamage, int iModifier) const;
@@ -1041,6 +1045,7 @@ protected:
 	int m_iWorkRateModifier;
 	int m_iExtraMorale;
 	int m_iEnemyMoraleModifier;
+	int m_iPlunderValue;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
