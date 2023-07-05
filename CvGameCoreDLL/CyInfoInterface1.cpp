@@ -530,7 +530,6 @@ void CyInfoPythonInterface1() {
 		.def("getFreeBonus", &CvBuildingInfo::getFreeBonus, "int ()")
 		.def("getNumFreeBonuses", &CvBuildingInfo::getNumFreeBonuses, "int ()")
 		.def("getFreeBuildingClass", &CvBuildingInfo::getFreeBuildingClass, "int ()")
-		.def("getFreePromotion", &CvBuildingInfo::getFreePromotion, "int ()")
 		.def("getCivic", &CvBuildingInfo::getCivicOption, "int ()")
 		.def("getAIWeight", &CvBuildingInfo::getAIWeight, "int ()")
 		.def("getProductionCost", &CvBuildingInfo::getProductionCost, "int ()")

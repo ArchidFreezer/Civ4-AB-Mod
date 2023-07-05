@@ -2443,7 +2443,9 @@
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
-			<FreePromotion>PROMOTION_NAVIGATION1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_NAVIGATION1</PromotionType>
+			</FreePromotions>
 			<bWater>1</bWater>
 			<iCost>60</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -3728,7 +3730,9 @@
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
-			<FreePromotion>PROMOTION_GUERILLA1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_GUERILLA1</PromotionType>
+			</FreePromotions>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>50</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
@@ -8047,7 +8051,9 @@
 			<PrereqAndTechs>
 				<TechType>TECH_MEDICINE</TechType>
 			</PrereqAndTechs>
-			<FreePromotion>PROMOTION_MEDIC1</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MEDIC1</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>600</iCost>
@@ -8544,7 +8550,9 @@
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_EVEREST</FeatureType>
 			</PrereqVicinityFeatures>
-			<FreePromotion>PROMOTION_GUERILLA2</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_GUERILLA2</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bMapCentering>1</bMapCentering>
@@ -8956,7 +8964,9 @@
 			<PrereqVicinityFeatures>
 				<FeatureType>FEATURE_PLATY_VICTORIA_FALLS</FeatureType>
 			</PrereqVicinityFeatures>
-			<FreePromotion>PROMOTION_AMPHIBIOUS</FreePromotion>
+			<FreePromotions>
+				<PromotionType>PROMOTION_AMPHIBIOUS</PromotionType>
+			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iCost>-1</iCost>
