@@ -725,6 +725,10 @@
 	</TEXT>
 <!-- Building Prereqs -->
 	<TEXT>
+		<Tag>TXT_KEY_IN_CITY</Tag>
+		<English>[SPACE]in city.</English>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_IN_CITY_VICINITY</Tag>
 		<English>[SPACE]in city vicinity</English>
 		<French>[SPACE]dans le périmètre de la Ville</French>
