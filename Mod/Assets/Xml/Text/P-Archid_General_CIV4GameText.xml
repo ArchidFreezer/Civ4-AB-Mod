@@ -1637,4 +1637,21 @@
 		<Tag>TXT_KEY_BUILDING_CREATE_FEATURE</Tag>
 		<English>[ICON_BULLET]Creates a [COLOR_UNIT_TEXT][LINK=literal]%s1_Name[\LINK][COLOR_REVERT] feature in the City plot.</English>
 	</TEXT>
+<!-- Populaton Growth Modifers -->
+	<Text>
+		<Tag>TXT_KEY_BUILDING_CITY_SLOW_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]City requires %d1%% More [ICON_FOOD] to Grow</English>
+   </Text>
+	<Text>
+		<Tag>TXT_KEY_BUILDING_CITY_FAST_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]City requires %d1%% Less [ICON_FOOD] to Grow</English>
+   </Text>
+	<Text>
+		<Tag>TXT_KEY_BUILDING_PLAYER_SLOW_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]All cities require %d1%% More [ICON_FOOD] to Grow</English>
+   </Text>
+	<Text>
+		<Tag>TXT_KEY_BUILDING_PLAYER_FAST_GROWTH_SPEED</Tag>
+		<English>[ICON_BULLET]All cities require %d1%% Less [ICON_FOOD] to Grow</English>
+   </Text>
 </Civ4GameText>

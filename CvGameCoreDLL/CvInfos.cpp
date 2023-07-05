@@ -6786,6 +6786,8 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_iFreeUnitClass(0),
 	m_iCreateFeatureType(0),
 	m_iGlobalWonderProductionModifier(0),
+	m_iPopulationGrowthRateModifier(0),
+	m_iGlobalPopulationGrowthRateModifier(0),
 	m_fVisibilityPriority(0.0f),
 	m_bTeamShare(false),
 	m_bWater(false),
@@ -6954,6 +6956,14 @@ CvBuildingInfo::~CvBuildingInfo() {
 	}
 
 }
+int CvBuildingInfo::getPopulationGrowthRateModifier() const {
+	return m_iPopulationGrowthRateModifier;
+}
+
+int CvBuildingInfo::getGlobalPopulationGrowthRateModifier() const {
+	return m_iGlobalPopulationGrowthRateModifier;
+}
+
 InvisibleTypes CvBuildingInfo::getSeeInvisible(int i) const {
 	return (InvisibleTypes)(getNumSeeInvisibles() > i ? m_viSeeInvisibles[i] : NO_INVISIBLE);
 }
@@ -8216,6 +8226,8 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iFreeUnitClass);
 	stream->Read(&m_iCreateFeatureType);
 	stream->Read(&m_iGlobalWonderProductionModifier);
+	stream->Read(&m_iPopulationGrowthRateModifier);
+	stream->Read(&m_iGlobalPopulationGrowthRateModifier);
 
 	int iVal;
 	stream->Read(&iVal);
@@ -8778,6 +8790,8 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iFreeUnitClass);
 	stream->Write(m_iCreateFeatureType);
 	stream->Write(m_iGlobalWonderProductionModifier);
+	stream->Write(m_iPopulationGrowthRateModifier);
+	stream->Write(m_iGlobalPopulationGrowthRateModifier);
 
 	stream->Write(m_eMinCultureLevel);
 
@@ -9183,6 +9197,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iGlobalTradeRoutes, "iGlobalTradeRoutes");
 	pXML->GetChildXmlValByName(&m_iTradeRouteModifier, "iTradeRouteModifier");
 	pXML->GetChildXmlValByName(&m_iForeignTradeRouteModifier, "iForeignTradeRouteModifier");
+	pXML->GetChildXmlValByName(&m_iPopulationGrowthRateModifier, "iPopulationGrowthRateModifier");
+	pXML->GetChildXmlValByName(&m_iGlobalPopulationGrowthRateModifier, "iGlobalPopulationGrowthRateModifier");
 	pXML->GetChildXmlValByName(&m_iGlobalPopulationChange, "iGlobalPopulationChange");
 	pXML->GetChildXmlValByName(&m_iGlobalFoundPopulationChange, "iGlobalFoundPopulationChange");
 	pXML->GetChildXmlValByName(&m_iFreeTechs, "iFreeTechs");

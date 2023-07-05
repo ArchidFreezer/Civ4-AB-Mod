@@ -5457,6 +5457,7 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pAr
 	changeFoundCityPopulationChange(kBuilding.getGlobalFoundPopulationChange() * iChange);
 	changeUnitAllCityDeathCultureCount(kBuilding.isUnitAllCityDeathCulture() ? iChange : 0);
 	changeWonderProductionModifier(kBuilding.getGlobalWonderProductionModifier() * iChange);
+	changePopulationGrowthRateModifier(kBuilding.getGlobalPopulationGrowthRateModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changePlotYield(eYield, kBuilding.getGlobalYieldChange(eYield) * iChange);
@@ -18194,6 +18195,10 @@ int CvPlayer::getNewCityProductionValue() const {
 
 int CvPlayer::getGrowthThreshold(int iPopulation) const {
 	int iThreshold = (GC.getDefineINT("BASE_CITY_GROWTH_THRESHOLD") + (iPopulation * GC.getDefineINT("CITY_GROWTH_MULTIPLIER")));
+
+	// This is stored as a delta of 100 rather than a flat modifier value like the others below
+	iThreshold *= (100 - getPopulationGrowthRateModifier());
+	iThreshold /= 100;
 
 	iThreshold *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getGrowthPercent();
 	iThreshold /= 100;
