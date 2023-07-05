@@ -1902,6 +1902,7 @@ public:
 	int getNumPrereqWorldViews() const;
 	int getGlobalFoundPopulationChange() const;
 	int getFreeUnitClass() const;
+	int getCreateFeatureType() const;
 
 	float getVisibilityPriority() const;
 
@@ -2158,6 +2159,7 @@ protected:
 	int m_iGlobalStarSignMitigateChangePercent;
 	int m_iGlobalFoundPopulationChange;
 	int m_iFreeUnitClass;
+	int m_iCreateFeatureType;
 
 	float m_fVisibilityPriority;
 
