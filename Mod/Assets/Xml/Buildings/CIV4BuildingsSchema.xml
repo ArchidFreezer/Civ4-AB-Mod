@@ -679,6 +679,7 @@
 		<element type="ReplacedByBuildingClasses" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>
 		<element type="BonusYieldModifiers" minOccurs="0"/>
+		<element type="BonusYieldChanges" minOccurs="0"/>
 		<element type="VicinityBonusYieldChanges" minOccurs="0"/>
 		<element type="TechYieldChanges" minOccurs="0"/>
 		<element type="TechCommerceChanges" minOccurs="0"/>
