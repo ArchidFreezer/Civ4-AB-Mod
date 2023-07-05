@@ -36,6 +36,9 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
+	int getPlotYield(YieldTypes eIndex) const;																											// Exposed to Python
+	void changePlotYield(YieldTypes eIndex, int iChange);
+
 	int getPlundered(PlayerTypes ePlayer, int iDesired);
 	int getPlunderBudget() const;
 	void resetPlunderBudget();
@@ -1431,6 +1434,7 @@ protected:
 	int* m_aiSeaPlotYield;
 	int* m_aiForestPlotYield;
 	int* m_aiRiverPlotYield;
+	int* m_aiPlotYield;
 	int* m_aiYieldRateModifier;
 	int* m_aiCapitalYieldRateModifier;
 	int* m_aiExtraYieldThreshold;

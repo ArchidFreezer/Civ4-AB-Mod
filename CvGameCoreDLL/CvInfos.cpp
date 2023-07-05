@@ -6851,6 +6851,7 @@ CvBuildingInfo::CvBuildingInfo() :
 	m_piPrereqNumOfBuildingClass(NULL),
 	m_piFlavorValue(NULL),
 	m_piImprovementFreeSpecialist(NULL),
+	m_piGlobalYieldChange(NULL),
 	m_pbCommerceFlexible(NULL),
 	m_pbCommerceChangeOriginalOwner(NULL),
 	m_ppaiSpecialistYieldChange(NULL),
@@ -6906,6 +6907,7 @@ CvBuildingInfo::~CvBuildingInfo() {
 	SAFE_DELETE_ARRAY(m_piPrereqNumOfBuildingClass);
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
 	SAFE_DELETE_ARRAY(m_piImprovementFreeSpecialist);
+	SAFE_DELETE_ARRAY(m_piGlobalYieldChange);
 	SAFE_DELETE_ARRAY(m_pbCommerceFlexible);
 	SAFE_DELETE_ARRAY(m_pbCommerceChangeOriginalOwner);
 
@@ -6951,6 +6953,16 @@ CvBuildingInfo::~CvBuildingInfo() {
 		SAFE_DELETE_ARRAY(m_ppaiTechYieldChange);
 	}
 
+}
+
+int CvBuildingInfo::getGlobalYieldChange(int i) const {
+	FAssertMsg(i < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	return m_piGlobalYieldChange ? m_piGlobalYieldChange[i] : 0;
+}
+
+int* CvBuildingInfo::getGlobalYieldChangeArray() const {
+	return m_piGlobalYieldChange;
 }
 
 int CvBuildingInfo::getCreateFeatureType() const {
@@ -8371,6 +8383,10 @@ void CvBuildingInfo::read(FDataStreamBase* stream) {
 	m_piYieldChange = new int[NUM_YIELD_TYPES];
 	stream->Read(NUM_YIELD_TYPES, m_piYieldChange);
 
+	SAFE_DELETE_ARRAY(m_piGlobalYieldChange);
+	m_piGlobalYieldChange = new int[NUM_YIELD_TYPES];
+	stream->Read(NUM_YIELD_TYPES, m_piGlobalYieldChange);
+
 	SAFE_DELETE_ARRAY(m_piYieldModifier);
 	m_piYieldModifier = new int[NUM_YIELD_TYPES];
 	stream->Read(NUM_YIELD_TYPES, m_piYieldModifier);
@@ -8859,6 +8875,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream) {
 	stream->Write(NUM_YIELD_TYPES, m_piRiverPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piGlobalSeaPlotYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piYieldChange);
+	stream->Write(NUM_YIELD_TYPES, m_piGlobalYieldChange);
 	stream->Write(NUM_YIELD_TYPES, m_piYieldModifier);
 	stream->Write(NUM_YIELD_TYPES, m_piPowerYieldModifier);
 	stream->Write(NUM_YIELD_TYPES, m_piAreaYieldModifier);
@@ -9131,6 +9148,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->SetList(&m_piRiverPlotYieldChange, "RiverPlotYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piGlobalSeaPlotYieldChange, "GlobalSeaPlotYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piYieldChange, "YieldChanges", NUM_YIELD_TYPES);
+	pXML->SetList(&m_piGlobalYieldChange, "GlobalYieldChanges", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piYieldModifier, "YieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piPowerYieldModifier, "PowerYieldModifiers", NUM_YIELD_TYPES);
 	pXML->SetList(&m_piAreaYieldModifier, "AreaYieldModifiers", NUM_YIELD_TYPES);

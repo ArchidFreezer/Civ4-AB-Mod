@@ -1951,6 +1951,8 @@ public:
 
 	int getYieldChange(int i) const;				// Exposed to Python
 	int* getYieldChangeArray() const;
+	int getGlobalYieldChange(int i) const;
+	int* getGlobalYieldChangeArray() const;
 	int getYieldModifier(int i) const;				// Exposed to Python
 	int* getYieldModifierArray() const;
 	int getPowerYieldModifier(int i) const;				// Exposed to Python
@@ -2234,6 +2236,7 @@ protected:
 	int* m_piPrereqNumOfBuildingClass;
 	int* m_piFlavorValue;
 	int* m_piImprovementFreeSpecialist;
+	int* m_piGlobalYieldChange;
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbCommerceChangeOriginalOwner;

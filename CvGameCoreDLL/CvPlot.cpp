@@ -4891,12 +4891,13 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 	bool bCity = false;
 
 	PlayerTypes ePlayer = NO_PLAYER;
+	TeamTypes eActiveTeam = GC.getGameINLINE().getActiveTeam();
 	ImprovementTypes eImprovement = NO_IMPROVEMENT;
 	RouteTypes eRoute = NO_ROUTE;
 	if (bDisplay) {
-		ePlayer = getRevealedOwner(GC.getGameINLINE().getActiveTeam(), false);
-		eImprovement = getRevealedImprovementType(GC.getGameINLINE().getActiveTeam(), false);
-		eRoute = getRevealedRouteType(GC.getGameINLINE().getActiveTeam(), false);
+		ePlayer = getRevealedOwner(eActiveTeam, false);
+		eImprovement = getRevealedImprovementType(eActiveTeam, false);
+		eRoute = getRevealedRouteType(eActiveTeam, false);
 
 		if (ePlayer == NO_PLAYER) {
 			ePlayer = GC.getGameINLINE().getActivePlayer();
@@ -4923,7 +4924,7 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 		CvCity* pCity = getPlotCity();
 
 		if (pCity != NULL) {
-			if (!bDisplay || pCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
+			if (!bDisplay || pCity->isRevealed(eActiveTeam, false)) {
 				iYield += kYield.getCityChange();
 				if (kYield.getPopulationChangeDivisor() != 0) {
 					iYield += ((pCity->getPopulation() + kYield.getPopulationChangeOffset()) / kYield.getPopulationChangeDivisor());
@@ -4933,29 +4934,25 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const {
 		}
 
 		CvCity* pWorkingCity = getWorkingCity();
-		if (pWorkingCity != NULL) {
+		if (pWorkingCity != NULL && !isImpassable(GET_PLAYER(ePlayer).getTeam())) {
+			iYield += kPlayer.getPlotYield(eYield);
+
 			if (isWater()) {
-				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
-					iYield += kPlayer.getSeaPlotYield(eYield);
-					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
-						iYield += pWorkingCity->getSeaPlotYield(eYield);
-					}
+				iYield += kPlayer.getSeaPlotYield(eYield);
+				if (!bDisplay || pWorkingCity->isRevealed(eActiveTeam, false)) {
+					iYield += pWorkingCity->getSeaPlotYield(eYield);
 				}
 			}
 
 			if (isRiver()) {
-				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
-					iYield += kPlayer.getRiverPlotYield(eYield);
-					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false)) {
-						iYield += pWorkingCity->getRiverPlotYield(eYield);
-					}
+				iYield += kPlayer.getRiverPlotYield(eYield);
+				if (!bDisplay || pWorkingCity->isRevealed(eActiveTeam, false)) {
+					iYield += pWorkingCity->getRiverPlotYield(eYield);
 				}
 			}
 
 			if (getFeatureType() == (FeatureTypes)GC.getInfoTypeForString("FEATURE_FOREST")) {
-				if (!isImpassable(GET_PLAYER(ePlayer).getTeam())) {
-					iYield += kPlayer.getForestPlotYield(eYield);
-				}
+				iYield += kPlayer.getForestPlotYield(eYield);
 			}
 		}
 	}
