@@ -3212,6 +3212,19 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 			}
 		}
 
+		if (kBuilding.getNumSeeInvisibles() > 0) {
+			for (int iLoopPlot = 0; iLoopPlot < getNumCityPlots(); iLoopPlot++) {
+				CvPlot* pLoopPlot = getCityIndexPlot(iLoopPlot);
+
+				if (pLoopPlot != NULL) {
+					for (int i = 0; i < kBuilding.getNumSeeInvisibles(); i++) {
+						pLoopPlot->changeInvisibleVisibilityCount(getTeam(), (InvisibleTypes)kBuilding.getSeeInvisible(i), iChange);
+					}
+
+				}
+			}
+		}
+
 		if (kBuilding.getNoBonus() != NO_BONUS) {
 			changeNoBonusCount(((BonusTypes)(kBuilding.getNoBonus())), iChange);
 		}
@@ -6910,7 +6923,7 @@ void CvCity::setCultureLevel(CultureLevelTypes eNewValue, bool bUpdatePlotGroups
 		}
 		// If the number of plots has changed then check for any changes in features from the new size
 		if (getNumCityPlots() != iOldNumCityPlots) {
-			doWorkableRadiusChanged();
+			doWorkableRadiusChanged(iOldNumCityPlots, getNumCityPlots());
 		}
 	}
 }
@@ -13353,7 +13366,7 @@ void CvCity::updateWorkableRadiusOverride() {
 	m_iWorkableRadiusOverride = iMaxVal;
 
 	if (iOldNumPlots != getNumCityPlots()) {
-		doWorkableRadiusChanged();
+		doWorkableRadiusChanged(iOldNumPlots, getNumCityPlots());
 	}
 }
 
@@ -13390,10 +13403,11 @@ int CvCity::getNumCityPlots() const {
 	return var_city_plots;
 }
 
-void CvCity::doWorkableRadiusChanged() {
+void CvCity::doWorkableRadiusChanged(int iOldPlots, int iNewPlots) {
 	updateFeatureHappiness();
 	updateFeatureHealth();
 	updateImprovementHealth();
+	updateInvisibleSight(iOldPlots, iNewPlots);
 	AI_setAssignWorkDirty(true);
 }
 
@@ -14054,4 +14068,24 @@ bool CvCity::isUnitCityDeathCulture() const {
 
 void CvCity::changeUnitCityDeathCultureCount(int iChange) {
 	m_iUnitCityDeathCultureCount += iChange;
+}
+
+
+void CvCity::updateInvisibleSight(int iOldPlots, int iNewPlots) {
+
+	for (BuildingTypes eBuilding = (BuildingTypes)0; eBuilding < GC.getNumBuildingInfos(); eBuilding = (BuildingTypes)(eBuilding + 1)) {
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+		if (getNumActiveBuilding(eBuilding) > 0 && kBuilding.getNumSeeInvisibles() > 0) {
+			for (int iLoopPlot = std::min(iOldPlots, iNewPlots) - 1; iLoopPlot < std::max(iOldPlots, iNewPlots); iLoopPlot++) {
+				CvPlot* pLoopPlot = getCityIndexPlot(iLoopPlot);
+
+				if (pLoopPlot != NULL) {
+					for (int i = 0; i < kBuilding.getNumSeeInvisibles(); i++) {
+						pLoopPlot->changeInvisibleVisibilityCount(getTeam(), (InvisibleTypes)kBuilding.getSeeInvisible(i), iNewPlots > iOldPlots? 1 : -1);
+					}
+
+				}
+			}
+		}
+	}
 }

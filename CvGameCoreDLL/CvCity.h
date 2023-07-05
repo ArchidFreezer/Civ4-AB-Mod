@@ -32,6 +32,8 @@ public:
 	void reset(int iID = 0, PlayerTypes eOwner = NO_PLAYER, int iX = 0, int iY = 0, bool bConstructorCall = false);
 	void setupGraphical();
 
+	void updateInvisibleSight(int iOldPlots, int iNewPlots);
+
 	bool isUnitCityDeathCulture() const;
 	void changeUnitCityDeathCultureCount(int iChange);
 
@@ -67,7 +69,7 @@ public:
 	int getNumCityPlots() const;
 	int getWorkableRadiusOverride() const;
 	void updateWorkableRadiusOverride();
-	void doWorkableRadiusChanged();
+	void doWorkableRadiusChanged(int iOldPlots, int iNewPlots);
 
 	void doTurn();
 

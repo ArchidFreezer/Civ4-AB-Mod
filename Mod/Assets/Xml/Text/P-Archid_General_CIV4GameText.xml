@@ -1585,6 +1585,10 @@
 		<Tag>TXT_KEY_BULLET_FREE</Tag>
 		<English>[ICON_BULLET]Free[SPACE]</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BULLET_SEE_INVISIBLE</Tag>
+		<English>[ICON_BULLET]Can see invisible units:[SPACE]</English>
+	</TEXT>
 <!-- Promotions on the move -->
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_FREE_PROMOTION_END_TRAIN</Tag>

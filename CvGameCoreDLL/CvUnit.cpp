@@ -6689,6 +6689,10 @@ bool CvUnit::canMove() const {
 		return false;
 	}
 
+	if (getRangeType() == UNITRANGE_IMMOBILE) {
+		return false;
+	}
+
 	return true;
 }
 

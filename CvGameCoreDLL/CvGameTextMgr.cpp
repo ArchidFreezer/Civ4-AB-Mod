@@ -9076,12 +9076,22 @@ void CvGameTextMgr::setBuildingHelpActual(CvWStringBuffer& szBuffer, BuildingTyp
 		}
 	}
 
+	bool bFirst = true;
+	for (int iIndex = 0; iIndex < kBuilding.getNumSeeInvisibles(); ++iIndex) {
+		if (kBuilding.getSeeInvisible(iIndex) != NO_INVISIBLE) {
+			CvWString szTempBuffer;
+			szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_BULLET_SEE_INVISIBLE").c_str());
+			setListHelp(szBuffer, szTempBuffer, CvWString::format(L"<link=literal>%s</link>", GC.getInvisibleInfo(kBuilding.getSeeInvisible(iIndex)).getDescription()), L", ", bFirst);
+			bFirst = false;
+		}
+	}
+
 	if (kBuilding.getWorkableRadius() > 0) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_EXPANDS_WORKABLE_RADIUS", kBuilding.getWorkableRadius()));
 	}
 
-	bool bFirst = true;
+	bFirst = true;
 	for (int iIndex = 0; iIndex < kBuilding.getNumFreePromotions(); ++iIndex) {
 		if (kBuilding.getFreePromotion(iIndex) != NO_PROMOTION) {
 			CvWString szTempBuffer;
