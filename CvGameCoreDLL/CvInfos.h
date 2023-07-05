@@ -1903,6 +1903,7 @@ public:
 	int getGlobalFoundPopulationChange() const;
 	int getFreeUnitClass() const;
 	int getCreateFeatureType() const;
+	int getGlobalWonderProductionModifier() const;
 
 	float getVisibilityPriority() const;
 
@@ -2162,6 +2163,7 @@ protected:
 	int m_iGlobalFoundPopulationChange;
 	int m_iFreeUnitClass;
 	int m_iCreateFeatureType;
+	int m_iGlobalWonderProductionModifier;
 
 	float m_fVisibilityPriority;
 

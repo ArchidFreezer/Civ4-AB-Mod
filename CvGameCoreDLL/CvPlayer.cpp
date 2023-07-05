@@ -549,6 +549,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall) {
 	m_iUnitAllCityDeathCultureCount = 0;
 	m_iMaxPlunderBudget = 0;
 	m_iCurrPlunderBudget = 0;
+	m_iWonderProductionModifier = 0;
 
 	m_uiStartTime = 0;
 
@@ -5455,6 +5456,7 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, CvArea* pAr
 	changeStarSignScalePercent(kBuilding.getGlobalStarSignScaleChangePercent() * iChange);
 	changeFoundCityPopulationChange(kBuilding.getGlobalFoundPopulationChange() * iChange);
 	changeUnitAllCityDeathCultureCount(kBuilding.isUnitAllCityDeathCulture() ? iChange : 0);
+	changeWonderProductionModifier(kBuilding.getGlobalWonderProductionModifier() * iChange);
 
 	for (YieldTypes eYield = (YieldTypes)0; eYield < NUM_YIELD_TYPES; eYield = (YieldTypes)(eYield + 1)) {
 		changePlotYield(eYield, kBuilding.getGlobalYieldChange(eYield) * iChange);
@@ -14179,6 +14181,7 @@ void CvPlayer::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iUnitAllCityDeathCultureCount);
 	pStream->Read(&m_iMaxPlunderBudget);
 	pStream->Read(&m_iCurrPlunderBudget);
+	pStream->Read(&m_iWonderProductionModifier);
 
 	pStream->Read(&m_bAlive);
 	pStream->Read(&m_bEverAlive);
@@ -14741,6 +14744,7 @@ void CvPlayer::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iUnitAllCityDeathCultureCount);
 	pStream->Write(m_iMaxPlunderBudget);
 	pStream->Write(m_iCurrPlunderBudget);
+	pStream->Write(m_iWonderProductionModifier);
 
 	pStream->Write(m_bAlive);
 	pStream->Write(m_bEverAlive);
@@ -20765,4 +20769,12 @@ void CvPlayer::changePlotYield(YieldTypes eIndex, int iChange) {
 
 		updateYield();
 	}
+}
+
+int CvPlayer::getWonderProductionModifier() const {
+	return m_iWonderProductionModifier;
+}
+
+void CvPlayer::changeWonderProductionModifier(int iChange) {
+	m_iWonderProductionModifier += iChange;
 }

@@ -36,7 +36,10 @@ public:
 	CvPlayerAI* AI() { return (CvPlayerAI*)(this); }
 	const CvPlayerAI* AI() const { return (const CvPlayerAI*)(this); }
 
-	int getPlotYield(YieldTypes eIndex) const;																											// Exposed to Python
+	int getWonderProductionModifier() const;
+	void changeWonderProductionModifier(int iChange);
+
+	int getPlotYield(YieldTypes eIndex) const;
 	void changePlotYield(YieldTypes eIndex, int iChange);
 
 	int getPlundered(PlayerTypes ePlayer, int iDesired);
@@ -1405,6 +1408,7 @@ protected:
 	int m_iUnitAllCityDeathCultureCount;
 	int m_iMaxPlunderBudget;
 	int m_iCurrPlunderBudget;
+	int m_iWonderProductionModifier;
 
 	uint m_uiStartTime;  // XXX save these?
 
