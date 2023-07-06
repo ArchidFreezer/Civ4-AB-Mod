@@ -46,7 +46,6 @@ public class CivicInfos extends AbstractInfos<ICivicInfo> {
 		private String button;
 		private Integer index;
 		private String techPrereq;
-		private Boolean createBarbarians;
 		private Boolean enableStarSigns;
 		private Integer starSignMitigateChangePercent;
 		private Integer starSignScaleChangePercent;
@@ -75,7 +74,6 @@ public class CivicInfos extends AbstractInfos<ICivicInfo> {
 		private Integer goldPerMilitaryUnit;
 		private Integer happyPerMilitaryUnit;
 		private Boolean militaryFoodProduction;
-		private Boolean tribalConscription;
 		private Integer maxConscript;
 		private Integer unhealthyPopulationModifier;
 		private Integer expInBorderModifier;
@@ -215,16 +213,6 @@ public class CivicInfos extends AbstractInfos<ICivicInfo> {
 		@Override
 		public void setTechPrereq(String techPrereq) {
 			this.techPrereq = techPrereq;
-		}
-
-		@Override
-		public Boolean isCreateBarbarians() {
-			return createBarbarians;
-		}
-
-		@Override
-		public void setCreateBarbarians(Boolean createBarbarians) {
-			this.createBarbarians = createBarbarians;
 		}
 
 		@Override
@@ -505,16 +493,6 @@ public class CivicInfos extends AbstractInfos<ICivicInfo> {
 		@Override
 		public void setMilitaryFoodProduction(Boolean militaryFoodProduction) {
 			this.militaryFoodProduction = militaryFoodProduction;
-		}
-
-		@Override
-		public Boolean isTribalConscription() {
-			return tribalConscription;
-		}
-
-		@Override
-		public void setTribalConscription(Boolean tribalConscription) {
-			this.tribalConscription = tribalConscription;
 		}
 
 		@Override

@@ -53,7 +53,6 @@ public class CivicExporter extends AbstractExporter<IInfos<ICivicInfo>, ICivicIn
 		addSingleCell(row.createCell(colNum++), info.getButton());
 		addSingleCell(row.createCell(colNum++), info.getIndex());
 		addSingleCell(row.createCell(colNum++), info.getTechPrereq());
-		addSingleCell(row.createCell(colNum++), info.isCreateBarbarians());
 		addSingleCell(row.createCell(colNum++), info.isEnableStarSigns());
 		addSingleCell(row.createCell(colNum++), info.getStarSignMitigateChangePercent());
 		addSingleCell(row.createCell(colNum++), info.getStarSignScaleChangePercent());
@@ -82,7 +81,6 @@ public class CivicExporter extends AbstractExporter<IInfos<ICivicInfo>, ICivicIn
 		addSingleCell(row.createCell(colNum++), info.getGoldPerMilitaryUnit());
 		addSingleCell(row.createCell(colNum++), info.getHappyPerMilitaryUnit());
 		addSingleCell(row.createCell(colNum++), info.isMilitaryFoodProduction());
-		addSingleCell(row.createCell(colNum++), info.isTribalConscription());
 		addSingleCell(row.createCell(colNum++), info.getMaxConscript());
 		addSingleCell(row.createCell(colNum++), info.getUnhealthyPopulationModifier());
 		addSingleCell(row.createCell(colNum++), info.getExpInBorderModifier());

@@ -30,9 +30,6 @@ public interface ICivicInfo extends IInfo {
 	String getTechPrereq();
 	void setTechPrereq(String techPrereq);
 
-	Boolean isCreateBarbarians();
-	void setCreateBarbarians(Boolean createBarbarians);
-
 	Boolean isEnableStarSigns();
 	void setEnableStarSigns(Boolean enableStarSigns);
 
@@ -116,9 +113,6 @@ public interface ICivicInfo extends IInfo {
 
 	Boolean isMilitaryFoodProduction();
 	void setMilitaryFoodProduction(Boolean militaryFoodProduction);
-
-	Boolean isTribalConscription();
-	void setTribalConscription(Boolean tribalConscription);
 
 	Integer getMaxConscript();
 	void setMaxConscript(Integer maxConscript);

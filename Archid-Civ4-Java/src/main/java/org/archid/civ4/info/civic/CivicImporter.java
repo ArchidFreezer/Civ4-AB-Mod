@@ -44,7 +44,6 @@ public class CivicImporter extends AbstractImporter<IInfos<ICivicInfo>, ICivicIn
 		parseCell(row.getCell(colNum++), String.class, info::setButton);
 		parseCell(row.getCell(colNum++), Integer.class, info::setIndex);
 		parseCell(row.getCell(colNum++), String.class, info::setTechPrereq);
-		parseCell(row.getCell(colNum++), Boolean.class, info::setCreateBarbarians);
 		parseCell(row.getCell(colNum++), Boolean.class, info::setEnableStarSigns);
 		parseCell(row.getCell(colNum++), Integer.class, info::setStarSignMitigateChangePercent);
 		parseCell(row.getCell(colNum++), Integer.class, info::setStarSignScaleChangePercent);
@@ -73,7 +72,6 @@ public class CivicImporter extends AbstractImporter<IInfos<ICivicInfo>, ICivicIn
 		parseCell(row.getCell(colNum++), Integer.class, info::setGoldPerMilitaryUnit);
 		parseCell(row.getCell(colNum++), Integer.class, info::setHappyPerMilitaryUnit);
 		parseCell(row.getCell(colNum++), Boolean.class, info::setMilitaryFoodProduction);
-		parseCell(row.getCell(colNum++), Boolean.class, info::setTribalConscription);
 		parseCell(row.getCell(colNum++), Integer.class, info::setMaxConscript);
 		parseCell(row.getCell(colNum++), Integer.class, info::setUnhealthyPopulationModifier);
 		parseCell(row.getCell(colNum++), Integer.class, info::setExpInBorderModifier);

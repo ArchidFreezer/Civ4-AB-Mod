@@ -39,8 +39,6 @@ public class CivicMapAdapter extends XmlAdapter<CivicMapAdapter.CivicMap, Map<St
 		private Integer index;
 		@XmlElement(name="TechPrereq")
 		private String techPrereq;
-		@XmlElement(name="bCreateBarbarians")
-		private Integer createBarbarians;
 		@XmlElement(name="bEnableStarSigns")
 		private Integer enableStarSigns;
 		@XmlElement(name="iStarSignMitigateChangePercent")
@@ -97,8 +95,6 @@ public class CivicMapAdapter extends XmlAdapter<CivicMapAdapter.CivicMap, Map<St
 		private Integer happyPerMilitaryUnit;
 		@XmlElement(name="bMilitaryFoodProduction")
 		private Integer militaryFoodProduction;
-		@XmlElement(name="bTribalConscription")
-		private Integer tribalConscription;
 		@XmlElement(name="iMaxConscript")
 		private Integer maxConscript;
 		@XmlElement(name="iUnhealthyPopulationModifier")
@@ -255,7 +251,6 @@ public class CivicMapAdapter extends XmlAdapter<CivicMapAdapter.CivicMap, Map<St
 			info.setButton(JaxbUtils.unmarshallString(aInfo.button));
 			info.setIndex(JaxbUtils.unmarshallInteger(aInfo.index));
 			info.setTechPrereq(JaxbUtils.unmarshallString(aInfo.techPrereq));
-			info.setCreateBarbarians(JaxbUtils.unmarshallBoolean(aInfo.createBarbarians));
 			info.setEnableStarSigns(JaxbUtils.unmarshallBoolean(aInfo.enableStarSigns));
 			info.setStarSignMitigateChangePercent(JaxbUtils.unmarshallInteger(aInfo.starSignMitigateChangePercent));
 			info.setStarSignScaleChangePercent(JaxbUtils.unmarshallInteger(aInfo.starSignScaleChangePercent));
@@ -284,7 +279,6 @@ public class CivicMapAdapter extends XmlAdapter<CivicMapAdapter.CivicMap, Map<St
 			info.setGoldPerMilitaryUnit(JaxbUtils.unmarshallInteger(aInfo.goldPerMilitaryUnit));
 			info.setHappyPerMilitaryUnit(JaxbUtils.unmarshallInteger(aInfo.happyPerMilitaryUnit));
 			info.setMilitaryFoodProduction(JaxbUtils.unmarshallBoolean(aInfo.militaryFoodProduction));
-			info.setTribalConscription(JaxbUtils.unmarshallBoolean(aInfo.tribalConscription));
 			info.setMaxConscript(JaxbUtils.unmarshallInteger(aInfo.maxConscript));
 			info.setUnhealthyPopulationModifier(JaxbUtils.unmarshallInteger(aInfo.unhealthyPopulationModifier));
 			info.setExpInBorderModifier(JaxbUtils.unmarshallInteger(aInfo.expInBorderModifier));
@@ -437,7 +431,6 @@ public class CivicMapAdapter extends XmlAdapter<CivicMapAdapter.CivicMap, Map<St
 			aInfo.button = JaxbUtils.marshallMandatoryString(info.getButton());
 			aInfo.index = JaxbUtils.marshallMandatoryInteger(info.getIndex());
 			aInfo.techPrereq = JaxbUtils.marshallString(info.getTechPrereq());
-			aInfo.createBarbarians = JaxbUtils.marshallBoolean(info.isCreateBarbarians());
 			aInfo.enableStarSigns = JaxbUtils.marshallBoolean(info.isEnableStarSigns());
 			aInfo.starSignMitigateChangePercent = JaxbUtils.marshallInteger(info.getStarSignMitigateChangePercent());
 			aInfo.starSignScaleChangePercent = JaxbUtils.marshallInteger(info.getStarSignScaleChangePercent());
@@ -466,7 +459,6 @@ public class CivicMapAdapter extends XmlAdapter<CivicMapAdapter.CivicMap, Map<St
 			aInfo.goldPerMilitaryUnit = JaxbUtils.marshallInteger(info.getGoldPerMilitaryUnit());
 			aInfo.happyPerMilitaryUnit = JaxbUtils.marshallInteger(info.getHappyPerMilitaryUnit());
 			aInfo.militaryFoodProduction = JaxbUtils.marshallBoolean(info.isMilitaryFoodProduction());
-			aInfo.tribalConscription = JaxbUtils.marshallBoolean(info.isTribalConscription());
 			aInfo.maxConscript = JaxbUtils.marshallInteger(info.getMaxConscript());
 			aInfo.unhealthyPopulationModifier = JaxbUtils.marshallInteger(info.getUnhealthyPopulationModifier());
 			aInfo.expInBorderModifier = JaxbUtils.marshallInteger(info.getExpInBorderModifier());
