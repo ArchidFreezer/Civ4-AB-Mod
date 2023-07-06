@@ -103,8 +103,6 @@ public class UnitExporter extends AbstractExporter<IInfos<IUnitInfo>, IUnitInfo>
 		addSingleCell(row.createCell(colNum++), info.isAlwaysHostile());
 		addSingleCell(row.createCell(colNum++), info.isWorkerTrade());
 		addSingleCell(row.createCell(colNum++), info.isMilitaryTrade());
-		addSingleCell(row.createCell(colNum++), info.isBarbarianLeader());
-		addSingleCell(row.createCell(colNum++), info.isCityPacifier());
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getUnitClassUpgrades(), maxHeight);
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getUnitClassTargets(), maxHeight);
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getUnitCombatTargets(), maxHeight);
@@ -169,8 +167,6 @@ public class UnitExporter extends AbstractExporter<IInfos<IUnitInfo>, IUnitInfo>
 		addSingleCell(row.createCell(colNum++), info.getTradeMultiplier());
 		addSingleCell(row.createCell(colNum++), info.getGreatWorkCulture());
 		addSingleCell(row.createCell(colNum++), info.getEspionagePoints());
-		addSingleCell(row.createCell(colNum++), info.getGreatJestHappiness());
-		addSingleCell(row.createCell(colNum++), info.getGreatJestDuration());
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getTerrainImpassables(), maxHeight);
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getFeatureImpassables(), maxHeight);
 		maxHeight = addRepeatingPairCell(row.createCell(colNum++), info.getTerrainPassableTechs(), maxHeight);

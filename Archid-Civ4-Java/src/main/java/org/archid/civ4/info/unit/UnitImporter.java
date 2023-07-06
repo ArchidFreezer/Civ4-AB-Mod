@@ -94,8 +94,6 @@ public class UnitImporter extends AbstractImporter<IInfos<IUnitInfo>, IUnitInfo>
 		parseCell(row.getCell(colNum++), Boolean.class, info::setAlwaysHostile);
 		parseCell(row.getCell(colNum++), Boolean.class, info::setWorkerTrade);
 		parseCell(row.getCell(colNum++), Boolean.class, info::setMilitaryTrade);
-		parseCell(row.getCell(colNum++), Boolean.class, info::setBarbarianLeader);
-		parseCell(row.getCell(colNum++), Boolean.class, info::setCityPacifier);
 		parseListCell(row.getCell(colNum++), String.class, info::addUnitClassUpgrade);
 		parseListCell(row.getCell(colNum++), String.class, info::addUnitClassTarget);
 		parseListCell(row.getCell(colNum++), String.class, info::addUnitCombatTarget);
@@ -160,8 +158,6 @@ public class UnitImporter extends AbstractImporter<IInfos<IUnitInfo>, IUnitInfo>
 		parseCell(row.getCell(colNum++), Integer.class, info::setTradeMultiplier);
 		parseCell(row.getCell(colNum++), Integer.class, info::setGreatWorkCulture);
 		parseCell(row.getCell(colNum++), Integer.class, info::setEspionagePoints);
-		parseCell(row.getCell(colNum++), Integer.class, info::setGreatJestHappiness);
-		parseCell(row.getCell(colNum++), Integer.class, info::setGreatJestDuration);
 		parseListCell(row.getCell(colNum++), String.class, info::addTerrainImpassable);
 		parseListCell(row.getCell(colNum++), String.class, info::addFeatureImpassable);
 		parsePairsCell(row.getCell(colNum++), String.class, String.class, info::addTerrainPassableTech);

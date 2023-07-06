@@ -97,8 +97,6 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		private Boolean alwaysHostile;
 		private Boolean workerTrade;
 		private Boolean militaryTrade;
-		private Boolean barbarianLeader;
-		private Boolean cityPacifier;
 		private List<String> unitClassUpgrades = new ArrayList<String>();
 		private List<String> unitClassTargets = new ArrayList<String>();
 		private List<String> unitCombatTargets = new ArrayList<String>();
@@ -163,8 +161,6 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		private Integer tradeMultiplier;
 		private Integer greatWorkCulture;
 		private Integer espionagePoints;
-		private Integer greatJestHappiness;
-		private Integer greatJestDuration;
 		private List<String> terrainImpassables = new ArrayList<String>();
 		private List<String> featureImpassables = new ArrayList<String>();
 		private List<IPair<String, String>> terrainPassableTechs = new ArrayList<IPair<String, String>>();
@@ -829,26 +825,6 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		}
 
 		@Override
-		public Boolean isBarbarianLeader() {
-			return barbarianLeader;
-		}
-
-		@Override
-		public void setBarbarianLeader(Boolean barbarianLeader) {
-			this.barbarianLeader = barbarianLeader;
-		}
-
-		@Override
-		public Boolean isCityPacifier() {
-			return cityPacifier;
-		}
-
-		@Override
-		public void setCityPacifier(Boolean cityPacifier) {
-			this.cityPacifier = cityPacifier;
-		}
-
-		@Override
 		public List<String> getUnitClassUpgrades() {
 			return unitClassUpgrades;
 		}
@@ -1322,10 +1298,12 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		public Integer getMorale() {
 			return morale;
 		}
+
 		@Override
 		public void setMorale(Integer morale) {
 			this.morale = morale;
 		}
+
 		@Override
 		public Integer getMoves() {
 			return moves;
@@ -1484,26 +1462,6 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		@Override
 		public void setEspionagePoints(Integer espionagePoints) {
 			this.espionagePoints = espionagePoints;
-		}
-
-		@Override
-		public Integer getGreatJestHappiness() {
-			return greatJestHappiness;
-		}
-
-		@Override
-		public void setGreatJestHappiness(Integer greatJestHappiness) {
-			this.greatJestHappiness = greatJestHappiness;
-		}
-
-		@Override
-		public Integer getGreatJestDuration() {
-			return greatJestDuration;
-		}
-
-		@Override
-		public void setGreatJestDuration(Integer greatJestDuration) {
-			this.greatJestDuration = greatJestDuration;
 		}
 
 		@Override
