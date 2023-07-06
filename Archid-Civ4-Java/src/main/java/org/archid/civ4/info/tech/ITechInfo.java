@@ -39,12 +39,6 @@ public interface ITechInfo extends IInfo {
 	String getEra();
 	void setEra(String era);
 
-	Boolean isCivSettled();
-	void setCivSettled(Boolean civSettled);
-
-	String getFreeCapitalBuildingClass();
-	void setFreeCapitalBuildingClass(String freeCapitalBuildingClass);
-
 	String getFirstFreeUnitClass();
 	void setFirstFreeUnitClass(String firstFreeUnitClass);
 

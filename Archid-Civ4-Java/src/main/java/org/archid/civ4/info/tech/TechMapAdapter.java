@@ -45,10 +45,6 @@ public class TechMapAdapter extends XmlAdapter<TechMapAdapter.TechMap, Map<Strin
 		private Integer advancedStartCostIncrease;
 		@XmlElement(name="Era")
 		private String era;
-		@XmlElement(name="bCivSettled")
-		private Integer civSettled;
-		@XmlElement(name="FreeCapitalBuildingClass")
-		private String freeCapitalBuildingClass;
 		@XmlElement(name="FirstFreeUnitClass")
 		private String firstFreeUnitClass;
 		@XmlElement(name="FreeUnitClass")
@@ -223,8 +219,6 @@ public class TechMapAdapter extends XmlAdapter<TechMapAdapter.TechMap, Map<Strin
 			info.setAdvancedStartCost(JaxbUtils.unmarshallInteger(aInfo.advancedStartCost));
 			info.setAdvancedStartCostIncrease(JaxbUtils.unmarshallInteger(aInfo.advancedStartCostIncrease));
 			info.setEra(JaxbUtils.unmarshallString(aInfo.era));
-			info.setCivSettled(JaxbUtils.unmarshallBoolean(aInfo.civSettled));
-			info.setFreeCapitalBuildingClass(JaxbUtils.unmarshallString(aInfo.freeCapitalBuildingClass));
 			info.setFirstFreeUnitClass(JaxbUtils.unmarshallString(aInfo.firstFreeUnitClass));
 			info.setFreeUnitClass(JaxbUtils.unmarshallString(aInfo.freeUnitClass));
 			info.setFeatureProductionModifier(JaxbUtils.unmarshallInteger(aInfo.featureProductionModifier));
@@ -388,8 +382,6 @@ public class TechMapAdapter extends XmlAdapter<TechMapAdapter.TechMap, Map<Strin
 			aInfo.advancedStartCost = JaxbUtils.marshallMandatoryInteger(info.getAdvancedStartCost());
 			aInfo.advancedStartCostIncrease = JaxbUtils.marshallInteger(info.getAdvancedStartCostIncrease());
 			aInfo.era = JaxbUtils.marshallMandatoryString(info.getEra());
-			aInfo.civSettled = JaxbUtils.marshallBoolean(info.isCivSettled());
-			aInfo.freeCapitalBuildingClass = JaxbUtils.marshallString(info.getFreeCapitalBuildingClass());
 			aInfo.firstFreeUnitClass = JaxbUtils.marshallString(info.getFirstFreeUnitClass());
 			aInfo.freeUnitClass = JaxbUtils.marshallString(info.getFreeUnitClass());
 			aInfo.featureProductionModifier = JaxbUtils.marshallInteger(info.getFeatureProductionModifier());

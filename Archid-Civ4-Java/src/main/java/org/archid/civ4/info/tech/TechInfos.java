@@ -49,8 +49,6 @@ public class TechInfos extends AbstractInfos<ITechInfo> {
 		private Integer advancedStartCost;
 		private Integer advancedStartCostIncrease;
 		private String era;
-		private Boolean civSettled;
-		private String freeCapitalBuildingClass;
 		private String firstFreeUnitClass;
 		private String freeUnitClass;
 		private Integer featureProductionModifier;
@@ -235,26 +233,6 @@ public class TechInfos extends AbstractInfos<ITechInfo> {
 		@Override
 		public void setEra(String era) {
 			this.era = era;
-		}
-
-		@Override
-		public Boolean isCivSettled() {
-			return civSettled;
-		}
-
-		@Override
-		public void setCivSettled(Boolean civSettled) {
-			this.civSettled = civSettled;
-		}
-
-		@Override
-		public String getFreeCapitalBuildingClass() {
-			return freeCapitalBuildingClass;
-		}
-
-		@Override
-		public void setFreeCapitalBuildingClass(String freeCapitalBuildingClass) {
-			this.freeCapitalBuildingClass = freeCapitalBuildingClass;
 		}
 
 		@Override
