@@ -118,7 +118,7 @@ public class JavaGenerator {
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod\\mod\\Assets\\Xml\\GameInfo");
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA, "CIV4GameInfoSchema.xml");
 		} else if (tag.equals("Civ4EventInfos")) {
-			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod4\\mod\\Assets\\Xml\\Events");
+			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod\\mod\\Assets\\Xml\\Events");
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA, "CIV4EventSchema.xml");
 		} else if (tag.equals("Civ4EventTriggerInfos")) {
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod\\mod\\Assets\\Xml\\Events");
