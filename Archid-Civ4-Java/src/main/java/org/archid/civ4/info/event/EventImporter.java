@@ -13,7 +13,7 @@ public class EventImporter extends AbstractImporter<IInfos<IEventInfo>, IEventIn
 	static Logger log = Logger.getLogger(EventImporter.class.getName());
 
 	public EventImporter(EInfo infoEnum) {
-		super(infoEnum, new DefaultXmlFormatter("Event"));
+		super(infoEnum, new DefaultXmlFormatter("event"));
 	}
 
 	@Override

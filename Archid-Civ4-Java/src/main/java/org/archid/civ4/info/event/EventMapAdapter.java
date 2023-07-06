@@ -295,7 +295,7 @@ public class EventMapAdapter extends XmlAdapter<EventMapAdapter.EventMap, Map<St
 			if (CollectionUtils.hasElements(aInfo.worldNewsTexts)) {
 				for (String val: aInfo.worldNewsTexts) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addWorldNewsText(val);
+						info.addWorldNewsText(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -476,7 +476,7 @@ public class EventMapAdapter extends XmlAdapter<EventMapAdapter.EventMap, Map<St
 			if (CollectionUtils.hasElements(info.getWorldNewsTexts())) {
 				aInfo.worldNewsTexts = new ArrayList<String>();
 				for(String val: info.getWorldNewsTexts()) {
-					aInfo.worldNewsTexts.add(val);
+					aInfo.worldNewsTexts.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.otherPlayerPopup = JaxbUtils.marshallString(info.getOtherPlayerPopup());
