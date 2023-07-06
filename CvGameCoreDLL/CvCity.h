@@ -67,6 +67,10 @@ public:
 	void doUnitHomeTurns();
 	void incrementUnitHomeTurn(int iUnitID);
 
+	void doUpgradeWeapons();
+	void doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit);
+	std::vector<WeaponTypes> getWeaponTypes();
+
 	void doAutoBuild();
 
 	int getNumCityPlots() const;

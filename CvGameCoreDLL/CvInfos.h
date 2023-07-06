@@ -1033,6 +1033,8 @@ public:
 	int getSlaveSpecialistType() const;
 	int getNumPrereqWorldViews() const;
 	int getMorale() const;
+	int getMaxWeaponTypeTier() const;
+	int getMaxAmmunitionTypeTier() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1258,6 +1260,8 @@ protected:
 	int m_iObsoleteTech;
 	int m_iSlaveSpecialistType;
 	int m_iMorale;
+	int m_iMaxWeaponTypeTier;
+	int m_iMaxAmmunitionTypeTier;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;
@@ -6898,6 +6902,45 @@ public:
 
 protected:
 	bool m_bFortAttack;
+};
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+//  class : CvWeaponInfo
+//
+//
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class CvWeaponInfo : public CvInfoBase {
+	friend class CvXMLLoadUtility;
+
+public:
+	CvWeaponInfo();
+	virtual ~CvWeaponInfo();
+
+	int getStrength() const;
+	int getTier() const;
+	int getNumBonusPrereqs() const;
+	int getNumUnitCombatTypes() const;
+
+	bool isAmmunition() const;
+
+	int getBonusPrereq(int i) const;
+	int getUnitCombatType(int i) const;
+
+	bool isBonusPrereq(int i) const;
+	bool isUnitCombatType(int i) const;
+
+	bool read(CvXMLLoadUtility* pXML);
+
+private:
+
+	int m_iStrength;
+	int m_iTier;
+
+	bool m_bAmmunition;
+
+	std::vector<int> m_viBonusTypes;
+	std::vector<int> m_viUnitCombatTypes;
 };
 
 #endif

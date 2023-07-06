@@ -135,6 +135,7 @@ class CvMainMenuInfo;
 class CvStarEventInfo;
 class CvWorldViewInfo;
 class CvUnitCombatInfo;
+class CvWeaponInfo;
 
 class CvGlobals {
 	//	friend class CvDLLUtilityIFace;
@@ -624,6 +625,10 @@ public:
 
 	std::vector<CvWorldViewInfo*>& getWorldViewInfo();
 	CvWorldViewInfo& getWorldViewInfo(WorldViewTypes eWorldView);
+
+	int getNumWeaponInfos();
+	std::vector<CvWeaponInfo*>& getWeaponInfo();
+	CvWeaponInfo& getWeaponInfo(WeaponTypes eWeapon);
 
 	//
 	// Global Types
@@ -1205,6 +1210,7 @@ protected:
 	std::vector<CvStarEventInfo*> m_paStarEventInfo;
 	std::vector<CvInfoBase*> m_paStarEventTargetInfos;
 	std::vector<CvWorldViewInfo*> m_paWorldViewInfo;
+	std::vector<CvWeaponInfo*> m_paWeaponInfo;
 
 	// Game Text
 	std::vector<CvGameText*> m_paGameTextXML;

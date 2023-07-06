@@ -88,6 +88,13 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	void setWeaponType(WeaponTypes eWeapon);
+	void setAmmunitionType(WeaponTypes eWeapon);
+	int getWeaponStrength() const;
+	int getAmmunitionStrength() const;
+	WeaponTypes getWeaponType() const;
+	WeaponTypes getAmmunitionType() const;
+
 	int getPlunderValue() const;
 	void changePlunderValue(int iChange);
 	void setPlunderValue(int iValue);
@@ -1046,6 +1053,8 @@ protected:
 	int m_iExtraMorale;
 	int m_iEnemyMoraleModifier;
 	int m_iPlunderValue;
+	int m_iWeaponStrength; // Cached for speed
+	int m_iAmmunitionStrength; // Cached for speed
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
@@ -1073,6 +1082,8 @@ protected:
 	UnitCombatTypes m_eUnitCombatType;
 	UnitTypes m_eUnitType;
 	UnitTypes m_eLeaderUnitType;
+	WeaponTypes m_eWeaponType;
+	WeaponTypes m_eAmmunitionType;
 	CvUnitInfo* m_pUnitInfo;
 	CvSpy* m_pSpy;
 	CvUnitMeshGroups* m_pCustomUnitMeshGroup;

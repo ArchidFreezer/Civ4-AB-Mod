@@ -501,6 +501,16 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer& szString, const CvUnit* pUnit, 
 		szString.append(szTempBuffer);
 	}
 
+	if (pUnit->getWeaponType() != NO_WEAPON) {
+		szTempBuffer.Format(L"<img=%S size=16></img>", GC.getWeaponInfo(pUnit->getWeaponType()).getButton());
+		szString.append(szTempBuffer);
+	}
+
+	if (pUnit->getAmmunitionType() != NO_WEAPON) {
+		szTempBuffer.Format(L"<img=%S size=16></img>", GC.getWeaponInfo(pUnit->getAmmunitionType()).getButton());
+		szString.append(szTempBuffer);
+	}
+
 	for (PromotionTypes ePromotion = (PromotionTypes)0; ePromotion < GC.getNumPromotionInfos(); ePromotion = (PromotionTypes)(ePromotion + 1)) {
 		if (pUnit->isHasPromotion(ePromotion)) {
 			szTempBuffer.Format(L"<img=%S size=16></img>", GC.getPromotionInfo(ePromotion).getButton());
@@ -7633,6 +7643,26 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 	}
 
 	bool bFirst = true;
+	for (WeaponTypes eWeapon = (WeaponTypes)0; eWeapon < GC.getNumWeaponInfos(); eWeapon = (WeaponTypes)(eWeapon + 1)) {
+		const CvWeaponInfo& kWeapon = GC.getWeaponInfo(eWeapon);
+		for (int i = 0; i < kWeapon.getNumUnitCombatTypes(); i++) {
+			UnitCombatTypes eCombatType = (UnitCombatTypes)kWeapon.getUnitCombatType(i);
+			if (kUnit.isCombatType(eCombatType)) {
+				int iMaxAmmoTier = kUnit.getMaxAmmunitionTypeTier();
+				int iMaxWeaponTier = kUnit.getMaxWeaponTypeTier();
+				if ((!kWeapon.isAmmunition() && iMaxWeaponTier != 0 && (iMaxWeaponTier >= kWeapon.getTier() || iMaxWeaponTier == -1)) ||
+					(kWeapon.isAmmunition() && iMaxAmmoTier != 0 && (iMaxAmmoTier >= kWeapon.getTier() || iMaxAmmoTier == -1))) {
+					szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_UNIT_WEAPON_UPGRADE").c_str());
+					CvWString szWeapon;
+					szWeapon.Format(L"%s", kWeapon.getDescription());
+					setListHelp(szBuffer, szTempBuffer, szWeapon, L", ", bFirst);
+					bFirst = false;
+				}
+			}
+		}
+	}
+
+	bFirst = true;
 	for (ReligionTypes eReligion = (ReligionTypes)0; eReligion < GC.getNumReligionInfos(); eReligion = (ReligionTypes)(eReligion + 1)) {
 		if (kUnit.getReligionSpreads(eReligion) > 0) {
 			szTempBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_UNIT_CAN_SPREAD").c_str());
@@ -17352,4 +17382,10 @@ void CvGameTextMgr::buildObsoletePromotionString(CvWStringBuffer& szBuffer, Prom
 		szBuffer.append(NEWLINE);
 	}
 	szBuffer.append(gDLL->getText("TXT_KEY_TECH_OBSOLETES", GC.getPromotionInfo(ePromotion).getTextKeyWide()));
+}
+
+void CvGameTextMgr::setWeaponHelp(CvWStringBuffer& szBuffer, WeaponTypes eWeapon) {
+	const CvWeaponInfo& kWeapon = GC.getWeaponInfo(eWeapon);
+	szBuffer.append(gDLL->getText("TXT_KEY_UNIT_HELP_WEAPON", kWeapon.getTextKeyWide(), kWeapon.getStrength()));
+
 }

@@ -1654,4 +1654,13 @@
 		<Tag>TXT_KEY_BUILDING_PLAYER_FAST_GROWTH_SPEED</Tag>
 		<English>[ICON_BULLET]All cities require %d1%% Less [ICON_FOOD] to Grow</English>
    </Text>
+<!-- Weapon Types -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HELP_WEAPON</Tag>
+		<English>%s1_weapon: (%d2_strength[ICON_STRENGTH])</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WEAPON_UPGRADE</Tag>
+		<English>[ICON_BULLET]Weapon upgrade:[SPACE]</English>
+	</TEXT>
 </Civ4GameText>

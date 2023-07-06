@@ -864,6 +864,8 @@ void CvCity::doTurn() {
 
 	doSlaveDeath();
 
+	doUpgradeWeapons();
+
 	updateEspionageVisibility(true);
 
 	if (!isDisorder()) {
@@ -10050,6 +10052,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose) {
 				CvUnit* pUnit = GET_PLAYER(getOwnerINLINE()).initUnit(eTrainUnit, getX_INLINE(), getY_INLINE(), eTrainAIUnit);
 				FAssertMsg(pUnit != NULL, "pUnit is expected to be assigned a valid unit object");
 
+				doUnitWeaponUpgrade(getWeaponTypes(), pUnit);
 				pUnit->finishMoves();
 
 				addProductionExperience(pUnit);
@@ -14101,4 +14104,93 @@ int CvCity::getPopulationGrowthRateModifier() const {
 
 void CvCity::changePopulationGrowthRateModifier(int iChange) {
 	m_iPopulationGrowthRateModifier += iChange;
+}
+
+void CvCity::doUpgradeWeapons() {
+	std::vector<WeaponTypes> vValidWeapons = getWeaponTypes();
+	if (vValidWeapons.size() == 0)
+		return;
+
+	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+	while (pUnitNode != NULL) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		doUnitWeaponUpgrade(vValidWeapons, pLoopUnit);
+		pUnitNode = plot()->nextUnitNode(pUnitNode);
+	}
+}
+
+std::vector<WeaponTypes> CvCity::getWeaponTypes() {
+	std::vector<WeaponTypes> vValidWeapons;
+	for (WeaponTypes eWeapon = (WeaponTypes)0; eWeapon < GC.getNumWeaponInfos(); eWeapon = (WeaponTypes)(eWeapon + 1)) {
+		const CvWeaponInfo& kWeapon = GC.getWeaponInfo(eWeapon);
+		if (kWeapon.getNumBonusPrereqs() > 0) {
+			for (int i = 0; i < kWeapon.getNumBonusPrereqs(); i++) {
+				BonusTypes eLoopBonus = (BonusTypes)kWeapon.getBonusPrereq(i);
+				if (hasBonus(eLoopBonus)) {
+					vValidWeapons.push_back(eWeapon);
+				}
+			}
+		}
+	}
+	return vValidWeapons;
+}
+
+void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit) {
+	// Weapons
+	WeaponTypes eCurrWeapon = pUnit->getWeaponType();
+	WeaponTypes eBestWeapon = eCurrWeapon;
+	int iBestWeaponStrength = pUnit->getWeaponStrength();
+	int iMaxWeaponTier = pUnit->getUnitInfo().getMaxWeaponTypeTier();
+	// Ammo
+	WeaponTypes eCurrAmmo = pUnit->getAmmunitionType();
+	WeaponTypes eBestAmmo = eCurrAmmo;
+	int iBestAmmoStrength = pUnit->getAmmunitionStrength();
+	int iMaxAmmoTier = pUnit->getUnitInfo().getMaxAmmunitionTypeTier();
+
+	for (std::vector<WeaponTypes>::iterator it = vWeapons.begin(); it != vWeapons.end(); ++it) {
+		const CvWeaponInfo& kLoopWeapon = GC.getWeaponInfo(*it);
+		int iLoopStrength = kLoopWeapon.getStrength();
+		bool bAmmo = kLoopWeapon.isAmmunition();
+
+		// If this is not stronger than what we have then forget it
+		if (bAmmo) {
+			if (iLoopStrength <= iBestAmmoStrength)
+				continue;
+
+			if (iMaxAmmoTier == 0)
+				continue;
+
+			if (iMaxAmmoTier > 0 && iMaxAmmoTier < kLoopWeapon.getTier())
+				continue;
+		} else {
+			if (iLoopStrength <= iBestWeaponStrength)
+				continue;
+
+			if (iMaxWeaponTier == 0)
+				continue;
+
+			if (iMaxWeaponTier > 0 && iMaxWeaponTier < kLoopWeapon.getTier())
+				continue;
+		}
+
+		for (int i = 0; i < kLoopWeapon.getNumUnitCombatTypes(); i++) {
+			UnitCombatTypes eCombatType = (UnitCombatTypes)kLoopWeapon.getUnitCombatType(i);
+			if (pUnit->isUnitCombatType(eCombatType)) {
+				// We can apply this weapon and we know it is the best we have so far
+				if (bAmmo) {
+					iBestAmmoStrength = iLoopStrength;
+					eBestAmmo = *it;
+				} else {
+					iBestWeaponStrength = iLoopStrength;
+					eBestWeapon = *it;
+				}
+			}
+		}
+	}
+
+	if (eCurrWeapon != eBestWeapon)
+		pUnit->setWeaponType(eBestWeapon);
+	if (eCurrAmmo != eBestAmmo)
+		pUnit->setAmmunitionType(eBestAmmo);
+
 }
