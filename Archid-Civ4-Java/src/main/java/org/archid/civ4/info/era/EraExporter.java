@@ -75,7 +75,6 @@ public class EraExporter extends AbstractExporter<IInfos<IEraInfo>, IEraInfo> {
 		addSingleCell(row.createCell(colNum++), info.getUnitRangeModifier());
 		addSingleCell(row.createCell(colNum++), info.getSoundtrackSpace());
 		addSingleCell(row.createCell(colNum++), info.isFirstSoundtrackFirst());
-		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getNaturalYieldLimits(), maxHeight);
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getEraInfoSoundtracks(), maxHeight);
 		maxHeight = addRepeatingPairCell(row.createCell(colNum++), info.getCitySoundscapes(), maxHeight);
 		addSingleCell(row.createCell(colNum++), info.getAudioUnitVictoryScript());

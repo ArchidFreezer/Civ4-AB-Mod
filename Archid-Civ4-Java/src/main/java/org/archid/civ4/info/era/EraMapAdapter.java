@@ -89,9 +89,6 @@ public class EraMapAdapter extends XmlAdapter<EraMapAdapter.EraMap, Map<String, 
 		private Integer soundtrackSpace;
 		@XmlElement(name="bFirstSoundtrackFirst")
 		private Integer firstSoundtrackFirst;
-		@XmlElementWrapper(name="NaturalYieldLimits")
-		@XmlElement(name="iYield")
-		private List<Integer> naturalYieldLimits;
 		@XmlElementWrapper(name="EraInfoSoundtracks")
 		@XmlElement(name="EraInfoSoundtrack")
 		private List<String> eraInfoSoundtracks;
@@ -150,16 +147,10 @@ public class EraMapAdapter extends XmlAdapter<EraMapAdapter.EraMap, Map<String, 
 			info.setSoundtrackSpace(JaxbUtils.unmarshallInteger(aInfo.soundtrackSpace));
 			info.setFirstSoundtrackFirst(JaxbUtils.unmarshallBoolean(aInfo.firstSoundtrackFirst));
 
-			if (CollectionUtils.hasElements(aInfo.naturalYieldLimits)) {
-				for (Integer val: aInfo.naturalYieldLimits) {
-					info.addNaturalYieldLimit(val);
-				}
-			}
-
 			if (CollectionUtils.hasElements(aInfo.eraInfoSoundtracks)) {
 				for (String val: aInfo.eraInfoSoundtracks) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addEraInfoSoundtrack(val);
+						info.addEraInfoSoundtrack(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -219,17 +210,10 @@ public class EraMapAdapter extends XmlAdapter<EraMapAdapter.EraMap, Map<String, 
 			aInfo.soundtrackSpace = JaxbUtils.marshallInteger(info.getSoundtrackSpace());
 			aInfo.firstSoundtrackFirst = JaxbUtils.marshallBoolean(info.isFirstSoundtrackFirst());
 
-			if (CollectionUtils.hasElements(info.getNaturalYieldLimits())) {
-				aInfo.naturalYieldLimits = new ArrayList<Integer>();
-				for(Integer val: info.getNaturalYieldLimits()) {
-					aInfo.naturalYieldLimits.add(val);
-				}
-			}
-
 			if (CollectionUtils.hasElements(info.getEraInfoSoundtracks())) {
 				aInfo.eraInfoSoundtracks = new ArrayList<String>();
 				for(String val: info.getEraInfoSoundtracks()) {
-					aInfo.eraInfoSoundtracks.add(val);
+					aInfo.eraInfoSoundtracks.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 

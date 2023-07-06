@@ -71,7 +71,6 @@ public class EraInfos extends AbstractInfos<IEraInfo> {
 		private Integer unitRangeModifier;
 		private Integer soundtrackSpace;
 		private Boolean firstSoundtrackFirst;
-		private List<Integer> naturalYieldLimits = new ArrayList<Integer>();
 		private List<String> eraInfoSoundtracks = new ArrayList<String>();
 		private List<IPair<String, String>> citySoundscapes = new ArrayList<IPair<String, String>>();
 		private String audioUnitVictoryScript;
@@ -419,16 +418,6 @@ public class EraInfos extends AbstractInfos<IEraInfo> {
 		@Override
 		public void setFirstSoundtrackFirst(Boolean firstSoundtrackFirst) {
 			this.firstSoundtrackFirst = firstSoundtrackFirst;
-		}
-
-		@Override
-		public List<Integer> getNaturalYieldLimits() {
-			return naturalYieldLimits;
-		}
-
-		@Override
-		public void addNaturalYieldLimit(Integer naturalYieldLimit) {
-			this.naturalYieldLimits.add(naturalYieldLimit);
 		}
 
 		@Override

@@ -105,9 +105,6 @@ public interface IEraInfo extends IInfo {
 	Boolean isFirstSoundtrackFirst();
 	void setFirstSoundtrackFirst(Boolean firstSoundtrackFirst);
 
-	List<Integer> getNaturalYieldLimits();
-	void addNaturalYieldLimit(Integer naturalYieldLimit);
-
 	List<String> getEraInfoSoundtracks();
 	void addEraInfoSoundtrack(String eraInfoSoundtrack);
 
