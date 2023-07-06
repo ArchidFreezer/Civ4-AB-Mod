@@ -1,10 +1,4 @@
 <?xml version="1.0"?>
-<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Soren Johnson (Firaxis Games) -->
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jon Shafer (Firaxis Games) -->
-<!-- Sid Meier's Civilization 4 -->
-<!-- Copyright Firaxis Games 2005 -->
-<!-- -->
-<!-- Tech Infos -->
 <Civ4TechInfos xmlns="x-schema:CIV4TechnologiesSchema.xml">
 	<TechInfos>
 		<TechInfo> <!-- Advanced Flight -->
@@ -617,7 +611,7 @@
 			<SoundMP>AS2D_TECH_MP_CIVIL_SERVICE</SoundMP>
 			<Button>,Art/Interface/Buttons/TechTree/Civil Service.dds,Art/Interface/Buttons/TechTree_Atlas.dds,1,2</Button>
 		</TechInfo>
-		<TechInfo> <!-- Code of Laws -->
+		<TechInfo> <!-- Code Of Laws -->
 			<Type>TECH_CODE_OF_LAWS</Type>
 			<Description>TXT_KEY_TECH_CODE_OF_LAWS</Description>
 			<Civilopedia>TXT_KEY_TECH_CODE_OF_LAWS_PEDIA</Civilopedia>
@@ -1410,7 +1404,7 @@
 			<SoundMP>AS2D_TECH_MP_FEUDALISM</SoundMP>
 			<Button>,Art/Interface/Buttons/TechTree/Feudalism.dds,Art/Interface/Buttons/TechTree_Atlas.dds,1,10</Button>
 		</TechInfo>
-		<TechInfo> <!-- Fibre Optics -->
+		<TechInfo> <!-- Fiber Optics -->
 			<Type>TECH_FIBER_OPTICS</Type>
 			<Description>TXT_KEY_TECH_FIBER_OPTICS</Description>
 			<Civilopedia>TXT_KEY_TECH_FIBER_OPTICS_PEDIA</Civilopedia>
@@ -3617,6 +3611,44 @@
 			<SoundMP>AS2D_TECH_MP_SUPERCONDUCTOR</SoundMP>
 			<Button>,Art/Interface/Buttons/TechTree/Superconductor.dds,Art/Interface/Buttons/TechTree_Atlas.dds,3,12</Button>
 		</TechInfo>
+		<TechInfo> <!-- Theology -->
+			<Type>TECH_THEOLOGY</Type>
+			<Description>TXT_KEY_TECH_THEOLOGY</Description>
+			<Civilopedia>TXT_KEY_TECH_THEOLOGY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_TECH_THEOLOGY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<iCost>500</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<Era>ERA_MEDIEVAL</Era>
+			<iAsset>24</iAsset>
+			<bTrade>1</bTrade>
+			<iGridX>8</iGridX>
+			<iGridY>11</iGridY>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>6</iFlavor>
+				</Flavor>
+			</Flavors>
+			<OrPreReqs>
+				<PrereqTech>TECH_MONOTHEISM</PrereqTech>
+			</OrPreReqs>
+			<AndPreReqs>
+				<PrereqTech>TECH_WRITING</PrereqTech>
+			</AndPreReqs>
+			<Quote>TXT_KEY_TECH_THEOLOGY_QUOTE</Quote>
+			<Sound>AS2D_TECH_THEOLOGY</Sound>
+			<SoundMP>AS2D_TECH_MP_THEOLOGY</SoundMP>
+			<Button>,Art/Interface/Buttons/TechTree/Theology.dds,Art/Interface/Buttons/TechTree_Atlas.dds,5,12</Button>
+		</TechInfo>
 		<TechInfo> <!-- The Wheel -->
 			<Type>TECH_THE_WHEEL</Type>
 			<Description>TXT_KEY_TECH_THE_WHEEL</Description>
@@ -3659,44 +3691,6 @@
 			<Sound>AS2D_TECH_THE_WHEEL</Sound>
 			<SoundMP>AS2D_TECH_MP_THE_WHEEL</SoundMP>
 			<Button>,Art/Interface/Buttons/TechTree/The Wheel.dds,Art/Interface/Buttons/TechTree_Atlas.dds,4,12</Button>
-		</TechInfo>
-		<TechInfo> <!-- Theology -->
-			<Type>TECH_THEOLOGY</Type>
-			<Description>TXT_KEY_TECH_THEOLOGY</Description>
-			<Civilopedia>TXT_KEY_TECH_THEOLOGY_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_TECH_THEOLOGY_STRATEGY</Strategy>
-			<Advisor>ADVISOR_RELIGION</Advisor>
-			<iCost>500</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<Era>ERA_MEDIEVAL</Era>
-			<iAsset>24</iAsset>
-			<bTrade>1</bTrade>
-			<iGridX>8</iGridX>
-			<iGridY>11</iGridY>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_RELIGION</FlavorType>
-					<iFlavor>10</iFlavor>
-				</Flavor>
-				<Flavor>
-					<FlavorType>FLAVOR_SCIENCE</FlavorType>
-					<iFlavor>2</iFlavor>
-				</Flavor>
-				<Flavor>
-					<FlavorType>FLAVOR_CULTURE</FlavorType>
-					<iFlavor>6</iFlavor>
-				</Flavor>
-			</Flavors>
-			<OrPreReqs>
-				<PrereqTech>TECH_MONOTHEISM</PrereqTech>
-			</OrPreReqs>
-			<AndPreReqs>
-				<PrereqTech>TECH_WRITING</PrereqTech>
-			</AndPreReqs>
-			<Quote>TXT_KEY_TECH_THEOLOGY_QUOTE</Quote>
-			<Sound>AS2D_TECH_THEOLOGY</Sound>
-			<SoundMP>AS2D_TECH_MP_THEOLOGY</SoundMP>
-			<Button>,Art/Interface/Buttons/TechTree/Theology.dds,Art/Interface/Buttons/TechTree_Atlas.dds,5,12</Button>
 		</TechInfo>
 		<TechInfo> <!-- Utopia -->
 			<Type>TECH_UTOPIA</Type>

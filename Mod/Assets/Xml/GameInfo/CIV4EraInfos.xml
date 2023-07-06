@@ -1,17 +1,4 @@
 <?xml version="1.0"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
-<!-- Sid Meier's Civilization 4 -->
-<!-- Copyright Firaxis Games 2005 -->
-<!-- -->
-<!-- EraInfo - This structure describes the name and soundtracks for each era. -->
-<!-- -->
-<!-- MODDERS: Removing ERA's can cause problems if you are not careful. If you must remove them, you need to do the following: -->
-<!-- 1. Clean up the references to the ERA's in CIV4BuildingInfos -->
-<!-- 2. Clean up the references to the ERA's in CIV4TechInfos -->
-<!-- 3. Clean up the references to the ERA's in CIV4LeaderHeadInfos -->
-<!-- 4. Clean up the references to the ERA's in CIV4CityLSystem -->
-<!-- 5. Clean up the references to the ERA's in CIV4PlotLSystem -->
-<!-- Good luck! -->
 <Civ4EraInfos xmlns="x-schema:CIV4GameInfoSchema.xml">
 	<EraInfos>
 		<EraInfo> <!-- Ancient -->
