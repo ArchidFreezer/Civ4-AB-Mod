@@ -193,7 +193,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.worldNewsTexts)) {
 				for (String val: aInfo.worldNewsTexts) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addWorldNewsText(val);
+						info.addWorldNewsText(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -224,7 +224,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.unitsRequired)) {
 				for (String val: aInfo.unitsRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addUnitRequired(val);
+						info.addUnitRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -238,7 +238,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.buildingsRequired)) {
 				for (String val: aInfo.buildingsRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addBuildingRequired(val);
+						info.addBuildingRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -251,7 +251,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.featuresRequired)) {
 				for (String val: aInfo.featuresRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addFeatureRequired(val);
+						info.addFeatureRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -259,7 +259,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.terrainsRequired)) {
 				for (String val: aInfo.terrainsRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addTerrainRequired(val);
+						info.addTerrainRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -267,7 +267,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.improvementsRequired)) {
 				for (String val: aInfo.improvementsRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addImprovementRequired(val);
+						info.addImprovementRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -275,7 +275,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.bonusesRequired)) {
 				for (String val: aInfo.bonusesRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addBonusRequired(val);
+						info.addBonusRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -283,7 +283,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.routesRequired)) {
 				for (String val: aInfo.routesRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addRouteRequired(val);
+						info.addRouteRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -291,7 +291,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.religionsRequired)) {
 				for (String val: aInfo.religionsRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addReligionRequired(val);
+						info.addReligionRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -300,7 +300,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.corporationsRequired)) {
 				for (String val: aInfo.corporationsRequired) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addCorporationRequired(val);
+						info.addCorporationRequired(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -314,7 +314,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.events)) {
 				for (String val: aInfo.events) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addEvent(val);
+						info.addEvent(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -322,7 +322,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.prereqEvents)) {
 				for (String val: aInfo.prereqEvents) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addPrereqEvent(val);
+						info.addPrereqEvent(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -331,7 +331,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.orPreReqs)) {
 				for (String val: aInfo.orPreReqs) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addOrPreReq(val);
+						info.addOrPreReq(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -339,7 +339,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.andPreReqs)) {
 				for (String val: aInfo.andPreReqs) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addAndPreReq(val);
+						info.addAndPreReq(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -347,7 +347,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(aInfo.obsoleteTechs)) {
 				for (String val: aInfo.obsoleteTechs) {
 					if (StringUtils.hasCharacters(val)) {
-						info.addObsoleteTech(val);
+						info.addObsoleteTech(JaxbUtils.unmarshallString(val));
 					}
 				}
 			}
@@ -385,7 +385,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getWorldNewsTexts())) {
 				aInfo.worldNewsTexts = new ArrayList<String>();
 				for(String val: info.getWorldNewsTexts()) {
-					aInfo.worldNewsTexts.add(val);
+					aInfo.worldNewsTexts.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
@@ -417,7 +417,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getUnitsRequired())) {
 				aInfo.unitsRequired = new ArrayList<String>();
 				for(String val: info.getUnitsRequired()) {
-					aInfo.unitsRequired.add(val);
+					aInfo.unitsRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.numUnits = JaxbUtils.marshallInteger(info.getNumUnits());
@@ -430,7 +430,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getBuildingsRequired())) {
 				aInfo.buildingsRequired = new ArrayList<String>();
 				for(String val: info.getBuildingsRequired()) {
-					aInfo.buildingsRequired.add(val);
+					aInfo.buildingsRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.numBuildings = JaxbUtils.marshallInteger(info.getNumBuildings());
@@ -442,42 +442,42 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getFeaturesRequired())) {
 				aInfo.featuresRequired = new ArrayList<String>();
 				for(String val: info.getFeaturesRequired()) {
-					aInfo.featuresRequired.add(val);
+					aInfo.featuresRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getTerrainsRequired())) {
 				aInfo.terrainsRequired = new ArrayList<String>();
 				for(String val: info.getTerrainsRequired()) {
-					aInfo.terrainsRequired.add(val);
+					aInfo.terrainsRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getImprovementsRequired())) {
 				aInfo.improvementsRequired = new ArrayList<String>();
 				for(String val: info.getImprovementsRequired()) {
-					aInfo.improvementsRequired.add(val);
+					aInfo.improvementsRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getBonusesRequired())) {
 				aInfo.bonusesRequired = new ArrayList<String>();
 				for(String val: info.getBonusesRequired()) {
-					aInfo.bonusesRequired.add(val);
+					aInfo.bonusesRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getRoutesRequired())) {
 				aInfo.routesRequired = new ArrayList<String>();
 				for(String val: info.getRoutesRequired()) {
-					aInfo.routesRequired.add(val);
+					aInfo.routesRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getReligionsRequired())) {
 				aInfo.religionsRequired = new ArrayList<String>();
 				for(String val: info.getReligionsRequired()) {
-					aInfo.religionsRequired.add(val);
+					aInfo.religionsRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.numReligions = JaxbUtils.marshallInteger(info.getNumReligions());
@@ -485,7 +485,7 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getCorporationsRequired())) {
 				aInfo.corporationsRequired = new ArrayList<String>();
 				for(String val: info.getCorporationsRequired()) {
-					aInfo.corporationsRequired.add(val);
+					aInfo.corporationsRequired.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.numCorporations = JaxbUtils.marshallInteger(info.getNumCorporations());
@@ -498,14 +498,14 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getEvents())) {
 				aInfo.events = new ArrayList<String>();
 				for(String val: info.getEvents()) {
-					aInfo.events.add(val);
+					aInfo.events.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getPrereqEvents())) {
 				aInfo.prereqEvents = new ArrayList<String>();
 				for(String val: info.getPrereqEvents()) {
-					aInfo.prereqEvents.add(val);
+					aInfo.prereqEvents.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.prereqEventPlot = JaxbUtils.marshallBoolean(info.isPrereqEventPlot());
@@ -513,21 +513,21 @@ public class EventTriggerMapAdapter extends XmlAdapter<EventTriggerMapAdapter.Ev
 			if (CollectionUtils.hasElements(info.getOrPreReqs())) {
 				aInfo.orPreReqs = new ArrayList<String>();
 				for(String val: info.getOrPreReqs()) {
-					aInfo.orPreReqs.add(val);
+					aInfo.orPreReqs.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getAndPreReqs())) {
 				aInfo.andPreReqs = new ArrayList<String>();
 				for(String val: info.getAndPreReqs()) {
-					aInfo.andPreReqs.add(val);
+					aInfo.andPreReqs.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 
 			if (CollectionUtils.hasElements(info.getObsoleteTechs())) {
 				aInfo.obsoleteTechs = new ArrayList<String>();
 				for(String val: info.getObsoleteTechs()) {
-					aInfo.obsoleteTechs.add(val);
+					aInfo.obsoleteTechs.add(JaxbUtils.marshallMandatoryString(val));
 				}
 			}
 			aInfo.recurring = JaxbUtils.marshallBoolean(info.isRecurring());

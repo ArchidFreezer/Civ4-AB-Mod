@@ -13,7 +13,7 @@ public class EventTriggerImporter extends AbstractImporter<IInfos<IEventTriggerI
 	static Logger log = Logger.getLogger(EventTriggerImporter.class.getName());
 
 	public EventTriggerImporter(EInfo infoEnum) {
-		super(infoEnum, new DefaultXmlFormatter("EventTrigger"));
+		super(infoEnum, new DefaultXmlFormatter("eventtrigger"));
 	}
 
 	@Override
