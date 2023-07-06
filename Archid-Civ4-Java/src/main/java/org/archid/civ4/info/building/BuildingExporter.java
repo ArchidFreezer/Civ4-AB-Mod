@@ -60,6 +60,7 @@ public class BuildingExporter extends AbstractExporter<IInfos<IBuildingInfo>, IB
 		addSingleCell(row.createCell(colNum++), info.getArtDefineTag());
 		addSingleCell(row.createCell(colNum++), info.getMovieDefineTag());
 		addSingleCell(row.createCell(colNum++), info.isAutoBuild());
+		addSingleCell(row.createCell(colNum++), info.isShowInCity());
 		addSingleCell(row.createCell(colNum++), info.getHolyCity());
 		addSingleCell(row.createCell(colNum++), info.getReligionType());
 		addSingleCell(row.createCell(colNum++), info.getStateReligion());
@@ -96,8 +97,9 @@ public class BuildingExporter extends AbstractExporter<IInfos<IBuildingInfo>, IB
 		addSingleCell(row.createCell(colNum++), info.getFreeBonus());
 		addSingleCell(row.createCell(colNum++), info.getNumFreeBonuses());
 		addSingleCell(row.createCell(colNum++), info.getFreeBuilding());
-		addSingleCell(row.createCell(colNum++), info.getFreePromotion());
+		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getFreePromotions(), maxHeight);
 		addSingleCell(row.createCell(colNum++), info.getFreeUnitClass());
+		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getSeeInvisibles(), maxHeight);
 		addSingleCell(row.createCell(colNum++), info.getCreateFeatureType());
 		addSingleCell(row.createCell(colNum++), info.getCivicOption());
 		addSingleCell(row.createCell(colNum++), info.getGreatPeopleUnitClass());
@@ -140,8 +142,6 @@ public class BuildingExporter extends AbstractExporter<IInfos<IBuildingInfo>, IB
 		addSingleCell(row.createCell(colNum++), info.getHurryCostModifier());
 		addSingleCell(row.createCell(colNum++), info.getAdvancedStartCost());
 		addSingleCell(row.createCell(colNum++), info.getAdvancedStartCostIncrease());
-		addSingleCell(row.createCell(colNum++), info.getExtraBarbarianCostChange());
-		addSingleCell(row.createCell(colNum++), info.getBarbarianConversionCostModifier());
 		addSingleCell(row.createCell(colNum++), info.getMinAreaSize());
 		addSingleCell(row.createCell(colNum++), info.getConquestProb());
 		addSingleCell(row.createCell(colNum++), info.getCitiesPrereq());
@@ -189,11 +189,12 @@ public class BuildingExporter extends AbstractExporter<IInfos<IBuildingInfo>, IB
 		addSingleCell(row.createCell(colNum++), info.getGlobalTradeRoutes());
 		addSingleCell(row.createCell(colNum++), info.getTradeRouteModifier());
 		addSingleCell(row.createCell(colNum++), info.getForeignTradeRouteModifier());
+		addSingleCell(row.createCell(colNum++), info.getPopulationGrowthRateModifier());
+		addSingleCell(row.createCell(colNum++), info.getGlobalPopulationGrowthRateModifier());
 		addSingleCell(row.createCell(colNum++), info.getGlobalPopulationChange());
 		addSingleCell(row.createCell(colNum++), info.getGlobalFoundPopulationChange());
 		addSingleCell(row.createCell(colNum++), info.getFreeTechs());
 		addSingleCell(row.createCell(colNum++), info.getDefense());
-		addSingleCell(row.createCell(colNum++), info.getObsoleteDefence());
 		addSingleCell(row.createCell(colNum++), info.getBombardDefense());
 		addSingleCell(row.createCell(colNum++), info.getAllCityDefense());
 		addSingleCell(row.createCell(colNum++), info.getEspionageDefense());

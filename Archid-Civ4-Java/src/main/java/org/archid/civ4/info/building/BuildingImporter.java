@@ -51,6 +51,7 @@ public class BuildingImporter extends AbstractImporter<IInfos<IBuildingInfo>, IB
 		parseCell(row.getCell(colNum++), String.class, info::setArtDefineTag);
 		parseCell(row.getCell(colNum++), String.class, info::setMovieDefineTag);
 		parseCell(row.getCell(colNum++), Boolean.class, info::setAutoBuild);
+		parseCell(row.getCell(colNum++), Boolean.class, info::setShowInCity);
 		parseCell(row.getCell(colNum++), String.class, info::setHolyCity);
 		parseCell(row.getCell(colNum++), String.class, info::setReligionType);
 		parseCell(row.getCell(colNum++), String.class, info::setStateReligion);
@@ -87,8 +88,9 @@ public class BuildingImporter extends AbstractImporter<IInfos<IBuildingInfo>, IB
 		parseCell(row.getCell(colNum++), String.class, info::setFreeBonus);
 		parseCell(row.getCell(colNum++), Integer.class, info::setNumFreeBonuses);
 		parseCell(row.getCell(colNum++), String.class, info::setFreeBuilding);
-		parseCell(row.getCell(colNum++), String.class, info::setFreePromotion);
+		parseListCell(row.getCell(colNum++), String.class, info::addFreePromotion);
 		parseCell(row.getCell(colNum++), String.class, info::setFreeUnitClass);
+		parseListCell(row.getCell(colNum++), String.class, info::addSeeInvisible);
 		parseCell(row.getCell(colNum++), String.class, info::setCreateFeatureType);
 		parseCell(row.getCell(colNum++), String.class, info::setCivicOption);
 		parseCell(row.getCell(colNum++), String.class, info::setGreatPeopleUnitClass);
@@ -131,8 +133,6 @@ public class BuildingImporter extends AbstractImporter<IInfos<IBuildingInfo>, IB
 		parseCell(row.getCell(colNum++), Integer.class, info::setHurryCostModifier);
 		parseCell(row.getCell(colNum++), Integer.class, info::setAdvancedStartCost);
 		parseCell(row.getCell(colNum++), Integer.class, info::setAdvancedStartCostIncrease);
-		parseCell(row.getCell(colNum++), Integer.class, info::setExtraBarbarianCostChange);
-		parseCell(row.getCell(colNum++), Integer.class, info::setBarbarianConversionCostModifier);
 		parseCell(row.getCell(colNum++), Integer.class, info::setMinAreaSize);
 		parseCell(row.getCell(colNum++), Integer.class, info::setConquestProb);
 		parseCell(row.getCell(colNum++), Integer.class, info::setCitiesPrereq);
@@ -180,11 +180,12 @@ public class BuildingImporter extends AbstractImporter<IInfos<IBuildingInfo>, IB
 		parseCell(row.getCell(colNum++), Integer.class, info::setGlobalTradeRoutes);
 		parseCell(row.getCell(colNum++), Integer.class, info::setTradeRouteModifier);
 		parseCell(row.getCell(colNum++), Integer.class, info::setForeignTradeRouteModifier);
+		parseCell(row.getCell(colNum++), Integer.class, info::setPopulationGrowthRateModifier);
+		parseCell(row.getCell(colNum++), Integer.class, info::setGlobalPopulationGrowthRateModifier);
 		parseCell(row.getCell(colNum++), Integer.class, info::setGlobalPopulationChange);
 		parseCell(row.getCell(colNum++), Integer.class, info::setGlobalFoundPopulationChange);
 		parseCell(row.getCell(colNum++), Integer.class, info::setFreeTechs);
 		parseCell(row.getCell(colNum++), Integer.class, info::setDefense);
-		parseCell(row.getCell(colNum++), Integer.class, info::setObsoleteDefence);
 		parseCell(row.getCell(colNum++), Integer.class, info::setBombardDefense);
 		parseCell(row.getCell(colNum++), Integer.class, info::setAllCityDefense);
 		parseCell(row.getCell(colNum++), Integer.class, info::setEspionageDefense);

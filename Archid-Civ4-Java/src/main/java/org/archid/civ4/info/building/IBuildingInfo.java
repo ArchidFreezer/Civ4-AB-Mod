@@ -36,6 +36,9 @@ public interface IBuildingInfo extends IInfo {
 	Boolean isAutoBuild();
 	void setAutoBuild(Boolean autoBuild);
 
+	Boolean isShowInCity();
+	void setShowInCity(Boolean showInCity);
+
 	String getHolyCity();
 	void setHolyCity(String holyCity);
 
@@ -144,11 +147,14 @@ public interface IBuildingInfo extends IInfo {
 	String getFreeBuilding();
 	void setFreeBuilding(String freeBuilding);
 
-	String getFreePromotion();
-	void setFreePromotion(String freePromotion);
+	List<String> getFreePromotions();
+	void addFreePromotion(String freePromotion);
 
 	String getFreeUnitClass();
 	void setFreeUnitClass(String freeUnitClass);
+
+	List<String> getSeeInvisibles();
+	void addSeeInvisible(String seeInvisible);
 
 	String getCreateFeatureType();
 	void setCreateFeatureType(String createFeatureType);
@@ -275,12 +281,6 @@ public interface IBuildingInfo extends IInfo {
 
 	Integer getAdvancedStartCostIncrease();
 	void setAdvancedStartCostIncrease(Integer advancedStartCostIncrease);
-
-	Integer getExtraBarbarianCostChange();
-	void setExtraBarbarianCostChange(Integer extraBarbarianCostChange);
-
-	Integer getBarbarianConversionCostModifier();
-	void setBarbarianConversionCostModifier(Integer barbarianConversionCostModifier);
 
 	Integer getMinAreaSize();
 	void setMinAreaSize(Integer minAreaSize);
@@ -423,6 +423,12 @@ public interface IBuildingInfo extends IInfo {
 	Integer getForeignTradeRouteModifier();
 	void setForeignTradeRouteModifier(Integer foreignTradeRouteModifier);
 
+	Integer getPopulationGrowthRateModifier();
+	void setPopulationGrowthRateModifier(Integer populationGrowthRateModifier);
+
+	Integer getGlobalPopulationGrowthRateModifier();
+	void setGlobalPopulationGrowthRateModifier(Integer globalPopulationGrowthRateModifier);
+
 	Integer getGlobalPopulationChange();
 	void setGlobalPopulationChange(Integer globalPopulationChange);
 
@@ -434,9 +440,6 @@ public interface IBuildingInfo extends IInfo {
 
 	Integer getDefense();
 	void setDefense(Integer defense);
-
-	Integer getObsoleteDefence();
-	void setObsoleteDefence(Integer obsoleteDefence);
 
 	Integer getBombardDefense();
 	void setBombardDefense(Integer bombardDefense);

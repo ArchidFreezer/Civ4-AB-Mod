@@ -48,6 +48,7 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		private String artDefineTag;
 		private String movieDefineTag;
 		private Boolean autoBuild;
+		private Boolean showInCity;
 		private String holyCity;
 		private String religionType;
 		private String stateReligion;
@@ -84,8 +85,9 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		private String freeBonus;
 		private Integer numFreeBonuses;
 		private String freeBuilding;
-		private String freePromotion;
+		private List<String> freePromotions = new ArrayList<String>();
 		private String freeUnitClass;
+		private List<String> seeInvisibles = new ArrayList<String>();
 		private String createFeatureType;
 		private String civicOption;
 		private String greatPeopleUnitClass;
@@ -128,8 +130,6 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		private Integer hurryCostModifier;
 		private Integer advancedStartCost;
 		private Integer advancedStartCostIncrease;
-		private Integer extraBarbarianCostChange;
-		private Integer barbarianConversionCostModifier;
 		private Integer minAreaSize;
 		private Integer conquestProb;
 		private Integer citiesPrereq;
@@ -177,11 +177,12 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		private Integer globalTradeRoutes;
 		private Integer tradeRouteModifier;
 		private Integer foreignTradeRouteModifier;
+		private Integer populationGrowthRateModifier;
+		private Integer globalPopulationGrowthRateModifier;
 		private Integer globalPopulationChange;
 		private Integer globalFoundPopulationChange;
 		private Integer freeTechs;
 		private Integer defense;
-		private Integer obsoleteDefence;
 		private Integer bombardDefense;
 		private Integer allCityDefense;
 		private Integer espionageDefense;
@@ -354,6 +355,16 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		@Override
 		public void setAutoBuild(Boolean autoBuild) {
 			this.autoBuild = autoBuild;
+		}
+
+		@Override
+		public Boolean isShowInCity() {
+			return showInCity;
+		}
+
+		@Override
+		public void setShowInCity(Boolean showInCity) {
+			this.showInCity = showInCity;
 		}
 
 		@Override
@@ -717,13 +728,13 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		}
 
 		@Override
-		public String getFreePromotion() {
-			return freePromotion;
+		public List<String> getFreePromotions() {
+			return freePromotions;
 		}
 
 		@Override
-		public void setFreePromotion(String freePromotion) {
-			this.freePromotion = freePromotion;
+		public void addFreePromotion(String freePromotion) {
+			this.freePromotions.add(freePromotion);
 		}
 
 		@Override
@@ -734,6 +745,16 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		@Override
 		public void setFreeUnitClass(String freeUnitClass) {
 			this.freeUnitClass = freeUnitClass;
+		}
+
+		@Override
+		public List<String> getSeeInvisibles() {
+			return seeInvisibles;
+		}
+
+		@Override
+		public void addSeeInvisible(String seeInvisible) {
+			this.seeInvisibles.add(seeInvisible);
 		}
 
 		@Override
@@ -1154,26 +1175,6 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		@Override
 		public void setAdvancedStartCostIncrease(Integer advancedStartCostIncrease) {
 			this.advancedStartCostIncrease = advancedStartCostIncrease;
-		}
-
-		@Override
-		public Integer getExtraBarbarianCostChange() {
-			return extraBarbarianCostChange;
-		}
-
-		@Override
-		public void setExtraBarbarianCostChange(Integer extraBarbarianCostChange) {
-			this.extraBarbarianCostChange = extraBarbarianCostChange;
-		}
-
-		@Override
-		public Integer getBarbarianConversionCostModifier() {
-			return barbarianConversionCostModifier;
-		}
-
-		@Override
-		public void setBarbarianConversionCostModifier(Integer barbarianConversionCostModifier) {
-			this.barbarianConversionCostModifier = barbarianConversionCostModifier;
 		}
 
 		@Override
@@ -1647,6 +1648,26 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		}
 
 		@Override
+		public Integer getPopulationGrowthRateModifier() {
+			return populationGrowthRateModifier;
+		}
+
+		@Override
+		public void setPopulationGrowthRateModifier(Integer populationGrowthRateModifier) {
+			this.populationGrowthRateModifier = populationGrowthRateModifier;
+		}
+
+		@Override
+		public Integer getGlobalPopulationGrowthRateModifier() {
+			return globalPopulationGrowthRateModifier;
+		}
+
+		@Override
+		public void setGlobalPopulationGrowthRateModifier(Integer globalPopulationGrowthRateModifier) {
+			this.globalPopulationGrowthRateModifier = globalPopulationGrowthRateModifier;
+		}
+
+		@Override
 		public Integer getGlobalPopulationChange() {
 			return globalPopulationChange;
 		}
@@ -1684,16 +1705,6 @@ public class BuildingInfos extends AbstractInfos<IBuildingInfo> {
 		@Override
 		public void setDefense(Integer defense) {
 			this.defense = defense;
-		}
-
-		@Override
-		public Integer getObsoleteDefence() {
-			return obsoleteDefence;
-		}
-
-		@Override
-		public void setObsoleteDefence(Integer obsoleteDefence) {
-			this.obsoleteDefence = obsoleteDefence;
 		}
 
 		@Override

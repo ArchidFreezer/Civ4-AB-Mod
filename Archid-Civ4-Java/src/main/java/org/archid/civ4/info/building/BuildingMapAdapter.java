@@ -43,6 +43,8 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 		private String movieDefineTag;
 		@XmlElement(name="bAutoBuild")
 		private Integer autoBuild;
+		@XmlElement(name="bShowInCity")
+		private Integer showInCity;
 		@XmlElement(name="HolyCity")
 		private String holyCity;
 		@XmlElement(name="ReligionType")
@@ -128,10 +130,14 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 		private Integer numFreeBonuses;
 		@XmlElement(name="FreeBuilding")
 		private String freeBuilding;
-		@XmlElement(name="FreePromotion")
-		private String freePromotion;
+		@XmlElementWrapper(name="FreePromotions")
+		@XmlElement(name="PromotionType")
+		private List<String> freePromotions;
 		@XmlElement(name="FreeUnitClass")
 		private String freeUnitClass;
+		@XmlElementWrapper(name="SeeInvisibles")
+		@XmlElement(name="InvisibleType")
+		private List<String> seeInvisibles;
 		@XmlElement(name="CreateFeatureType")
 		private String createFeatureType;
 		@XmlElement(name="CivicOption")
@@ -216,10 +222,6 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 		private Integer advancedStartCost;
 		@XmlElement(name="iAdvancedStartCostIncrease")
 		private Integer advancedStartCostIncrease;
-		@XmlElement(name="iExtraBarbarianCostChange")
-		private Integer extraBarbarianCostChange;
-		@XmlElement(name="iBarbarianConversionCostModifier")
-		private Integer barbarianConversionCostModifier;
 		@XmlElement(name="iMinAreaSize")
 		private Integer minAreaSize;
 		@XmlElement(name="iConquestProb")
@@ -314,6 +316,10 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 		private Integer tradeRouteModifier;
 		@XmlElement(name="iForeignTradeRouteModifier")
 		private Integer foreignTradeRouteModifier;
+		@XmlElement(name="iPopulationGrowthRateModifier")
+		private Integer populationGrowthRateModifier;
+		@XmlElement(name="iGlobalPopulationGrowthRateModifier")
+		private Integer globalPopulationGrowthRateModifier;
 		@XmlElement(name="iGlobalPopulationChange")
 		private Integer globalPopulationChange;
 		@XmlElement(name="iGlobalFoundPopulationChange")
@@ -322,8 +328,6 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 		private Integer freeTechs;
 		@XmlElement(name="iDefense")
 		private Integer defense;
-		@XmlElement(name="iObsoleteDefence")
-		private Integer obsoleteDefence;
 		@XmlElement(name="iBombardDefense")
 		private Integer bombardDefense;
 		@XmlElement(name="iAllCityDefense")
@@ -616,6 +620,7 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			info.setArtDefineTag(JaxbUtils.unmarshallString(aInfo.artDefineTag));
 			info.setMovieDefineTag(JaxbUtils.unmarshallString(aInfo.movieDefineTag));
 			info.setAutoBuild(JaxbUtils.unmarshallBoolean(aInfo.autoBuild));
+			info.setShowInCity(JaxbUtils.unmarshallBoolean(aInfo.showInCity));
 			info.setHolyCity(JaxbUtils.unmarshallString(aInfo.holyCity));
 			info.setReligionType(JaxbUtils.unmarshallString(aInfo.religionType));
 			info.setStateReligion(JaxbUtils.unmarshallString(aInfo.stateReligion));
@@ -743,8 +748,23 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			info.setFreeBonus(JaxbUtils.unmarshallString(aInfo.freeBonus));
 			info.setNumFreeBonuses(JaxbUtils.unmarshallInteger(aInfo.numFreeBonuses));
 			info.setFreeBuilding(JaxbUtils.unmarshallString(aInfo.freeBuilding));
-			info.setFreePromotion(JaxbUtils.unmarshallString(aInfo.freePromotion));
+
+			if (CollectionUtils.hasElements(aInfo.freePromotions)) {
+				for (String val: aInfo.freePromotions) {
+					if (StringUtils.hasCharacters(val)) {
+						info.addFreePromotion(JaxbUtils.unmarshallString(val));
+					}
+				}
+			}
 			info.setFreeUnitClass(JaxbUtils.unmarshallString(aInfo.freeUnitClass));
+
+			if (CollectionUtils.hasElements(aInfo.seeInvisibles)) {
+				for (String val: aInfo.seeInvisibles) {
+					if (StringUtils.hasCharacters(val)) {
+						info.addSeeInvisible(JaxbUtils.unmarshallString(val));
+					}
+				}
+			}
 			info.setCreateFeatureType(JaxbUtils.unmarshallString(aInfo.createFeatureType));
 			info.setCivicOption(JaxbUtils.unmarshallString(aInfo.civicOption));
 			info.setGreatPeopleUnitClass(JaxbUtils.unmarshallString(aInfo.greatPeopleUnitClass));
@@ -787,8 +807,6 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			info.setHurryCostModifier(JaxbUtils.unmarshallInteger(aInfo.hurryCostModifier));
 			info.setAdvancedStartCost(JaxbUtils.unmarshallInteger(aInfo.advancedStartCost));
 			info.setAdvancedStartCostIncrease(JaxbUtils.unmarshallInteger(aInfo.advancedStartCostIncrease));
-			info.setExtraBarbarianCostChange(JaxbUtils.unmarshallInteger(aInfo.extraBarbarianCostChange));
-			info.setBarbarianConversionCostModifier(JaxbUtils.unmarshallInteger(aInfo.barbarianConversionCostModifier));
 			info.setMinAreaSize(JaxbUtils.unmarshallInteger(aInfo.minAreaSize));
 			info.setConquestProb(JaxbUtils.unmarshallInteger(aInfo.conquestProb));
 			info.setCitiesPrereq(JaxbUtils.unmarshallInteger(aInfo.citiesPrereq));
@@ -836,11 +854,12 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			info.setGlobalTradeRoutes(JaxbUtils.unmarshallInteger(aInfo.globalTradeRoutes));
 			info.setTradeRouteModifier(JaxbUtils.unmarshallInteger(aInfo.tradeRouteModifier));
 			info.setForeignTradeRouteModifier(JaxbUtils.unmarshallInteger(aInfo.foreignTradeRouteModifier));
+			info.setPopulationGrowthRateModifier(JaxbUtils.unmarshallInteger(aInfo.populationGrowthRateModifier));
+			info.setGlobalPopulationGrowthRateModifier(JaxbUtils.unmarshallInteger(aInfo.globalPopulationGrowthRateModifier));
 			info.setGlobalPopulationChange(JaxbUtils.unmarshallInteger(aInfo.globalPopulationChange));
 			info.setGlobalFoundPopulationChange(JaxbUtils.unmarshallInteger(aInfo.globalFoundPopulationChange));
 			info.setFreeTechs(JaxbUtils.unmarshallInteger(aInfo.freeTechs));
 			info.setDefense(JaxbUtils.unmarshallInteger(aInfo.defense));
-			info.setObsoleteDefence(JaxbUtils.unmarshallInteger(aInfo.obsoleteDefence));
 			info.setBombardDefense(JaxbUtils.unmarshallInteger(aInfo.bombardDefense));
 			info.setAllCityDefense(JaxbUtils.unmarshallInteger(aInfo.allCityDefense));
 			info.setEspionageDefense(JaxbUtils.unmarshallInteger(aInfo.espionageDefense));
@@ -1150,6 +1169,7 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			aInfo.artDefineTag = JaxbUtils.marshallMandatoryString(info.getArtDefineTag());
 			aInfo.movieDefineTag = JaxbUtils.marshallString(info.getMovieDefineTag());
 			aInfo.autoBuild = JaxbUtils.marshallBoolean(info.isAutoBuild());
+			aInfo.showInCity = JaxbUtils.marshallBoolean(info.isShowInCity());
 			aInfo.holyCity = JaxbUtils.marshallString(info.getHolyCity());
 			aInfo.religionType = JaxbUtils.marshallString(info.getReligionType());
 			aInfo.stateReligion = JaxbUtils.marshallString(info.getStateReligion());
@@ -1270,8 +1290,21 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			aInfo.freeBonus = JaxbUtils.marshallString(info.getFreeBonus());
 			aInfo.numFreeBonuses = JaxbUtils.marshallInteger(info.getNumFreeBonuses());
 			aInfo.freeBuilding = JaxbUtils.marshallString(info.getFreeBuilding());
-			aInfo.freePromotion = JaxbUtils.marshallString(info.getFreePromotion());
+
+			if (CollectionUtils.hasElements(info.getFreePromotions())) {
+				aInfo.freePromotions = new ArrayList<String>();
+				for(String val: info.getFreePromotions()) {
+					aInfo.freePromotions.add(JaxbUtils.marshallMandatoryString(val));
+				}
+			}
 			aInfo.freeUnitClass = JaxbUtils.marshallString(info.getFreeUnitClass());
+
+			if (CollectionUtils.hasElements(info.getSeeInvisibles())) {
+				aInfo.seeInvisibles = new ArrayList<String>();
+				for(String val: info.getSeeInvisibles()) {
+					aInfo.seeInvisibles.add(JaxbUtils.marshallMandatoryString(val));
+				}
+			}
 			aInfo.createFeatureType = JaxbUtils.marshallString(info.getCreateFeatureType());
 			aInfo.civicOption = JaxbUtils.marshallString(info.getCivicOption());
 			aInfo.greatPeopleUnitClass = JaxbUtils.marshallString(info.getGreatPeopleUnitClass());
@@ -1314,8 +1347,6 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			aInfo.hurryCostModifier = JaxbUtils.marshallInteger(info.getHurryCostModifier());
 			aInfo.advancedStartCost = JaxbUtils.marshallInteger(info.getAdvancedStartCost());
 			aInfo.advancedStartCostIncrease = JaxbUtils.marshallInteger(info.getAdvancedStartCostIncrease());
-			aInfo.extraBarbarianCostChange = JaxbUtils.marshallInteger(info.getExtraBarbarianCostChange());
-			aInfo.barbarianConversionCostModifier = JaxbUtils.marshallInteger(info.getBarbarianConversionCostModifier());
 			aInfo.minAreaSize = JaxbUtils.marshallInteger(info.getMinAreaSize());
 			aInfo.conquestProb = JaxbUtils.marshallInteger(info.getConquestProb());
 			aInfo.citiesPrereq = JaxbUtils.marshallInteger(info.getCitiesPrereq());
@@ -1363,11 +1394,12 @@ public class BuildingMapAdapter extends XmlAdapter<BuildingMapAdapter.BuildingMa
 			aInfo.globalTradeRoutes = JaxbUtils.marshallInteger(info.getGlobalTradeRoutes());
 			aInfo.tradeRouteModifier = JaxbUtils.marshallInteger(info.getTradeRouteModifier());
 			aInfo.foreignTradeRouteModifier = JaxbUtils.marshallInteger(info.getForeignTradeRouteModifier());
+			aInfo.populationGrowthRateModifier = JaxbUtils.marshallInteger(info.getPopulationGrowthRateModifier());
+			aInfo.globalPopulationGrowthRateModifier = JaxbUtils.marshallInteger(info.getGlobalPopulationGrowthRateModifier());
 			aInfo.globalPopulationChange = JaxbUtils.marshallInteger(info.getGlobalPopulationChange());
 			aInfo.globalFoundPopulationChange = JaxbUtils.marshallInteger(info.getGlobalFoundPopulationChange());
 			aInfo.freeTechs = JaxbUtils.marshallInteger(info.getFreeTechs());
 			aInfo.defense = JaxbUtils.marshallInteger(info.getDefense());
-			aInfo.obsoleteDefence = JaxbUtils.marshallInteger(info.getObsoleteDefence());
 			aInfo.bombardDefense = JaxbUtils.marshallInteger(info.getBombardDefense());
 			aInfo.allCityDefense = JaxbUtils.marshallInteger(info.getAllCityDefense());
 			aInfo.espionageDefense = JaxbUtils.marshallInteger(info.getEspionageDefense());
