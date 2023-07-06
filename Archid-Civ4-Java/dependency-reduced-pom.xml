@@ -9,6 +9,28 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/classes/res</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/java/res</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.4.1</version>
       </plugin>
@@ -29,7 +51,7 @@
                   <artifactId>${project.artifactId}</artifactId>
                   <version>${project.version}</version>
                   <type>${project.packaging}</type>
-                  <outputDirectory>E:\Projects\Civ4\github\Archid-Civ4\Support\Tools</outputDirectory>
+                  <outputDirectory>${env.OUTPUT_DIR}</outputDirectory>
                   <destFileName>${project.artifactId}.jar</destFileName>
                 </artifactItem>
               </artifactItems>
