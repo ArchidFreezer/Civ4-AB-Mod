@@ -21874,6 +21874,7 @@ bool CvUnitCombatInfo::read(CvXMLLoadUtility* pXML) {
 CvWeaponInfo::CvWeaponInfo() :
 	m_iTier(0),
 	m_iStrength(0),
+	m_bCanUpgrade(false),
 	m_bAmmunition(false) {
 }
 
@@ -21885,6 +21886,10 @@ CvWeaponInfo::CvWeaponInfo() :
 //
 //------------------------------------------------------------------------------------------------------
 CvWeaponInfo::~CvWeaponInfo() {
+}
+
+bool CvWeaponInfo::isCanUpgrade() const {
+	return m_bCanUpgrade;
 }
 
 bool CvWeaponInfo::isAmmunition() const {
@@ -21929,12 +21934,12 @@ bool CvWeaponInfo::read(CvXMLLoadUtility* pXML) {
 		return false;
 	}
 
+	pXML->GetChildXmlValByName(&m_bCanUpgrade, "bCanUpgrade", true);
 	pXML->GetChildXmlValByName(&m_bAmmunition, "bAmmunition");
 	pXML->GetChildXmlValByName(&m_iStrength, "iStrength");
 	pXML->GetChildXmlValByName(&m_iTier, "iTier", -1);
 	pXML->SetVectorInfo(m_viBonusTypes, "BonusTypes");
 	pXML->SetVectorInfo(m_viUnitCombatTypes, "UnitCombatTypes");
-
 
 	return true;
 }

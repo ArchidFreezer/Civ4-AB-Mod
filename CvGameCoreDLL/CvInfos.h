@@ -6923,6 +6923,7 @@ public:
 	int getNumUnitCombatTypes() const;
 
 	bool isAmmunition() const;
+	bool isCanUpgrade() const;
 
 	int getBonusPrereq(int i) const;
 	int getUnitCombatType(int i) const;
@@ -6938,6 +6939,7 @@ private:
 	int m_iTier;
 
 	bool m_bAmmunition;
+	bool m_bCanUpgrade;
 
 	std::vector<int> m_viBonusTypes;
 	std::vector<int> m_viUnitCombatTypes;

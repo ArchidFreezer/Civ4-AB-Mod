@@ -1100,10 +1100,12 @@
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="bAmmunition" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bCanUpgrade" content="textOnly" dt:type="boolean"/>
 	<ElementType name="WeaponInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="Civilopedia" minOccurs="0"/>
+		<element type="bCanUpgrade" minOccurs="0"/> <!-- Default: 1 -->
 		<element type="bAmmunition" minOccurs="0"/>
 		<element type="iStrength"/>
 		<element type="iTier"/>

@@ -68,7 +68,7 @@ public:
 	void incrementUnitHomeTurn(int iUnitID);
 
 	void doUpgradeWeapons();
-	void doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit);
+	void doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit, bool bUpgrade = true);
 	std::vector<WeaponTypes> getWeaponTypes();
 
 	void doAutoBuild();

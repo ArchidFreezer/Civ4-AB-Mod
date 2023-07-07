@@ -10052,7 +10052,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose) {
 				CvUnit* pUnit = GET_PLAYER(getOwnerINLINE()).initUnit(eTrainUnit, getX_INLINE(), getY_INLINE(), eTrainAIUnit);
 				FAssertMsg(pUnit != NULL, "pUnit is expected to be assigned a valid unit object");
 
-				doUnitWeaponUpgrade(getWeaponTypes(), pUnit);
+				doUnitWeaponUpgrade(getWeaponTypes(), pUnit, false);
 				pUnit->finishMoves();
 
 				addProductionExperience(pUnit);
@@ -14135,7 +14135,7 @@ std::vector<WeaponTypes> CvCity::getWeaponTypes() {
 	return vValidWeapons;
 }
 
-void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit) {
+void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUnit, bool bUpgrade) {
 	// Weapons
 	WeaponTypes eCurrWeapon = pUnit->getWeaponType();
 	WeaponTypes eBestWeapon = eCurrWeapon;
@@ -14149,6 +14149,10 @@ void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUni
 
 	for (std::vector<WeaponTypes>::iterator it = vWeapons.begin(); it != vWeapons.end(); ++it) {
 		const CvWeaponInfo& kLoopWeapon = GC.getWeaponInfo(*it);
+
+		if (bUpgrade && !kLoopWeapon.isCanUpgrade())
+			continue;
+
 		int iLoopStrength = kLoopWeapon.getStrength();
 		bool bAmmo = kLoopWeapon.isAmmunition();
 
