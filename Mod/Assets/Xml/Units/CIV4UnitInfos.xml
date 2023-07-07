@@ -5874,6 +5874,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CARAVEL</Description>
 			<Civilopedia>TXT_KEY_UNIT_CARAVEL_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CARAVEL_STRATEGY</Strategy>
@@ -5934,6 +5935,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_PORTUGAL_CARRACK</Description>
 			<Civilopedia>TXT_KEY_UNIT_PORTUGAL_CARRACK_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_PORTUGAL_CARRACK_STRATEGY</Strategy>
@@ -5995,6 +5997,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_FRIGATE</Description>
 			<Civilopedia>TXT_KEY_UNIT_FRIGATE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_FRIGATE_STRATEGY</Strategy>
@@ -6053,6 +6056,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_GALLEON</Description>
 			<Civilopedia>TXT_KEY_UNIT_GALLEON_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_GALLEON_STRATEGY</Strategy>
@@ -6108,6 +6112,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER</Description>
 			<Civilopedia>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER_STRATEGY</Strategy>
@@ -6165,6 +6170,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_GALLEY</Description>
 			<Civilopedia>TXT_KEY_UNIT_GALLEY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_GALLEY_STRATEGY</Strategy>
@@ -6221,6 +6227,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_PIRATE_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_PRIVATEER</Description>
 			<Civilopedia>TXT_KEY_UNIT_PRIVATEER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_PRIVATEER_STRATEGY</Strategy>
@@ -6284,6 +6291,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_SHIP_OF_THE_LINE</Description>
 			<Civilopedia>TXT_KEY_UNIT_SHIP_OF_THE_LINE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SHIP_OF_THE_LINE_STRATEGY</Strategy>
@@ -6355,6 +6363,7 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_TRIREME</Description>
 			<Civilopedia>CHANGED_TXT_KEY_UNIT_TRIREME_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_TRIREME_STRATEGY</Strategy>

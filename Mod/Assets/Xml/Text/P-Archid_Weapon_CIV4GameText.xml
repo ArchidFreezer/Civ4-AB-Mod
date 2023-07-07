@@ -29,6 +29,10 @@
 		<Tag>TXT_KEY_WEAPON_HAND_OBSIDIAN</Tag>
 		<English>Obsidian Weapon</English>
 	</TEXT>
+	<TEXT> <!-- Naval: Oak -->
+		<Tag>TXT_KEY_WEAPON_NAVAL_OAK</Tag>
+		<English>Oak Hull</English>
+	</TEXT>
 	<TEXT> <!-- Siege: Oak -->
 		<Tag>TXT_KEY_WEAPON_SIEGE_OAK</Tag>
 		<English>Oak Construction</English>

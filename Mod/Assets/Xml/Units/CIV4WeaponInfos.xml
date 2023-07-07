@@ -65,9 +65,24 @@
 			</UnitCombatTypes>
 			<Button>Art/Interface/Buttons/Weapons/weapon_obsidian.dds</Button>
 		</WeaponInfo>
+		<WeaponInfo> <!-- Naval: Oak -->
+			<Type>WEAPON_NAVAL:_OAK</Type>
+			<Description>TXT_KEY_WEAPON_NAVAL_OAK</Description>
+			<bCanUpgrade>0</bCanUpgrade>
+			<iStrength>1</iStrength>
+			<iTier>1</iTier>
+			<BonusTypes>
+				<BonusType>BONUS_TIMBER</BonusType>
+			</BonusTypes>
+			<UnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+			</UnitCombatTypes>
+			<Button>Art/Interface/Buttons/Weapons/weapon_oak.dds</Button>
+		</WeaponInfo>
 		<WeaponInfo> <!-- Siege: Oak -->
 			<Type>WEAPON_SIEGE_OAK</Type>
 			<Description>TXT_KEY_WEAPON_SIEGE_OAK</Description>
+			<bCanUpgrade>0</bCanUpgrade>
 			<iStrength>1</iStrength>
 			<iTier>1</iTier>
 			<BonusTypes>
