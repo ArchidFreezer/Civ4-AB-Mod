@@ -11,6 +11,8 @@ obj/
 temp_files/
 .vs/
 
+Support/Tools/output
+
 ~*.*
 *.dll
 *.opensdf
