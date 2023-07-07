@@ -72,6 +72,7 @@ public class BonusImporter extends AbstractImporter<IInfos<IBonusInfo>, IBonusIn
 	}
 
 	private void parseRandsCell(Cell cell, IBonusInfo info) {
+		if (cell == null) return;
 		String[] vals = cell.getStringCellValue().split(IInfoWorkbook.CELL_NEWLINE);
 		if (vals.length > 1) {
 			Rands rands = new Rands();
