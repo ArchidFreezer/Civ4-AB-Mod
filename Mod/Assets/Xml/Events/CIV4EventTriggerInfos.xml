@@ -794,7 +794,7 @@
 				<ObsoleteTech>TECH_REFRIGERATION</ObsoleteTech>
 				<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 				<ObsoleteTech>TECH_SATELLITES</ObsoleteTech>
-				<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+				<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 				<ObsoleteTech>TECH_ECOLOGY</ObsoleteTech>
 			</ObsoleteTechs>
 			<bPickCity>1</bPickCity>
@@ -965,7 +965,7 @@
 				<ObsoleteTech>TECH_REFRIGERATION</ObsoleteTech>
 				<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 				<ObsoleteTech>TECH_SATELLITES</ObsoleteTech>
-				<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+				<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 				<ObsoleteTech>TECH_ECOLOGY</ObsoleteTech>
 			</ObsoleteTechs>
 			<bShowPlot>1</bShowPlot>
@@ -2642,7 +2642,7 @@
 				<ObsoleteTech>TECH_REFRIGERATION</ObsoleteTech>
 				<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 				<ObsoleteTech>TECH_SATELLITES</ObsoleteTech>
-				<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+				<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 				<ObsoleteTech>TECH_ECOLOGY</ObsoleteTech>
 			</ObsoleteTechs>
 			<bGlobal>1</bGlobal>
@@ -4537,7 +4537,7 @@
 				<ObsoleteTech>TECH_REFRIGERATION</ObsoleteTech>
 				<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 				<ObsoleteTech>TECH_SATELLITES</ObsoleteTech>
-				<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+				<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 				<ObsoleteTech>TECH_ECOLOGY</ObsoleteTech>
 			</ObsoleteTechs>
 			<bGlobal>1</bGlobal>
@@ -4964,7 +4964,7 @@
 				<ObsoleteTech>TECH_REFRIGERATION</ObsoleteTech>
 				<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 				<ObsoleteTech>TECH_SATELLITES</ObsoleteTech>
-				<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+				<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 				<ObsoleteTech>TECH_ECOLOGY</ObsoleteTech>
 			</ObsoleteTechs>
 			<PythonCanDo>canTriggerSportsLeague</PythonCanDo>
@@ -4995,7 +4995,7 @@
 				<ObsoleteTech>TECH_REFRIGERATION</ObsoleteTech>
 				<ObsoleteTech>TECH_PLASTICS</ObsoleteTech>
 				<ObsoleteTech>TECH_SATELLITES</ObsoleteTech>
-				<ObsoleteTech>TECH_ADVANCED_FLIGHT</ObsoleteTech>
+				<ObsoleteTech>TECH_AERODYNAMICS</ObsoleteTech>
 				<ObsoleteTech>TECH_ECOLOGY</ObsoleteTech>
 			</ObsoleteTechs>
 			<bGlobal>1</bGlobal>

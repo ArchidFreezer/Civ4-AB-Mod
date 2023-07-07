@@ -8456,7 +8456,7 @@
 			<bInGeneric>1</bInGeneric>
 		</SoundData>
 		<SoundData>
-			<SoundID>SND_TECH_UTOPIA</SoundID>
+			<SoundID>SND_TECH_COMMUNISM</SoundID>
 			<Filename>Sounds/Tech/Tech_Communism</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
 			<bIsCompressed>1</bIsCompressed>

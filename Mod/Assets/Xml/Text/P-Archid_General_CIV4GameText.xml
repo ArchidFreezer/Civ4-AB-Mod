@@ -1663,4 +1663,9 @@
 		<Tag>TXT_KEY_UNIT_WEAPON_UPGRADE</Tag>
 		<English>[ICON_BULLET]Weapon upgrade:[SPACE]</English>
 	</TEXT>
+<!-- Eras -->
+	<TEXT>
+		<Tag>TXT_KEY_ERA_TRANSHUMAN</Tag>
+		<English>Transhuman</English>
+	</TEXT>
 </Civ4GameText>
