@@ -17,3 +17,5 @@ Support/Tools/output
 *.dll
 *.opensdf
 *.log
+*.bkp
+*.dtmp
