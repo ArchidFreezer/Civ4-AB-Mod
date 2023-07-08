@@ -105,7 +105,7 @@
 				<BonusType>BONUS_COPPER</BonusType>
 			</BonusTypes>
 			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 			</UnitCombatTypes>
 			<Button>Art/Interface/Buttons/Weapons/arrow_bronze.dds</Button>
 		</WeaponInfo>
@@ -119,7 +119,7 @@
 				<BonusType>BONUS_IRON</BonusType>
 			</BonusTypes>
 			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 			</UnitCombatTypes>
 			<Button>Art/Interface/Buttons/Weapons/arrow_iron.dds</Button>
 		</WeaponInfo>
@@ -133,7 +133,7 @@
 				<BonusType>BONUS_OBSIDIAN</BonusType>
 			</BonusTypes>
 			<UnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
 			</UnitCombatTypes>
 			<Button>Art/Interface/Buttons/Weapons/arrow_obsidian.dds</Button>
 		</WeaponInfo>

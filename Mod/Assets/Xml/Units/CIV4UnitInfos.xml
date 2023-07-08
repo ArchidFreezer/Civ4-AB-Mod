@@ -35,8 +35,8 @@
 			<iMoves>1</iMoves>
 			<iAirRange>8</iAirRange>
 			<iAirUnitCap>1</iAirUnitCap>
-			<iAirCombat>4</iAirCombat>
-			<iAirCombatLimit>20</iAirCombatLimit>
+			<iAirCombat>8</iAirCombat>
+			<iAirCombatLimit>30</iAirCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>4</iXPValueDefense>
 			<iAsset>3</iAsset>
@@ -84,8 +84,8 @@
 			<iMoves>1</iMoves>
 			<iAirRange>8</iAirRange>
 			<iAirUnitCap>1</iAirUnitCap>
-			<iAirCombat>16</iAirCombat>
-			<iAirCombatLimit>50</iAirCombatLimit>
+			<iAirCombat>52</iAirCombat>
+			<iAirCombatLimit>80</iAirCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>4</iXPValueDefense>
 			<iCollateralDamage>100</iCollateralDamage>
@@ -144,8 +144,8 @@
 			<iMoves>1</iMoves>
 			<iAirRange>6</iAirRange>
 			<iAirUnitCap>1</iAirUnitCap>
-			<iAirCombat>12</iAirCombat>
-			<iAirCombatLimit>50</iAirCombatLimit>
+			<iAirCombat>40</iAirCombat>
+			<iAirCombatLimit>80</iAirCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>4</iXPValueDefense>
 			<iInterceptionProbability>100</iInterceptionProbability>
@@ -196,8 +196,8 @@
 			<iMoves>1</iMoves>
 			<iAirRange>10</iAirRange>
 			<iAirUnitCap>1</iAirUnitCap>
-			<iAirCombat>24</iAirCombat>
-			<iAirCombatLimit>50</iAirCombatLimit>
+			<iAirCombat>54</iAirCombat>
+			<iAirCombatLimit>80</iAirCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>4</iXPValueDefense>
 			<iInterceptionProbability>100</iInterceptionProbability>
@@ -247,8 +247,8 @@
 			<iMoves>1</iMoves>
 			<iAirRange>12</iAirRange>
 			<iAirUnitCap>1</iAirUnitCap>
-			<iAirCombat>20</iAirCombat>
-			<iAirCombatLimit>50</iAirCombatLimit>
+			<iAirCombat>75</iAirCombat>
+			<iAirCombatLimit>80</iAirCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>4</iXPValueDefense>
 			<iEvasionProbability>50</iEvasionProbability>
@@ -301,7 +301,7 @@
 			<iCost>-1</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>1</iCombat>
+			<iCombat>2</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -324,51 +324,6 @@
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_DEER</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Wolf -->
-			<Class>UNITCLASS_WOLF</Class>
-			<Type>UNIT_WOLF</Type>
-			<Combat>UNITCOMBAT_ANIMAL</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_WOLF</Description>
-			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
-			<bAnimal>1</bAnimal>
-			<bNoDefensiveBonus>1</bNoDefensiveBonus>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
-			</UnitAIs>
-			<iCost>-1</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMoves>2</iMoves>
-			<iCombat>1</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<TerrainNatives>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-				<TerrainType>TERRAIN_TUNDRA</TerrainType>
-				<TerrainType>TERRAIN_SNOW</TerrainType>
-			</TerrainNatives>
-			<FeatureNatives>
-				<FeatureType>FEATURE_FOREST</FeatureType>
-			</FeatureNatives>
-			<iAsset>1</iAsset>
-			<iPower>1</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_WOLF</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
@@ -414,13 +369,13 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
 		</UnitInfo>
-		<UnitInfo> <!-- Bear -->
-			<Class>UNITCLASS_BEAR</Class>
-			<Type>UNIT_BEAR</Type>
+		<UnitInfo> <!-- Wolf -->
+			<Class>UNITCLASS_WOLF</Class>
+			<Type>UNIT_WOLF</Type>
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_BEAR</Description>
+			<Description>TXT_KEY_UNIT_WOLF</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
 			<bAnimal>1</bAnimal>
@@ -430,37 +385,31 @@
 			</UnitAIs>
 			<iCost>-1</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>3</iCombat>
+			<iMoves>2</iMoves>
+			<iCombat>2</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+			</TerrainNatives>
 			<FeatureNatives>
 				<FeatureType>FEATURE_FOREST</FeatureType>
 			</FeatureNatives>
-			<FeatureAttacks>
-				<FeatureAttack>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iFeatureAttack>20</iFeatureAttack>
-				</FeatureAttack>
-			</FeatureAttacks>
-			<FeatureDefenses>
-				<FeatureDefense>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iFeatureDefense>20</iFeatureDefense>
-				</FeatureDefense>
-			</FeatureDefenses>
 			<iAsset>1</iAsset>
 			<iPower>1</iPower>
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_BEAR</EarlyArtDefineTag>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_WOLF</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
@@ -502,213 +451,6 @@
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_LION</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Panther -->
-			<Class>UNITCLASS_PANTHER</Class>
-			<Type>UNIT_PANTHER</Type>
-			<Combat>UNITCOMBAT_ANIMAL</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_PANTHER</Description>
-			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
-			<bAnimal>1</bAnimal>
-			<bNoDefensiveBonus>1</bNoDefensiveBonus>
-			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
-			</UnitAIs>
-			<iCost>-1</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMoves>2</iMoves>
-			<iCombat>3</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iWithdrawalProb>50</iWithdrawalProb>
-			<FeatureNatives>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureNatives>
-			<FeatureAttacks>
-				<FeatureAttack>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iFeatureAttack>35</iFeatureAttack>
-				</FeatureAttack>
-			</FeatureAttacks>
-			<FeatureDefenses>
-				<FeatureDefense>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iFeatureDefense>35</iFeatureDefense>
-				</FeatureDefense>
-			</FeatureDefenses>
-			<iAsset>1</iAsset>
-			<iPower>1</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>2</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>2</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_PANTHER</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Tiger -->
-			<Class>UNITCLASS_TIGER</Class>
-			<Type>UNIT_TIGER</Type>
-			<Combat>UNITCOMBAT_ANIMAL</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_TIGER</Description>
-			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
-			<bAnimal>1</bAnimal>
-			<bNoDefensiveBonus>1</bNoDefensiveBonus>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
-			</UnitAIs>
-			<iCost>-1</iCost>
-			<iMinAreaSize>-1</iMinAreaSize>
-			<iMoves>2</iMoves>
-			<iCombat>3</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<FeatureNatives>
-				<FeatureType>FEATURE_FOREST</FeatureType>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureNatives>
-			<FeatureAttacks>
-				<FeatureAttack>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iFeatureAttack>35</iFeatureAttack>
-				</FeatureAttack>
-				<FeatureAttack>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iFeatureAttack>35</iFeatureAttack>
-				</FeatureAttack>
-			</FeatureAttacks>
-			<FeatureDefenses>
-				<FeatureDefense>
-					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iFeatureDefense>35</iFeatureDefense>
-				</FeatureDefense>
-				<FeatureDefense>
-					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iFeatureDefense>35</iFeatureDefense>
-				</FeatureDefense>
-			</FeatureDefenses>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>2</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_TIGER</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Cavebear -->
-			<Class>UNITCLASS_CAVEBEAR</Class>
-			<Type>UNIT_CAVEBEAR</Type>
-			<Combat>UNITCOMBAT_ANIMAL</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_CAVEBEAR</Description>
-			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
-			<Advisor>NONE</Advisor>
-			<bAnimal>1</bAnimal>
-			<bNoDefensiveBonus>1</bNoDefensiveBonus>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
-			</UnitAIs>
-			<iCost>-1</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iHillsAttack>25</iHillsAttack>
-			<iHillsDefense>25</iHillsDefense>
-			<TerrainNatives>
-				<TerrainType>TERRAIN_HILL</TerrainType>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
-			</TerrainNatives>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_CAVEBEAR</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Elephant -->
-			<Class>UNITCLASS_ELEPHANT</Class>
-			<Type>UNIT_ELEPHANT</Type>
-			<Combat>UNITCOMBAT_ANIMAL</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_ELEPHANT</Description>
-			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
-			<bAnimal>1</bAnimal>
-			<bOnlyDefensive>1</bOnlyDefensive>
-			<bNoDefensiveBonus>1</bNoDefensiveBonus>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
-			</UnitAIs>
-			<iCost>-1</iCost>
-			<iAdvancedStartCost>-1</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCollateralDamage>25</iCollateralDamage>
-			<iCollateralDamageLimit>50</iCollateralDamageLimit>
-			<iCollateralDamageMaxUnits>2</iCollateralDamageMaxUnits>
-			<TerrainNatives>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
-				<TerrainType>TERRAIN_DESERT</TerrainType>
-			</TerrainNatives>
-			<FeatureNatives>
-				<FeatureType>FEATURE_JUNGLE</FeatureType>
-			</FeatureNatives>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-					<iUnitCombatMod>25</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iAsset>1</iAsset>
-			<iPower>1</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_ELEPHANT</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
@@ -765,63 +507,55 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
 		</UnitInfo>
-		<UnitInfo> <!-- Polar Bear -->
-			<Class>UNITCLASS_POLAR_BEAR</Class>
-			<Type>UNIT_POLAR_BEAR</Type>
+		<UnitInfo> <!-- Panther -->
+			<Class>UNITCLASS_PANTHER</Class>
+			<Type>UNIT_PANTHER</Type>
 			<Combat>UNITCOMBAT_ANIMAL</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_POLAR_BEAR</Description>
+			<Description>TXT_KEY_UNIT_PANTHER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
 			<bAnimal>1</bAnimal>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
 			</UnitAIs>
 			<iCost>-1</iCost>
-			<iMoves>1</iMoves>
-			<TerrainImpassables>
-				<TerrainType>TERRAIN_GRASS</TerrainType>
-				<TerrainType>TERRAIN_PLAINS</TerrainType>
-			</TerrainImpassables>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>2</iMoves>
 			<iCombat>4</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
-			<TerrainNatives>
-				<TerrainType>TERRAIN_TUNDRA</TerrainType>
-				<TerrainType>TERRAIN_SNOW</TerrainType>
-			</TerrainNatives>
-			<TerrainAttacks>
-				<TerrainAttack>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<iTerrainAttack>25</iTerrainAttack>
-				</TerrainAttack>
-				<TerrainAttack>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<iTerrainAttack>10</iTerrainAttack>
-				</TerrainAttack>
-			</TerrainAttacks>
-			<TerrainDefenses>
-				<TerrainDefense>
-					<TerrainType>TERRAIN_SNOW</TerrainType>
-					<iTerrainDefense>25</iTerrainDefense>
-				</TerrainDefense>
-				<TerrainDefense>
-					<TerrainType>TERRAIN_TUNDRA</TerrainType>
-					<iTerrainDefense>10</iTerrainDefense>
-				</TerrainDefense>
-			</TerrainDefenses>
+			<iWithdrawalProb>50</iWithdrawalProb>
+			<FeatureNatives>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>35</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureDefense>35</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
 			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
+				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_POLAR_BEAR</EarlyArtDefineTag>
+					<iRequired>2</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_PANTHER</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
@@ -871,6 +605,176 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Tiger -->
+			<Class>UNITCLASS_TIGER</Class>
+			<Type>UNIT_TIGER</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_TIGER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iMinAreaSize>-1</iMinAreaSize>
+			<iMoves>2</iMoves>
+			<iCombat>4</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<FeatureNatives>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>35</iFeatureAttack>
+				</FeatureAttack>
+				<FeatureAttack>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureAttack>35</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureDefense>35</iFeatureDefense>
+				</FeatureDefense>
+				<FeatureDefense>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<iFeatureDefense>35</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TIGER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Bear -->
+			<Class>UNITCLASS_BEAR</Class>
+			<Type>UNIT_BEAR</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_BEAR</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>5</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<FeatureNatives>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+			</FeatureNatives>
+			<FeatureAttacks>
+				<FeatureAttack>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureAttack>20</iFeatureAttack>
+				</FeatureAttack>
+			</FeatureAttacks>
+			<FeatureDefenses>
+				<FeatureDefense>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<iFeatureDefense>20</iFeatureDefense>
+				</FeatureDefense>
+			</FeatureDefenses>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_BEAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Polar Bear -->
+			<Class>UNITCLASS_POLAR_BEAR</Class>
+			<Type>UNIT_POLAR_BEAR</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_POLAR_BEAR</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iMoves>1</iMoves>
+			<TerrainImpassables>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainImpassables>
+			<iCombat>5</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_TUNDRA</TerrainType>
+				<TerrainType>TERRAIN_SNOW</TerrainType>
+			</TerrainNatives>
+			<TerrainAttacks>
+				<TerrainAttack>
+					<TerrainType>TERRAIN_SNOW</TerrainType>
+					<iTerrainAttack>25</iTerrainAttack>
+				</TerrainAttack>
+				<TerrainAttack>
+					<TerrainType>TERRAIN_TUNDRA</TerrainType>
+					<iTerrainAttack>10</iTerrainAttack>
+				</TerrainAttack>
+			</TerrainAttacks>
+			<TerrainDefenses>
+				<TerrainDefense>
+					<TerrainType>TERRAIN_SNOW</TerrainType>
+					<iTerrainDefense>25</iTerrainDefense>
+				</TerrainDefense>
+				<TerrainDefense>
+					<TerrainType>TERRAIN_TUNDRA</TerrainType>
+					<iTerrainDefense>10</iTerrainDefense>
+				</TerrainDefense>
+			</TerrainDefenses>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_POLAR_BEAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Sabretooth Tiger -->
 			<Class>UNITCLASS_SABRETOOTH_TIGER</Class>
 			<Type>UNIT_SABRETOOTH_TIGER</Type>
@@ -889,7 +793,7 @@
 			<iCost>-1</iCost>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>4</iCombat>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -913,6 +817,102 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Cavebear -->
+			<Class>UNITCLASS_CAVEBEAR</Class>
+			<Type>UNIT_CAVEBEAR</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_CAVEBEAR</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<Advisor>NONE</Advisor>
+			<bAnimal>1</bAnimal>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>8</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iHillsAttack>25</iHillsAttack>
+			<iHillsDefense>25</iHillsDefense>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_HILL</TerrainType>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+			</TerrainNatives>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_CAVEBEAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Elephant -->
+			<Class>UNITCLASS_ELEPHANT</Class>
+			<Type>UNIT_ELEPHANT</Type>
+			<Combat>UNITCOMBAT_ANIMAL</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ANIMAL</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ELEPHANT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ANIMALS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ANIMAL_STRATEGY</Strategy>
+			<bAnimal>1</bAnimal>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ANIMAL</UnitAIType>
+			</UnitAIs>
+			<iCost>-1</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>8</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCollateralDamage>25</iCollateralDamage>
+			<iCollateralDamageLimit>50</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>2</iCollateralDamageMaxUnits>
+			<TerrainNatives>
+				<TerrainType>TERRAIN_GRASS</TerrainType>
+				<TerrainType>TERRAIN_PLAINS</TerrainType>
+				<TerrainType>TERRAIN_DESERT</TerrainType>
+			</TerrainNatives>
+			<FeatureNatives>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureNatives>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iUnitCombatMod>25</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iAsset>1</iAsset>
+			<iPower>1</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ELEPHANT</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_ANIMAL</FormationType>
+		</UnitInfo>
 
 
 <!-- ************ -->
@@ -928,8 +928,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
-			<iMaxAmmoTypeTier>2</iMaxAmmoTypeTier>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_ARCHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_ARCHER_STRATEGY</Strategy>
@@ -952,7 +951,8 @@
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>3</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>5</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -985,8 +985,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
-			<iMaxAmmoTypeTier>2</iMaxAmmoTypeTier>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_BABYLON_BOWMAN</Description>
 			<Civilopedia>TXT_KEY_UNIT_BABYLON_BOWMAN_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_BABYLON_BOWMAN_STRATEGY</Strategy>
@@ -1009,7 +1008,8 @@
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>3</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>5</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1048,7 +1048,6 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_CITY_DEFENSE</DefaultUnitAI>
-			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_MALI_SKIRMISHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_MALI_SKIRMISHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_MALI_SKIRMISHER_STRATEGY</Strategy>
@@ -1071,7 +1070,8 @@
 			<iCost>25</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1105,6 +1105,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CROSSBOWMAN</Description>
 			<Civilopedia>TXT_KEY_UNIT_CROSSBOWMAN_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CROSSBOWMAN_STRATEGY</Strategy>
@@ -1114,7 +1115,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -1131,7 +1132,8 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1168,6 +1170,7 @@
 			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CHINA_CHOKONU</Description>
 			<Civilopedia>TXT_KEY_UNIT_CHINA_CHOKONU_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CHINA_CHOKONU_STRATEGY</Strategy>
@@ -1177,7 +1180,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -1194,7 +1197,8 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1243,7 +1247,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -1256,7 +1260,8 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1317,7 +1322,7 @@
 			<iCost>180</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>28</iCombat>
+			<iCombat>50</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1375,7 +1380,7 @@
 			<iCost>180</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>28</iCombat>
+			<iCombat>50</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -1442,7 +1447,7 @@
 			<iCost>240</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>40</iCombat>
+			<iCombat>105</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2402,6 +2407,68 @@
 <!-- ************ -->
 <!-- Gunpowder -->
 <!-- ************ -->
+		<UnitInfo> <!-- Grenadier -->
+			<Class>UNITCLASS_GRENADIER</Class>
+			<Type>UNIT_GRENADIER</Type>
+			<Combat>UNITCOMBAT_GUN</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_GRENADIER</Description>
+			<Civilopedia>TXT_KEY_UNIT_GRENADIER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_GRENADIER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_INFANTRY</UnitClassType>
+				<UnitClassType>UNITCLASS_MACHINE_GUN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_MILITARY_SCIENCE</TechType>
+			</PrereqTechs>
+			<iCost>100</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>18</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCityAttack>10</iCityAttack>
+			<UnitClassAttackMods>
+				<UnitClassAttackMod>
+					<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+					<iUnitClassMod>50</iUnitClassMod>
+				</UnitClassAttackMod>
+			</UnitClassAttackMods>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>7</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>12</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_GRENADIER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
 		<UnitInfo> <!-- Musketman -->
 			<Class>UNITCLASS_MUSKETMAN</Class>
 			<Type>UNIT_MUSKETMAN</Type>
@@ -2434,7 +2501,7 @@
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>9</iCombat>
+			<iCombat>20</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2488,7 +2555,7 @@
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>9</iCombat>
+			<iCombat>20</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2555,7 +2622,7 @@
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>9</iCombat>
+			<iCombat>20</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2609,7 +2676,7 @@
 			<iCost>80</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>9</iCombat>
+			<iCombat>20</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2643,128 +2710,6 @@
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_RANGED</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Grenadier -->
-			<Class>UNITCLASS_GRENADIER</Class>
-			<Type>UNIT_GRENADIER</Type>
-			<Combat>UNITCOMBAT_GUN</Combat>
-			<SubCombatTypes>
-				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
-			</SubCombatTypes>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_GRENADIER</Description>
-			<Civilopedia>TXT_KEY_UNIT_GRENADIER_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_GRENADIER_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_INFANTRY</UnitClassType>
-				<UnitClassType>UNITCLASS_MACHINE_GUN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_MILITARY_SCIENCE</TechType>
-			</PrereqTechs>
-			<iCost>100</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>12</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCityAttack>10</iCityAttack>
-			<UnitClassAttackMods>
-				<UnitClassAttackMod>
-					<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
-					<iUnitClassMod>50</iUnitClassMod>
-				</UnitClassAttackMod>
-			</UnitClassAttackMods>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>7</iCultureGarrison>
-			<iAsset>3</iAsset>
-			<iPower>12</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_GRENADIER</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- At Infantry -->
-			<Class>UNITCLASS_AT_INFANTRY</Class>
-			<Type>UNIT_AT_INFANTRY</Type>
-			<Combat>UNITCOMBAT_GUN</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_AT_INFANTRY</Description>
-			<Civilopedia>TXT_KEY_UNIT_AT_INFANTRY_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_AT_INFANTRY_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MECHANIZED_INFANTRY</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_ARTILLERY</TechType>
-			</PrereqTechs>
-			<iCost>120</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>14</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iInterceptionProbability>20</iInterceptionProbability>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
-					<iUnitCombatMod>100</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>8</iCultureGarrison>
-			<iAsset>3</iAsset>
-			<iPower>14</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_AT_INFANTRY</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-			<FreePromotions>
-				<PromotionType>PROMOTION_AMBUSH</PromotionType>
-			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Rifleman -->
 			<Class>UNITCLASS_RIFLEMAN</Class>
@@ -2800,7 +2745,7 @@
 			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>14</iCombat>
+			<iCombat>26</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2861,7 +2806,7 @@
 			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>14</iCombat>
+			<iCombat>26</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -2891,64 +2836,6 @@
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_RANGED</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Sam Infantry -->
-			<Class>UNITCLASS_SAM_INFANTRY</Class>
-			<Type>UNIT_SAM_INFANTRY</Type>
-			<Combat>UNITCOMBAT_GUN</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_SAM_INFANTRY</Description>
-			<Civilopedia>TXT_KEY_UNIT_SAM_INFANTRY_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_SAM_INFANTRY_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MOBILE_SAM</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_ROCKETRY</TechType>
-			</PrereqTechs>
-			<iCost>150</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iAirRange>1</iAirRange>
-			<iCombat>18</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iInterceptionProbability>40</iInterceptionProbability>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-					<iUnitCombatMod>75</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iConscription>5</iConscription>
-			<iCultureGarrison>10</iCultureGarrison>
-			<iAsset>4</iAsset>
-			<iPower>18</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_SAM_INFANTRY</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
 		<UnitInfo> <!-- Infantry -->
 			<Class>UNITCLASS_INFANTRY</Class>
@@ -2982,7 +2869,7 @@
 			<iCost>140</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>20</iCombat>
+			<iCombat>34</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3008,62 +2895,6 @@
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_RANGED</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Mobile Sam -->
-			<Class>UNITCLASS_MOBILE_SAM</Class>
-			<Type>UNIT_MOBILE_SAM</Type>
-			<Combat>UNITCOMBAT_GUN</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_MOBILE_SAM</Description>
-			<Civilopedia>TXT_KEY_UNIT_MOBILE_SAM_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_MOBILE_SAM_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<UnitAIs>
-				<UnitAIType>UNITAI_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_LASER</TechType>
-			</PrereqTechs>
-			<BonusType>BONUS_OIL</BonusType>
-			<iCost>220</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>2</iMoves>
-			<iAirRange>1</iAirRange>
-			<iCombat>22</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iInterceptionProbability>50</iInterceptionProbability>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
-					<iUnitCombatMod>50</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>11</iCultureGarrison>
-			<iAsset>5</iAsset>
-			<iPower>22</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_MOBILE_SAM</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
 		<UnitInfo> <!-- Marine -->
 			<Class>UNITCLASS_MARINE</Class>
@@ -3093,7 +2924,7 @@
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>24</iCombat>
+			<iCombat>39</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3155,7 +2986,7 @@
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>24</iCombat>
+			<iCombat>39</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3219,7 +3050,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
 			<iDropRange>5</iDropRange>
-			<iCombat>24</iCombat>
+			<iCombat>40</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3237,6 +3068,124 @@
 				<UnitMeshGroup>
 					<iRequired>3</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_PARATROOPER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- At Infantry -->
+			<Class>UNITCLASS_AT_INFANTRY</Class>
+			<Type>UNIT_AT_INFANTRY</Type>
+			<Combat>UNITCOMBAT_GUN</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_AT_INFANTRY</Description>
+			<Civilopedia>TXT_KEY_UNIT_AT_INFANTRY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_AT_INFANTRY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MECHANIZED_INFANTRY</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_ARTILLERY</TechType>
+			</PrereqTechs>
+			<iCost>120</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iCombat>50</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iInterceptionProbability>20</iInterceptionProbability>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+					<iUnitCombatMod>100</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>8</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>14</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_AT_INFANTRY</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_AMBUSH</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Sam Infantry -->
+			<Class>UNITCLASS_SAM_INFANTRY</Class>
+			<Type>UNIT_SAM_INFANTRY</Type>
+			<Combat>UNITCOMBAT_GUN</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SAM_INFANTRY</Description>
+			<Civilopedia>TXT_KEY_UNIT_SAM_INFANTRY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_SAM_INFANTRY_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MOBILE_SAM</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_ROCKETRY</TechType>
+			</PrereqTechs>
+			<iCost>150</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<iAirRange>1</iAirRange>
+			<iCombat>54</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iInterceptionProbability>40</iInterceptionProbability>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iUnitCombatMod>75</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iConscription>5</iConscription>
+			<iCultureGarrison>10</iCultureGarrison>
+			<iAsset>4</iAsset>
+			<iPower>18</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SAM_INFANTRY</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
@@ -3269,7 +3218,7 @@
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>32</iCombat>
+			<iCombat>70</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3293,6 +3242,62 @@
 			<FreePromotions>
 				<PromotionType>PROMOTION_MARCH</PromotionType>
 			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Mobile Sam -->
+			<Class>UNITCLASS_MOBILE_SAM</Class>
+			<Type>UNIT_MOBILE_SAM</Type>
+			<Combat>UNITCOMBAT_GUN</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_MOBILE_SAM</Description>
+			<Civilopedia>TXT_KEY_UNIT_MOBILE_SAM_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_MOBILE_SAM_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<UnitAIs>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_SPECIAL</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_LASER</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_OIL</BonusType>
+			<iCost>220</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<iAirRange>1</iAirRange>
+			<iCombat>70</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iInterceptionProbability>50</iInterceptionProbability>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+					<iUnitCombatMod>50</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>11</iCultureGarrison>
+			<iAsset>5</iAsset>
+			<iPower>22</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_MOBILE_SAM</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
 
 
@@ -3342,7 +3347,7 @@
 			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>4</iMoves>
-			<iCombat>24</iCombat>
+			<iCombat>50</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3385,7 +3390,7 @@
 			<Combat>UNITCOMBAT_MELEE</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_WARRIOR</Description>
 			<Civilopedia>TXT_KEY_UNIT_WARRIOR_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_WARRIOR_STRATEGY</Strategy>
@@ -3395,8 +3400,11 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_SCOUT</UnitClassType>
 				<UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_SPEARMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_JAVELINEER</UnitClassType>
+				<UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -3407,7 +3415,8 @@
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>2</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>3</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3435,7 +3444,7 @@
 			<Combat>UNITCOMBAT_MELEE</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_INCAN_QUECHUA</Description>
 			<Civilopedia>TXT_KEY_UNIT_INCAN_QUECHUA_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_INCAN_QUECHUA_STRATEGY</Strategy>
@@ -3445,9 +3454,11 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_SCOUT</UnitClassType>
 				<UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_SPEARMAN</UnitClassType>
-				<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_JAVELINEER</UnitClassType>
+				<UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
@@ -3458,7 +3469,8 @@
 			<iCost>20</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>2</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>4</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3487,185 +3499,6 @@
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 			<FreePromotions>
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
-			</FreePromotions>
-		</UnitInfo>
-		<UnitInfo> <!-- Spearman -->
-			<Class>UNITCLASS_SPEARMAN</Class>
-			<Type>UNIT_SPEARMAN</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_SPEARMAN</Description>
-			<Civilopedia>TXT_KEY_UNIT_SPEARMAN_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_SPEARMAN_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-				<UnitAIType>UNITAI_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_HUNTING</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_COPPER</BonusType>
-				<BonusType>BONUS_IRON</BonusType>
-			</PrereqOrBonuses>
-			<iCost>35</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-					<iUnitCombatMod>100</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iConscription>2</iConscription>
-			<iCultureGarrison>4</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>4</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_SPEARMAN</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Spearman: Maya Holkan -->
-			<Class>UNITCLASS_SPEARMAN</Class>
-			<Type>UNIT_MAYA_HOLKAN</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_MAYA_HOLKAN</Description>
-			<Civilopedia>TXT_KEY_UNIT_MAYA_HOLKAN_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_HOLKAN_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bFirstStrikeImmune>1</bFirstStrikeImmune>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-				<UnitAIType>UNITAI_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_BRONZE_WORKING</TechType>
-			</PrereqTechs>
-			<iCost>35</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-					<iUnitCombatMod>100</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iConscription>2</iConscription>
-			<iCultureGarrison>4</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>4</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_MAYA_HOLKAN</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Spearman: Zulu Impi -->
-			<Class>UNITCLASS_SPEARMAN</Class>
-			<Type>UNIT_ZULU_IMPI</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_ZULU_IMPI</Description>
-			<Civilopedia>TXT_KEY_UNIT_ZULU_IMPI_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ZULU_IMPI_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-				<UnitAIType>UNITAI_COUNTER</UnitAIType>
-				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_HUNTING</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_COPPER</BonusType>
-				<BonusType>BONUS_IRON</BonusType>
-			</PrereqOrBonuses>
-			<iCost>35</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>2</iMoves>
-			<iCombat>4</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<UnitCombatMods>
-				<UnitCombatMod>
-					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
-					<iUnitCombatMod>100</iUnitCombatMod>
-				</UnitCombatMod>
-			</UnitCombatMods>
-			<iConscription>2</iConscription>
-			<iCultureGarrison>4</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>4</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_ZULU_SPEARMAN</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-			<FreePromotions>
-				<PromotionType>PROMOTION_MOBILITY</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Axeman -->
@@ -3701,7 +3534,8 @@
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>5</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3761,7 +3595,8 @@
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>5</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3823,7 +3658,8 @@
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>5</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3883,7 +3719,8 @@
 			<iCost>35</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3910,6 +3747,187 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
+		<UnitInfo> <!-- Spearman -->
+			<Class>UNITCLASS_SPEARMAN</Class>
+			<Type>UNIT_SPEARMAN</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SPEARMAN</Description>
+			<Civilopedia>TXT_KEY_UNIT_SPEARMAN_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_SPEARMAN_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_MINING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iUnitCombatMod>100</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iConscription>2</iConscription>
+			<iCultureGarrison>4</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>4</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SPEARMAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Spearman: Maya Holkan -->
+			<Class>UNITCLASS_SPEARMAN</Class>
+			<Type>UNIT_MAYA_HOLKAN</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_MAYA_HOLKAN</Description>
+			<Civilopedia>TXT_KEY_UNIT_MAYA_HOLKAN_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HOLKAN_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bFirstStrikeImmune>1</bFirstStrikeImmune>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_MINING</TechType>
+			</PrereqTechs>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iUnitCombatMod>100</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iConscription>2</iConscription>
+			<iCultureGarrison>4</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>4</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_MAYA_HOLKAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Spearman: Zulu Impi -->
+			<Class>UNITCLASS_SPEARMAN</Class>
+			<Type>UNIT_ZULU_IMPI</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ZULU_IMPI</Description>
+			<Civilopedia>TXT_KEY_UNIT_ZULU_IMPI_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ZULU_IMPI_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_MINING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<UnitCombatMods>
+				<UnitCombatMod>
+					<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+					<iUnitCombatMod>100</iUnitCombatMod>
+				</UnitCombatMod>
+			</UnitCombatMods>
+			<iConscription>2</iConscription>
+			<iCultureGarrison>4</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>4</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ZULU_SPEARMAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_MOBILITY</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
 		<UnitInfo> <!-- Pikeman -->
 			<Class>UNITCLASS_PIKEMAN</Class>
 			<Type>UNIT_PIKEMAN</Type>
@@ -3925,7 +3943,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -3940,7 +3958,8 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>8</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -3982,7 +4001,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -3998,7 +4017,8 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>8</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -4029,221 +4049,6 @@
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
-		<UnitInfo> <!-- Swordsman -->
-			<Class>UNITCLASS_SWORDSMAN</Class>
-			<Type>UNIT_SWORDSMAN</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_SWORDSMAN</Description>
-			<Civilopedia>TXT_KEY_UNIT_SWORDSMAN_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_SWORDSMAN_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_IRON_WORKING</TechType>
-			</PrereqTechs>
-			<BonusType>BONUS_IRON</BonusType>
-			<iCost>40</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCityAttack>10</iCityAttack>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>5</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>6</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_SWORDSMAN</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Swordsman: Aztec Jaguar -->
-			<Class>UNITCLASS_SWORDSMAN</Class>
-			<Type>UNIT_AZTEC_JAGUAR</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_AZTEC_JAGUAR</Description>
-			<Civilopedia>TXT_KEY_UNIT_AZTEC_JAGUAR_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_AZTEC_JAGUAR_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_IRON_WORKING</TechType>
-			</PrereqTechs>
-			<iCost>35</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>5</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCityAttack>10</iCityAttack>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>5</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>6</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_AZTEC_JAGUAR</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-			<FreePromotions>
-				<PromotionType>PROMOTION_WOODSMAN1</PromotionType>
-			</FreePromotions>
-		</UnitInfo>
-		<UnitInfo> <!-- Swordsman: Celtic Gallic Warrior -->
-			<Class>UNITCLASS_SWORDSMAN</Class>
-			<Type>UNIT_CELTIC_GALLIC_WARRIOR</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_CELTIC_GALLIC_WARRIOR</Description>
-			<Civilopedia>TXT_KEY_UNIT_CELTIC_WARRIOR_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_CELTIC_GALLIC_WARRIOR_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_IRON_WORKING</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_COPPER</BonusType>
-				<BonusType>BONUS_IRON</BonusType>
-			</PrereqOrBonuses>
-			<iCost>40</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>6</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCityAttack>10</iCityAttack>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>5</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>6</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_CELTIC_BARBARIAN</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-			<FreePromotions>
-				<PromotionType>PROMOTION_GUERILLA1</PromotionType>
-			</FreePromotions>
-		</UnitInfo>
-		<UnitInfo> <!-- Swordsman: Rome Praetorian -->
-			<Class>UNITCLASS_SWORDSMAN</Class>
-			<Type>UNIT_ROME_PRAETORIAN</Type>
-			<Combat>UNITCOMBAT_MELEE</Combat>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_ROME_PRAETORIAN</Description>
-			<Civilopedia>TXT_KEY_UNIT_ROME_PRAETORIAN_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_ROME_PRAETORIAN_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
-				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE</UnitAIType>
-				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_IRON_WORKING</TechType>
-			</PrereqTechs>
-			<BonusType>BONUS_IRON</BonusType>
-			<iCost>45</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>8</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iConscription>1</iConscription>
-			<iCultureGarrison>5</iCultureGarrison>
-			<iAsset>2</iAsset>
-			<iPower>8</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>3</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>3</iMeleeWaveSize>
-				<iRangedWaveSize>0</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>3</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_ROME_PRAETORIAN</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
-		</UnitInfo>
 		<UnitInfo> <!-- Maceman -->
 			<Class>UNITCLASS_MACEMAN</Class>
 			<Type>UNIT_MACEMAN</Type>
@@ -4259,7 +4064,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -4280,7 +4085,8 @@
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>8</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>10</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -4322,7 +4128,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -4340,7 +4146,8 @@
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>8</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>10</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -4386,7 +4193,7 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bPillage>1</bPillage>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 				<UnitClassType>UNITCLASS_GRENADIER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -4407,7 +4214,8 @@
 			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>8</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>10</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -4437,6 +4245,223 @@
 			<FreePromotions>
 				<PromotionType>PROMOTION_AMPHIBIOUS</PromotionType>
 			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Swordsman -->
+			<Class>UNITCLASS_SWORDSMAN</Class>
+			<Type>UNIT_SWORDSMAN</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SWORDSMAN</Description>
+			<Civilopedia>TXT_KEY_UNIT_SWORDSMAN_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_SWORDSMAN_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>10</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCityAttack>15</iCityAttack>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>5</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>6</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_SWORDSMAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Swordsman: Aztec Jaguar -->
+			<Class>UNITCLASS_SWORDSMAN</Class>
+			<Type>UNIT_AZTEC_JAGUAR</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_AZTEC_JAGUAR</Description>
+			<Civilopedia>TXT_KEY_UNIT_AZTEC_JAGUAR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_AZTEC_JAGUAR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
+			<iCost>35</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>9</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCityAttack>15</iCityAttack>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>5</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>6</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_AZTEC_JAGUAR</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_WOODSMAN1</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Swordsman: Celtic Gallic Warrior -->
+			<Class>UNITCLASS_SWORDSMAN</Class>
+			<Type>UNIT_CELTIC_GALLIC_WARRIOR</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_CELTIC_GALLIC_WARRIOR</Description>
+			<Civilopedia>TXT_KEY_UNIT_CELTIC_WARRIOR_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_CELTIC_GALLIC_WARRIOR_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_COPPER</BonusType>
+				<BonusType>BONUS_IRON</BonusType>
+			</PrereqOrBonuses>
+			<iCost>40</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>10</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCityAttack>15</iCityAttack>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>5</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>6</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_CELTIC_BARBARIAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_GUERILLA1</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Swordsman: Rome Praetorian -->
+			<Class>UNITCLASS_SWORDSMAN</Class>
+			<Type>UNIT_ROME_PRAETORIAN</Type>
+			<Combat>UNITCOMBAT_MELEE</Combat>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ROME_PRAETORIAN</Description>
+			<Civilopedia>TXT_KEY_UNIT_ROME_PRAETORIAN_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ROME_PRAETORIAN_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE</UnitAIType>
+				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_IRON_WORKING</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<iCost>45</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>12</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iConscription>1</iConscription>
+			<iCultureGarrison>5</iCultureGarrison>
+			<iAsset>2</iAsset>
+			<iPower>8</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>3</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>3</iMeleeWaveSize>
+				<iRangedWaveSize>0</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>3</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_ROME_PRAETORIAN</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 		</UnitInfo>
 
 
@@ -4469,7 +4494,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
 			<iAirRange>5</iAirRange>
-			<iAirCombat>40</iAirCombat>
+			<iAirCombat>50</iAirCombat>
 			<iAirCombatLimit>100</iAirCombatLimit>
 			<iXPValueDefense>4</iXPValueDefense>
 			<iEvasionProbability>100</iEvasionProbability>
@@ -4868,7 +4893,8 @@
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>4</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -4926,7 +4952,8 @@
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>5</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -4985,7 +5012,8 @@
 			<iCost>30</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>4</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5022,8 +5050,12 @@
 			<Class>UNITCLASS_HORSE_ARCHER</Class>
 			<Type>UNIT_HORSE_ARCHER</Type>
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_HORSE_ARCHER</Description>
 			<Civilopedia>TXT_KEY_UNIT_HORSE_ARCHER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_HORSE_ARCHER_STRATEGY</Strategy>
@@ -5035,7 +5067,7 @@
 			<bFirstStrikeImmune>1</bFirstStrikeImmune>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_KNIGHT</UnitClassType>
+				<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
 			</UnitClassUpgrades>
 			<FlankingStrikes>
 				<FlankingStrike>
@@ -5059,7 +5091,8 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5105,7 +5138,7 @@
 			<bFirstStrikeImmune>1</bFirstStrikeImmune>
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_KNIGHT</UnitClassType>
+				<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
 			</UnitClassUpgrades>
 			<FlankingStrikes>
 				<FlankingStrike>
@@ -5130,7 +5163,8 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>5</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>6</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5172,8 +5206,12 @@
 			<Class>UNITCLASS_HORSE_ARCHER</Class>
 			<Type>UNIT_MONGOL_KESHIK</Type>
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_ARCHER_ARROW</UnitCombatType>
+			</SubCombatTypes>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_MONGOL_KESHIK</Description>
 			<Civilopedia>TXT_KEY_UNIT_MONGOL_KESHIK_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_MONGOL_KESHIK_STRATEGY</Strategy>
@@ -5185,7 +5223,7 @@
 			<bNoDefensiveBonus>1</bNoDefensiveBonus>
 			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_KNIGHT</UnitClassType>
+				<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
 			</UnitClassUpgrades>
 			<FlankingStrikes>
 				<FlankingStrike>
@@ -5209,7 +5247,8 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>6</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5399,7 +5438,8 @@
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>10</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>14</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5462,7 +5502,8 @@
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>10</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>14</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5528,7 +5569,8 @@
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>12</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>16</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5556,6 +5598,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CUIRASSIER</Description>
 			<Civilopedia>TXT_KEY_UNIT_CUIRASSIER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CUIRASSIER_STRATEGY</Strategy>
@@ -5600,7 +5643,8 @@
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>12</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>21</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5629,6 +5673,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_SPANISH_CONQUISTADOR</Description>
 			<Civilopedia>TXT_KEY_UNIT_SPANISH_CONQUISTADOR_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SPANISH_CONQUISTADOR_STRATEGY</Strategy>
@@ -5677,7 +5722,8 @@
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>12</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>21</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5712,6 +5758,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CAVALRY</Description>
 			<Civilopedia>TXT_KEY_UNIT_CAVALRY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CAVALRY_STRATEGY</Strategy>
@@ -5752,7 +5799,8 @@
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>15</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>27</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5787,6 +5835,7 @@
 			<Combat>UNITCOMBAT_MOUNTED</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<iMaxWeaponTypeTier>0</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_RUSSIA_COSSACK</Description>
 			<Civilopedia>TXT_KEY_UNIT_RUSSIA_COSSACK_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_RUSSIA_COSSACK_STRATEGY</Strategy>
@@ -5827,7 +5876,8 @@
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>15</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>27</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5874,7 +5924,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_CARAVEL</Description>
 			<Civilopedia>TXT_KEY_UNIT_CARAVEL_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_CARAVEL_STRATEGY</Strategy>
@@ -5885,9 +5934,7 @@
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
-				<UnitClassType>UNITCLASS_ATTACK_SUBMARINE</UnitClassType>
-				<UnitClassType>UNITCLASS_DESTROYER</UnitClassType>
+				<UnitClassType>UNITCLASS_PRIVATEER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
@@ -5904,7 +5951,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>3</iMoves>
-			<iCombat>3</iCombat>
+			<iCombat>10</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -5935,7 +5982,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_PORTUGAL_CARRACK</Description>
 			<Civilopedia>TXT_KEY_UNIT_PORTUGAL_CARRACK_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_PORTUGAL_CARRACK_STRATEGY</Strategy>
@@ -5946,9 +5992,7 @@
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
-				<UnitClassType>UNITCLASS_ATTACK_SUBMARINE</UnitClassType>
-				<UnitClassType>UNITCLASS_DESTROYER</UnitClassType>
+				<UnitClassType>UNITCLASS_PRIVATEER</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
@@ -5967,12 +6011,12 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>3</iMoves>
-			<iCombat>3</iCombat>
+			<iCombat>10</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iCargo>2</iCargo>
+			<iCargo>3</iCargo>
 			<iAsset>2</iAsset>
 			<iPower>3</iPower>
 			<UnitMeshGroups>
@@ -5997,7 +6041,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_RESERVE_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_FRIGATE</Description>
 			<Civilopedia>TXT_KEY_UNIT_FRIGATE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_FRIGATE_STRATEGY</Strategy>
@@ -6026,7 +6069,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
-			<iCombat>8</iCombat>
+			<iCombat>18</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6056,7 +6099,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_GALLEON</Description>
 			<Civilopedia>TXT_KEY_UNIT_GALLEON_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_GALLEON_STRATEGY</Strategy>
@@ -6082,12 +6124,12 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
-			<iCombat>4</iCombat>
+			<iCombat>16</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iCargo>3</iCargo>
+			<iCargo>4</iCargo>
 			<iAsset>3</iAsset>
 			<iPower>4</iPower>
 			<UnitMeshGroups>
@@ -6112,7 +6154,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER</Description>
 			<Civilopedia>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_NETHERLANDS_OOSTINDIEVAARDER_STRATEGY</Strategy>
@@ -6140,12 +6181,12 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
-			<iCombat>6</iCombat>
+			<iCombat>19</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iCargo>4</iCargo>
+			<iCargo>5</iCargo>
 			<iAsset>3</iAsset>
 			<iPower>6</iPower>
 			<UnitMeshGroups>
@@ -6170,7 +6211,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_GALLEY</Description>
 			<Civilopedia>TXT_KEY_UNIT_GALLEY_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_GALLEY_STRATEGY</Strategy>
@@ -6197,12 +6237,12 @@
 			<TerrainImpassables>
 				<TerrainType>TERRAIN_OCEAN</TerrainType>
 			</TerrainImpassables>
-			<iCombat>2</iCombat>
+			<iCombat>4</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iCargo>2</iCargo>
+			<iCargo>3</iCargo>
 			<iAsset>2</iAsset>
 			<iPower>2</iPower>
 			<UnitMeshGroups>
@@ -6227,7 +6267,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_PIRATE_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_PRIVATEER</Description>
 			<Civilopedia>TXT_KEY_UNIT_PRIVATEER_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_PRIVATEER_STRATEGY</Strategy>
@@ -6238,9 +6277,6 @@
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<bHiddenNationality>1</bHiddenNationality>
 			<bAlwaysHostile>1</bAlwaysHostile>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_DESTROYER</UnitClassType>
-			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_PIRATE_SEA</UnitAIType>
 			</UnitAIs>
@@ -6261,7 +6297,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
-			<iCombat>6</iCombat>
+			<iCombat>17</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6291,7 +6327,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_SHIP_OF_THE_LINE</Description>
 			<Civilopedia>TXT_KEY_UNIT_SHIP_OF_THE_LINE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_SHIP_OF_THE_LINE_STRATEGY</Strategy>
@@ -6321,7 +6356,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>3</iMoves>
-			<iCombat>10</iCombat>
+			<iCombat>32</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6363,7 +6398,6 @@
 			<Combat>UNITCOMBAT_WOODEN_SHIPS</Combat>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
-			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<Description>TXT_KEY_UNIT_TRIREME</Description>
 			<Civilopedia>CHANGED_TXT_KEY_UNIT_TRIREME_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_TRIREME_STRATEGY</Strategy>
@@ -6374,7 +6408,6 @@
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_CARAVEL</UnitClassType>
 				<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
@@ -6394,7 +6427,7 @@
 			<TerrainImpassables>
 				<TerrainType>TERRAIN_OCEAN</TerrainType>
 			</TerrainImpassables>
-			<iCombat>2</iCombat>
+			<iCombat>7</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6466,7 +6499,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>8</iMoves>
-			<iCombat>30</iCombat>
+			<iCombat>46</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6525,7 +6558,7 @@
 			<TerrainImpassables>
 				<TerrainType>TERRAIN_OCEAN</TerrainType>
 			</TerrainImpassables>
-			<iCombat>12</iCombat>
+			<iCombat>24</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6541,168 +6574,6 @@
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_IRONCLAD</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
-		</UnitInfo>
-<!-- Diesel Ships -->
-		<UnitInfo> <!-- Battleship -->
-			<Class>UNITCLASS_BATTLESHIP</Class>
-			<Type>UNIT_BATTLESHIP</Type>
-			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
-			<Domain>DOMAIN_SEA</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_BATTLESHIP</Description>
-			<Civilopedia>TXT_KEY_UNIT_BATTLESHIP_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_BATTLESHIP_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<bMechanized>1</bMechanized>
-			<bRenderBelowWater>1</bRenderBelowWater>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_MISSILE_CRUISER</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
-				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_INDUSTRIALISM</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_OIL</BonusType>
-				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqOrBonuses>
-			<iCost>225</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>20</iMinAreaSize>
-			<iMoves>6</iMoves>
-			<iCombat>40</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCollateralDamage>50</iCollateralDamage>
-			<iCollateralDamageLimit>60</iCollateralDamageLimit>
-			<iCollateralDamageMaxUnits>5</iCollateralDamageMaxUnits>
-			<iBombardRate>20</iBombardRate>
-			<iAsset>5</iAsset>
-			<iPower>40</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>2.25</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>1</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_BATTLESHIP</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Carrier -->
-			<Class>UNITCLASS_CARRIER</Class>
-			<Type>UNIT_CARRIER</Type>
-			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
-			<Domain>DOMAIN_SEA</Domain>
-			<DefaultUnitAI>UNITAI_CARRIER_SEA</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_CARRIER</Description>
-			<Civilopedia>TXT_KEY_UNIT_CARRIER_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_CARRIER_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<bMechanized>1</bMechanized>
-			<bRenderBelowWater>1</bRenderBelowWater>
-			<UnitAIs>
-				<UnitAIType>UNITAI_CARRIER_SEA</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_FLIGHT</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_OIL</BonusType>
-				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqOrBonuses>
-			<iCost>175</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>20</iMinAreaSize>
-			<iMoves>5</iMoves>
-			<iCombat>16</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<SpecialCargo>SPECIALUNIT_FIGHTER</SpecialCargo>
-			<DomainCargo>DOMAIN_AIR</DomainCargo>
-			<iCargo>3</iCargo>
-			<iAsset>5</iAsset>
-			<iPower>16</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>2.25</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>1</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_CARRIER</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
-		</UnitInfo>
-		<UnitInfo> <!-- Transport -->
-			<Class>UNITCLASS_TRANSPORT</Class>
-			<Type>UNIT_TRANSPORT</Type>
-			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
-			<Domain>DOMAIN_SEA</Domain>
-			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_TRANSPORT</Description>
-			<Civilopedia>TXT_KEY_UNIT_TRANSPORT_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_TRANSPORT_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<bMechanized>1</bMechanized>
-			<bRenderBelowWater>1</bRenderBelowWater>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
-				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
-			</UnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_COMBUSTION</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_OIL</BonusType>
-				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqOrBonuses>
-			<iCost>125</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>20</iMinAreaSize>
-			<iMoves>5</iMoves>
-			<iCombat>16</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iCargo>4</iCargo>
-			<iAsset>3</iAsset>
-			<iPower>16</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>2.25</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>1</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_TRANSPORT</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
@@ -6746,7 +6617,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>7</iMoves>
-			<iCombat>30</iCombat>
+			<iCombat>54</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6825,7 +6696,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>6</iMoves>
-			<iCombat>24</iCombat>
+			<iCombat>35</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6850,6 +6721,168 @@
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_SUBMARINE</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+		</UnitInfo>
+<!-- Diesel Ships -->
+		<UnitInfo> <!-- Battleship -->
+			<Class>UNITCLASS_BATTLESHIP</Class>
+			<Type>UNIT_BATTLESHIP</Type>
+			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_BATTLESHIP</Description>
+			<Civilopedia>TXT_KEY_UNIT_BATTLESHIP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_BATTLESHIP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_MISSILE_CRUISER</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_INDUSTRIALISM</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_OIL</BonusType>
+				<BonusType>BONUS_URANIUM</BonusType>
+			</PrereqOrBonuses>
+			<iCost>225</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>6</iMoves>
+			<iCombat>64</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCollateralDamage>50</iCollateralDamage>
+			<iCollateralDamageLimit>60</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>5</iCollateralDamageMaxUnits>
+			<iBombardRate>20</iBombardRate>
+			<iAsset>5</iAsset>
+			<iPower>40</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_BATTLESHIP</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Carrier -->
+			<Class>UNITCLASS_CARRIER</Class>
+			<Type>UNIT_CARRIER</Type>
+			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_CARRIER_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_CARRIER</Description>
+			<Civilopedia>TXT_KEY_UNIT_CARRIER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_CARRIER_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitAIs>
+				<UnitAIType>UNITAI_CARRIER_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_FLIGHT</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_OIL</BonusType>
+				<BonusType>BONUS_URANIUM</BonusType>
+			</PrereqOrBonuses>
+			<iCost>175</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>5</iMoves>
+			<iCombat>40</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<SpecialCargo>SPECIALUNIT_FIGHTER</SpecialCargo>
+			<DomainCargo>DOMAIN_AIR</DomainCargo>
+			<iCargo>3</iCargo>
+			<iAsset>5</iAsset>
+			<iPower>16</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_CARRIER</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Transport -->
+			<Class>UNITCLASS_TRANSPORT</Class>
+			<Type>UNIT_TRANSPORT</Type>
+			<Combat>UNITCOMBAT_DIESEL_SHIPS</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_TRANSPORT</Description>
+			<Civilopedia>TXT_KEY_UNIT_TRANSPORT_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_TRANSPORT_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
+				<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_COMBUSTION</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_OIL</BonusType>
+				<BonusType>BONUS_URANIUM</BonusType>
+			</PrereqOrBonuses>
+			<iCost>125</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>5</iMoves>
+			<iCombat>30</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iCargo>5</iCargo>
+			<iAsset>3</iAsset>
+			<iPower>16</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TRANSPORT</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
@@ -6887,7 +6920,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>7</iMoves>
-			<iCombat>40</iCombat>
+			<iCombat>94</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -6950,7 +6983,7 @@
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>8</iMoves>
-			<iCombat>36</iCombat>
+			<iCombat>80</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7055,6 +7088,7 @@
 			<Combat>UNITCOMBAT_RECON</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<iMaxWeaponTypeTier>1</iMaxWeaponTypeTier>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
 			</SeeInvisibles>
@@ -7078,7 +7112,8 @@
 			<iCost>15</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>1</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>2</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7104,6 +7139,7 @@
 			<Combat>UNITCOMBAT_RECON</Combat>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<iMaxWeaponTypeTier>2</iMaxWeaponTypeTier>
 			<SeeInvisibles>
 				<InvisibleType>INVISIBLE_SLAVER</InvisibleType>
 			</SeeInvisibles>
@@ -7125,6 +7161,7 @@
 			<iCost>40</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iCombat>4</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
@@ -7203,74 +7240,6 @@
 <!-- ************ -->
 <!-- Siege -->
 <!-- ************ -->
-		<UnitInfo> <!-- Trebuchet -->
-			<Class>UNITCLASS_TREBUCHET</Class>
-			<Type>UNIT_TREBUCHET</Type>
-			<Combat>UNITCOMBAT_SIEGE</Combat>
-			<SubCombatTypes>
-				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
-			</SubCombatTypes>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_TREBUCHET</Description>
-			<Civilopedia>TXT_KEY_UNIT_TREBUCHET_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_TREBUCHET_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bMilitaryHappiness>1</bMilitaryHappiness>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bNoDefensiveBonus>1</bNoDefensiveBonus>
-			<bMechanized>1</bMechanized>
-			<bMilitaryTrade>1</bMilitaryTrade>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
-			</UnitAIs>
-			<NotUnitAIs>
-				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
-				<UnitAIType>UNITAI_ATTACK</UnitAIType>
-			</NotUnitAIs>
-			<PrereqTechs>
-				<TechType>TECH_ENGINEERING</TechType>
-			</PrereqTechs>
-			<iCost>80</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMoves>1</iMoves>
-			<iCombat>4</iCombat>
-			<iCombatLimit>75</iCombatLimit>
-			<iXPValueAttack>4</iXPValueAttack>
-			<iXPValueDefense>2</iXPValueDefense>
-			<iCollateralDamage>100</iCollateralDamage>
-			<iCollateralDamageLimit>50</iCollateralDamageLimit>
-			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
-			<iCityAttack>100</iCityAttack>
-			<UnitCombatCollateralImmunes>
-				<UnitCombatCollateralImmune>
-					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
-					<iUnitCombatCollateralImmune>1</iUnitCombatCollateralImmune>
-				</UnitCombatCollateralImmune>
-			</UnitCombatCollateralImmunes>
-			<iBombardRate>16</iBombardRate>
-			<iCultureGarrison>4</iCultureGarrison>
-			<iAsset>3</iAsset>
-			<iPower>8</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1.0</fPadTime>
-				<iMeleeWaveSize>2</iMeleeWaveSize>
-				<iRangedWaveSize>2</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>2</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_TREBUCHET</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
-		</UnitInfo>
 		<UnitInfo> <!-- Catapult -->
 			<Class>UNITCLASS_CATAPULT</Class>
 			<Type>UNIT_CATAPULT</Type>
@@ -7305,7 +7274,7 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>5</iCombat>
+			<iCombat>6</iCombat>
 			<iCombatLimit>75</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7370,7 +7339,7 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>5</iCombat>
+			<iCombat>6</iCombat>
 			<iCombatLimit>75</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7402,6 +7371,75 @@
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_KOREAN_HWACHA</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Trebuchet -->
+			<Class>UNITCLASS_TREBUCHET</Class>
+			<Type>UNIT_TREBUCHET</Type>
+			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SIEGE_WOODEN</UnitCombatType>
+			</SubCombatTypes>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_TREBUCHET</Description>
+			<Civilopedia>TXT_KEY_UNIT_TREBUCHET_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_TREBUCHET_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bMechanized>1</bMechanized>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+			</UnitAIs>
+			<NotUnitAIs>
+				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
+				<UnitAIType>UNITAI_ATTACK</UnitAIType>
+			</NotUnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_ENGINEERING</TechType>
+			</PrereqTechs>
+			<iCost>80</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>8</iCombat>
+			<iCombatLimit>75</iCombatLimit>
+			<iXPValueAttack>4</iXPValueAttack>
+			<iXPValueDefense>2</iXPValueDefense>
+			<iCollateralDamage>100</iCollateralDamage>
+			<iCollateralDamageLimit>50</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<iCityAttack>100</iCityAttack>
+			<UnitCombatCollateralImmunes>
+				<UnitCombatCollateralImmune>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iUnitCombatCollateralImmune>1</iUnitCombatCollateralImmune>
+				</UnitCombatCollateralImmune>
+			</UnitCombatCollateralImmunes>
+			<iBombardRate>16</iBombardRate>
+			<iCultureGarrison>4</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>8</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>2</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>2</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_TREBUCHET</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
@@ -7440,7 +7478,8 @@
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>12</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>16</iCombat>
 			<iCombatLimit>80</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7504,7 +7543,8 @@
 			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>18</iCombat>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>24</iCombat>
 			<iCombatLimit>85</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7573,7 +7613,7 @@
 			<iCost>125</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
-			<iCombat>18</iCombat>
+			<iCombat>30</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7640,7 +7680,7 @@
 			<iCost>200</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
-			<iCombat>26</iCombat>
+			<iCombat>48</iCombat>
 			<iCombatLimit>85</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7787,6 +7827,7 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iWorkRate>100</iWorkRate>
 			<iAsset>2</iAsset>
 			<UnitMeshGroups>
@@ -7855,6 +7896,7 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>3</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iWorkRate>100</iWorkRate>
 			<iAsset>2</iAsset>
 			<UnitMeshGroups>
