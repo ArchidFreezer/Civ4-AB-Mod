@@ -112,6 +112,11 @@
 <!-- ************ -->
 <!-- Archer       -->
 <!-- ************ -->
+		<UnitClassInfo> <!-- Javelineer -->
+			<Type>UNITCLASS_JAVELINEER</Type>
+			<Description>TXT_KEY_UNIT_JAVELINEER</Description>
+			<DefaultUnit>UNIT_JAVELINEER</DefaultUnit>
+		</UnitClassInfo>
 		<UnitClassInfo> <!-- Archer -->
 			<Type>UNITCLASS_ARCHER</Type>
 			<Description>TXT_KEY_UNIT_ARCHER</Description>

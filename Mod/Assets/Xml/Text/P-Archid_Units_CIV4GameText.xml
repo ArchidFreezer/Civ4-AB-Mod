@@ -120,6 +120,12 @@
 		<Spanish>Horse</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Javelineer -->
+		<Tag>TXT_KEY_UNIT_JAVELINEER</Tag>
+		<English>Javelineer</English>
+		<Spanish>Lanza-Jabalina</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Lion Pride -->
 		<Tag>TXT_KEY_UNIT_PRIDE_OF_LIONS</Tag>
 		<English>Pride of Lions</English>
