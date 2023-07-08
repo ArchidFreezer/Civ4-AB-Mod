@@ -65,6 +65,7 @@
 			<iCulturePercent>100</iCulturePercent>
 			<iAnarchyPercent>50</iAnarchyPercent>
 			<iEventChancePerTurn>2</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>400</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_SONG_ALEXANDER</EraInfoSoundtrack>
@@ -129,6 +130,7 @@
 			<iCulturePercent>100</iCulturePercent>
 			<iAnarchyPercent>40</iAnarchyPercent>
 			<iEventChancePerTurn>4</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>200</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_ALLEGRI_MISERERE</EraInfoSoundtrack>
@@ -196,6 +198,7 @@
 			<iCulturePercent>90</iCulturePercent>
 			<iAnarchyPercent>40</iAnarchyPercent>
 			<iEventChancePerTurn>4</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>160</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_BACH_ALLEGRO</EraInfoSoundtrack>
@@ -262,6 +265,7 @@
 			<iCulturePercent>80</iCulturePercent>
 			<iAnarchyPercent>34</iAnarchyPercent>
 			<iEventChancePerTurn>6</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>120</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_BEETHOVEN_5_2</EraInfoSoundtrack>
@@ -326,6 +330,7 @@
 			<iCulturePercent>70</iCulturePercent>
 			<iAnarchyPercent>34</iAnarchyPercent>
 			<iEventChancePerTurn>8</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>80</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_ANFORTAS_WOUND</EraInfoSoundtrack>
@@ -387,6 +392,7 @@
 			<iCulturePercent>60</iCulturePercent>
 			<iAnarchyPercent>34</iAnarchyPercent>
 			<iEventChancePerTurn>12</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>40</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_ANFORTAS_WOUND</EraInfoSoundtrack>
