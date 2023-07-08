@@ -48,7 +48,20 @@ public class JaxbUtils {
 	 * @see #marshallInteger(int)
 	 */
 	public static int unmarshallInteger(Integer val) {
-		return val != null ? val : 0;
+		return unmarshallInteger(val, 0);
+	}
+
+	/**
+	 * Used when unmarshalling an {@code Integer} that could be {@code null} to populate an {@code int}
+	 * 
+	 * @param val {@code Integer} value to check
+	 * @param defaultVal {@code Integer}  value to return if {@code val} is null
+	 * @return {@code int} value of {@code val} if is is not null; otherwise {@code defaultVal}
+	 * 
+	 * @see #marshallInteger(int)
+	 */
+	public static int unmarshallInteger(Integer val, Integer defaultVal) {
+		return val != null ? val : defaultVal;
 	}
 
 	/**
@@ -60,7 +73,20 @@ public class JaxbUtils {
 	 * @see #unmarshallInteger(Integer)
 	 */
 	public static Integer marshallInteger(int val) {
-		return val != 0 ? val : null;
+		return marshallInteger(val, 0);
+	}
+	
+	/**
+	 * Used when populating an {@code Integer} for marshalling where the value should not be displayed if it is 0
+	 * 
+	 * @param val {@code int} to parse
+	 * @param nullVal {@code int} value considered null when marshalling
+	 * @return {@code Integer} value of {@code val} if it is not {@code nullVal}; otherwise null
+	 * 
+	 * @see #unmarshallInteger(Integer)
+	 */
+	public static Integer marshallInteger(int val, int nullVal) {
+		return val != nullVal ? val : null;
 	}
 	
 	/**

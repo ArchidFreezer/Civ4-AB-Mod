@@ -585,8 +585,8 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			info.setDomain(JaxbUtils.unmarshallString(aInfo.domain));
 			info.setDefaultUnitAI(JaxbUtils.unmarshallString(aInfo.defaultUnitAI));
 			info.setFixedAI(JaxbUtils.unmarshallBoolean(aInfo.fixedAI));
-			info.setMaxWeaponTypeTier(JaxbUtils.unmarshallInteger(aInfo.maxWeaponTypeTier));
-			info.setMaxAmmoTypeTier(JaxbUtils.unmarshallInteger(aInfo.maxAmmoTypeTier));
+			info.setMaxWeaponTypeTier(JaxbUtils.unmarshallInteger(aInfo.maxWeaponTypeTier, -1));
+			info.setMaxAmmoTypeTier(JaxbUtils.unmarshallInteger(aInfo.maxAmmoTypeTier, -1));
 			info.setInvisible(JaxbUtils.unmarshallString(aInfo.invisible));
 
 			if (CollectionUtils.hasElements(aInfo.seeInvisibles)) {
@@ -1129,8 +1129,8 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			aInfo.domain = JaxbUtils.marshallMandatoryString(info.getDomain());
 			aInfo.defaultUnitAI = JaxbUtils.marshallMandatoryString(info.getDefaultUnitAI());
 			aInfo.fixedAI = JaxbUtils.marshallBoolean(info.isFixedAI());
-			aInfo.maxWeaponTypeTier = JaxbUtils.marshallInteger(info.getMaxWeaponTypeTier());
-			aInfo.maxAmmoTypeTier = JaxbUtils.marshallInteger(info.getMaxAmmoTypeTier());
+			aInfo.maxWeaponTypeTier = JaxbUtils.marshallInteger(info.getMaxWeaponTypeTier(), -1);
+			aInfo.maxAmmoTypeTier = JaxbUtils.marshallInteger(info.getMaxAmmoTypeTier(), -1);
 			aInfo.invisible = JaxbUtils.marshallString(info.getInvisible());
 
 			if (CollectionUtils.hasElements(info.getSeeInvisibles())) {
