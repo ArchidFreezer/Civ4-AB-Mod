@@ -218,7 +218,7 @@
 			<Strategy>TXT_KEY_CIVIC_SLAVERY_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Slavery.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,8,2</Button>
 			<iIndex>1</iIndex>
-			<TechPrereq>TECH_BRONZE_WORKING</TechPrereq>
+			<TechPrereq>TECH_SACRIFICE</TechPrereq>
 			<Upkeep>UPKEEP_MEDIUM</Upkeep>
 			<Hurrys>
 				<HurryType>HURRY_POPULATION</HurryType>
