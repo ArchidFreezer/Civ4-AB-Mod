@@ -435,7 +435,7 @@
 			<bNoAnimals>1</bNoAnimals>
 			<bNoBarbUnits>1</bNoBarbUnits>
 			<bNoBarbCities>1</bNoBarbCities>
-			<iAdvancedStartPoints>7000</iAdvancedStartPoints>
+			<iAdvancedStartPoints>9000</iAdvancedStartPoints>
 			<iStartingUnitMultiplier>3</iStartingUnitMultiplier>
 			<iStartingDefenseUnits>3</iStartingDefenseUnits>
 			<iStartingWorkerUnits>3</iStartingWorkerUnits>
@@ -455,6 +455,7 @@
 			<iCulturePercent>60</iCulturePercent>
 			<iAnarchyPercent>34</iAnarchyPercent>
 			<iEventChancePerTurn>10</iEventChancePerTurn>
+			<bUnitRangeUnbound>1</bUnitRangeUnbound>
 			<iSoundtrackSpace>40</iSoundtrackSpace>
 			<EraInfoSoundtracks>
 				<EraInfoSoundtrack>AS2D_ANFORTAS_WOUND</EraInfoSoundtrack>
