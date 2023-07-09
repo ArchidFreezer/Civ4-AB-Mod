@@ -250,11 +250,6 @@
 		<English>The minuteman provides city defense and they have a first strike advantage.</English>
 	</TEXT>
 
-	<TEXT> <!-- People Trafficker -->
-		<Tag>TXT_KEY_UNIT_PEOPLE_TRAFFICKER</Tag>
-		<English>People Trafficker</English>
-	</TEXT>
-
 	<TEXT> <!-- Polar Bear -->
 		<Tag>TXT_KEY_UNIT_POLAR_BEAR</Tag>
 		<English>Polar Bear</English>
@@ -293,11 +288,6 @@
 		All navies of the sailing era kept a number of gunboats on hand. Gunboats saw extensive use in the Baltic Sea during the late 18th century as they were well-suited for the extensive coastal skerries and archipelagoes of Sweden, Finland and Russia.</English>
 	</TEXT>
 
-	<TEXT> <!-- Slave Catcher -->
-		<Tag>TXT_KEY_UNIT_SLAVE_CATCHER</Tag>
-		<English>Slave Catcher</English>
-	</TEXT>
-
 	<TEXT> <!-- Siege Quinquereme -->
 		<Tag>TXT_KEY_UNIT_QUINQUEREME</Tag>
 		<English>Siege Quinquereme</English>
@@ -311,19 +301,6 @@
 		<Tag>TXT_KEY_UNIT_QUINQUEREME_STRATEGY</Tag>
 		<English>Build [COLOR_UNIT_TEXT]Siege Quinqueremes[COLOR_REVERT] to bombard enemy costal cities.</English>
 		<Spanish>Construye [COLOR_UNIT_TEXT]Quinqueremes de Ascedio[COLOR_REVERT] para bombardear ciudades costeras enemigas.</Spanish>
-	</TEXT>
-
-	<TEXT> <!-- Slaver -->
-		<Tag>TXT_KEY_UNIT_SLAVER</Tag>
-		<English>Slaver</English>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_UNIT_SLAVER_PEDIA</Tag>
-		<English>[TAB]Slavers capture slaves following a successful battle. The slaver only needs be in the same stack as the winning unit in order to capture a slave.</English>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_UNIT_SLAVER_STRATEGY</Tag>
-		<English>[COLOR_UNIT_TEXT]Slaves[COLOR_REVERT] are enemies captured and used for slave labour, that are killed upon completion of work. Enemy units can only be captured in this manner if you adopt the [COLOR_HIGHLIGHT_TEXT]Slavery[COLOR_REVERT] civic.</English>
 	</TEXT>
 
 	<TEXT> <!-- Slave -->
@@ -370,7 +347,6 @@
 		<Italian>[COLOR_WARNING_TEXT]Distrutto a fine dei lavori[COLOR_REVERT]</Italian>
 		<Spanish>[COLOR_WARNING_TEXT]Destruido sobre la terminación de obras[COLOR_REVERT]</Spanish>
 	</TEXT>
-
 
 	<TEXT> <!-- Slinger -->
 		<Tag>TXT_KEY_UNIT_BOLA_THROWER</Tag>

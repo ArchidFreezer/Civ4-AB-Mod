@@ -466,7 +466,7 @@
 			<Description>TXT_KEY_UNIT_CARAVEL</Description>
 			<DefaultUnit>UNIT_CARAVEL</DefaultUnit>
 		</UnitClassInfo>
-				<UnitClassInfo> <!-- Carrack -->
+		<UnitClassInfo> <!-- Carrack -->
 			<Type>UNITCLASS_CARRACK</Type>
 			<Description>TXT_KEY_UNIT_CARRACK</Description>
 			<DefaultUnit>UNIT_CARRACK</DefaultUnit>

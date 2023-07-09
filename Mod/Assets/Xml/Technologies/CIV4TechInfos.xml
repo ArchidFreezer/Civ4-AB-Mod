@@ -5867,6 +5867,12 @@
 			<bTrade>1</bTrade>
 			<iGridX>23</iGridX>
 			<iGridY>13</iGridY>
+			<WorldViewRevoltTurnChanges>
+				<WorldViewRevoltTurnChange>
+					<WorldViewType>WORLD_VIEW_SLAVERY</WorldViewType>
+					<iChange>1</iChange>
+				</WorldViewRevoltTurnChange>
+			</WorldViewRevoltTurnChanges>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
