@@ -29,6 +29,8 @@ class ArchidPlatyUIOptionsTab(BugOptionsTab.BugOptionsTab):
 		self.addCheckbox(screen, left, "PlatyUI__Panels")
 		self.addCheckbox(screen, left, "PlatyUI__Build")
 		self.addCheckbox(screen, left, "PlatyUI__Movie")
+		self.addTextEdit(screen, right, right, "PlatyUI__GPBar")
+		self.addTextEdit(screen, right, right, "PlatyUI__GGBar")
 		
 	def createFooterPanel(self, screen, panel):
 		footerL, footerR =  self.addTwoColumnLayout(screen, panel, "PlatyUI")
