@@ -54,6 +54,10 @@
 		</French>
 		<German>Bautrupp-Einheiten</German>
 	</TEXT>
+	<TEXT> <!-- Law Enforcement -->
+		<Tag>TXT_KEY_UNITCOMBAT_LAW_ENFORCEMENT</Tag>
+		<English>Law Enforcement Units</English>
+	</TEXT>
 
 <!-- ******************** -->
 <!-- Units                -->
@@ -122,6 +126,21 @@
 		<Spanish>Elephant</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Fletcher -->
+		<Tag>TXT_KEY_UNIT_FLETCHER</Tag>
+		<English>Fletcher</English>
+		<Spanish>Flechero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FLETCHER_PEDIA</Tag>
+		<English>[TAB]The English-language surname [COLOR_UNIT_TEXT]"Fletcher"[COLOR_REVERT] derives from this term, meaning "one who fletches." It is sometimes generally used for an arrow-maker, not only for someone restricted to this step of the process.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FLETCHER_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Fletchers[COLOR_REVERT] are early city law enforcement units who are capable of defending cities against light attacks, but are no substitue for a proper military defensive units.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Flecheros[COLOR_REVERT] como defensores de ciudades iniciales.</Spanish>
+	</TEXT>
+	
 	<TEXT> <!-- Great Merchant -->
 		<Tag>TXT_KEY_UNIT_GREAT_TYCOON</Tag>
 		<English>Great Merchant</English>
@@ -218,6 +237,19 @@
 		<English>Pride of Lions</English>
 	</TEXT>
 
+	<TEXT> <!-- Minutemen -->
+		<Tag>TXT_KEY_UNIT_MINUTEMAN</Tag>
+		<English>Minuteman</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MINUTEMAN_PEDIA</Tag>
+		<English>Minutemen were members of teams of select militia men, who vowed to be ready for battle within two minutes of receiving notice.  The increased range and accuracy of the rifle, along with a lifetime of hunting to develop marksmanship, earned minutemen sharpshooters a deadly reputation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MINUTEMAN_STRATEGY</Tag>
+		<English>The minuteman provides city defense and they have a first strike advantage.</English>
+	</TEXT>
+
 	<TEXT> <!-- People Trafficker -->
 		<Tag>TXT_KEY_UNIT_PEOPLE_TRAFFICKER</Tag>
 		<English>People Trafficker</English>
@@ -227,6 +259,19 @@
 		<Tag>TXT_KEY_UNIT_POLAR_BEAR</Tag>
 		<English>Polar Bear</English>
 	</TEXT>
+
+	<TEXT> <!-- Police -->
+		<Tag>TXT_KEY_UNIT_POLICE</Tag>
+		<English>Police</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_POLICE_PEDIA</Tag>
+		<English>The mission of the Police is to safeguard the lives and property of the people in which they serve, to reduce the incidence and fear of crime, and to enhance public safety.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_POLICE_STRATEGY</Tag>
+		<English>Police provide city protection and they decrease city unrest</English>
+	</TEXT>	
 
 	<TEXT> <!-- Sabretooth Tiger -->
 		<Tag>TXT_KEY_UNIT_SABRETOOTH_TIGER</Tag>
@@ -326,6 +371,21 @@
 		<Spanish>[COLOR_WARNING_TEXT]Destruido sobre la terminación de obras[COLOR_REVERT]</Spanish>
 	</TEXT>
 
+
+	<TEXT> <!-- Slinger -->
+		<Tag>TXT_KEY_UNIT_BOLA_THROWER</Tag>
+		<English>Slinger</English>
+		<Spanish>Hondero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOLA_THROWER_PEDIA</Tag>
+		<English>[TAB][BOLD]Slinger[\BOLD] is a term that refers to a person who uses a Sling.[NEWLINE][PARAGRAPH:1]A sling is a projectile weapon typically used to throw a blunt projectile such as a stone. It is also known as the shepherd's sling. A sling has a small cradle or pouch in the middle of two lengths of cord. The sling stone is placed in the pouch. Both cords are held in the hand, then the sling is swung and one of the two cords is released. This frees the projectile to fly on a tangent to the circle made by the pouch's rotation. The sling derives its effectiveness by essentially extending the length of a human arm, thus allowing stones to be thrown several times farther than they could be by hand.[NEWLINE][PARAGRAPH:1]The sling is very inexpensive, and easy to construct . It has historically been used for hunting game and in combat. Today it still interests sportsmen as a survival tool and as an improvised weapon.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOLA_THROWER_STRATEGY</Tag>
+		<English>Build [COLOR_UNIT_TEXT]Slingers[COLOR_REVERT] to protect your cities at the start of the game, they are not very strong, but they have no support cost and will defend their homes against early barbarians warriors.</English>
+		<Spanish>Construye [COLOR_UNIT_TEXT]Honderos[COLOR_REVERT] para proteger tus ciudades en la era Paleol&#237;tica.</Spanish>
+	</TEXT>
 
 	<TEXT> <!-- Sloop of War -->
 		<Tag>TXT_KEY_UNIT_SLOOP_OF_WAR</Tag>

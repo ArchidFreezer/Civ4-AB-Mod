@@ -285,6 +285,30 @@
 			<DefaultUnit>UNIT_AT_INFANTRY</DefaultUnit>
 		</UnitClassInfo>
 
+<!-- ************    -->
+<!-- Law Enforcement -->
+<!-- ************    -->
+		<UnitClassInfo> <!-- Slinger -->
+			<Type>UNITCLASS_BOLA_THROWER</Type>
+			<Description>TXT_KEY_UNIT_BOLA_THROWER</Description>
+			<DefaultUnit>UNIT_BOLA_THROWER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Fletcher -->
+			<Type>UNITCLASS_FLETCHER</Type>
+			<Description>TXT_KEY_UNIT_FLETCHER</Description>
+			<DefaultUnit>UNIT_FLETCHER</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Minuteman -->
+			<Type>UNITCLASS_MINUTEMAN</Type>
+			<Description>TXT_KEY_UNIT_MINUTEMAN</Description>
+			<DefaultUnit>UNIT_MINUTEMAN</DefaultUnit>
+		</UnitClassInfo>
+		<UnitClassInfo> <!-- Police -->
+			<Type>UNITCLASS_POLICE</Type>
+			<Description>TXT_KEY_UNIT_POLICE</Description>
+			<DefaultUnit>UNIT_POLICE</DefaultUnit>
+		</UnitClassInfo>
+
 <!-- ************ -->
 <!-- Melee        -->
 <!-- ************ -->
