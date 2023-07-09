@@ -3438,10 +3438,10 @@
 		</UnitInfo>
 
 
-<!-- ************    -->
+<!-- ************ -->
 <!-- Law Enforcement -->
-<!-- ************    -->
-		<UnitInfo> <!-- Slinger -->
+<!-- ************ -->
+		<UnitInfo> <!-- Bola Thrower -->
 			<Class>UNITCLASS_BOLA_THROWER</Class>
 			<Type>UNIT_BOLA_THROWER</Type>
 			<Combat>UNITCOMBAT_LAW_ENFORCEMENT</Combat>
@@ -3477,7 +3477,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
 				<iRangedWaveSize>3</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3486,7 +3486,6 @@
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_RANGED</FormationType>
-			<HotKey/>
 		</UnitInfo>
 		<UnitInfo> <!-- Fletcher -->
 			<Class>UNITCLASS_FLETCHER</Class>
@@ -3527,7 +3526,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
 				<iRangedWaveSize>3</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3536,7 +3535,6 @@
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_RANGED</FormationType>
-			<HotKey/>
 		</UnitInfo>
 		<UnitInfo> <!-- Minuteman -->
 			<Class>UNITCLASS_MINUTEMAN</Class>
@@ -3578,7 +3576,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>3</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>3</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3632,7 +3630,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>5</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
