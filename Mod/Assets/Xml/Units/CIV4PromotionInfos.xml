@@ -1466,6 +1466,7 @@
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 				<PromotionType>PROMOTION_DRILL1</PromotionType>
 			</PrereqOrPromotions>
+			<TechPrereq>TECH_NATUROPATHY</TechPrereq>
 			<iSameTileHealChange>10</iSameTileHealChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
