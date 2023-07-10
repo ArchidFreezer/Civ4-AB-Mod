@@ -3740,10 +3740,10 @@
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_LEPENSKI_VIR</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_LEPENSKI_VIR</MovieDefineTag>
+			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<PrereqAndTechs>
 				<TechType>TECH_CEREMONIAL_BURIAL</TechType>
 			</PrereqAndTechs>
-			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bNukeImmune>1</bNukeImmune>

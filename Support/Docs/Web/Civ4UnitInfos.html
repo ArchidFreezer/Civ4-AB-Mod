@@ -99,8 +99,6 @@
     <tr><td><span class="tagoptional">iEvasionProbability</span><td>0<td>For air and parachute units&semi; the odds of evading interception
     <tr><td><span class="tagoptional">iExtraCost</span><td>0<td>The additional upkeep in gold that this unit costs each turn over and above the standard cost
     <tr><td><span class="tagoptional">iFirstStrikes</span><td>0<td>The number of automatic First Strikes that the unit has
-    <tr><td><span class="tagoptional"><b>iGreatJestDuration</b></span><td>0<td>The duration of any great jest that the unit performs. The unit requires a value in the <b>iGreatJestHappiness</b> tag for this to have an effect.
-    <tr><td><span class="tagoptional"><b>iGreatJestHappiness</b></span><td>0<td>The increase in happiness that a city receives as a result of any great jest this unit performs
     <tr><td><span class="tagoptional">iGreatWorkCulture</span><td>0<td>The culture this unit provides when creating a great work, the value is multiplied by the number of the Era the player is in and modified by the gamespeed
     <tr><td><span class="tagoptional">iHillsAttack</span><td>0<td>The percent bonus that the unit gets when attacking hills
     <tr><td><span class="tagoptional">iHillsDefense</span><td>0<td>The percent bonus that the unit gets when defending hills
@@ -113,7 +111,7 @@
     <tr><td><span class="tagoptional"><b>iMaxWeaponTypeTier</b></span><td>-1<td>The maximum applicable weapon type that this unit can upgrade to&semi; -1 indicates no limit
     <tr><td><span class="tagoptional">iMinAreaSize</span><td>-1<td>The number of tiles in the area the city is on in order to train this unit
     <tr><td><span class="tagoptional"><b>iMinPopulation</b></span><td>0<td>The minimum population a city must have in order to train this unit
-    <tr><td><span class="tagoptional"><b>iMorale</b></span><td>500<td>A measure of the will of a combat unit to keep fighting in the face of losses. A unit with a morale &lt; 100 has a chance of abandoning a battle and disbanding. The morale of a unit decreases with damage taken.
+    <tr><td><span class="tagoptional"><b>iMorale</b></span><td>750<td>A measure of the will of a combat unit to keep fighting in the face of losses. A unit with a morale &lt; 100 has a chance of abandoning a battle and disbanding. The morale of a unit decreases with damage taken.
     <tr><td><span class="tagoptional">iMoves</span><td>0<td>The number of moves the unit has at the start of each turn. Each tile has a movement cost that is reduced from this value whenever a unit moves onto it, the combination of these values determines how many tiles a unit can move in the turn
     <tr><td><span class="tagoptional">iNukeRange</span><td>-1<td>The range at which the 'nuke' can be launched - missiles only
     <tr><td><span class="tagoptional">iOrderPriority</span><td>0<td>The priority of this unit when determining the order in which actions are performed. A unit with a high order priority will act first
@@ -131,10 +129,8 @@
     <tr><td><span class="tagoptional">bAltDown</span><td>0<td>If true, the HotKey is only used if the Alt key is also pressed
     <tr><td><span class="tagoptional">bAlwaysHostile</span><td>0<td>If true, is treated it as an enemy unit by both friends and foes
     <tr><td><span class="tagoptional">bAnimal</span><td>0<td>If true, this unit is an animal. Barbarian animals do not enter cultural borders and have basic AI routines, they also tend to stick to their natural habitats.
-    <tr><td><span class="tagoptional"><b>bBarbarianLeader</b></span><td>0<td>This unit is considered to be a barbarian leader
     <tr><td><span class="tagoptional">bCanMoveAllTerrain</span><td>0<td>If true, can move through terrain marked as impassible
     <tr><td><span class="tagoptional">bCanMoveImpassable</span><td>0<td>If true, can move through plots flagged as impassible, typically used for air units
-    <tr><td><span class="tagoptional"><b>bCityPacifier</b></span><td>0<td>If true, the unit will quell all unhappiness in a city whose plot it is on and the occupation timer will reduce faster. 
     <tr><td><span class="tagoptional">bCounterSpy</span><td>0<td>If true, this unit will help detect any rival spying activities on the plot and may be able to prevent them succeeding
     <tr><td><span class="tagoptional">bCtrlDown</span><td>0<td>If true, the HotKey is only used if the Control key is also pressed
     <tr><td><span class="tagoptional">bDestroy</span><td>0<td>If true, can half a cities production, used by spies
@@ -448,8 +444,6 @@
   &lt;bAlwaysHostile&gt;0&lt;/bAlwaysHostile&gt;
   &lt;bWorkerTrade&gt;0&lt;/bWorkerTrade&gt;
   &lt;bMilitaryTrade&gt;0&lt;/bMilitaryTrade&gt;
-  &lt;bBarbarianLeader&gt;0&lt;/bBarbarianLeader&gt;
-  &lt;bCityPacifier&gt;0&lt;/bCityPacifier&gt;
   &lt;UnitClassUpgrades&gt;
     &lt;UnitClassType&gt;&lt;/UnitClassType&gt;
   &lt;/UnitClassUpgrades&gt;
@@ -570,7 +564,7 @@
   &lt;iAdvancedStartCost&gt;0&lt;/iAdvancedStartCost&gt;
   &lt;iAdvancedStartCostIncrease&gt;0&lt;/iAdvancedStartCostIncrease&gt;
   &lt;iMinAreaSize&gt;-1&lt;/iMinAreaSize&gt;
-  &lt;iMorale&gt;500&lt;/iMorale&gt;
+  &lt;iMorale&gt;750&lt;/iMorale&gt;
   &lt;iMoves&gt;0&lt;/iMoves&gt;
   &lt;UnitRangeType&gt;UNITRANGE_UNLIMITED&lt;/UnitRangeType&gt;
   &lt;bNoRevealMap&gt;0&lt;/bNoRevealMap&gt;
@@ -587,8 +581,6 @@
   &lt;iTradeMultiplier&gt;0&lt;/iTradeMultiplier&gt;
   &lt;iGreatWorkCulture&gt;0&lt;/iGreatWorkCulture&gt;
   &lt;iEspionagePoints&gt;0&lt;/iEspionagePoints&gt;
-  &lt;iGreatJestHappiness&gt;0&lt;/iGreatJestHappiness&gt;
-  &lt;iGreatJestDuration&gt;0&lt;/iGreatJestDuration&gt;
   &lt;TerrainImpassables&gt;
     &lt;TerrainType&gt;&lt;/TerrainType&gt;
   &lt;/TerrainImpassables&gt;
