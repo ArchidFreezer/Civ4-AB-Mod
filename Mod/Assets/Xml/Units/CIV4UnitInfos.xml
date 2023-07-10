@@ -8081,6 +8081,7 @@
 			</ProductionTraits>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>2</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iAsset>4</iAsset>
 			<UnitMeshGroups>
 				<iGroupSize>4</iGroupSize>
@@ -8142,6 +8143,7 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iCombat>6</iCombat>
 			<iCombatLimit>75</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
@@ -8207,6 +8209,7 @@
 			<iCost>50</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
 			<iCombat>6</iCombat>
 			<iCombatLimit>75</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
