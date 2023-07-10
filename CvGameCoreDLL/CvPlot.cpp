@@ -8410,8 +8410,14 @@ void CvPlot::doImprovementSpawn() {
 				}
 			}
 
-			// If we have no resident then look to create another
+			// Remove the spawning improvement if it is in territory owned by a civ, also remove any resident
+			if (isOwned() && !isBarbarian()) {
+				setImprovementType(NO_IMPROVEMENT);
+				if (bResident) pResident->kill(false);
+				return;
+			}
 
+			// If we have no resident then look to create another
 			if (bSpawnAnimal) {
 				if (!bResident) {
 					// If we have an existing animal on the plot use that type as the resident otherwise pick a new type
@@ -8483,10 +8489,6 @@ void CvPlot::doImprovementSpawn() {
 							}
 						}
 					}
-				}
-				// Remove the spawning improvement if it is in territory owned by a civ
-				if (isOwned() && !isBarbarian()) {
-					setImprovementType(NO_IMPROVEMENT);
 				}
 			}
 		}

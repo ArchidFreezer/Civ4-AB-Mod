@@ -1095,40 +1095,19 @@ void CvMapGenerator::addImprovements(bool bAddAnimalSpawning, bool bAddBarbSpawn
 		for (ImprovementTypes eImprovement = (ImprovementTypes)0; eImprovement < GC.getNumImprovementInfos(); eImprovement = (ImprovementTypes)(eImprovement + 1)) {
 			if (pPlot->canHaveImprovement(eImprovement, NO_TEAM)) {
 				if (GC.getGameINLINE().getSorenRandNum(100, "Spawn Improvement") < GC.getImprovementInfo(eImprovement).getAppearanceProbability()) {
-					bool bAnimalSpawn = false;
-					bool bBarbSpawn = false;
+					bool bAnimalSpawnImprovement = false;
+					bool bBarbSpawnImprovement = false;
 
 					if (GC.getImprovementInfo(eImprovement).getAnimalSpawnRatePercentage() > 0)
-						bAnimalSpawn = true;
+						bAnimalSpawnImprovement = true;
 					else if (GC.getImprovementInfo(eImprovement).getBarbarianSpawnRatePercentage() > 0)
-						bBarbSpawn = true;
+						bBarbSpawnImprovement = true;
 
 					// Only add the appropriate improvements 
-					if ((bAddAnimalSpawning && bAnimalSpawn) || (bAddBarbSpawning && bBarbSpawn)) {
+					if ((bAddAnimalSpawning && bAnimalSpawnImprovement) || (bAddBarbSpawning && bBarbSpawnImprovement)) {
 						pPlot->setImprovementType(eImprovement);
-						// If this is a spawning improvement then seed it with a unit
-						if (bAnimalSpawn) {
-							UnitTypes eAnimal = pPlot->getNativeAnimalRand();
-							if (eAnimal != NO_UNIT) {
-								CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eAnimal, pPlot->getX_INLINE(), pPlot->getY_INLINE(), NO_UNITAI);
-								// Set first unit to stay put and defend the improvement
-								pUnit->setImmobile(true);
-								pUnit->setBaseCombatStr(pUnit->getUnitInfo().getCombat() * 2);
-								pUnit->changeFortifyTurns(5);
-								pUnit->changeAlwaysHealCount(1);
-							}
-						}
-						if (bBarbSpawn) {
-							UnitTypes eBarbarian = pPlot->getNativeBarbarianBest(NO_UNITAI, true, true);
-							if (eBarbarian != NO_UNIT) {
-								CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eBarbarian, pPlot->getX_INLINE(), pPlot->getY_INLINE(), NO_UNITAI);
-								// Set first unit to stay put and defend the improvement
-								pUnit->setImmobile(true);
-								pUnit->setBaseCombatStr(pUnit->getUnitInfo().getCombat() * 2);
-								pUnit->changeFortifyTurns(5);
-								pUnit->changeAlwaysHealCount(1);
-							}
-						}
+						// If this is a spawning improvement then have it do it's thing
+						pPlot->doImprovementSpawn();
 					}
 				}
 			}
