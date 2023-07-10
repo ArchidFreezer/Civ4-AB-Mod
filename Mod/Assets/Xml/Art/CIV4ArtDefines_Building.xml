@@ -163,7 +163,7 @@
 			<bAnimated>0</bAnimated>
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Buildings/Aqueduct/Pedia_Aqueduct.nif</NIF>
+			<NIF>Art/Structures/Buildings/city/aqueduct/Pedia_Aqueduct.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/Aqueduct.dds,Art/Interface/Buttons/Buildings_Atlas.dds,4,1</Button>
 		</BuildingArtInfo>
@@ -1833,7 +1833,7 @@
 			<bAnimated>1</bAnimated>
 			<fScale>0.5</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Structures/Buildings/national_slave_auction/Cell.nif</NIF>
+			<NIF>Art/Structures/Buildings/wonders/national_slave_auction/Cell.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/national_slave_auction.dds</Button>
 		</BuildingArtInfo>
@@ -1843,7 +1843,7 @@
 			<bAnimated>1</bAnimated>
 			<fScale>0.4</fScale>
 			<fInterfaceScale>1.1</fInterfaceScale>
-			<NIF>Art/Structures/Buildings/slave_market/Hangcage.nif</NIF>
+			<NIF>Art/Structures/Buildings/city/slave_market/Hangcage.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/slave_market.dds</Button>
 		</BuildingArtInfo>
