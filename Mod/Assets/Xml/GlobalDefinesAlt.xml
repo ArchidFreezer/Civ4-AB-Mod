@@ -46,4 +46,8 @@
 		<DefineName>CITY_GROWTH_MULTIPLIER</DefineName>
 		<iDefineIntVal>10</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>MOVE_DENOMINATOR</DefineName>
+		<iDefineIntVal>120</iDefineIntVal>
+	</Define>
 </Civ4Defines>
