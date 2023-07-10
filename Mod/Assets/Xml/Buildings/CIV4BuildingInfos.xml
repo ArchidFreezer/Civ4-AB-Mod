@@ -6546,12 +6546,12 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
-					<iCount>3</iCount>
+					<iCount>1</iCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<SpecialistYieldChanges>
@@ -6584,12 +6584,12 @@
 			<iCost>-1</iCost>
 			<iHurryCostModifier>-1</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iGlobalHurryModifier>25</iGlobalHurryModifier>
+			<iGlobalHurryModifier>-10</iGlobalHurryModifier>
 			<iAsset>8</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6615,7 +6615,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6641,12 +6641,11 @@
 			<YieldModifiers>
 				<iYield>0</iYield>
 				<iYield>25</iYield>
-				<iYield>0</iYield>
 			</YieldModifiers>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<BonusYieldModifiers>
 				<BonusYieldModifier>
@@ -6654,7 +6653,6 @@
 					<YieldModifiers>
 						<iYield>0</iYield>
 						<iYield>25</iYield>
-						<iYield>0</iYield>
 					</YieldModifiers>
 				</BonusYieldModifier>
 			</BonusYieldModifiers>
@@ -6684,7 +6682,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6713,7 +6711,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6742,7 +6740,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6760,6 +6758,7 @@
 				<FeatureType>FEATURE_PLATY_EVEREST</FeatureType>
 			</PrereqVicinityFeatures>
 			<FreePromotions>
+				<PromotionType>PROMOTION_GUERILLA1</PromotionType>
 				<PromotionType>PROMOTION_GUERILLA2</PromotionType>
 			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
@@ -6773,7 +6772,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6796,12 +6795,12 @@
 			<iHurryCostModifier>-1</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
 			<iGlobalWarWearinessModifier>-25</iGlobalWarWearinessModifier>
-			<iEnemyWarWearinessModifier>50</iEnemyWarWearinessModifier>
+			<iEnemyWarWearinessModifier>10</iEnemyWarWearinessModifier>
 			<iAsset>8</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>8</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6830,7 +6829,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6852,14 +6851,14 @@
 			<iCost>-1</iCost>
 			<iHurryCostModifier>-1</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iDefense>75</iDefense>
-			<iBombardDefense>75</iBombardDefense>
-			<iEspionageDefense>75</iEspionageDefense>
+			<iDefense>25</iDefense>
+			<iBombardDefense>25</iBombardDefense>
+			<iEspionageDefense>50</iEspionageDefense>
 			<iAsset>8</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6889,7 +6888,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6912,11 +6911,12 @@
 			<iHurryCostModifier>-1</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
 			<iHappiness>1</iHappiness>
+			<iPopulationGrowthRateModifier>10</iPopulationGrowthRateModifier>
 			<iAsset>8</iAsset>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<ImprovementFreeSpecialists>
 				<ImprovementFreeSpecialist>
@@ -6951,10 +6951,15 @@
 			<iHurryCostModifier>-1</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
 			<iAsset>8</iAsset>
+			<SeaPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -6982,7 +6987,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -7008,12 +7013,12 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>6</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>50</iCommerce>
+				<iCommerce>25</iCommerce>
 			</CommerceModifiers>
 			<SpecialistCounts>
 				<SpecialistCount>
@@ -7045,7 +7050,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
@@ -7082,7 +7087,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>6</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
@@ -7121,7 +7126,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
@@ -7148,7 +7153,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<SpecialistCounts>
 				<SpecialistCount>
@@ -7180,7 +7185,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>6</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<StateReligionCommerces>
 				<iCommerce>0</iCommerce>
@@ -7216,7 +7221,7 @@
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>1</iCommerce>
 			</ObsoleteSafeCommerceChanges>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildingInfo>
