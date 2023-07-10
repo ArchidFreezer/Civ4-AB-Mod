@@ -276,6 +276,7 @@
 				</BonusTypeStruct>
 			</BonusTypeStructs>
 			<ImprovementUpgrade>IMPROVEMENT_LUMBERMILL</ImprovementUpgrade>
+			<UpgradeTech>TECH_GUILDS</UpgradeTech>
 			<RouteYieldChanges>
 				<RouteYieldChange>
 					<RouteType>ROUTE_RAILROAD</RouteType>
