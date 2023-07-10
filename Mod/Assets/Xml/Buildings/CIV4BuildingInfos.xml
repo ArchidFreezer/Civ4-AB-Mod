@@ -350,6 +350,9 @@
 			<Strategy>TXT_KEY_BUILDING_BARRACKS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BARRACKS</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_WARFARE</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_AGGRESSIVE</TraitType>
@@ -382,6 +385,9 @@
 			<Strategy>TXT_KEY_BUILDING_ZULU_IKHANDA_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ZULU_IKHANDA</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_WARFARE</TechType>
+			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
 					<TraitType>TRAIT_AGGRESSIVE</TraitType>
