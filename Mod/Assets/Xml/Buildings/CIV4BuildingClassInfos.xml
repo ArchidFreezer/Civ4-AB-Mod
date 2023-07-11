@@ -190,6 +190,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_SLAVE_MARKET</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Weavers Hut -->
+			<Type>BUILDINGCLASS_WEAVERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_WEAVERS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_WEAVERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Grocer -->                          <!-- Commerce - Retail -->
 			<Type>BUILDINGCLASS_GROCER</Type>
@@ -208,6 +214,12 @@
 			<Description>TXT_KEY_BUILDING_SUPERMARKET</Description>
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_SUPERMARKET</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Tailor Shop -->
+			<Type>BUILDINGCLASS_TAILOR_SHOP</Type>
+			<Description>TXT_KEY_BUILDING_TAILOR_SHOP</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_TAILOR_SHOP</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Bank -->                            <!-- Commerce - Banking -->
