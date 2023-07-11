@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Construction Firm -->
+		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Tag>
+		<English>Construction Firm</English>
+		<French>
+			<Text>Entreprise de Construction</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Bauunternehmer</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM_PEDIA</Tag>
+		<English>In the fields of architecture and civil engineering, construction is a process that consists of the building or assembling of infrastructure. Far from being a single activity, large scale construction is a feat of multitasking. Normally the job is managed by the project manager and supervised by the construction manager, design engineer, construction engineer or project architect.  For the successful execution of a project, effective planning is essential. Those involved with the design and execution of the infrastructure in question must consider the environmental impact of the job, the successful scheduling, budgeting, site safety, availability of materials, logistics, inconvenience to the public caused by construction delays, preparing tender documents, etc.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM_STRATEGY</Tag>
+		<English>Increases Production for Buildings.</English>
+		<French>Augmente la vitesse de Construction des Bâtiments.</French>
+	</TEXT>
 	<TEXT> <!-- Lepinski Vir -->
 		<Tag>TXT_KEY_BUILDING_LEPENSKI_VIR</Tag>
 		<English>Lepenski Vir</English>
@@ -21,6 +40,20 @@
 		<Italian>Le [COLOR_BUILDING_TEXT]biblioteche[COLOR_REVERT] aumentano la ricerca e la cultura delle citt&#224;. Sono necessarie per la realizzazione di [COLOR_BUILDING_TEXT]universit&#224;[COLOR_REVERT], della Meraviglia [COLOR_BUILDING_TEXT]Grande Biblioteca[COLOR_REVERT] e delle Meraviglia Nazionali [COLOR_BUILDING_TEXT]Poema Patriottico[COLOR_REVERT].</Italian>
 		<Spanish>Las [COLOR_BUILDING_TEXT]Bibliotecas[COLOR_REVERT] impulsan la investigaci&#243;n de las ciudades y proporcionan cultura. Son necesarias para construir [COLOR_BUILDING_TEXT]Universidades[COLOR_REVERT], la maravilla de la [COLOR_BUILDING_TEXT]Gran Biblioteca[COLOR_REVERT] y las maravilla nacionales de la [COLOR_BUILDING_TEXT]Epopeya nacional[COLOR_REVERT].</Spanish>
 	</TEXT>
+	<TEXT> <!-- Masons Guild -->
+		<Tag>TXT_KEY_BUILDING_MASONS_GUILD</Tag>
+		<English>Mason Guild</English>
+		<French>Maison des Francs-Maçons</French>
+		<German>Maurergilde</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MASONS_GUILD_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Masons Guild[COLOR_REVERT] to increase the production of your city, especially cathedrals.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MASONS_GUILD_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- National Slave Auction -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Tag>
 		<English>National Slave Auction</English>
@@ -37,7 +70,6 @@
 		<Tag>TXT_KEY_NATIONAL_SLAVE_AUCTION_PYTHON</Tag>
 		<English>[COLOR_SELECTED_TEXT]The [COLOR_BUILDING_TEXT]National Slave Auction[COLOR_SELECTED_TEXT] increases slavery infrastrucre nationwide[COLOR_REVERT]!</English>
 	</TEXT>
-
 	<TEXT> <!-- Slave Market -->
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET</Tag>
 		<English>Slave Market</English>
@@ -49,5 +81,45 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Tag>
 		<English>The [COLOR_BUILDING_TEXT]Slave Market[COLOR_REVERT] provides a 25% production bonus and a +1 happiness bonus in any city it is built in. Allows for the purchase of slaves. Doubles Production for leaders with Organized or Industrius traits.</English>
+	</TEXT>
+	<TEXT> <!-- Stonemasons Workshop -->
+		<Tag>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP</Tag>
+		<English>Stonemasons Workshop</English>
+		<French>Ateliers de Maçonnerie</French>
+		<German>Steimetz</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP_STRATEGY</Tag>
+		<English>Build a [COLOR_BUILDING_TEXT]Stonemasons Workshop[COLOR_REVERT] to increase the production of your city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- Treadmill Crane -->
+		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE</Tag>
+		<English>Treadmill Crane</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE_PEDIA</Tag>
+		<English>A treadwheel crane (magna rola) is a wooden, human powered, hoisting and lowering device. It was primarily used during Roman times and the Middle Ages in the building of castles and cathedrals. The often heavy charge is lifted as the individual inside the treadwheel crane walks. The rope attached to a pulley is turned onto a spindle by the rotation of the wheel thus allowing the device to hoist or lower the affixed pallet.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE_STRATEGY</Tag>
+		<English>Increases production for Buildings.</English>
+	</TEXT>
+	<TEXT> <!-- Utility Fog -->
+		<Tag>TXT_KEY_BUILDING_UTILITY_FOG</Tag>
+		<English>Utility Fog</English>
+		<French>Brouillard Utile</French>
+		<German>Utility-Nebel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_PEDIA</Tag>
+		<English>[TAB]Utility Fog is a collection of tiny robots together performing a certain function. The idea of nanobotic swarms was detailed as early as in 1964 by Stanislaw Lem in the novel The Invincible, and explored in some recent SciFi novels, such as Prey (2002), written by Michael Crichton. When self-replication is taken as an additional feature of such devices, the possibility of losing control of the swarm is the basis of post-apocalyptic scenarios such as the Grey goo.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Tag>
+		<English>[SPACE]Utility Fog increases city's production and defense.</English>
 	</TEXT>
 </Civ4GameText>

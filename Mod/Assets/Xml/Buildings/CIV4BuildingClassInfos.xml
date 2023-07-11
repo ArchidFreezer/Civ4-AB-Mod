@@ -128,11 +128,41 @@
 			<DefaultBuilding>BUILDING_COURTHOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Forge -->                           <!-- Production -->
+		<BuildingClassInfo> <!-- Construction Firm -->               <!-- Production -->
+			<Type>BUILDINGCLASS_CONSTRUCTION_FIRM</Type>
+			<Description>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_CONSTRUCTION_FIRM</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Forge -->
 			<Type>BUILDINGCLASS_FORGE</Type>
 			<Description>TXT_KEY_BUILDING_FORGE</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_FORGE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Masons Guild -->
+			<Type>BUILDINGCLASS_MASONS_GUILD</Type>
+			<Description>TXT_KEY_BUILDING_MASONS_GUILD</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_MASONS_GUILD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Stonemasons Workshop -->
+			<Type>BUILDINGCLASS_STONEMASONS_WORKSHOP</Type>
+			<Description>TXT_KEY_BUILDING_STONEMASONS_WORKSHOP</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_STONEMASONS_WORKSHOP</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Treadmill Crane -->
+			<Type>BUILDINGCLASS_TREADMILL_CRANE</Type>
+			<Description>TXT_KEY_BUILDING_TREADMILL_CRANE</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_TREADMILL_CRANE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Utility Fog -->
+			<Type>BUILDINGCLASS_UTILITY_FOG</Type>
+			<Description>TXT_KEY_BUILDING_UTILITY_FOG</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_UTILITY_FOG</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Coal Plant -->                      <!-- Production - Factory/Power -->

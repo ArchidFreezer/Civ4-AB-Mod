@@ -7,6 +7,13 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_NANOFACTORY</SoundID>
+			<Filename>Sounds/Buildings/Nanofactory</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_FLAMETHROWER</SoundID>
 			<Filename>Sounds/Units/Fireball2</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

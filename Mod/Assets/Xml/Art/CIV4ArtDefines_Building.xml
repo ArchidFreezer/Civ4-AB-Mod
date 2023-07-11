@@ -1857,5 +1857,55 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/lepenski_vir.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Stonemasons Workshop -->
+			<Type>ART_DEF_BUILDING_STONEMASONS_WORKSHOP</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/stonemasons_workshop/Leonardo.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/stonemasons_workshop.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Masons Guild -->
+			<Type>ART_DEF_BUILDING_MASONS_GUILD</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/masons_guild/guild_house.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/masons_guild.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Treadmill Crane -->
+			<Type>ART_DEF_BUILDING_TREADMILL_CRANE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.01</fScale>
+			<fInterfaceScale>0.01</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Monument/Monument.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/treadmill_crane.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Construction Firm -->
+			<Type>ART_DEF_BUILDING_CONSTRUCTION_FIRM</Type>
+			<LSystem>LSYSTEM_INDUSTRIAL_PARK</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.9</fScale>
+			<fInterfaceScale>.75</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/construction_firm/Industrial_Park_Ind.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/construction_firm.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Utility Fog -->
+			<Type>ART_DEF_BUILDING_UTILITY_FOG</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Terrain/Features/FinalFrontier/radiation/radiation.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Promotions/Combat1.dds,Art/Interface/Buttons/Afterworld_Atlas.dds,5,14</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
