@@ -4737,8 +4737,8 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk -->
-			<BuildingClass>BUILDINGCLASS_OBELISK</BuildingClass>
+		<BuildingInfo> <!-- Monument -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
 			<Type>BUILDING_OBELISK</Type>
 			<Description>TXT_KEY_BUILDING_MONUMENT</Description>
 			<Civilopedia>TXT_KEY_NEW_BUILDING_MONUMENT_PEDIA</Civilopedia>
@@ -4747,7 +4747,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_MONUMENT</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
@@ -4778,8 +4778,8 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk: Egyptian Obelisk -->
-			<BuildingClass>BUILDINGCLASS_OBELISK</BuildingClass>
+		<BuildingInfo> <!-- Monument: Egyptian Obelisk -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
 			<Type>BUILDING_EGYPTIAN_OBELISK</Type>
 			<Description>TXT_KEY_BUILDING_OBELISK</Description>
 			<Civilopedia>TXT_KEY_BUILDING_EGYPTIAN_OBELISK_PEDIA</Civilopedia>
@@ -4788,7 +4788,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_EGYPTIAN_OBELISK</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
@@ -4825,8 +4825,8 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk: Ethiopian Stele -->
-			<BuildingClass>BUILDINGCLASS_OBELISK</BuildingClass>
+		<BuildingInfo> <!-- Monument: Ethiopian Stele -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
 			<Type>BUILDING_ETHIOPIAN_STELE</Type>
 			<Description>TXT_KEY_BUILDING_ETHIOPIAN_STELE</Description>
 			<Civilopedia>TXT_KEY_BUILDING_ETHIOPIAN_STELE_PEDIA</Civilopedia>
@@ -4835,7 +4835,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_ETHIOPIAN_STELE</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
@@ -4871,8 +4871,8 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Obelisk: Native America Totem -->
-			<BuildingClass>BUILDINGCLASS_OBELISK</BuildingClass>
+		<BuildingInfo> <!-- Monument: Native America Totem -->
+			<BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass>
 			<Type>BUILDING_NATIVE_AMERICA_TOTEM</Type>
 			<Description>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM</Description>
 			<Civilopedia>TXT_KEY_BUILDING_NATIVE_AMERICA_TOTEM_PEDIA</Civilopedia>
@@ -4881,7 +4881,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_NATIVE_AMERICA_TOTEM</ArtDefineTag>
 			<ObsoleteTech>TECH_ASTRONOMY</ObsoleteTech>
 			<PrereqAndTechs>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</PrereqAndTechs>
 			<HappinessTraits>
 				<HappinessTrait>
@@ -5857,7 +5857,7 @@
 			</BonusProductionModifiers>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_MONUMENT</BuildingClassType>
 					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -5881,7 +5881,7 @@
 			<PrereqAndTechs>
 				<TechType>TECH_MYSTICISM</TechType>
 			</PrereqAndTechs>
-			<FreeBuilding>BUILDINGCLASS_OBELISK</FreeBuilding>
+			<FreeBuilding>BUILDINGCLASS_MONUMENT</FreeBuilding>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
