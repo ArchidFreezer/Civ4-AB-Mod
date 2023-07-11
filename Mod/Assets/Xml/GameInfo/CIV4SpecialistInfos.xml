@@ -52,6 +52,40 @@
 			</Yields>
 			<Button>Art/Interface/MainScreen/CityScreen/engineer.dds</Button>
 		</SpecialistInfo>
+		<SpecialistInfo> <!-- Farmer -->
+			<Type>SPECIALIST_FARMER</Type>
+			<Description>TXT_KEY_SPECIALIST_FARMER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_FARMER_STRATEGY</Strategy>
+			<Texture>Art/Interface/MainScreen/CityScreen/farmer.dds</Texture>
+			<bVisible>1</bVisible>
+			<Yields>
+				<iYield>3</iYield>
+				<iYield>-1</iYield>
+			</Yields>
+			<Button>Art/Interface/MainScreen/CityScreen/farmer.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Jester -->
+			<Type>SPECIALIST_JESTER</Type>
+			<Description>TXT_KEY_SPECIALIST_JESTER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_JESTER_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/jester.dds</Texture>
+			<bVisible>1</bVisible>
+			<Yields>
+				<iYield>-1</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</Commerces>
+			<iHappinessChange>1</iHappinessChange>
+			<Button>Art/Interface/MainScreen/CityScreen/jester.dds</Button>
+		</SpecialistInfo>
 		<SpecialistInfo> <!-- Merchant -->
 			<Type>SPECIALIST_MERCHANT</Type>
 			<Description>TXT_KEY_SPECIALIST_MERCHANT</Description>
@@ -67,6 +101,21 @@
 				<iCommerce>0</iCommerce>
 			</Commerces>
 			<Button>Art/Interface/MainScreen/CityScreen/merchant.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo> <!-- Noble -->
+			<Type>SPECIALIST_NOBLE</Type>
+			<Description>TXT_KEY_SPECIALIST_NOBLE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_NOBLE_STRATEGY</Strategy>
+			<Texture>Art/Interface/MainScreen/CityScreen/noble.dds</Texture>
+			<bVisible>1</bVisible>
+			<Yields/>
+			<Commerces>
+				<iCommerce>2</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</Commerces>
+			<Button>Art/Interface/MainScreen/CityScreen/noble.dds</Button>
 		</SpecialistInfo>
 		<SpecialistInfo> <!-- Priest -->
 			<Type>SPECIALIST_PRIEST</Type>
