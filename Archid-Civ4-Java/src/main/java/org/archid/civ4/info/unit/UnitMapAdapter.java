@@ -144,6 +144,8 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 		private Integer workerTrade;
 		@XmlElement(name="bMilitaryTrade")
 		private Integer militaryTrade;
+		@XmlElement(name="bCityPacifier")
+		private Integer cityPacifier;
 		@XmlElementWrapper(name="UnitClassUpgrades")
 		@XmlElement(name="UnitClassType")
 		private List<String> unitClassUpgrades;
@@ -301,6 +303,10 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 		private Integer greatWorkCulture;
 		@XmlElement(name="iEspionagePoints")
 		private Integer espionagePoints;
+		@XmlElement(name="iGreatJestHappiness")
+		private Integer greatJestHappiness;
+		@XmlElement(name="iGreatJestDuration")
+		private Integer greatJestDuration;
 		@XmlElementWrapper(name="TerrainImpassables")
 		@XmlElement(name="TerrainType")
 		private List<String> terrainImpassables;
@@ -642,6 +648,7 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			info.setAlwaysHostile(JaxbUtils.unmarshallBoolean(aInfo.alwaysHostile));
 			info.setWorkerTrade(JaxbUtils.unmarshallBoolean(aInfo.workerTrade));
 			info.setMilitaryTrade(JaxbUtils.unmarshallBoolean(aInfo.militaryTrade));
+			info.setCityPacifier(JaxbUtils.unmarshallBoolean(aInfo.cityPacifier));
 
 			if (CollectionUtils.hasElements(aInfo.unitClassUpgrades)) {
 				for (String val: aInfo.unitClassUpgrades) {
@@ -909,6 +916,8 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			info.setTradeMultiplier(JaxbUtils.unmarshallInteger(aInfo.tradeMultiplier));
 			info.setGreatWorkCulture(JaxbUtils.unmarshallInteger(aInfo.greatWorkCulture));
 			info.setEspionagePoints(JaxbUtils.unmarshallInteger(aInfo.espionagePoints));
+			info.setGreatJestHappiness(JaxbUtils.unmarshallInteger(aInfo.greatJestHappiness));
+			info.setGreatJestDuration(JaxbUtils.unmarshallInteger(aInfo.greatJestDuration));
 
 			if (CollectionUtils.hasElements(aInfo.terrainImpassables)) {
 				for (String val: aInfo.terrainImpassables) {
@@ -1185,6 +1194,7 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			aInfo.alwaysHostile = JaxbUtils.marshallBoolean(info.isAlwaysHostile());
 			aInfo.workerTrade = JaxbUtils.marshallBoolean(info.isWorkerTrade());
 			aInfo.militaryTrade = JaxbUtils.marshallBoolean(info.isMilitaryTrade());
+			aInfo.cityPacifier = JaxbUtils.marshallBoolean(info.isCityPacifier());
 
 			if (CollectionUtils.hasElements(info.getUnitClassUpgrades())) {
 				aInfo.unitClassUpgrades = new ArrayList<String>();
@@ -1438,6 +1448,8 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			aInfo.tradeMultiplier = JaxbUtils.marshallInteger(info.getTradeMultiplier());
 			aInfo.greatWorkCulture = JaxbUtils.marshallInteger(info.getGreatWorkCulture());
 			aInfo.espionagePoints = JaxbUtils.marshallInteger(info.getEspionagePoints());
+			aInfo.greatJestHappiness = JaxbUtils.marshallInteger(info.getGreatJestHappiness());
+			aInfo.greatJestDuration = JaxbUtils.marshallInteger(info.getGreatJestDuration());
 
 			if (CollectionUtils.hasElements(info.getTerrainImpassables())) {
 				aInfo.terrainImpassables = new ArrayList<String>();

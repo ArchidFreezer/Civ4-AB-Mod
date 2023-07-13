@@ -183,6 +183,9 @@ public interface IUnitInfo extends IInfo {
 	Boolean isMilitaryTrade();
 	void setMilitaryTrade(Boolean militaryTrade);
 
+	Boolean isCityPacifier();
+	void setCityPacifier(Boolean cityPacifier);
+
 	List<String> getUnitClassUpgrades();
 	void addUnitClassUpgrade(String unitClassUpgrade);
 
@@ -374,6 +377,12 @@ public interface IUnitInfo extends IInfo {
 
 	Integer getEspionagePoints();
 	void setEspionagePoints(Integer espionagePoints);
+
+	Integer getGreatJestHappiness();
+	void setGreatJestHappiness(Integer greatJestHappiness);
+
+	Integer getGreatJestDuration();
+	void setGreatJestDuration(Integer greatJestDuration);
 
 	List<String> getTerrainImpassables();
 	void addTerrainImpassable(String terrainImpassable);

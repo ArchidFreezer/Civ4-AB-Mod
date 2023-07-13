@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Game Text - New -->
 <Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT> <!-- Capital Administration -->
+		<Tag>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION</Tag>
+		<English>Capital Administration</English>
+		<French>
+			<Text>Administration de la Capitale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Capital Verwaltung</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CAPITAL_ADMINISTRATION_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT> <!-- City Council -->
+		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL</Tag>
+		<English>City Council</English>
+		<French>Conseil Municipal</French>
+		<German>Stadtrat</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CITY_COUNCIL_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>	
 	<TEXT> <!-- Construction Firm -->
 		<Tag>TXT_KEY_BUILDING_CONSTRUCTION_FIRM</Tag>
 		<English>Construction Firm</English>
@@ -69,6 +93,20 @@
 		<Tag>TXT_KEY_BUILDING_MASONS_GUILD_PEDIA</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Metropolitan Administration -->
+		<Tag>TXT_KEY_BUILDING_METROPOLITAN_ADMINISTRATION</Tag>
+		<English>Metropolitan Administration</English>
+		<French>
+			<Text>Cité Administrative</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Metropolis Verwaltung</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_METROPOLITAN_ADMINISTRATION_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- National Slave Auction -->
 		<Tag>TXT_KEY_BUILDING_NATIONAL_SLAVE_AUCTION</Tag>
 		<English>National Slave Auction</English>
@@ -126,6 +164,16 @@
 		<English>Makes use of "clothing" resources, providing Commerce and Happiness</English>
 		<French>Procure une ressource 'Vêtement', fournissant commerce et bonheur</French>
 	</TEXT>
+	<TEXT> <!-- Town Hall -->
+		<Tag>TXT_KEY_BUILDING_TOWN_HALL</Tag>
+		<English>Town Hall</English>
+		<French>Hôtel de Ville</French>
+		<German>Stadthaus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOWN_HALL_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
 	<TEXT> <!-- Treadmill Crane -->
 		<Tag>TXT_KEY_BUILDING_TREADMILL_CRANE</Tag>
 		<English>Treadmill Crane</English>
@@ -151,6 +199,25 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_UTILITY_FOG_STRATEGY</Tag>
 		<English>[SPACE]Utility Fog increases city's production and defense.</English>
+	</TEXT>
+	<TEXT> <!-- Village Hall -->
+		<Tag>TXT_KEY_BUILDING_VILLAGE_HALL</Tag>
+		<English>Village Hall</English>
+		<French>
+			<Text>Salle des Fêtes</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>Gemaindehaus</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VILLAGE_HALL_PEDIA</Tag>
+		<English>.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CITYBUILDINGS_STRATEGY</Tag>
+		<English>Build Village Halls, Town Halls and City Councils to add free specialist in your cities.</English>
+		<French>Construisez Salle des fêtes, Hôtel de Ville, Conseil Municipal,... pour ajouter des spécialistes gratuitement dans vos Villes.</French>
 	</TEXT>
 	<TEXT> <!-- Weavers Hut -->
 		<Tag>TXT_KEY_BUILDING_WEAVERS_HUT</Tag>
