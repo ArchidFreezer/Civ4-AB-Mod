@@ -1301,6 +1301,7 @@ bool CvPlayerAI::AI_acceptUnit(CvUnit* pUnit) const {
 		case UNITAI_MERCHANT:
 		case UNITAI_ENGINEER:
 		case UNITAI_GREAT_SPY:
+		case UNITAI_JESTER:
 			return true;
 		default:
 			break;
@@ -1363,6 +1364,7 @@ DomainTypes CvPlayerAI::AI_unitAIDomainType(UnitAITypes eUnitAI) const {
 	case UNITAI_GREAT_SPY: // K-Mod
 	case UNITAI_SPY:
 	case UNITAI_ATTACK_CITY_LEMMING:
+	case UNITAI_JESTER:
 		return DOMAIN_LAND;
 		break;
 
@@ -5066,6 +5068,7 @@ int CvPlayerAI::AI_techUnitValue(TechTypes eTech, int iPathLength, bool& bEnable
 				case UNITAI_MERCHANT:
 				case UNITAI_ENGINEER:
 				case UNITAI_GREAT_SPY: // K-Mod
+				case UNITAI_JESTER:
 					break;
 
 				case UNITAI_SPY:
@@ -8531,6 +8534,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		case UNITAI_ENGINEER:
 		case UNITAI_GREAT_SPY: // K-Mod
 		case UNITAI_SPY:
+		case UNITAI_JESTER:
 			break;
 
 		case UNITAI_ICBM:
@@ -8949,6 +8953,7 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 	case UNITAI_MERCHANT:
 	case UNITAI_ENGINEER:
 	case UNITAI_GREAT_SPY: // K-Mod
+	case UNITAI_JESTER:
 		break;
 
 	case UNITAI_SPY:
@@ -10798,7 +10803,7 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const {
 		iValue += (iCities * 10 * iS * AI_getHappinessWeight(iS * kCivic.getExtraHappiness(), 0)) / 100; // (zero extra citizens... as a kind of kludge to get the value closer to where I want it)
 
 	if (kCivic.isNoCapitalUnhappiness()) // Capital is typically a high value city so lets give it a boost
-		iValue += (10 * iS * pCapital->unhappyLevel(true) * pCapital->getPopulation());
+		iValue += (10 * iS * pCapital->unhappyLevel(1, false) * pCapital->getPopulation());
 
 	if (kCivic.getHappyPerMilitaryUnit() != 0)
 		iValue += (iCities * 9 * iS * AI_getHappinessWeight(iS * kCivic.getHappyPerMilitaryUnit() * 3, 1)) / 100;
@@ -18301,6 +18306,7 @@ int CvPlayerAI::AI_disbandValue(const CvUnit* pUnit, bool bMilitaryOnly) const {
 	case UNITAI_MERCHANT:
 	case UNITAI_ENGINEER:
 	case UNITAI_GREAT_SPY:
+	case UNITAI_JESTER:
 		iValue *= 20;
 		break;
 

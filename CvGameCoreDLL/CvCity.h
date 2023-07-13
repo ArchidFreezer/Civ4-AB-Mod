@@ -48,6 +48,11 @@ public:
 	int getImprovementGoodHealth() const;
 	void updateImprovementHealth();
 
+	bool hasGreatJester() const;
+	int getGreatJestHappiness() const;
+	void addGreatJest(int iHappiness, int iDuration);
+	void changeGreatJestTimer(int iChange);
+
 	int getSpecialistHappiness() const;
 	int getSpecialistGoodHappiness() const;
 	int getSpecialistBadHappiness() const;
@@ -273,7 +278,7 @@ public:
 	int getLargestCityHappiness() const;																		// Exposed to Python
 	int getVassalHappiness() const;																		// Exposed to Python
 	int getVassalUnhappiness() const;																		// Exposed to Python
-	int unhappyLevel(int iExtra = 0) const;																	// Exposed to Python 
+	int unhappyLevel(int iExtra = 0, bool bIgnoreJests = true) const;
 	int happyLevel() const;																				// Exposed to Python				
 	int angryPopulation(int iExtra = 0) const;										// Exposed to Python
 
@@ -532,6 +537,7 @@ public:
 
 	int getNoUnhappinessCount() const;
 	bool isNoUnhappiness() const;																					// Exposed to Python
+	bool isNoUnhappiness(bool bIgnoreJests) const;
 	void changeNoUnhappinessCount(int iChange);
 
 	// K-Mod - replaced NoUnhealthyPopulation with UnhealthyPopulationModifier
@@ -1271,6 +1277,8 @@ protected:
 	mutable CLinkList<OrderData> m_orderQueue;
 
 	std::vector< std::pair < float, float> > m_kWallOverridePoints;
+	std::vector< std::pair < int, int> > m_aGreatJests;
+
 
 	std::vector<EventTypes> m_aEventsOccured;
 	std::vector<BuildingYieldChange> m_aBuildingYieldChange;

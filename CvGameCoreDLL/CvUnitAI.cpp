@@ -346,6 +346,10 @@ bool CvUnitAI::AI_update() {
 			AI_greatSpyMove();
 			break;
 
+		case UNITAI_JESTER:
+			AI_jesterMove();
+			break;
+
 		case UNITAI_SPY:
 			AI_spyMove();
 			break;
@@ -671,6 +675,7 @@ int CvUnitAI::AI_groupFirstVal() {
 	case UNITAI_MERCHANT:
 	case UNITAI_ENGINEER:
 	case UNITAI_GREAT_SPY: // K-Mod
+	case UNITAI_JESTER:
 		return 11;
 		break;
 
@@ -18939,6 +18944,146 @@ bool CvUnitAI::AI_slaverExplore(int iRange) {
 		FAssert(!atPlot(pBestPlot));
 		getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_NO_ENEMY_TERRITORY, false, false, MISSIONAI_EXPLORE, pBestExplorePlot);
 		return true;
+	}
+
+	return false;
+}
+
+void CvUnitAI::AI_jesterMove() {
+	PROFILE_FUNC();
+
+	// We look to pacify cities before the great jest as it is a non-destructive activity
+	if (AI_jesterPacify()) {
+		return;
+	}
+
+	if (AI_greatPersonMove()) {
+		return;
+	}
+
+	if (AI_greatJest()) {
+		return;
+	}
+
+	if (AI_retreatToCity()) {
+		return;
+	}
+
+	if (AI_handleStranded()) {
+		return;
+	}
+
+	if (AI_safety()) {
+		return;
+	}
+
+	getGroup()->pushMission(MISSION_SKIP);
+	return;
+}
+
+// If we have 3 or more cities in the area that are unhappy go to the closest city and perform a great jest
+bool CvUnitAI::AI_greatJest() {
+	PROFILE_FUNC();
+
+	CvPlot* pBestPlot = NULL;
+	CvPlot* pBestGreatJestPlot = NULL;
+	int iUnhappyCount = 0;
+	int iClosestCityRange = MAX_INT;
+	int iLoop;
+	for (CvCity* pLoopCity = GET_PLAYER(getOwnerINLINE()).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(getOwnerINLINE()).nextCity(&iLoop)) {
+		if (AI_plotValid(pLoopCity->plot())) {
+			if (pLoopCity->unhappyLevel() > pLoopCity->happyLevel()) {
+				iUnhappyCount++;
+			}
+
+			int iPathTurns;
+			if (generatePath(pLoopCity->plot(), MOVE_NO_ENEMY_TERRITORY, true, &iPathTurns)) {
+				if (canPerformGreatJest(pLoopCity->plot())) {
+					if (!(pLoopCity->plot()->isVisibleEnemyUnit(this))) {
+						if (iPathTurns < iClosestCityRange) {
+							iClosestCityRange = iPathTurns;
+							pBestPlot = getPathEndTurnPlot();
+							pBestGreatJestPlot = pLoopCity->plot();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL && iUnhappyCount > 2) {
+		if (atPlot(pBestGreatJestPlot)) {
+			getGroup()->pushMission(MISSION_GREAT_JEST);
+			return true;
+		} else {
+			FAssert(!atPlot(pBestPlot));
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_NO_ENEMY_TERRITORY);
+			return true;
+		}
+	}
+
+	return false;
+}
+
+// Returns true if a mission was pushed...
+bool CvUnitAI::AI_jesterPacify() {
+
+	int iBestTargetVal = 0;
+	CvPlot* pBestPlot = NULL;
+
+	// If we have an occupied city where the occupation time is greater than twice the time to reach it then send along the jester
+	int iLoop;
+	for (CvCity* pLoopCity = GET_PLAYER(getOwnerINLINE()).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(getOwnerINLINE()).nextCity(&iLoop)) {
+		if (AI_plotValid(pLoopCity->plot())) {
+			// If we are in a city that would become unhappy if we moved then stay put
+			// We check for a slightly smaller population as we don't mind a bit of unhappiness as there are other ways of dealing with that
+			if (atPlot(pLoopCity->plot()) && (pLoopCity->unhappyLevel(-1, true) > pLoopCity->happyLevel())) {
+				return true;
+			}
+
+			// If the city has a high unhappy population then deal with it as a priority
+			int iTempAnger = 0;
+			if (pLoopCity->angryPopulation() > 0) {
+				iTempAnger = pLoopCity->angryPopulation() * 2;
+			}
+
+			// Check for occupied cities
+			int iTempOccupationTime = 0;
+			if (pLoopCity->isOccupation()) {
+				iTempOccupationTime = pLoopCity->getOccupationTimer();
+			}
+
+			int iPathTurns;
+			if (iTempAnger > 0 || iTempOccupationTime > 0) {
+				if (generatePath(pLoopCity->plot(), MOVE_NO_ENEMY_TERRITORY, true, &iPathTurns)) {
+					if (!(pLoopCity->plot()->isVisibleEnemyUnit(this))) {
+						iTempAnger = std::max(0, iTempAnger - iPathTurns);
+						iTempOccupationTime = std::max(0, iTempOccupationTime - iPathTurns);
+
+						if (iTempAnger > iBestTargetVal) {
+							iBestTargetVal = iTempAnger;
+							pBestPlot = getPathEndTurnPlot();
+						}
+
+						if (iTempOccupationTime > iBestTargetVal) {
+							iBestTargetVal = iTempOccupationTime;
+							pBestPlot = getPathEndTurnPlot();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (pBestPlot != NULL) {
+		if (atPlot(pBestPlot)) {
+			// We are already in the best plot so stay where we are
+			return true;
+		} else {
+			// Move to the best plot
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_NO_ENEMY_TERRITORY);
+			return true;
+		}
 	}
 
 	return false;

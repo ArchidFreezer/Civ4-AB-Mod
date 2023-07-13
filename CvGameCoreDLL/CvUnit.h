@@ -88,6 +88,11 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	bool canPerformGreatJest(CvPlot* pPlot) const;
+	bool performGreatJest();
+	int getGreatJestHappiness() const;
+	int getGreatJestDuration() const;
+
 	void setWeaponType(WeaponTypes eWeapon);
 	void setAmmunitionType(WeaponTypes eWeapon);
 	int getWeaponStrength() const;

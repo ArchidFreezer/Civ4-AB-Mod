@@ -634,6 +634,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 		m_aBuildingCommerceChange.clear();
 		m_aBuildingHappyChange.clear();
 		m_aBuildingHealthChange.clear();
+		m_aGreatJests.clear();
 
 		m_mUnitHomeTurns.clear();
 		m_mBuildingClassProductionModifiers.clear();
@@ -921,6 +922,8 @@ void CvCity::doTurn() {
 	if (getEspionageHappinessCounter() > 0) {
 		changeEspionageHappinessCounter(-1);
 	}
+
+	changeGreatJestTimer(-1);
 
 	if (isOccupation() || (angryPopulation() > 0) || (healthRate() < 0)) {
 		setWeLoveTheKingDay(false);
@@ -3769,10 +3772,10 @@ int CvCity::getVassalUnhappiness() const {
 }
 
 
-int CvCity::unhappyLevel(int iExtra) const {
+int CvCity::unhappyLevel(int iExtra, bool bIgnoreJests) const {
 	int iUnhappiness = 0;
 
-	if (!isNoUnhappiness()) {
+	if (!isNoUnhappiness(bIgnoreJests)) {
 		int iAngerPercent = 0;
 
 		iAngerPercent += getOvercrowdingPercentAnger(iExtra);
@@ -3846,6 +3849,7 @@ int CvCity::happyLevel() const {
 	iHappiness += std::max(0, GC.getHandicapInfo(getHandicapType()).getHappyBonus());
 	iHappiness += std::max(0, getVassalHappiness());
 	iHappiness += std::max(0, getSpecialistGoodHappiness());
+	iHappiness += std::max(0, getGreatJestHappiness());
 
 	if (getHappinessTimer() > 0) {
 		iHappiness += GC.getDefineINT("TEMP_HAPPY");
@@ -6098,7 +6102,11 @@ int CvCity::getNoUnhappinessCount() const {
 
 
 bool CvCity::isNoUnhappiness() const {
-	return getNoUnhappinessCount() > 0 || (isCapital() && GET_PLAYER(getOwnerINLINE()).isNoCapitalUnhappiness());
+	return isNoUnhappiness(false);
+}
+
+bool CvCity::isNoUnhappiness(bool bIgnoreJests) const {
+	return getNoUnhappinessCount() > 0 || (isCapital() && GET_PLAYER(getOwnerINLINE()).isNoCapitalUnhappiness()) || (!bIgnoreJests && hasGreatJester());
 }
 
 
@@ -6602,6 +6610,11 @@ void CvCity::setOccupationTimer(int iNewValue) {
 
 
 void CvCity::changeOccupationTimer(int iChange) {
+	// Great jesters decrease occupation timer faster
+	if (iChange < 0 && hasGreatJester()) {
+		iChange--;
+	}
+
 	setOccupationTimer(getOccupationTimer() + iChange);
 }
 
@@ -11302,6 +11315,17 @@ void CvCity::read(FDataStreamBase* pStream) {
 		pStream->Read(&iModifier);
 		m_mUnitCombatProductionModifiers.insert(std::make_pair((UnitCombatTypes)iUnitCombat, iModifier));
 	}
+
+	pStream->Read(&iNumElts);
+	m_aGreatJests.clear();
+	for (int i = 0; i < iNumElts; ++i) {
+		int iHappiness;
+		pStream->Read(&iHappiness);
+		int iDuration;
+		pStream->Read(&iDuration);
+		m_aGreatJests.push_back(std::make_pair(iHappiness, iDuration));
+	}
+
 }
 
 void CvCity::write(FDataStreamBase* pStream) {
@@ -11549,6 +11573,12 @@ void CvCity::write(FDataStreamBase* pStream) {
 	for (std::map<UnitCombatTypes, int>::iterator it = m_mUnitCombatProductionModifiers.begin(); it != m_mUnitCombatProductionModifiers.end(); ++it) {
 		pStream->Write((*it).first);
 		pStream->Write((*it).second);
+	}
+
+	pStream->Write(m_aGreatJests.size());
+	for (std::vector< std::pair<int, int> >::iterator it = m_aGreatJests.begin(); it != m_aGreatJests.end(); ++it) {
+		pStream->Write(it->first);
+		pStream->Write(it->second);
 	}
 }
 
@@ -14197,4 +14227,43 @@ void CvCity::doUnitWeaponUpgrade(std::vector<WeaponTypes> vWeapons, CvUnit* pUni
 	if (eCurrAmmo != eBestAmmo)
 		pUnit->setAmmunitionType(eBestAmmo);
 
+}
+
+// Returns the greatest happiness of the city jests
+int CvCity::getGreatJestHappiness() const {
+	int iMaxHappiness = 0;
+	for (std::vector< std::pair<int, int> >::const_iterator it = m_aGreatJests.begin(); it != m_aGreatJests.end(); ++it) {
+		iMaxHappiness = std::max(iMaxHappiness, (*it).first);
+	}
+	return iMaxHappiness;
+}
+
+void CvCity::addGreatJest(int iHappiness, int iDuration) {
+	m_aGreatJests.push_back(std::make_pair(iHappiness, iDuration));
+	setInfoDirty(true);
+}
+
+// Changes the time on all great jests, removing any that expire
+void CvCity::changeGreatJestTimer(int iChange) {
+	// If the current duration is 0 then remove the pair from the array
+	for (std::vector< std::pair<int, int> >::iterator it = m_aGreatJests.begin(); it != m_aGreatJests.end(); ++it) {
+		it->second = std::max(0, it->second + iChange);
+		if (it->second == 0) {
+			m_aGreatJests.erase(it--);
+		}
+	}
+
+}
+
+bool CvCity::hasGreatJester() const {
+	CLLNode<IDInfo>* pUnitNode = plot()->headUnitNode();
+	while (pUnitNode) {
+		CvUnit* pLoopUnit = ::getUnit(pUnitNode->m_data);
+		pUnitNode = plot()->nextUnitNode(pUnitNode);
+
+		if (pLoopUnit->getGreatJestHappiness() > 0) {
+			return true;
+		}
+	}
+	return false;
 }

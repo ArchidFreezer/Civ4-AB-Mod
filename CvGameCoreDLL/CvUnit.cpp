@@ -13561,3 +13561,33 @@ int CvUnit::getAmmunitionStrength() const {
 WeaponTypes CvUnit::getAmmunitionType() const {
 	return m_eAmmunitionType;
 }
+
+bool CvUnit::canPerformGreatJest(CvPlot* pPlot) const {
+
+	if (pPlot->getPlotCity() == NULL)
+		return false;
+
+	return m_pUnitInfo->getGreatJestHappiness() > 0;
+}
+
+int CvUnit::getGreatJestHappiness() const {
+	return m_pUnitInfo->getGreatJestHappiness();
+}
+
+int CvUnit::getGreatJestDuration() const {
+	return m_pUnitInfo->getGreatJestDuration();
+}
+
+bool CvUnit::performGreatJest() {
+	if (!canPerformGreatJest(plot())) {
+		return false;
+	}
+
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+	int iLoop;
+	for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop)) {
+		pLoopCity->addGreatJest(getGreatJestHappiness(), getGreatJestDuration());
+	}
+	kill(false);
+	return true;
+}

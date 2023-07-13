@@ -116,6 +116,7 @@ protected:
 	void AI_cityDefence();
 	void AI_borderPatrol();
 	void AI_autoAirStrike();
+	void AI_jesterMove();
 
 	int AI_promotionValue(PromotionTypes ePromotion);
 
@@ -249,6 +250,8 @@ protected:
 	bool AI_becomeSlaver();
 	bool AI_enslave(int iRange, int iOddsThreshold);
 	bool AI_slaverExplore(int iRange);
+	bool AI_greatJest();
+	bool AI_jesterPacify();
 
 	bool AI_defendPlot(CvPlot* pPlot);
 	int AI_pillageValue(CvPlot* pPlot, int iBonusValueThreshold = 0);

@@ -1035,6 +1035,8 @@ public:
 	int getMorale() const;
 	int getMaxWeaponTypeTier() const;
 	int getMaxAmmunitionTypeTier() const;
+	int getGreatJestDuration() const;
+	int getGreatJestHappiness() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1080,6 +1082,7 @@ public:
 	bool isMilitaryTrade() const;
 	bool isSlave() const;
 	bool isFixedAI() const;
+	bool isCityPacifier() const;
 
 	float getUnitMaxSpeed() const;					// Exposed to Python
 	float getUnitPadTime() const;					// Exposed to Python
@@ -1262,6 +1265,8 @@ protected:
 	int m_iMorale;
 	int m_iMaxWeaponTypeTier;
 	int m_iMaxAmmunitionTypeTier;
+	int m_iGreatJestDuration;
+	int m_iGreatJestHappiness;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;
@@ -1307,6 +1312,7 @@ protected:
 	bool m_bMilitaryTrade;
 	bool m_bSlave;
 	bool m_bFixedAI;
+	bool m_bCityPacifier;
 
 	CultureLevelTypes m_eMinCultureLevel;
 	UnitRangeTypes 	m_eRangeType;
