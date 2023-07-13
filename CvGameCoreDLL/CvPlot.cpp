@@ -8467,7 +8467,7 @@ void CvPlot::doImprovementSpawn() {
 						int iTiles = GC.getTILES_PER_SPAWN();
 						if (kUnitInfo.isAnimal()) {
 							// Powerful animals need larger ranges
-							iTiles *= CEIL_DIVIDE(kUnitInfo.getCombat(), 3);
+							iTiles *= CEIL_DIVIDE(kUnitInfo.getCombat(), 3) + 1;
 						}
 						if (!bResident || pArea->getUnitsPerPlayer((PlayerTypes)BARBARIAN_PLAYER) == 0 || (pArea->getNumUnownedTiles() / pArea->getUnitsPerPlayer((PlayerTypes)BARBARIAN_PLAYER)) > iTiles) {
 							int iChance = GC.getHandicapInfo(kGame.getHandicapType()).getLairSpawnRate();
@@ -8501,6 +8501,7 @@ void CvPlot::doImprovementSpawn() {
 										pUnit->setBaseCombatStr(iStrength);
 										pUnit->changeFortifyTurns(5);
 										pUnit->changeAlwaysHealCount(1);
+										pUnit->setAlwaysHostile(false);
 									}
 								}
 							}
