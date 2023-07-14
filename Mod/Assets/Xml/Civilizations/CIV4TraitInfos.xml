@@ -10,6 +10,7 @@
 			<Type>TRAIT_AGGRESSIVE</Type>
 			<Description>TXT_KEY_TRAIT_AGGRESSIVE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_AGGRESSIVE_SHORT</ShortDescription>
+			<iWarWearinessModifier>-25</iWarWearinessModifier>
 			<FreePromotions>
 				<PromotionType>PROMOTION_COMBAT1</PromotionType>
 			</FreePromotions>
@@ -24,6 +25,7 @@
 			<ShortDescription>TXT_KEY_TRAIT_CHARISMATIC_SHORT</ShortDescription>
 			<iHappiness>1</iHappiness>
 			<iLevelExperienceModifier>-25</iLevelExperienceModifier>
+			<iAttitudeChange>5</iAttitudeChange>
 		</TraitInfo>
 		<TraitInfo> <!-- Creative -->
 			<Type>TRAIT_CREATIVE</Type>
@@ -34,28 +36,45 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>2</iCommerce>
 			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</CommerceModifiers>
+			<FoundCityCultureLevel>CULTURELEVEL_FLEDGLING</FoundCityCultureLevel>
 		</TraitInfo>
 		<TraitInfo> <!-- Expansive -->
 			<Type>TRAIT_EXPANSIVE</Type>
 			<Description>TXT_KEY_TRAIT_EXPANSIVE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_EXPANSIVE_SHORT</ShortDescription>
 			<iHealth>2</iHealth>
+			<iFoundCityPopulationChange>1</iFoundCityPopulationChange>
 		</TraitInfo>
 		<TraitInfo> <!-- Financial -->
 			<Type>TRAIT_FINANCIAL</Type>
 			<Description>TXT_KEY_TRAIT_FINANCIAL</Description>
 			<ShortDescription>TXT_KEY_TRAIT_FINANCIAL_SHORT</ShortDescription>
+			<iGoldPercentDividendPerTurn>2</iGoldPercentDividendPerTurn>
 			<ExtraYieldThresholds>
 				<iExtraYieldThreshold>0</iExtraYieldThreshold>
 				<iExtraYieldThreshold>0</iExtraYieldThreshold>
 				<iExtraYieldThreshold>2</iExtraYieldThreshold>
 			</ExtraYieldThresholds>
 		</TraitInfo>
+		<TraitInfo> <!-- Humanitarian -->
+			<Type>TRAIT_HUMANITARIAN</Type>
+			<Description>TXT_KEY_TRAIT_HUMANITARIAN</Description>
+			<ShortDescription>TXT_KEY_TRAIT_HUMANITARIAN_SHORT</ShortDescription>
+			<iHappiness>1</iHappiness>
+			<iUpkeepModifier>-20</iUpkeepModifier>
+			<iOccupationTimeChange>-1</iOccupationTimeChange>
+		</TraitInfo>
 		<TraitInfo> <!-- Imperialistic -->
 			<Type>TRAIT_IMPERIALIST</Type>
 			<Description>TXT_KEY_TRAIT_IMPERIALIST</Description>
 			<ShortDescription>TXT_KEY_TRAIT_IMPERIALIST_SHORT</ShortDescription>
 			<iGreatGeneralRateModifier>100</iGreatGeneralRateModifier>
+			<iGoldenAgeGreatGeneralChange>3</iGoldenAgeGreatGeneralChange>
 		</TraitInfo>
 		<TraitInfo> <!-- Industrious -->
 			<Type>TRAIT_INDUSTRIOUS</Type>
@@ -64,11 +83,49 @@
 			<iMaxGlobalBuildingProductionModifier>50</iMaxGlobalBuildingProductionModifier>
 			<iMaxTeamBuildingProductionModifier>50</iMaxTeamBuildingProductionModifier>
 			<iMaxPlayerBuildingProductionModifier>50</iMaxPlayerBuildingProductionModifier>
+			<BuildingClassYieldChanges>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+				<BuildingClassYieldChange>
+					<BuildingClassType>BUILDINGCLASS_INDUSTRIAL_PARK</BuildingClassType>
+					<YieldChanges>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</YieldChanges>
+				</BuildingClassYieldChange>
+			</BuildingClassYieldChanges>
+		</TraitInfo>
+		<TraitInfo> <!-- Nomadic -->
+			<Type>TRAIT_NOMADIC</Type>
+			<Description>TXT_KEY_TRAIT_NOMADIC</Description>
+			<ShortDescription>TXT_KEY_TRAIT_NOMADIC_SHORT</ShortDescription>
+			<iUnitWithdrawalHealRate>20</iUnitWithdrawalHealRate>
+			<FreePromotions>
+				<PromotionType>PROMOTION_FLANKING1</PromotionType>
+			</FreePromotions>
+			<FreePromotionUnitCombats>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
+			</FreePromotionUnitCombats>
 		</TraitInfo>
 		<TraitInfo> <!-- Organised -->
 			<Type>TRAIT_ORGANIZED</Type>
 			<Description>TXT_KEY_TRAIT_ORGANIZED</Description>
 			<ShortDescription>TXT_KEY_TRAIT_ORGANIZED_SHORT</ShortDescription>
+			<iMaxCivicAnarchyTurns>0</iMaxCivicAnarchyTurns>
 			<iUpkeepModifier>-50</iUpkeepModifier>
 		</TraitInfo>
 		<TraitInfo> <!-- Philosophical -->
@@ -77,11 +134,13 @@
 			<ShortDescription>TXT_KEY_TRAIT_PHILOSOPHICAL_SHORT</ShortDescription>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
 			<iGreatPeopleRateModifier>100</iGreatPeopleRateModifier>
+			<iGoldenAgeDurationModifier>25</iGoldenAgeDurationModifier>
 		</TraitInfo>
 		<TraitInfo> <!-- Protective -->
 			<Type>TRAIT_PROTECTIVE</Type>
 			<Description>TXT_KEY_TRAIT_PROTECTIVE</Description>
 			<ShortDescription>TXT_KEY_TRAIT_PROTECTIVE_SHORT</ShortDescription>
+			<iCityHealRateChange>20</iCityHealRateChange>
 			<FreePromotions>
 				<PromotionType>PROMOTION_CITY_GARRISON1</PromotionType>
 				<PromotionType>PROMOTION_DRILL1</PromotionType>
@@ -89,7 +148,73 @@
 			<FreePromotionUnitCombats>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
 			</FreePromotionUnitCombats>
+		</TraitInfo>
+		<TraitInfo> <!-- Scientific -->
+			<Type>TRAIT_SCIENTIFIC</Type>
+			<Description>TXT_KEY_TRAIT_SCIENTIFIC</Description>
+			<ShortDescription>TXT_KEY_TRAIT_SCIENTIFIC_SHORT</ShortDescription>
+			<CommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+			</CommerceChanges>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>10</iCommerce>
+			</CommerceModifiers>
+			<BuildingClassCommerceChanges>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_ELDER_COUNCIL</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>1</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>2</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>2</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+				<BuildingClassCommerceChange>
+					<BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
+					<CommerceChanges>
+						<iCommerce>0</iCommerce>
+						<iCommerce>2</iCommerce>
+					</CommerceChanges>
+				</BuildingClassCommerceChange>
+			</BuildingClassCommerceChanges>
+		</TraitInfo>
+		<TraitInfo> <!-- Seafaring -->
+			<Type>TRAIT_SEAFARING</Type>
+			<Description>TXT_KEY_TRAIT_SEAFARING</Description>
+			<ShortDescription>TXT_KEY_TRAIT_SEAFARING_SHORT</ShortDescription>
+			<FreePromotions>
+				<PromotionType>PROMOTION_AMPHIBIOUS</PromotionType>
+			</FreePromotions>
+			<FreePromotionUnitCombats>
+				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_ASSAULT_MECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_HITECH</UnitCombatType>
+				<UnitCombatType>UNITCOMBAT_CLONES</UnitCombatType>
+			</FreePromotionUnitCombats>
+			<SeaPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</SeaPlotYieldChanges>
 		</TraitInfo>
 		<TraitInfo> <!-- Spiritual -->
 			<Type>TRAIT_SPIRITUAL</Type>
@@ -97,7 +222,8 @@
 			<ShortDescription>TXT_KEY_TRAIT_SPIRITUAL_SHORT</ShortDescription>
 			<iStarSignScaleChangePercent>50</iStarSignScaleChangePercent>
 			<iMaxReligionAnarchyTurns>0</iMaxReligionAnarchyTurns>
-			<iMaxCivicAnarchyTurns>0</iMaxCivicAnarchyTurns>
+			<iMissionarySurvivalChance>10</iMissionarySurvivalChance>
+			<iSettlerReligionLevel>2</iSettlerReligionLevel>
 		</TraitInfo>
 	</TraitInfos>
 </Civ4TraitInfos>
