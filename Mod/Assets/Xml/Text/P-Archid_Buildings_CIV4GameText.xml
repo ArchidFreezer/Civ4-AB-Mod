@@ -509,6 +509,21 @@
 		<Tag>TXT_KEY_BUILDING_SCHOOL_OF_SCRIBES_STRATEGY</Tag>
 		<English>Increases city's science output and generates some culture as well. Required before you can build Plato's Academy.</English>
 	</TEXT>
+	<TEXT> <!-- Shrine -->
+		<Tag>TXT_KEY_BUILDING_SHRINE</Tag>
+		<English>Shrine</English>
+		<French>Autel Sacré</French>
+		<German>Schrein</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHRINE_STRATEGY</Tag>
+		<English>Commerce boost with resources, however, this building becomes obsolete fast.  This building requires Folklore civic.</English>
+		<French>Bonus de Commerce provenant des ressources. Cependant, le batiment est très vite obsolète. Requiert la Doctrine 'Folklore'.</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHRINE_PEDIA</Tag>
+		<English>[TAB]Idolatry is usually defined as worship of any cult image, idea, or object, as opposed to the worship of a monotheistic God. It is considered a major sin in the Abrahamic religions whereas in religions where such activity is not considered as sin, the term "idolatry" itself is absent. Which images, ideas, and objects, constitute idolatry, and which constitute reasonable worship, is a matter of contention with some religious authorities and groups using the term to describe certain other religions apart from their own.</English>
+	</TEXT>
 	<TEXT> <!-- Slave Market -->
 		<Tag>TXT_KEY_BUILDING_SLAVE_MARKET</Tag>
 		<English>Slave Market</English>
