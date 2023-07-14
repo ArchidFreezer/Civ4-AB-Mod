@@ -137,6 +137,12 @@
 			<iCategory>19</iCategory>
 			<DefaultBuilding>BUILDING_FISHTRAPS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Fish Market -->
+			<Type>BUILDINGCLASS_FISH_MARKET</Type>
+			<Description>TXT_KEY_BUILDING_FISH_MARKET</Description>
+			<iCategory>19</iCategory>
+			<DefaultBuilding>BUILDING_FISH_MARKET</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Commercial Port -->                 <!-- Water Trade -->
 			<Type>BUILDINGCLASS_COMMERCIAL_PORT</Type>
