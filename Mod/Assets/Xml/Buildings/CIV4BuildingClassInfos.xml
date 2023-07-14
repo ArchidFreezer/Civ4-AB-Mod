@@ -209,7 +209,13 @@
 			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Furrier -->                         <!-- Commerce -->
+		<BuildingClassInfo> <!-- Brightsmiths Hut -->                <!-- Commerce -->
+			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_BRIGHTSMITHS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Furrier -->
 			<Type>BUILDINGCLASS_FURRIER</Type>
 			<Description>TXT_KEY_BUILDING_FURRIER</Description>
 			<iCategory>28</iCategory>
