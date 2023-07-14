@@ -92,6 +92,18 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_GRANARY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Poulty Farm -->
+			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
+			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_POULTRY_FARM</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ranch -->
+			<Type>BUILDINGCLASS_RANCH</Type>
+			<Description>TXT_KEY_BUILDING_RANCH</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Barracks -->                        <!-- Military Training -->
 			<Type>BUILDINGCLASS_BARRACKS</Type>
