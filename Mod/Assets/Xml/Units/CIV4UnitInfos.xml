@@ -7758,29 +7758,47 @@
 				<BuildType>BUILD_RAILROAD_ELECTRIC</BuildType>
 				<BuildType>BUILD_GRAVTUBE</BuildType>
 				<BuildType>BUILD_JUMPLANE</BuildType>
+				<BuildType>BUILD_ARCHEOLOGICAL_SITE</BuildType>
+				<BuildType>BUILD_APPLE_FARM</BuildType>
+				<BuildType>BUILD_BUNKER</BuildType>
+				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_COMMAND_CENTRE</BuildType>
+				<BuildType>BUILD_COTTAGE</BuildType>
+				<BuildType>BUILD_DESERTWINDMILL</BuildType>
+				<BuildType>BUILD_3FACTORY</BuildType>
 				<BuildType>BUILD_FARM</BuildType>
-				<BuildType>BUILD_MINE</BuildType>
-				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+				<BuildType>BUILD_FORT</BuildType>
+				<BuildType>BUILD_GEOTHERMAL_FACTORY</BuildType>
+				<BuildType>BUILD_GROUNDWATER_WELL</BuildType>
+				<BuildType>BUILD_HYBRID_FOREST</BuildType>
+				<BuildType>BUILD_JUNGLE_CAMP</BuildType>
 				<BuildType>BUILD_LUMBERJACK</BuildType>
 				<BuildType>BUILD_LUMBERMILL</BuildType>
-				<BuildType>BUILD_WINDMILL</BuildType>
-				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_MINE</BuildType>
+				<BuildType>BUILD_MODERN_MINE</BuildType>
 				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
 				<BuildType>BUILD_OLIVE_FARM</BuildType>
-				<BuildType>BUILD_SILK_FARM</BuildType>
-				<BuildType>BUILD_TIMBER_CAMP</BuildType>
+				<BuildType>BUILD_PASTURE</BuildType>
 				<BuildType>BUILD_PLANTATION</BuildType>
 				<BuildType>BUILD_QUARRY</BuildType>
-				<BuildType>BUILD_PASTURE</BuildType>
-				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_SAFARI</BuildType>
+				<BuildType>BUILD_SHAFT_MINE</BuildType>
+				<BuildType>BUILD_SILK_FARM</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
+				<BuildType>BUILD_TREE_FARM</BuildType>
+				<BuildType>BUILD_WATERMILL</BuildType>
 				<BuildType>BUILD_WELL</BuildType>
+				<BuildType>BUILD_WINDMILL</BuildType>
+				<BuildType>BUILD_WINDTRAP</BuildType>
 				<BuildType>BUILD_WINERY</BuildType>
-				<BuildType>BUILD_COTTAGE</BuildType>
-				<BuildType>BUILD_FORT</BuildType>
-				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
+				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_HILL</BuildType>
+				<BuildType>BUILD_FOREST</BuildType>
 				<BuildType>BUILD_REMOVE_FOREST</BuildType>
+				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
 				<BuildType>BUILD_SCRUB_FALLOUT</BuildType>
-				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+				<BuildType>BUILD_TERRAFORM</BuildType>
 			</Builds>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -8662,6 +8680,8 @@
 			<Builds>
 				<BuildType>BUILD_FISHING_BOATS</BuildType>
 				<BuildType>BUILD_WHALING_BOATS</BuildType>
+				<BuildType>BUILD_SUBMERGED_TOWN</BuildType>
+				<BuildType>BUILD_EXTRACTION_FACILITY</BuildType>
 				<BuildType>BUILD_OFFSHORE_PLATFORM</BuildType>
 				<BuildType>BUILD_SEA_BRIDGE_NS</BuildType>
 				<BuildType>BUILD_SEA_BRIDGE_EW</BuildType>
@@ -8669,6 +8689,7 @@
 				<BuildType>BUILD_SEA_BRIDGE_NWSE</BuildType>
 				<BuildType>BUILD_GRAVTUBE</BuildType>
 				<BuildType>BUILD_JUMPLANE</BuildType>
+				<BuildType>BUILD_BREAK_ICE</BuildType>
 			</Builds>
 			<PrereqTechs>
 				<TechType>TECH_FISHING</TechType>
@@ -8728,29 +8749,47 @@
 				<BuildType>BUILD_RAILROAD_ELECTRIC</BuildType>
 				<BuildType>BUILD_GRAVTUBE</BuildType>
 				<BuildType>BUILD_JUMPLANE</BuildType>
+				<BuildType>BUILD_ARCHEOLOGICAL_SITE</BuildType>
+				<BuildType>BUILD_APPLE_FARM</BuildType>
+				<BuildType>BUILD_BUNKER</BuildType>
+				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_COMMAND_CENTRE</BuildType>
+				<BuildType>BUILD_COTTAGE</BuildType>
+				<BuildType>BUILD_DESERTWINDMILL</BuildType>
+				<BuildType>BUILD_3FACTORY</BuildType>
 				<BuildType>BUILD_FARM</BuildType>
-				<BuildType>BUILD_MINE</BuildType>
-				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+				<BuildType>BUILD_FORT</BuildType>
+				<BuildType>BUILD_GEOTHERMAL_FACTORY</BuildType>
+				<BuildType>BUILD_GROUNDWATER_WELL</BuildType>
+				<BuildType>BUILD_HYBRID_FOREST</BuildType>
+				<BuildType>BUILD_JUNGLE_CAMP</BuildType>
 				<BuildType>BUILD_LUMBERJACK</BuildType>
 				<BuildType>BUILD_LUMBERMILL</BuildType>
-				<BuildType>BUILD_WINDMILL</BuildType>
-				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_MINE</BuildType>
+				<BuildType>BUILD_MODERN_MINE</BuildType>
 				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
 				<BuildType>BUILD_OLIVE_FARM</BuildType>
-				<BuildType>BUILD_SILK_FARM</BuildType>
-				<BuildType>BUILD_TIMBER_CAMP</BuildType>
+				<BuildType>BUILD_PASTURE</BuildType>
 				<BuildType>BUILD_PLANTATION</BuildType>
 				<BuildType>BUILD_QUARRY</BuildType>
-				<BuildType>BUILD_PASTURE</BuildType>
-				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_SAFARI</BuildType>
+				<BuildType>BUILD_SHAFT_MINE</BuildType>
+				<BuildType>BUILD_SILK_FARM</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
+				<BuildType>BUILD_TREE_FARM</BuildType>
+				<BuildType>BUILD_WATERMILL</BuildType>
 				<BuildType>BUILD_WELL</BuildType>
+				<BuildType>BUILD_WINDMILL</BuildType>
+				<BuildType>BUILD_WINDTRAP</BuildType>
 				<BuildType>BUILD_WINERY</BuildType>
-				<BuildType>BUILD_COTTAGE</BuildType>
-				<BuildType>BUILD_FORT</BuildType>
-				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
+				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_HILL</BuildType>
+				<BuildType>BUILD_FOREST</BuildType>
 				<BuildType>BUILD_REMOVE_FOREST</BuildType>
+				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
 				<BuildType>BUILD_SCRUB_FALLOUT</BuildType>
-				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+				<BuildType>BUILD_TERRAFORM</BuildType>
 			</Builds>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -8803,29 +8842,47 @@
 				<BuildType>BUILD_RAILROAD_ELECTRIC</BuildType>
 				<BuildType>BUILD_GRAVTUBE</BuildType>
 				<BuildType>BUILD_JUMPLANE</BuildType>
+				<BuildType>BUILD_ARCHEOLOGICAL_SITE</BuildType>
+				<BuildType>BUILD_APPLE_FARM</BuildType>
+				<BuildType>BUILD_BUNKER</BuildType>
+				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_COMMAND_CENTRE</BuildType>
+				<BuildType>BUILD_COTTAGE</BuildType>
+				<BuildType>BUILD_DESERTWINDMILL</BuildType>
+				<BuildType>BUILD_3FACTORY</BuildType>
 				<BuildType>BUILD_FARM</BuildType>
-				<BuildType>BUILD_MINE</BuildType>
-				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+				<BuildType>BUILD_FORT</BuildType>
+				<BuildType>BUILD_GEOTHERMAL_FACTORY</BuildType>
+				<BuildType>BUILD_GROUNDWATER_WELL</BuildType>
+				<BuildType>BUILD_HYBRID_FOREST</BuildType>
+				<BuildType>BUILD_JUNGLE_CAMP</BuildType>
 				<BuildType>BUILD_LUMBERJACK</BuildType>
 				<BuildType>BUILD_LUMBERMILL</BuildType>
-				<BuildType>BUILD_WINDMILL</BuildType>
-				<BuildType>BUILD_WATERMILL</BuildType>
+				<BuildType>BUILD_MINE</BuildType>
+				<BuildType>BUILD_MODERN_MINE</BuildType>
 				<BuildType>BUILD_OBSIDIAN_CAMP</BuildType>
 				<BuildType>BUILD_OLIVE_FARM</BuildType>
-				<BuildType>BUILD_SILK_FARM</BuildType>
-				<BuildType>BUILD_TIMBER_CAMP</BuildType>
+				<BuildType>BUILD_PASTURE</BuildType>
 				<BuildType>BUILD_PLANTATION</BuildType>
 				<BuildType>BUILD_QUARRY</BuildType>
-				<BuildType>BUILD_PASTURE</BuildType>
-				<BuildType>BUILD_CAMP</BuildType>
+				<BuildType>BUILD_SAFARI</BuildType>
+				<BuildType>BUILD_SHAFT_MINE</BuildType>
+				<BuildType>BUILD_SILK_FARM</BuildType>
+				<BuildType>BUILD_TIMBER_CAMP</BuildType>
+				<BuildType>BUILD_TREE_FARM</BuildType>
+				<BuildType>BUILD_WATERMILL</BuildType>
 				<BuildType>BUILD_WELL</BuildType>
+				<BuildType>BUILD_WINDMILL</BuildType>
+				<BuildType>BUILD_WINDTRAP</BuildType>
 				<BuildType>BUILD_WINERY</BuildType>
-				<BuildType>BUILD_COTTAGE</BuildType>
-				<BuildType>BUILD_FORT</BuildType>
-				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
+				<BuildType>BUILD_WORKSHOP</BuildType>
+				<BuildType>BUILD_HILL</BuildType>
+				<BuildType>BUILD_FOREST</BuildType>
 				<BuildType>BUILD_REMOVE_FOREST</BuildType>
+				<BuildType>BUILD_REMOVE_JUNGLE</BuildType>
 				<BuildType>BUILD_SCRUB_FALLOUT</BuildType>
-				<BuildType>BUILD_FOREST_PRESERVE</BuildType>
+				<BuildType>BUILD_TERRAFORM</BuildType>
 			</Builds>
 			<ProductionTraits>
 				<ProductionTrait>

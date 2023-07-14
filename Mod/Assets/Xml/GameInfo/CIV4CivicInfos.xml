@@ -96,6 +96,12 @@
 			</BuildingHappinessChanges>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_TREE_FARM</ImprovementType>
+					<ImprovementYields>
+						<iYield>1</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
