@@ -92,7 +92,7 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_GRANARY</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Poulty Farm -->
+		<BuildingClassInfo> <!-- Poultry Farm -->
 			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
 			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
 			<iCategory>16</iCategory>
@@ -182,7 +182,13 @@
 			<DefaultBuilding>BUILDING_CUSTOM_HOUSE</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Industrial Park -->                 <!-- City Boost -->
+		<BuildingClassInfo> <!-- Boatyard -->                        <!-- City Boost -->
+			<Type>BUILDINGCLASS_BOATYARD</Type>
+			<Description>TXT_KEY_BUILDING_BOATYARD</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_BOATYARD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Industrial Park -->
 			<Type>BUILDINGCLASS_INDUSTRIAL_PARK</Type>
 			<Description>TXT_KEY_BUILDING_INDUSTRIAL_PARK</Description>
 			<iCategory>22</iCategory>
@@ -193,6 +199,12 @@
 			<Description>TXT_KEY_BUILDING_LEVEE</Description>
 			<iCategory>22</iCategory>
 			<DefaultBuilding>BUILDING_LEVEE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Marina -->
+			<Type>BUILDINGCLASS_MARINA</Type>
+			<Description>TXT_KEY_BUILDING_MARINA</Description>
+			<iCategory>22</iCategory>
+			<DefaultBuilding>BUILDING_MARINA</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Courthouse -->                      <!-- City Maintenance -->
