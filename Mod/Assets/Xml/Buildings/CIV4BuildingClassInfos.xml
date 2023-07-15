@@ -510,6 +510,12 @@
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_BROADCAST_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Brothel -->
+			<Type>BUILDINGCLASS_BROTHEL</Type>
+			<Description>TXT_KEY_BUILDING_BROTHEL</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_BROTHEL</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Communication Tower -->
 			<Type>BUILDINGCLASS_COMMUNICATION_TOWER</Type>
 			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
