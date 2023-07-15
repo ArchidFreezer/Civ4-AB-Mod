@@ -335,6 +335,30 @@
 			<iCategory>26</iCategory>
 			<DefaultBuilding>BUILDING_FACTORY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Guildhall -->
+			<Type>BUILDINGCLASS_GUILDHALL</Type>
+			<Description>TXT_KEY_BUILDING_GUILDHALL</Description>
+			<iCategory>26</iCategory>
+			<DefaultBuilding>BUILDING_GUILDHALL</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Manufactory -->
+			<Type>BUILDINGCLASS_MANUFACTORY</Type>
+			<Description>TXT_KEY_BUILDING_MANUFACTORY</Description>
+			<iCategory>26</iCategory>
+			<DefaultBuilding>BUILDING_MANUFACTORY</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Manufacturing Plant -->
+			<Type>BUILDINGCLASS_MANUFACTURING_PLANT</Type>
+			<Description>TXT_KEY_BUILDING_MANUFACTURING_PLANT</Description>
+			<iCategory>26</iCategory>
+			<DefaultBuilding>BUILDING_MANUFACTURING_PLANT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nanofactory -->
+			<Type>BUILDINGCLASS_NANOFACTORY</Type>
+			<Description>TXT_KEY_BUILDING_NANOFACTORY</Description>
+			<iCategory>26</iCategory>
+			<DefaultBuilding>BUILDING_NANOFACTORY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Nuclear Plant -->
 			<Type>BUILDINGCLASS_NUCLEAR_PLANT</Type>
 			<Description>TXT_KEY_BUILDING_NUCLEAR_PLANT</Description>
