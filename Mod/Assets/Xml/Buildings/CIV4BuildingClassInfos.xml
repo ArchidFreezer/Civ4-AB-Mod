@@ -105,7 +105,13 @@
 			<DefaultBuilding>BUILDING_RANCH</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Barracks -->                        <!-- Military Training -->
+		<BuildingClassInfo> <!-- Arena -->                           <!-- Military Training -->
+			<Type>BUILDINGCLASS_ARENA</Type>
+			<Description>TXT_KEY_BUILDING_ARENA</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_ARENA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Barracks -->
 			<Type>BUILDINGCLASS_BARRACKS</Type>
 			<Description>TXT_KEY_BUILDING_BARRACKS</Description>
 			<iCategory>17</iCategory>
@@ -116,6 +122,12 @@
 			<Description>TXT_KEY_BUILDING_STABLE</Description>
 			<iCategory>17</iCategory>
 			<DefaultBuilding>BUILDING_STABLE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Training Yard -->
+			<Type>BUILDINGCLASS_TRAINING_YARD</Type>
+			<Description>TXT_KEY_BUILDING_TRAINING_YARD</Description>
+			<iCategory>17</iCategory>
+			<DefaultBuilding>BUILDING_TRAINING_YARD</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Armaments Industry -->              <!-- Military Production -->
@@ -699,6 +711,13 @@
 			<iCategory>2</iCategory>
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_CHICHEN_ITZA</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Circus Maximus -->
+			<Type>BUILDINGCLASS_CIRCUS_MAXIMUS</Type>
+			<Description>TXT_KEY_BUILDING_CIRCUS_MAXIMUS</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_CIRCUS_MAXIMUS</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Colossus -->
 			<Type>BUILDINGCLASS_COLOSSUS</Type>
