@@ -384,6 +384,12 @@
 			<iCategory>28</iCategory>
 			<DefaultBuilding>BUILDING_BRIGHTSMITHS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Casino -->
+			<Type>BUILDINGCLASS_CASINO</Type>
+			<Description>TXT_KEY_BUILDING_CASINO</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_CASINO</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Furrier -->
 			<Type>BUILDINGCLASS_FURRIER</Type>
 			<Description>TXT_KEY_BUILDING_FURRIER</Description>
@@ -521,6 +527,12 @@
 			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_COMMUNICATION_TOWER</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Gambling Hall -->
+			<Type>BUILDINGCLASS_GAMBLING_HALL</Type>
+			<Description>TXT_KEY_BUILDING_GAMBLING_HALL</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_GAMBLING_HALL</DefaultBuilding>
 		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Academy -->                         <!-- Research -->
