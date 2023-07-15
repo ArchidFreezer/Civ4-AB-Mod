@@ -250,11 +250,29 @@
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_FORGE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Foundry -->
+			<Type>BUILDINGCLASS_FOUNDRY</Type>
+			<Description>TXT_KEY_BUILDING_FOUNDRY</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_FOUNDRY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Masons Guild -->
 			<Type>BUILDINGCLASS_MASONS_GUILD</Type>
 			<Description>TXT_KEY_BUILDING_MASONS_GUILD</Description>
 			<iCategory>24</iCategory>
 			<DefaultBuilding>BUILDING_MASONS_GUILD</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Modern Steelworks -->
+			<Type>BUILDINGCLASS_MODERN_STEELWORKS</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_STEELWORKS</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_MODERN_STEELWORKS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Steel Mill -->
+			<Type>BUILDINGCLASS_STEEL_MILL</Type>
+			<Description>TXT_KEY_BUILDING_STEEL_MILL</Description>
+			<iCategory>24</iCategory>
+			<DefaultBuilding>BUILDING_STEEL_MILL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Stonemasons Workshop -->
 			<Type>BUILDINGCLASS_STONEMASONS_WORKSHOP</Type>
@@ -938,6 +956,13 @@
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_MT_RUSHMORE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- National Courier System -->
+			<Type>BUILDINGCLASS_NATIONAL_COURIER_SYSTEM</Type>
+			<Description>TXT_KEY_BUILDING_NATIONAL_COURIER_SYSTEM</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_NATIONAL_COURIER_SYSTEM</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- National Epic -->
 			<Type>BUILDINGCLASS_NATIONAL_EPIC</Type>
