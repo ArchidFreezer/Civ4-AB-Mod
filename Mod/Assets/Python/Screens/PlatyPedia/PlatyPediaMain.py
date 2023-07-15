@@ -2638,7 +2638,9 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 				iTech = gc.getReligionInfo(iReligion).getTechPrereq()
 				if iTech > -1:
 					iItemEra = max(iItemEra, gc.getTechInfo(iTech).getEra())
-			iItemEra = max(iItemEra, ItemInfo.getPrereqAndBonus())
+			iBonus = ItemInfo.getPrereqAndBonus()
+			if iBonus > -1:
+				iItemEra = max(iItemEra, self.getBonusEra(iBonus))
 			iTemp = 999999
 			for i in xrange(ItemInfo.getNumPrereqOrBonuses()):
 				iBonus = ItemInfo.getPrereqOrBonuses(i)
