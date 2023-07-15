@@ -1145,6 +1145,12 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_BUDDHIST_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Ceremonial Altar -->
+			<Type>BUILDINGCLASS_CEREMONIAL_ALTAR</Type>
+			<Description>TXT_KEY_BUILDING_CEREMONIAL_ALTAR</Description>
+			<iCategory>5</iCategory>
+			<DefaultBuilding>BUILDING_CEREMONIAL_ALTAR</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Christian Cathedral -->
 			<Type>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_CHRISTIAN_CATHEDRAL</Description>

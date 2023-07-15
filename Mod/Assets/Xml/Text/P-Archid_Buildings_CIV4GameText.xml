@@ -232,6 +232,20 @@
 		<Tag>TXT_KEY_BUILDING_CENTRAL_BANK_STRATEGY</Tag>
 		<English>Central Bank national wonder boosts city's commerce significantly</English>
 	</TEXT>
+	<TEXT> <!-- Ceremonial Altar -->
+		<Tag>TXT_KEY_BUILDING_CEREMONIAL_ALTAR</Tag>
+		<English>Ceremonial Altar</English>
+		<French>Autel de cérémonie</French>
+		<German>Zeremonienaltar</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CEREMONIAL_ALTAR_PEDIA</Tag>
+		<English>[TAB]A Ceremonial altar is structure upon which sacrifices or other offerings are made for religious purposes, or some other sacred place where ceremonies take place. </English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CEREMONIAL_ALTAR_STRATEGY</Tag>
+		<English>Ceremonial Altars provides happiness to your city and requires no religion.</English>
+	</TEXT>
 	<TEXT> <!-- Chemist -->
 		<Tag>TXT_KEY_BUILDING_CHEMIST</Tag>
 		<English>Chemist</English>
