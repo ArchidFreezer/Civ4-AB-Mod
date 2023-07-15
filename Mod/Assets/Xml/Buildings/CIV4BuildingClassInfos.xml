@@ -344,6 +344,24 @@
 			<iCategory>30</iCategory>
 			<DefaultBuilding>BUILDING_BANK</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Financial Nexus -->
+			<Type>BUILDINGCLASS_FINANCIAL_NEXUS</Type>
+			<Description>TXT_KEY_BUILDING_FINANCIAL_NEXUS</Description>
+			<iCategory>30</iCategory>
+			<DefaultBuilding>BUILDING_FINANCIAL_NEXUS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Investment Bank -->
+			<Type>BUILDINGCLASS_INVESTMENT_BANK</Type>
+			<Description>TXT_KEY_BUILDING_INVESTMENT_BANK</Description>
+			<iCategory>30</iCategory>
+			<DefaultBuilding>BUILDING_INVESTMENT_BANK</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Moneylender -->
+			<Type>BUILDINGCLASS_MONEYLENDER</Type>
+			<Description>TXT_KEY_BUILDING_MONEYLENDER</Description>
+			<iCategory>30</iCategory>
+			<DefaultBuilding>BUILDING_MONEYLENDER</DefaultBuilding>
+		</BuildingClassInfo>
 
 		<BuildingClassInfo> <!-- Colosseum -->                       <!-- Culture -->
 			<Type>BUILDINGCLASS_COLOSSEUM</Type>
@@ -803,6 +821,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_VERSAILLES</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- World Bank -->
+			<Type>BUILDINGCLASS_WORLD_BANK</Type>
+			<Description>TXT_KEY_BUILDING_WORLD_BANK</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_WORLD_BANK</DefaultBuilding>
+		</BuildingClassInfo>
 
 
 <!-- ************ -->
@@ -814,6 +839,13 @@
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
 			<DefaultBuilding>BUILDING_CAPITAL_ADMINISTRATION</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Central Bank -->
+			<Type>BUILDINGCLASS_CENTRAL_BANK</Type>
+			<Description>TXT_KEY_BUILDING_CENTRAL_BANK</Description>
+			<iCategory>3</iCategory>
+			<iMaxPlayerInstances>1</iMaxPlayerInstances>
+			<DefaultBuilding>BUILDING_CENTRAL_BANK</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Globe Theatre -->
 			<Type>BUILDINGCLASS_GLOBE_THEATRE</Type>
