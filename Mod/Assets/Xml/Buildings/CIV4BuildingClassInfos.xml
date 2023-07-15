@@ -40,7 +40,13 @@
 			<DefaultBuilding>BUILDING_VILLAGE_HALL</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Walls -->                           <!-- City Walls -->
+		<BuildingClassInfo> <!-- High Walls -->                      <!-- City Walls -->
+			<Type>BUILDINGCLASS_HIGH_WALLS</Type>
+			<Description>TXT_KEY_BUILDING_HIGH_WALLS</Description>
+			<iCategory>12</iCategory>
+			<DefaultBuilding>BUILDING_HIGH_WALLS</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Walls -->
 			<Type>BUILDINGCLASS_WALLS</Type>
 			<Description>TXT_KEY_BUILDING_WALLS</Description>
 			<iCategory>12</iCategory>
@@ -813,7 +819,7 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_EIFFEL_TOWER</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Einsteins Laboratory -->
+		<BuildingClassInfo> <!-- Einstein Lab -->
 			<Type>BUILDINGCLASS_EINSTEIN_LAB</Type>
 			<Description>TXT_KEY_BUILDING_EINSTEIN_LAB</Description>
 			<iCategory>2</iCategory>
