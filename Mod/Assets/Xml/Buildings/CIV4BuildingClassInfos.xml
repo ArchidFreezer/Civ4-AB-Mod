@@ -489,7 +489,13 @@
 			<DefaultBuilding>BUILDING_HYDRO_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Hospital -->                        <!-- Health -->
+		<BuildingClassInfo> <!-- Doctors Office -->                  <!-- Health -->
+			<Type>BUILDINGCLASS_DOCTORS_OFFICE</Type>
+			<Description>TXT_KEY_BUILDING_DOCTORS_OFFICE</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Hospital -->
 			<Type>BUILDINGCLASS_HOSPITAL</Type>
 			<Description>TXT_KEY_BUILDING_HOSPITAL</Description>
 			<iCategory>37</iCategory>
