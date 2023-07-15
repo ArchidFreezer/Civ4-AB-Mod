@@ -963,7 +963,7 @@
 			<Strategy>TXT_KEY_BUILDING_BATH_HOUSE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BATH_HOUSE</ArtDefineTag>
- 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
+			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
 			<ObsoleteTech>TECH_PUBLIC_HEALTH</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_CANALS</TechType>
@@ -3574,6 +3574,65 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Einstein Lab -->
+			<BuildingClass>BUILDINGCLASS_EINSTEIN_LAB</BuildingClass>
+			<Type>BUILDING_EINSTEIN_LAB</Type>
+			<Description>TXT_KEY_BUILDING_EINSTEIN_LAB</Description>
+			<Civilopedia>TXT_KEY_BUILDING_EINSTEIN_LAB_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_EINSTEIN_LAB_STRATEGY</Strategy>
+			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSITY</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_EINSTEIN</MovieDefineTag>
+			<ObsoleteTech>TECH_SUPERSTRING_THEORY</ObsoleteTech>
+			<PrereqAndTechs>
+				<TechType>TECH_THEORY_OF_RELATIVITY</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_SCIENTIST</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<bForceDisableStarSigns>1</bForceDisableStarSigns>
+			<iCost>1300</iCost>
+			<iHurryCostModifier>200</iHurryCostModifier>
+			<iConquestProb>100</iConquestProb>
+			<iAsset>12</iAsset>
+			<fVisibilityPriority>100.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>500</iCommerce>
+				<iCommerce>500</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>25</iCommerce>
+			</CommerceModifiers>
+			<FreeSpecialistCounts>
+				<FreeSpecialistCount>
+					<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+					<iCount>2</iCount>
+				</FreeSpecialistCount>
+			</FreeSpecialistCounts>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<ConstructSound>AS2D_BUILD_UNIVERSITY</ConstructSound>
+			<PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+			</PrereqAndBuildingClasses>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_SCIENCE</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Elder Council -->
 			<BuildingClass>BUILDINGCLASS_ELDER_COUNCIL</BuildingClass>
 			<Type>BUILDING_ELDER_COUNCIL</Type>
@@ -4346,7 +4405,7 @@
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
 					<iFlavor>10</iFlavor>
-				</Flavor>				
+				</Flavor>
 			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Globe Theatre -->
