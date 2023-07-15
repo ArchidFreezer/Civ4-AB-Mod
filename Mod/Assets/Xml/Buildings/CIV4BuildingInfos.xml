@@ -8778,6 +8778,35 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Trade Union -->
+			<BuildingClass>BUILDINGCLASS_TRADE_UNION</BuildingClass>
+			<Type>BUILDING_TRADE_UNION</Type>
+			<Description>TXT_KEY_BUILDING_TRADE_UNION</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TRADE_UNION_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TRADE_UNION_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_TRADE_UNION</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_TRADE_UNION</MovieDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_TRADE_UNIONS</TechType>
+			</PrereqAndTechs>
+			<iCost>1040</iCost>
+			<iAdvancedStartCost>-1</iAdvancedStartCost>
+			<iAreaHealth>1</iAreaHealth>
+			<iAreaHappiness>1</iAreaHappiness>
+			<iAsset>5</iAsset>
+			<ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Treadmill Crane -->
 			<BuildingClass>BUILDINGCLASS_TREADMILL_CRANE</BuildingClass>
 			<Type>BUILDING_TREADMILL_CRANE</Type>
