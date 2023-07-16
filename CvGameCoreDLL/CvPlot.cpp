@@ -8501,7 +8501,7 @@ void CvPlot::doImprovementSpawn() {
 										pUnit->setBaseCombatStr(iStrength);
 										pUnit->changeFortifyTurns(5);
 										pUnit->changeAlwaysHealCount(1);
-										pUnit->setAlwaysHostile(false);
+										pUnit->setOnlyDefensiveCount(1);
 									}
 								}
 							}

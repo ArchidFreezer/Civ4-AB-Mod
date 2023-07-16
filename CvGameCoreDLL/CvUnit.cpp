@@ -345,6 +345,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iPlunderValue = 0;
 	m_iWeaponStrength = 0;
 	m_iAmmunitionStrength = 0;
+	m_iOnlyDefensiveCount = 0;
 
 	m_bMadeAttack = false;
 	m_bMadeInterception = false;
@@ -6846,7 +6847,7 @@ bool CvUnit::isNoBadGoodies() const {
 
 
 bool CvUnit::isOnlyDefensive() const {
-	return m_pUnitInfo->isOnlyDefensive();
+	return m_pUnitInfo->isOnlyDefensive() || getOnlyDefensiveCount() > 0;
 }
 
 
@@ -10259,6 +10260,7 @@ void CvUnit::read(FDataStreamBase* pStream) {
 	pStream->Read(&m_iExtraMorale);
 	pStream->Read(&m_iEnemyMoraleModifier);
 	pStream->Read(&m_iPlunderValue);
+	pStream->Read(&m_iOnlyDefensiveCount);
 
 	pStream->Read(&m_bMadeAttack);
 	pStream->Read(&m_bMadeInterception);
@@ -10431,6 +10433,7 @@ void CvUnit::write(FDataStreamBase* pStream) {
 	pStream->Write(m_iExtraMorale);
 	pStream->Write(m_iEnemyMoraleModifier);
 	pStream->Write(m_iPlunderValue);
+	pStream->Write(m_iOnlyDefensiveCount);
 
 	pStream->Write(m_bMadeAttack);
 	pStream->Write(m_bMadeInterception);
@@ -13590,4 +13593,16 @@ bool CvUnit::performGreatJest() {
 	}
 	kill(false);
 	return true;
+}
+
+int CvUnit::getOnlyDefensiveCount() const {
+	return m_iOnlyDefensiveCount;
+}
+
+void CvUnit::setOnlyDefensiveCount(int iValue) {
+	m_iOnlyDefensiveCount = iValue;
+}
+
+void CvUnit::changeOnlyDefensiveCount(int iChange) {
+	setOnlyDefensiveCount(getOnlyDefensiveCount() + iChange);
 }

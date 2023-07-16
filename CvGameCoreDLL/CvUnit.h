@@ -88,6 +88,10 @@ public:
 	void reset(int iID = 0, UnitTypes eUnit = NO_UNIT, PlayerTypes eOwner = NO_PLAYER, bool bConstructorCall = false);
 	void setupGraphical();
 
+	int getOnlyDefensiveCount() const;
+	void changeOnlyDefensiveCount(int iChange);
+	void setOnlyDefensiveCount(int iValue);
+
 	bool canPerformGreatJest(CvPlot* pPlot) const;
 	bool performGreatJest();
 	int getGreatJestHappiness() const;
@@ -1060,6 +1064,7 @@ protected:
 	int m_iPlunderValue;
 	int m_iWeaponStrength; // Cached for speed
 	int m_iAmmunitionStrength; // Cached for speed
+	int m_iOnlyDefensiveCount;
 
 	bool m_bMadeAttack;
 	bool m_bMadeInterception;
