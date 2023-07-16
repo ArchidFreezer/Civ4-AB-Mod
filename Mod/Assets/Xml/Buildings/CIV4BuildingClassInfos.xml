@@ -681,6 +681,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_HEALERS_HUT</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Health Spa -->
+			<Type>BUILDINGCLASS_HEALTH_SPA</Type>
+			<Description>TXT_KEY_BUILDING_HEALTH_SPA</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_HEALTH_SPA</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hospital -->
 			<Type>BUILDINGCLASS_HOSPITAL</Type>
 			<Description>TXT_KEY_BUILDING_HOSPITAL</Description>
