@@ -4241,6 +4241,7 @@
 			<iAsset>8</iAsset>
 			<bTrade>1</bTrade>
 			<bGoodyTech>1</bGoodyTech>
+			<bWaterWork>1</bWaterWork>
 			<iGridX>1</iGridX>
 			<iGridY>1</iGridY>
 			<Flavors>
