@@ -391,5 +391,9 @@
 			<Type>ART_DEF_MOVIE_WEST_POINT</Type>
 			<Path>Art/Movies/NWonders/WestPoint.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Ancient Mysteries -->
+			<Type>ART_DEF_MOVIE_ANCIENT_MYSTERIES</Type>
+			<Path>Art/Movies/NWonders/AncientMysteries.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
