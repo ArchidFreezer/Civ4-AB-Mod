@@ -534,6 +534,12 @@
 			<iCategory>32</iCategory>
 			<DefaultBuilding>BUILDING_BROTHEL</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Cinema -->
+			<Type>BUILDINGCLASS_CINEMA</Type>
+			<Description>TXT_KEY_BUILDING_CINEMA</Description>
+			<iCategory>32</iCategory>
+			<DefaultBuilding>BUILDING_CINEMA</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Communication Tower -->
 			<Type>BUILDINGCLASS_COMMUNICATION_TOWER</Type>
 			<Description>TXT_KEY_BUILDING_COMMUNICATION_TOWER</Description>
