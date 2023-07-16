@@ -505,7 +505,6 @@
 			<Description>TXT_KEY_BUILD_OBSIDIAN_CAMP</Description>
 			<ObsoleteTech>TECH_MACHINERY</ObsoleteTech>
 			<iTime>200</iTime>
-			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_OBSIDIAN_CAMP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_O</HotKey>
@@ -755,7 +754,6 @@
 			<Type>BUILD_TIMBER_CAMP</Type>
 			<Description>TXT_KEY_BUILD_TIMBER_CAMP</Description>
 			<iTime>200</iTime>
-			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_TIMBER_CAMP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_L</HotKey>
