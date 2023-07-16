@@ -8937,7 +8937,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- National TV Station -->
+		<BuildingInfo> <!-- National Tv Station -->
 			<BuildingClass>BUILDINGCLASS_NATIONAL_TV_STATION</BuildingClass>
 			<Type>BUILDING_NATIONAL_TV_STATION</Type>
 			<Description>TXT_KEY_BUILDING_NATIONAL_TV_STATION</Description>
@@ -9432,7 +9432,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Pont du Gard Aqueduct -->
+		<BuildingInfo> <!-- Pont Du Gard Aqueduct -->
 			<BuildingClass>BUILDINGCLASS_PONT_DU_GARD_AQUEDUCT</BuildingClass>
 			<Type>BUILDING_PONT_DU_GARD_AQUEDUCT</Type>
 			<Description>TXT_KEY_BUILDING_PONT_DU_GARD_AQUEDUCT</Description>
@@ -9837,7 +9837,7 @@
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<iCost>600</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
-			<iHealRateChange>25</iHealRateChange>				
+			<iHealRateChange>25</iHealRateChange>
 			<iAsset>8</iAsset>
 			<iPower>4</iPower>
 			<ObsoleteSafeCommerceChanges>
@@ -12417,7 +12417,7 @@
 			</CommerceModifiers>
 			<GlobalCommerceModifiers>
 				<iCommerce>10</iCommerce>
-			</GlobalCommerceModifiers>		
+			</GlobalCommerceModifiers>
 			<ConstructSound>AS2D_BUILD_MARKETPLACE</ConstructSound>
 			<PrereqAndBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
@@ -14557,6 +14557,41 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Universal Health Care -->
+			<BuildingClass>BUILDINGCLASS_UNIVERSAL_HEALTH_CARE</BuildingClass>
+			<Type>BUILDING_UNIVERSAL_HEALTH_CARE</Type>
+			<Description>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_UNIVERSAL_HEALTH_CARE_STRATEGY</Strategy>
+			<Advisor>ADVISOR_GROWTH</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSAL_HEALTH_CARE</ArtDefineTag>
+			<PrereqAndTechs>
+				<TechType>TECH_LIBERALISM</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_DOCTOR</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<iConquestProb>100</iConquestProb>
+			<iGlobalHealth>2</iGlobalHealth>
+			<iGlobalPopulationChange>1</iGlobalPopulationChange>
+			<iAsset>22</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+				<iCommerce>0</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeOriginalOwners>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
+				<bCommerceChangeOriginalOwner>0</bCommerceChangeOriginalOwner>
+			</CommerceChangeOriginalOwners>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
 			</Flavors>
