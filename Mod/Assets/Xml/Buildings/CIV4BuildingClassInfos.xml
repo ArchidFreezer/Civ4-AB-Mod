@@ -98,6 +98,12 @@
 			<iCategory>16</iCategory>
 			<DefaultBuilding>BUILDING_GRANARY</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Modern Granary -->
+			<Type>BUILDINGCLASS_MODERN_GRANARY</Type>
+			<Description>TXT_KEY_BUILDING_MODERN_GRANARY</Description>
+			<iCategory>16</iCategory>
+			<DefaultBuilding>BUILDING_MODERN_GRANARY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Poultry Farm -->
 			<Type>BUILDINGCLASS_POULTRY_FARM</Type>
 			<Description>TXT_KEY_BUILDING_POULTRY_FARM</Description>
