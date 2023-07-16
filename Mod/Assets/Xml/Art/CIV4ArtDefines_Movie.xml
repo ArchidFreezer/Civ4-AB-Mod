@@ -331,5 +331,65 @@
 			<Type>ART_DEF_MOVIE_PONT_DU_GARD</Type>
 			<Path>Art/Movies/Wonders/PontDuGard.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_GREAT_PALACE</Type>
+			<Path>Art/Movies/NWonders/GreatPalace.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_GLOBE_THEATRE</Type>
+			<Path>Art/Movies/NWonders/GlobeTheatre.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_HERMITAGE</Type>
+			<Path>Art/Movies/NWonders/Hermitage.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_HEROIC_EPIC</Type>
+			<Path>Art/Movies/NWonders/HeroicEpic.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_IRON_WORKS</Type>
+			<Path>Art/Movies/NWonders/IronWorks.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_MOAI_STATUES</Type>
+			<Path>Art/Movies/NWonders/Moai.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_MILITARY_ACADEMY</Type>
+			<Path>Art/Movies/NWonders/MilitaryAcademy.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_NATIONAL_EPIC</Type>
+			<Path>Art/movies/NWonders/NationalEpic.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_NATIONAL_PARK</Type>
+			<Path>Art/Movies/NWonders/NationalPark.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_OXFORD_UNIVERSITY</Type>
+			<Path>Art/Movies/NWonders/OxfordUniversity.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_RED_CROSS</Type>
+			<Path>Art/Movies/NWonders/RedCross.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_MT_RUSHMORE</Type>
+			<Path>Art/Movies/NWonders/MtRushmore.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_SCOTLAND_YARD</Type>
+			<Path>Art/Movies/NWonders/ScotlandYard.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_WALL_STREET</Type>
+			<Path>Art/Movies/NWonders/WallStreet.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo>
+			<Type>ART_DEF_MOVIE_WEST_POINT</Type>
+			<Path>Art/Movies/NWonders/WestPoint.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

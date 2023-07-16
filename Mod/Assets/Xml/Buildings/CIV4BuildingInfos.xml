@@ -4515,6 +4515,7 @@
 			<Strategy>TXT_KEY_BUILDING_GLOBE_THEATRE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GLOBE_THEATRE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_GLOBE_THEATRE</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_DRAMA</TechType>
 			</PrereqAndTechs>
@@ -4832,6 +4833,7 @@
 			<Strategy>TXT_KEY_BUILDING_GREAT_PALACE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GREAT_PALACE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_GREAT_PALACE</MovieDefineTag>
 			<GreatPeopleUnitClass>UNITCLASS_GREAT_SPY</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<bGovernmentCenter>1</bGovernmentCenter>
@@ -5643,6 +5645,7 @@
 			<Strategy>TXT_KEY_BUILDING_HERMITAGE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HERMITAGE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_HERMITAGE</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_NATIONALISM</TechType>
 			</PrereqAndTechs>
@@ -5677,6 +5680,7 @@
 			<Strategy>TXT_KEY_BUILDING_HEROIC_EPIC_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_HEROIC_EPIC</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_HEROIC_EPIC</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
 			<PrereqAndTechs>
 				<TechType>TECH_LITERATURE</TechType>
@@ -6447,6 +6451,7 @@
 			<Strategy>TXT_KEY_BUILDING_IRONWORKS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_IRON_WORKS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_IRON_WORKS</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_STEEL</TechType>
 			</PrereqAndTechs>
@@ -8151,6 +8156,7 @@
 			<Strategy>TXT_KEY_BUILDING_MOAI_STATUES_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MOAI_STATUES</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_MOAI_STATUES</MovieDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<PrereqAndTechs>
 				<TechType>TECH_SAILING</TechType>
@@ -8537,6 +8543,7 @@
 			<Strategy>TXT_KEY_BUILDING_MT_RUSHMORE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MT_RUSHMORE</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_MT_RUSHMORE</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_FASCISM</TechType>
 			</PrereqAndTechs>
@@ -8719,6 +8726,7 @@
 			<Strategy>TXT_KEY_BUILDING_NATIONAL_EPIC_STRATEGY</Strategy>
 			<Advisor>ADVISOR_CULTURE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_EPIC</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_NATIONAL_EPIC</MovieDefineTag>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
 			<PrereqAndTechs>
 				<TechType>TECH_LITERATURE</TechType>
@@ -8763,6 +8771,7 @@
 			<Strategy>TXT_KEY_BUILDING_NATIONAL_PARK_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_NATIONAL_PARK</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_NATIONAL_PARK</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_BIOLOGY</TechType>
 			</PrereqAndTechs>
@@ -9221,6 +9230,7 @@
 			<Strategy>TXT_KEY_BUILDING_OXFORD_UNIVERSITY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_OXFORD_UNIVERSITY</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_OXFORD_UNIVERSITY</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_EDUCATION</TechType>
 			</PrereqAndTechs>
@@ -9783,6 +9793,7 @@
 			<Strategy>TXT_KEY_BUILDING_RED_CROSS_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_RED_CROSS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_RED_CROSS</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_MEDICINE</TechType>
 			</PrereqAndTechs>
@@ -12689,6 +12700,7 @@
 			<Strategy>TXT_KEY_BUILDING_WALL_STREET_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_WALL_STREET</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_WALL_STREET</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_CORPORATION</TechType>
 			</PrereqAndTechs>
@@ -12934,6 +12946,7 @@
 			<Strategy>TXT_KEY_BUILDING_WEST_POINT_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_WEST_POINT</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_WEST_POINT</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_MILITARY_TRADITION</TechType>
 			</PrereqAndTechs>
@@ -14407,6 +14420,7 @@
 			<Strategy>TXT_KEY_THIRD_ROUND_BUILDING_MILITARY_ACADEMY_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MILITARY_ACADEMY</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_MILITARY_ACADEMY</MovieDefineTag>
 			<PrereqAndTechs>
 				<TechType>TECH_MILITARY_SCIENCE</TechType>
 			</PrereqAndTechs>
@@ -14440,6 +14454,7 @@
 			<Strategy>TXT_KEY_BUILDING_SCOTLAND_YARD_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_SCOTLAND_YARD</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_SCOTLAND_YARD</MovieDefineTag>
 			<iCost>-1</iCost>
 			<iConquestProb>100</iConquestProb>
 			<iAsset>8</iAsset>
