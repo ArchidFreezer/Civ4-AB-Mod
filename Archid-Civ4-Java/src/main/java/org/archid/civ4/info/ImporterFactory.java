@@ -9,6 +9,7 @@ import org.archid.civ4.info.civic.CivicImporter;
 import org.archid.civ4.info.era.EraImporter;
 import org.archid.civ4.info.event.EventImporter;
 import org.archid.civ4.info.eventtrigger.EventTriggerImporter;
+import org.archid.civ4.info.promotion.PromotionImporter;
 import org.archid.civ4.info.tech.TechImporter;
 import org.archid.civ4.info.unit.UnitImporter;
 
@@ -43,6 +44,9 @@ public class ImporterFactory {
 			break;
 		case EVENT_TRIGGER:
 			importer = new EventTriggerImporter(infoType);
+			break;
+		case PROMOTION:
+			importer = new PromotionImporter(infoType);
 			break;
 		case TECH:
 			importer = new TechImporter(infoType);

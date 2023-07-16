@@ -123,6 +123,9 @@ public class JavaGenerator {
 		} else if (tag.equals("Civ4EventTriggerInfos")) {
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod\\mod\\Assets\\Xml\\Events");
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA, "CIV4EventSchema.xml");
+		} else if (tag.equals("CIV4PromotionInfos")) {
+			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod\\mod\\Assets\\Xml\\Units");
+			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA, "CIV4UnitSchema.xml");
 		} else if (tag.equals("Civ4TechInfos")) {
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA_DIR, "E:\\Projects\\Civ4\\github\\Civ4-AB-Mod\\mod\\Assets\\Xml\\Technologies");
 			props.setAppProperty(PropertyKeys.PROPERTY_KEY_MOD_SCHEMA, "CIV4TechnologiesSchema.xml");

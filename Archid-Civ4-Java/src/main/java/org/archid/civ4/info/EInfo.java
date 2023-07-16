@@ -9,6 +9,7 @@ public enum EInfo {
 	ERA("GameInfo", "CIV4EraInfos.xml"),
 	EVENT("Events", "CIV4EventInfos.xml"),
 	EVENT_TRIGGER("Events", "CIV4EventTriggerInfos.xml"),
+	PROMOTION("Units", "CIV4PromotionInfos.xml"),
 	TECH("Technologies", "CIV4TechInfos.xml"),
 	UNIT("Units", "CIV4UnitInfos.xml"),
 	UNKNOWN("unknown", "UnknownInfo");

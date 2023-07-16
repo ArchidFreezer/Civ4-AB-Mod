@@ -104,6 +104,8 @@ public class InfoUtils {
 					infoType = EInfo.EVENT;
 				else if (cmd.getOptionValue("t").equalsIgnoreCase("eventtrigger"))
 					infoType = EInfo.EVENT_TRIGGER;
+				else if (cmd.getOptionValue("t").equalsIgnoreCase("promotion"))
+					infoType = EInfo.PROMOTION;
 				else if (cmd.getOptionValue("t").equalsIgnoreCase("tech"))
 					infoType = EInfo.TECH;
 				else if (cmd.getOptionValue("t").equalsIgnoreCase("unit"))

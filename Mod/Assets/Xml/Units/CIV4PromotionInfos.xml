@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jon Shafer (Firaxis Games) --><!-- Sid Meier's Civilization 4 --><!-- Copyright Firaxis Games 2005 --><!-- --><!-- Promotion Infos --><Civ4PromotionInfos xmlns="x-schema:CIV4UnitSchema.xml">
+<?xml version="1.0"?>
+<Civ4PromotionInfos xmlns="x-schema:CIV4UnitSchema.xml">
 	<PromotionInfos>
-		<PromotionInfo> <!-- Accuracy I -->
+		<PromotionInfo> <!-- Accuracy1 -->
 			<Type>PROMOTION_ACCURACY1</Type>
 			<Description>TXT_KEY_PROMOTION_ACCURACY</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -17,10 +18,9 @@
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Accuracy.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,1</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Accuracy II -->
+		<PromotionInfo> <!-- Accuracy2 -->
 			<Type>PROMOTION_ACCURACY2</Type>
 			<Description>TXT_KEY_PROMOTION_ACCURACY2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -33,7 +33,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Accuracy2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Accuracy III -->
+		<PromotionInfo> <!-- Accuracy3 -->
 			<Type>PROMOTION_ACCURACY3</Type>
 			<Description>TXT_KEY_PROMOTION_ACCURACY3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -46,7 +46,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Accuracy3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Ace Pilot -->
+		<PromotionInfo> <!-- Ace -->
 			<Type>PROMOTION_ACE</Type>
 			<Description>TXT_KEY_PROMOTION_ACE</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -66,7 +66,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/acepilot.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Air Defence I -->
+		<PromotionInfo> <!-- Air Defence1 -->
 			<Type>PROMOTION_AIR_DEFENCE1</Type>
 			<Description>TXT_KEY_PROMOTION_AIR_DEFENCE1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -92,7 +92,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/air_defence1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Air Defence II -->
+		<PromotionInfo> <!-- Air Defence2 -->
 			<Type>PROMOTION_AIR_DEFENCE2</Type>
 			<Description>TXT_KEY_PROMOTION_AIR_DEFENCE2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -116,7 +116,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/air_defence2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Air Defence III -->
+		<PromotionInfo> <!-- Air Defence3 -->
 			<Type>PROMOTION_AIR_DEFENCE3</Type>
 			<Description>TXT_KEY_PROMOTION_AIR_DEFENCE3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -137,7 +137,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/air_defence3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Air to Air Missiles I -->
+		<PromotionInfo> <!-- Air To Air1 -->
 			<Type>PROMOTION_AIR_TO_AIR1</Type>
 			<Description>TXT_KEY_PROMOTION_AIR_TO_AIR1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -149,7 +149,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/air_to_air1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Air to Air Missiles II -->
+		<PromotionInfo> <!-- Air To Air2 -->
 			<Type>PROMOTION_AIR_TO_AIR2</Type>
 			<Description>TXT_KEY_PROMOTION_AIR_TO_AIR2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -165,7 +165,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/air_to_air2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Air to Air Missiles III -->
+		<PromotionInfo> <!-- Air To Air3 -->
 			<Type>PROMOTION_AIR_TO_AIR3</Type>
 			<Description>TXT_KEY_PROMOTION_AIR_TO_AIR3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -181,33 +181,31 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/air_to_air3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Alchemist 1 -->
+		<PromotionInfo> <!-- Alchemist1 -->
 			<Type>PROMOTION_ALCHEMIST1</Type>
 			<Description>TXT_KEY_PROMOTION_ALCHEMIST1</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_EVASION1</PromotionPrereq>
 			<iSpyPoisonModifier>50</iSpyPoisonModifier>
-			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>			
+			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Alchemist1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Alchemist 2 -->
+		<PromotionInfo> <!-- Alchemist2 -->
 			<Type>PROMOTION_ALCHEMIST2</Type>
 			<Description>TXT_KEY_PROMOTION_ALCHEMIST2</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_ALCHEMIST1</PromotionPrereq>
 			<iSpyPoisonModifier>50</iSpyPoisonModifier>
-			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>				
+			<iSpyDestroyImprovementChange>50</iSpyDestroyImprovementChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Alchemist2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Alchemist 3 -->
+		<PromotionInfo> <!-- Alchemist3 -->
 			<Type>PROMOTION_ALCHEMIST3</Type>
 			<Description>TXT_KEY_PROMOTION_ALCHEMIST3</Description>
 			<Sound>AS2D_PING</Sound>
@@ -217,7 +215,6 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Alchemist3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Ambush -->
@@ -246,7 +243,6 @@
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Ambush.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,1</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Amphibious -->
@@ -267,11 +263,10 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Amphibious.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,1</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Cottages -->
-			<Type>PROMOTION_ARBORIALCOTTAGES</Type>
+			<Type>PROMOTION_ARBORIAL_COTTAGES</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALCOTTAGES</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -288,11 +283,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_cottages.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Farmer -->
-			<Type>PROMOTION_ARBORIALFARMER</Type>
+			<Type>PROMOTION_ARBORIAL_FARMER</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALFARMER</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -309,11 +303,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_farms.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Mines -->
-			<Type>PROMOTION_ARBORIALMINES</Type>
+			<Type>PROMOTION_ARBORIAL_MINES</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALMINES</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -330,11 +323,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_mines.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Pastures -->
-			<Type>PROMOTION_ARBORIALPASTURES</Type>
+			<Type>PROMOTION_ARBORIAL_PASTURES</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALPASTURES</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -351,11 +343,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_pastures.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Plantations -->
-			<Type>PROMOTION_ARBORIALPLANTATIONS</Type>
+			<Type>PROMOTION_ARBORIAL_PLANTATIONS</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALPLANTATIONS</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -372,11 +363,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_plantations.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Quarries -->
-			<Type>PROMOTION_ARBORIALQUARRIES</Type>
+			<Type>PROMOTION_ARBORIAL_QUARRIES</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALQUARRIES</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -393,11 +383,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_quarries.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Watermills -->
-			<Type>PROMOTION_ARBORIALWATERMILLS</Type>
+			<Type>PROMOTION_ARBORIAL_WATERMILLS</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALWATERMILLS</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -414,11 +403,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_watermills.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Wells -->
-			<Type>PROMOTION_ARBORIALWELLS</Type>
+			<Type>PROMOTION_ARBORIAL_WELLS</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALWELLS</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -435,11 +423,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_wells.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Windmills -->
-			<Type>PROMOTION_ARBORIALWINDMILLS</Type>
+			<Type>PROMOTION_ARBORIAL_WINDMILLS</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALWINDMILLS</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -456,11 +443,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_windmills.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Arborial Wineries -->
-			<Type>PROMOTION_ARBORIALWINERY</Type>
+		<PromotionInfo> <!-- Arborial Winery -->
+			<Type>PROMOTION_ARBORIAL_WINERY</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALWINERY</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -477,11 +463,10 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_wineries.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Arborial Workshops -->
-			<Type>PROMOTION_ARBORIALWORKSHOPS</Type>
+			<Type>PROMOTION_ARBORIAL_WORKSHOPS</Type>
 			<Description>TXT_KEY_PROMOTION_ARBORIALWORKSHOPS</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<TechPrereq>TECH_MEDICINE</TechPrereq>
@@ -498,10 +483,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/arborial_workshops.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Barrage 1 -->
+		<PromotionInfo> <!-- Barrage1 -->
 			<Type>PROMOTION_BARRAGE1</Type>
 			<Description>TXT_KEY_PROMOTION_BARRAGE1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -514,10 +498,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Barrage1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,1</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Barrage 2 -->
+		<PromotionInfo> <!-- Barrage2 -->
 			<Type>PROMOTION_BARRAGE2</Type>
 			<Description>TXT_KEY_PROMOTION_BARRAGE2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -539,10 +522,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Barrage2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,1</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Barrage 3 -->
+		<PromotionInfo> <!-- Barrage3 -->
 			<Type>PROMOTION_BARRAGE3</Type>
 			<Description>TXT_KEY_PROMOTION_BARRAGE3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -563,7 +545,6 @@
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Barrage3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,1</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Blitz -->
@@ -585,7 +566,6 @@
 				<UnitCombatType>UNITCOMBAT_DIESEL_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Blitz.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,1</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Charge -->
@@ -608,10 +588,9 @@
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Charge.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- City Garrison 1 -->
+		<PromotionInfo> <!-- City Garrison1 -->
 			<Type>PROMOTION_CITY_GARRISON1</Type>
 			<Description>TXT_KEY_PROMOTION_GARRISON1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -620,10 +599,9 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityGarrison1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- City Garrison 2 -->
+		<PromotionInfo> <!-- City Garrison2 -->
 			<Type>PROMOTION_CITY_GARRISON2</Type>
 			<Description>TXT_KEY_PROMOTION_GARRISON2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -635,10 +613,9 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityGarrison2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- City Garrison 3 -->
+		<PromotionInfo> <!-- City Garrison3 -->
 			<Type>PROMOTION_CITY_GARRISON3</Type>
 			<Description>TXT_KEY_PROMOTION_GARRISON3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -656,10 +633,9 @@
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityGarrison3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- City Raider 1 -->
+		<PromotionInfo> <!-- City Raider1 -->
 			<Type>PROMOTION_CITY_RAIDER1</Type>
 			<Description>TXT_KEY_PROMOTION_CITYRAIDER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -669,10 +645,9 @@
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityRaider1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- City Raider 2 -->
+		<PromotionInfo> <!-- City Raider2 -->
 			<Type>PROMOTION_CITY_RAIDER2</Type>
 			<Description>TXT_KEY_PROMOTION_CITYRAIDER2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -685,10 +660,9 @@
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityRaider2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- City Raider 3 -->
+		<PromotionInfo> <!-- City Raider3 -->
 			<Type>PROMOTION_CITY_RAIDER3</Type>
 			<Description>TXT_KEY_PROMOTION_CITYRAIDER3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -707,10 +681,9 @@
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/CityRaider3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Combat 1 -->
+		<PromotionInfo> <!-- Combat1 -->
 			<Type>PROMOTION_COMBAT1</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -736,10 +709,9 @@
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Combat 2 -->
+		<PromotionInfo> <!-- Combat2 -->
 			<Type>PROMOTION_COMBAT2</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -768,10 +740,9 @@
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,6</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Combat 3 -->
+		<PromotionInfo> <!-- Combat3 -->
 			<Type>PROMOTION_COMBAT3</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -800,10 +771,9 @@
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,6</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Combat 4 -->
+		<PromotionInfo> <!-- Combat4 -->
 			<Type>PROMOTION_COMBAT4</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT4</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -833,10 +803,9 @@
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat4.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,6</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Combat 5 -->
+		<PromotionInfo> <!-- Combat5 -->
 			<Type>PROMOTION_COMBAT5</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT5</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -865,10 +834,9 @@
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,6</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Combat 6 -->
+		<PromotionInfo> <!-- Combat6 -->
 			<Type>PROMOTION_COMBAT6</Type>
 			<Description>TXT_KEY_PROMOTION_COMBAT6</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -897,7 +865,6 @@
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,15</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Commando -->
@@ -918,46 +885,42 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Commando.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,3</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Conspiracy 1 -->
+		<PromotionInfo> <!-- Conspiracy1 -->
 			<Type>PROMOTION_CONSPIRACY1</Type>
 			<Description>TXT_KEY_PROMOTION_CONSPIRACY1</Description>
 			<Sound>AS2D_PING</Sound>
 			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
 			<iSpySwitchCivicChange>50</iSpySwitchCivicChange>
-			<iSpySwitchReligionChange>50</iSpySwitchReligionChange>				
+			<iSpySwitchReligionChange>50</iSpySwitchReligionChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Conspiracy1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Conspiracy 2 -->
+		<PromotionInfo> <!-- Conspiracy2 -->
 			<Type>PROMOTION_CONSPIRACY2</Type>
 			<Description>TXT_KEY_PROMOTION_CONSPIRACY2</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_CONSPIRACY1</PromotionPrereq>
 			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
-			<iSpyDisablePowerChange>50</iSpyDisablePowerChange>		
+			<iSpyDisablePowerChange>50</iSpyDisablePowerChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Conspiracy2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Conspiracy 3 -->
+		<PromotionInfo> <!-- Conspiracy3 -->
 			<Type>PROMOTION_CONSPIRACY3</Type>
 			<Description>TXT_KEY_PROMOTION_CONSPIRACY3</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_CONSPIRACY2</PromotionPrereq>
 			<iSpyDiploPenaltyChange>50</iSpyDiploPenaltyChange>
-			<iSpyNukeCityChange>50</iSpyNukeCityChange>		
+			<iSpyNukeCityChange>50</iSpyNukeCityChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Conspiracy3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Cover -->
@@ -979,10 +942,9 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Cover.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Crew Buccaneers -->
+		<PromotionInfo> <!-- Crew Buccaneer -->
 			<Type>PROMOTION_CREW_BUCCANEER</Type>
 			<Description>TXT_KEY_PROMOTION_CREW_BUCCANEER</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1037,10 +999,9 @@
 			<Description>TXT_KEY_PROMOTION_DISORGANIZED</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<iCombatPercent>-10</iCombatPercent>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/broken_combat.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Drill 1 -->
+		<PromotionInfo> <!-- Drill1 -->
 			<Type>PROMOTION_DRILL1</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1058,10 +1019,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,3</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Drill 2 -->
+		<PromotionInfo> <!-- Drill2 -->
 			<Type>PROMOTION_DRILL2</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1083,10 +1043,9 @@
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,3</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Drill 3 -->
+		<PromotionInfo> <!-- Drill3 -->
 			<Type>PROMOTION_DRILL3</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1108,10 +1067,9 @@
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill3.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,3</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Drill 4 -->
+		<PromotionInfo> <!-- Drill4 -->
 			<Type>PROMOTION_DRILL4</Type>
 			<Description>TXT_KEY_PROMOTION_DRILL4</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1139,10 +1097,9 @@
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Drill4.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,3</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Escape 1 -->
+		<PromotionInfo> <!-- Escape1 -->
 			<Type>PROMOTION_ESCAPE1</Type>
 			<Description>TXT_KEY_PROMOTION_ESCAPE1</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1151,10 +1108,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Escape1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Escape 2 -->
+		<PromotionInfo> <!-- Escape2 -->
 			<Type>PROMOTION_ESCAPE2</Type>
 			<Description>TXT_KEY_PROMOTION_ESCAPE2</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1166,10 +1122,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Escape2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Evasion 1 -->
+		<PromotionInfo> <!-- Evasion1 -->
 			<Type>PROMOTION_EVASION1</Type>
 			<Description>TXT_KEY_PROMOTION_EVASION1</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1177,10 +1132,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Evasion1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Evasion 2 -->
+		<PromotionInfo> <!-- Evasion2 -->
 			<Type>PROMOTION_EVASION2</Type>
 			<Description>TXT_KEY_PROMOTION_EVASION2</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1189,10 +1143,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Evasion2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Evasion 3 -->
+		<PromotionInfo> <!-- Evasion3 -->
 			<Type>PROMOTION_EVASION3</Type>
 			<Description>TXT_KEY_PROMOTION_EVASION3</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1201,10 +1154,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Evasion3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Flanking 1 -->
+		<PromotionInfo> <!-- Flanking1 -->
 			<Type>PROMOTION_FLANKING1</Type>
 			<Description>TXT_KEY_PROMOTION_FLANKING1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1219,10 +1171,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Flanking1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,3</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Flanking 2 -->
+		<PromotionInfo> <!-- Flanking2 -->
 			<Type>PROMOTION_FLANKING2</Type>
 			<Description>TXT_KEY_PROMOTION_FLANKING2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1241,7 +1192,6 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Flanking2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,3</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Formation -->
@@ -1264,10 +1214,9 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Formation.dds,Art/Interface/Buttons/Promotions_Atlas.dds,1,2</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Guerilla 1 -->
+		<PromotionInfo> <!-- Guerilla1 -->
 			<Type>PROMOTION_GUERILLA1</Type>
 			<Description>TXT_KEY_PROMOTION_GUERILLA1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1279,10 +1228,9 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Guerilla 2 -->
+		<PromotionInfo> <!-- Guerilla2 -->
 			<Type>PROMOTION_GUERILLA2</Type>
 			<Description>TXT_KEY_PROMOTION_GUERILLA2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1298,10 +1246,9 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Guerilla 3 -->
+		<PromotionInfo> <!-- Guerilla3 -->
 			<Type>PROMOTION_GUERILLA3</Type>
 			<Description>TXT_KEY_PROMOTION_GUERILLA3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1316,10 +1263,9 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Guerilla2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,5</Button>
 		</PromotionInfo>
-		<PromotionInfo>	<!-- Heal 1 -->
+		<PromotionInfo> <!-- Heal1 -->
 			<Type>PROMOTION_HEAL1</Type>
 			<Description>TXT_KEY_PROMOTION_HEAL1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1350,7 +1296,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Heal1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo>	<!-- Heal 2 -->
+		<PromotionInfo> <!-- Heal2 -->
 			<Type>PROMOTION_HEAL2</Type>
 			<Description>TXT_KEY_PROMOTION_HEAL2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1379,7 +1325,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/Heal2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo>	<!-- Heal 3 -->
+		<PromotionInfo> <!-- Heal3 -->
 			<Type>PROMOTION_HEAL3</Type>
 			<Description>TXT_KEY_PROMOTION_HEAL3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1434,7 +1380,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/improved_radar.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Improvise 1 -->
+		<PromotionInfo> <!-- Improvise1 -->
 			<Type>PROMOTION_IMPROVISE1</Type>
 			<Description>TXT_KEY_PROMOTION_IMPROVISE1</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1442,10 +1388,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Improvise1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Improvise 2 -->
+		<PromotionInfo> <!-- Improvise2 -->
 			<Type>PROMOTION_IMPROVISE2</Type>
 			<Description>TXT_KEY_PROMOTION_IMPROVISE2</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1454,10 +1399,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Improvise2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Improvise 3 -->
+		<PromotionInfo> <!-- Improvise3 -->
 			<Type>PROMOTION_IMPROVISE3</Type>
 			<Description>TXT_KEY_PROMOTION_IMPROVISE3</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1466,10 +1410,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Improvise3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Improvise 4 -->
+		<PromotionInfo> <!-- Improvise4 -->
 			<Type>PROMOTION_IMPROVISE4</Type>
 			<Description>TXT_KEY_PROMOTION_IMPROVISE4</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1478,10 +1421,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Improvise4.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Improvise 5 -->
+		<PromotionInfo> <!-- Improvise5 -->
 			<Type>PROMOTION_IMPROVISE5</Type>
 			<Description>TXT_KEY_PROMOTION_IMPROVISE5</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1490,10 +1432,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Improvise5.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Informant 1 -->
+		<PromotionInfo> <!-- Informant1 -->
 			<Type>PROMOTION_INFORMANT1</Type>
 			<Description>TXT_KEY_PROMOTION_INFORMANT1</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1502,10 +1443,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Informant1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Informant 2 -->
+		<PromotionInfo> <!-- Informant2 -->
 			<Type>PROMOTION_INFORMANT2</Type>
 			<Description>TXT_KEY_PROMOTION_INFORMANT2</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1515,10 +1455,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Informant2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Informant 3 -->
+		<PromotionInfo> <!-- Informant3 -->
 			<Type>PROMOTION_INFORMANT3</Type>
 			<Description>TXT_KEY_PROMOTION_INFORMANT3</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1528,58 +1467,54 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Informant3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Instigator 1 -->
+		<PromotionInfo> <!-- Instigator1 -->
 			<Type>PROMOTION_INSTIGATOR1</Type>
 			<Description>TXT_KEY_PROMOTION_INSTIGATOR1</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_EVASION1</PromotionPrereq>
 			<iSpyUnhappyChange>50</iSpyUnhappyChange>
-			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>			
+			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>
 			<iSpyReligionRemovalChange>20</iSpyReligionRemovalChange>
-			<iSpyCorporationRemovalChange>20</iSpyCorporationRemovalChange>	
-			<iSpyCultureChange>20</iSpyCultureChange>					
+			<iSpyCorporationRemovalChange>20</iSpyCorporationRemovalChange>
+			<iSpyCultureChange>20</iSpyCultureChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Instigator1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Instigator 2 -->
+		<PromotionInfo> <!-- Instigator2 -->
 			<Type>PROMOTION_INSTIGATOR2</Type>
 			<Description>TXT_KEY_PROMOTION_INSTIGATOR2</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_INSTIGATOR1</PromotionPrereq>
 			<iSpyUnhappyChange>50</iSpyUnhappyChange>
-			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>			
+			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>
 			<iSpyReligionRemovalChange>20</iSpyReligionRemovalChange>
-			<iSpyCorporationRemovalChange>20</iSpyCorporationRemovalChange>	
-			<iSpyCultureChange>20</iSpyCultureChange>			
+			<iSpyCorporationRemovalChange>20</iSpyCorporationRemovalChange>
+			<iSpyCultureChange>20</iSpyCultureChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Instigator2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Instigator 3 -->
+		<PromotionInfo> <!-- Instigator3 -->
 			<Type>PROMOTION_INSTIGATOR3</Type>
 			<Description>TXT_KEY_PROMOTION_INSTIGATOR3</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_INSTIGATOR2</PromotionPrereq>
 			<iSpyRevoltChange>100</iSpyRevoltChange>
-			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>			
+			<iSpyWarWearinessChange>20</iSpyWarWearinessChange>
 			<iSpyReligionRemovalChange>20</iSpyReligionRemovalChange>
-			<iSpyCorporationRemovalChange>20</iSpyCorporationRemovalChange>		
-			<iSpyCultureChange>20</iSpyCultureChange>			
+			<iSpyCorporationRemovalChange>20</iSpyCorporationRemovalChange>
+			<iSpyCultureChange>20</iSpyCultureChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Instigator3.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Interception 1 -->
+		<PromotionInfo> <!-- Interception1 -->
 			<Type>PROMOTION_INTERCEPTION1</Type>
 			<Description>TXT_KEY_PROMOTION_INTERCEPTION1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1591,10 +1526,9 @@
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,3,15</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Interception 2 -->
+		<PromotionInfo> <!-- Interception2 -->
 			<Type>PROMOTION_INTERCEPTION2</Type>
 			<Description>TXT_KEY_PROMOTION_INTERCEPTION2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1609,43 +1543,39 @@
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,15</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Intrigue 1 -->
+		<PromotionInfo> <!-- Intrigue1 -->
 			<Type>PROMOTION_INTRIGUE1</Type>
 			<Description>TXT_KEY_PROMOTION_INTRIGUE1</Description>
 			<Sound>AS2D_PING</Sound>
-			<iSpyDestroyProductionChange>50</iSpyDestroyProductionChange>				
+			<iSpyDestroyProductionChange>50</iSpyDestroyProductionChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Intrigue1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Intrigue 2 -->
+		<PromotionInfo> <!-- Intrigue2 -->
 			<Type>PROMOTION_INTRIGUE2</Type>
 			<Description>TXT_KEY_PROMOTION_INTRIGUE2</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_INTRIGUE1</PromotionPrereq>
-			<iSpyResearchSabotageChange>50</iSpyResearchSabotageChange>	
-			<iSpyDestroyBuildingChange>50</iSpyDestroyBuildingChange>			
+			<iSpyResearchSabotageChange>50</iSpyResearchSabotageChange>
+			<iSpyDestroyBuildingChange>50</iSpyDestroyBuildingChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Intrigue2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Intrigue 3 -->
+		<PromotionInfo> <!-- Intrigue3 -->
 			<Type>PROMOTION_INTRIGUE3</Type>
 			<Description>TXT_KEY_PROMOTION_INTRIGUE3</Description>
 			<Sound>AS2D_PING</Sound>
 			<PromotionPrereq>PROMOTION_INTRIGUE2</PromotionPrereq>
-			<iSpyDestroyProjectChange>50</iSpyDestroyProjectChange>	
+			<iSpyDestroyProjectChange>50</iSpyDestroyProjectChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Intrigue3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Leader -->
@@ -1669,7 +1599,6 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,10</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Leadership -->
@@ -1694,10 +1623,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,16</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Logistics 1 -->
+		<PromotionInfo> <!-- Logistics1 -->
 			<Type>PROMOTION_LOGISTICS1</Type>
 			<Description>TXT_KEY_PROMOTION_LOGISTICS1</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1705,10 +1633,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Logistics1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Logistics 2 -->
+		<PromotionInfo> <!-- Logistics2 -->
 			<Type>PROMOTION_LOGISTICS2</Type>
 			<Description>TXT_KEY_PROMOTION_LOGISTICS2</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1718,10 +1645,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Logistics2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Logistics 3 -->
+		<PromotionInfo> <!-- Logistics3 -->
 			<Type>PROMOTION_LOGISTICS3</Type>
 			<Description>TXT_KEY_PROMOTION_LOGISTICS3</Description>
 			<Sound>AS2D_PING</Sound>
@@ -1730,7 +1656,6 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Logistics3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Loyalty -->
@@ -1741,7 +1666,6 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/Loyalty.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- March -->
@@ -1763,10 +1687,9 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/March.dds,Art/Interface/Buttons/Promotions_Atlas.dds,2,4</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Medic 1 -->
+		<PromotionInfo> <!-- Medic1 -->
 			<Type>PROMOTION_MEDIC1</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1789,10 +1712,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Medic1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,4</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Medic 2 -->
+		<PromotionInfo> <!-- Medic2 -->
 			<Type>PROMOTION_MEDIC2</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1814,10 +1736,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Medic2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,4</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Medic 3 -->
+		<PromotionInfo> <!-- Medic3 -->
 			<Type>PROMOTION_MEDIC3</Type>
 			<Description>TXT_KEY_PROMOTION_MEDIC3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1841,7 +1762,6 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,8,16</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Mobility -->
@@ -1856,7 +1776,6 @@
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Mobility1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,4</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Morale -->
@@ -1880,10 +1799,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,7,16</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Navigation 1 -->
+		<PromotionInfo> <!-- Navigation1 -->
 			<Type>PROMOTION_NAVIGATION1</Type>
 			<Description>TXT_KEY_PROMOTION_NAVIGATION1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1898,10 +1816,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Navigation1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,4</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Navigation 2 -->
+		<PromotionInfo> <!-- Navigation2 -->
 			<Type>PROMOTION_NAVIGATION2</Type>
 			<Description>TXT_KEY_PROMOTION_NAVIGATION2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1917,7 +1834,6 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Navigation2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,4</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Pinch -->
@@ -1944,10 +1860,9 @@
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_JET_FIGHTERS</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Pinch.dds,Art/Interface/Buttons/Promotions_Atlas.dds,3,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Range 1 -->
+		<PromotionInfo> <!-- Range1 -->
 			<Type>PROMOTION_RANGE1</Type>
 			<Description>TXT_KEY_PROMOTION_RANGE1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1963,10 +1878,9 @@
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,1,15</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Range 2 -->
+		<PromotionInfo> <!-- Range2 -->
 			<Type>PROMOTION_RANGE2</Type>
 			<Description>TXT_KEY_PROMOTION_RANGE2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1982,10 +1896,9 @@
 				<UnitCombatType>UNITCOMBAT_STEALTH</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUPERSONIC_PLANES</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,15</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Safecracker I -->
+		<PromotionInfo> <!-- Safecracker1 -->
 			<Type>PROMOTION_SAFECRACKER1</Type>
 			<Description>TXT_KEY_PROMOTION_SAFECRACKER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -1993,10 +1906,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/safecracker1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Safecracker II -->
+		<PromotionInfo> <!-- Safecracker2 -->
 			<Type>PROMOTION_SAFECRACKER2</Type>
 			<Description>TXT_KEY_PROMOTION_SAFECRACKER2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2007,10 +1919,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/safecracker2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Safecracker III -->
+		<PromotionInfo> <!-- Safecracker3 -->
 			<Type>PROMOTION_SAFECRACKER3</Type>
 			<Description>TXT_KEY_PROMOTION_SAFECRACKER3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2021,7 +1932,6 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/safecracker3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Sentry -->
@@ -2044,7 +1954,6 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Sentry.dds,Art/Interface/Buttons/Promotions_Atlas.dds,5,6</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Shock -->
@@ -2067,10 +1976,9 @@
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Shock.dds,Art/Interface/Buttons/Promotions_Atlas.dds,4,5</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Slaver I -->
+		<PromotionInfo> <!-- Slaver1 -->
 			<Type>PROMOTION_SLAVER1</Type>
 			<Description>TXT_KEY_PROMOTION_SLAVER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2082,10 +1990,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/slaver1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Slaver II -->
+		<PromotionInfo> <!-- Slaver2 -->
 			<Type>PROMOTION_SLAVER2</Type>
 			<Description>TXT_KEY_PROMOTION_SLAVER2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2098,10 +2005,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/slaver2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Slaver III -->
+		<PromotionInfo> <!-- Slaver3 -->
 			<Type>PROMOTION_SLAVER3</Type>
 			<Description>TXT_KEY_PROMOTION_SLAVER3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2114,7 +2020,6 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/slaver3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Slaver Hunter -->
@@ -2134,10 +2039,9 @@
 				<UnitCombatType>UNITCOMBAT_TRACKED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/slaver_hunter.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Steal Tech I -->
+		<PromotionInfo> <!-- Stealtech1 -->
 			<Type>PROMOTION_STEALTECH1</Type>
 			<Description>TXT_KEY_PROMOTION_STEALTECH1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2145,10 +2049,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/steal_tech1.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Steal Tech II -->
+		<PromotionInfo> <!-- Stealtech2 -->
 			<Type>PROMOTION_STEALTECH2</Type>
 			<Description>TXT_KEY_PROMOTION_STEALTECH2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2159,10 +2062,9 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/steal_tech2.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Steal Tech III -->
+		<PromotionInfo> <!-- Stealtech3 -->
 			<Type>PROMOTION_STEALTECH3</Type>
 			<Description>TXT_KEY_PROMOTION_STEALTECH3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2175,7 +2077,6 @@
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_SPY</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/steal_tech3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Tactics -->
@@ -2199,10 +2100,9 @@
 				<UnitCombatType>UNITCOMBAT_NUCLEAR_SHIPS</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Combat5.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,16</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Veteran Pilot -->
+		<PromotionInfo> <!-- Veteran -->
 			<Type>PROMOTION_VETERAN</Type>
 			<Description>TXT_KEY_PROMOTION_VETERAN</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2219,7 +2119,7 @@
 			</OrUnitCombatTypes>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,5,15</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Woodsman 1 -->
+		<PromotionInfo> <!-- Woodsman1 -->
 			<Type>PROMOTION_WOODSMAN1</Type>
 			<Description>TXT_KEY_PROMOTION_WOODSMAN1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2239,10 +2139,9 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman1.dds,Art/Interface/Buttons/Promotions_Atlas.dds,6,6</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Woodsman 2 -->
+		<PromotionInfo> <!-- Woodsman2 -->
 			<Type>PROMOTION_WOODSMAN2</Type>
 			<Description>TXT_KEY_PROMOTION_WOODSMAN2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2269,10 +2168,9 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,7,6</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Woodsman 3 -->
+		<PromotionInfo> <!-- Woodsman3 -->
 			<Type>PROMOTION_WOODSMAN3</Type>
 			<Description>TXT_KEY_PROMOTION_WOODSMAN3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
@@ -2296,74 +2194,68 @@
 				<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>,Art/Interface/Buttons/Promotions/Woodsman2.dds,Art/Interface/Buttons/Promotions_Atlas.dds,8,6</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Work Rate 1 -->
-			<Type>PROMOTION_WORKRATE1</Type>
+			<Type>PROMOTION_WORK_RATE_1</Type>
 			<Description>TXT_KEY_PROMOTION_WORKRATE1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<iWorkRateModifier>20</iWorkRateModifier>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/workrate1.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Work Rate 2 -->
-			<Type>PROMOTION_WORKRATE2</Type>
+			<Type>PROMOTION_WORK_RATE_2</Type>
 			<Description>TXT_KEY_PROMOTION_WORKRATE2</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_WORKRATE1</PromotionType>
+				<PromotionType>PROMOTION_WORK_RATE_1</PromotionType>
 			</PrereqOrPromotions>
 			<iWorkRateModifier>15</iWorkRateModifier>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/workrate2.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Work Rate 3 -->
-			<Type>PROMOTION_WORKRATE3</Type>
+			<Type>PROMOTION_WORK_RATE_3</Type>
 			<Description>TXT_KEY_PROMOTION_WORKRATE3</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_WORKRATE2</PromotionType>
+				<PromotionType>PROMOTION_WORK_RATE_2</PromotionType>
 			</PrereqOrPromotions>
 			<iWorkRateModifier>15</iWorkRateModifier>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/workrate3.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Work Rate 4 -->
-			<Type>PROMOTION_WORKRATE4</Type>
+			<Type>PROMOTION_WORK_RATE_4</Type>
 			<Description>TXT_KEY_PROMOTION_WORKRATE4</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_WORKRATE3</PromotionType>
+				<PromotionType>PROMOTION_WORK_RATE_3</PromotionType>
 			</PrereqOrPromotions>
 			<iWorkRateModifier>20</iWorkRateModifier>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/workrate4.dds</Button>
 		</PromotionInfo>
 		<PromotionInfo> <!-- Work Rate 5 -->
-			<Type>PROMOTION_WORKRATE5</Type>
+			<Type>PROMOTION_WORK_RATE_5</Type>
 			<Description>TXT_KEY_PROMOTION_WORKRATE5</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PrereqOrPromotions>
-				<PromotionType>PROMOTION_WORKRATE4</PromotionType>
+				<PromotionType>PROMOTION_WORK_RATE_4</PromotionType>
 			</PrereqOrPromotions>
 			<iWorkRateModifier>30</iWorkRateModifier>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_WORKER</UnitCombatType>
 			</OrUnitCombatTypes>
-			<HotKey/>
 			<Button>Art/Interface/Buttons/Promotions/workrate5.dds</Button>
 		</PromotionInfo>
 	</PromotionInfos>
