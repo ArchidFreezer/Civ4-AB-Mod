@@ -857,7 +857,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Asklepieion of Kos -->
+		<BuildingInfo> <!-- Asklepieion Of Kos -->
 			<BuildingClass>BUILDINGCLASS_ASKLEPIEION_OF_KOS</BuildingClass>
 			<Type>BUILDING_ASKLEPIEION_OF_KOS</Type>
 			<Description>TXT_KEY_BUILDING_ASKLEPIEION_OF_KOS</Description>
@@ -5074,7 +5074,7 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
-		<BuildingInfo> <!-- Great Bath of Mohenjo-daro -->
+		<BuildingInfo> <!-- Great Bath Of Mohenjo Daro -->
 			<BuildingClass>BUILDINGCLASS_GREAT_BATH_OF_MOHENJO_DARO</BuildingClass>
 			<Type>BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Description>
@@ -7979,7 +7979,7 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_SEAFARING</TraitType>
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -7987,9 +7987,11 @@
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>10</iMinAreaSize>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
 			<iAsset>3</iAsset>
 			<SeaPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
 				<iYield>1</iYield>
 			</SeaPlotYieldChanges>
 			<ConstructSound>AS2D_BUILD_LIGHTHOUSE</ConstructSound>
@@ -8014,21 +8016,23 @@
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_SEAFARING</TraitType>
 					<iChange>100</iChange>
 				</ProductionTrait>
 			</ProductionTraits>
 			<FreePromotions>
-				<PromotionType>PROMOTION_NAVIGATION1</PromotionType>
+				<PromotionType>PROMOTION_COASTAL_ASSAULT1</PromotionType>
 			</FreePromotions>
 			<bWater>1</bWater>
 			<iCost>60</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>10</iMinAreaSize>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
 			<iAsset>3</iAsset>
 			<iPower>1</iPower>
 			<SeaPlotYieldChanges>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
 				<iYield>1</iYield>
 			</SeaPlotYieldChanges>
 			<ConstructSound>AS2D_BUILD_LIGHTHOUSE</ConstructSound>
@@ -12093,7 +12097,7 @@
 			<Type>BUILDING_STRATEGIC_GRAIN_RESERVE</Type>
 			<Description>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE</Description>
 			<Civilopedia>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Strategy>			
+			<Strategy>TXT_KEY_BUILDING_STRATEGIC_GRAIN_RESERVE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_STRATEGIC_GRAIN_RESERVE</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_STRATEGIC_GRAIN_RESERVE</MovieDefineTag>
@@ -12107,7 +12111,7 @@
 					<TraitType>TRAIT_ORGANIZED</TraitType>
 					<iChange>100</iChange>
 				</ProductionTrait>
-			</ProductionTraits>				
+			</ProductionTraits>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<bTeamShare>1</bTeamShare>
@@ -12145,7 +12149,7 @@
 			</BonusHealthChanges>
 			<PrereqNumOfBuildingClasses>
 				<PrereqNumOfBuildingClass>
-				<BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
@@ -12157,7 +12161,7 @@
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
 					<iFlavor>10</iFlavor>
 				</Flavor>
-			</Flavors>		
+			</Flavors>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Supercollider -->
 			<BuildingClass>BUILDINGCLASS_SUPERCOLLIDER</BuildingClass>
