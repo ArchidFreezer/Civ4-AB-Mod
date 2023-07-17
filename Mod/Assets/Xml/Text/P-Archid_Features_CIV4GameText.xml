@@ -39,6 +39,14 @@
 		<Tag>TXT_KEY_FEATURE_STORM_PEDIA</Tag>
 		<English>[TAB]The term storm is usually applied to any violent atmospheric disturbance, whether it's a thunderstorm, squall or snowstorm.</English>
 	</TEXT>
+	<TEXT> <!-- Underground Water -->	
+		<Tag>TXT_KEY_UNDERGROUND_WATER_FEATURE</Tag>
+		<English>Underground Water</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNDERGROUND_WATER_FEATURE_PEDIA</Tag>
+		<English>[TAB]Underground water is water that can only be reached through the use of a well or other device.</English>
+	</TEXT>
 
 <!-- Natural Wonders -->
 	<TEXT> <!-- Aurora -->
