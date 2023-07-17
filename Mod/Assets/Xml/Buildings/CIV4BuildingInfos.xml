@@ -811,7 +811,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_ARTEMIS</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_ARTEMIS</MovieDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
-			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
+			<ObsoleteTech>TECH_EDUCATION</ObsoleteTech>
 			<PrereqAndTechs>
 				<TechType>TECH_POLYTHEISM</TechType>
 			</PrereqAndTechs>
