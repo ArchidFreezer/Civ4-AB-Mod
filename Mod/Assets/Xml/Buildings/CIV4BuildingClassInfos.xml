@@ -675,6 +675,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_DOCTORS_OFFICE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Graveyard -->
+			<Type>BUILDINGCLASS_GRAVEYARD</Type>
+			<Description>TXT_KEY_BUILDING_GRAVEYARD</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_GRAVEYARD</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Healers Hut -->
 			<Type>BUILDINGCLASS_HEALERS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_HEALERS_HUT</Description>
