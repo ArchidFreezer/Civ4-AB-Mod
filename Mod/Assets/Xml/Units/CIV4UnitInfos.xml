@@ -3334,9 +3334,9 @@
 		</UnitInfo>
 
 
-<!-- ************	-->
-<!-- Health Care  -->
-<!-- ************	-->
+<!-- ************ -->
+<!-- Health Care -->
+<!-- ************ -->
 		<UnitInfo> <!-- Healer -->
 			<Class>UNITCLASS_HEALER</Class>
 			<Type>UNIT_HEALER</Type>
@@ -3376,7 +3376,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>2</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3387,7 +3387,7 @@
 			<FormationType>FORMATION_TYPE_DEFAULT</FormationType>
 			<FreePromotions>
 				<PromotionType>PROMOTION_HERBAL_CURES</PromotionType>
-			</FreePromotions>				
+			</FreePromotions>
 		</UnitInfo>
 		<UnitInfo> <!-- Apothecary -->
 			<Class>UNITCLASS_APOTHECARY</Class>
@@ -3428,7 +3428,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>2</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3462,7 +3462,6 @@
 				<UnitAIType>UNITAI_RESERVE</UnitAIType>
 				<UnitAIType>UNITAI_CITY_DEFENSE</UnitAIType>
 			</UnitAIs>
-			<NotUnitAIs/>
 			<PrereqBuilding>BUILDING_DOCTORS_OFFICE</PrereqBuilding>
 			<PrereqTechs>
 				<TechType>TECH_ANATOMY</TechType>
@@ -3480,7 +3479,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>2</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3535,7 +3534,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>2</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3551,138 +3550,7 @@
 				<PromotionType>PROMOTION_HEAL1</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
-		<UnitInfo> <!-- Hospital Ship -->
-			<Class>UNITCLASS_HOSPITAL_SHIP</Class>
-			<Type>UNIT_HOSPITAL_SHIP</Type>
-			<Combat>UNITCOMBAT_HEALTH_CARE</Combat>
-			<Domain>DOMAIN_SEA</Domain>
-			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_HOSPITAL_SHIP</Description>
-			<Civilopedia>TXT_KEY_UNIT_HOSPITAL_SHIP_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_HOSPITAL_SHIP_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bOnlyDefensive>1</bOnlyDefensive>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
-			<bMechanized>1</bMechanized>
-			<bRenderBelowWater>1</bRenderBelowWater>
-			<bMilitaryTrade>1</bMilitaryTrade>
-			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_HOSPITAL_SHIP_2</UnitClassType>
-			</UnitClassUpgrades>
-			<UnitAIs>
-				<UnitAIType>UNITCOMBAT_DIESEL_SHIPS</UnitAIType>
-			</UnitAIs>
-			<PrereqBuilding>BUILDING_HOSPITAL</PrereqBuilding>
-			<PrereqTechs>
-				<TechType>TECH_AUTOMOBILE</TechType>
-				<TechType>TECH_BATTLEFIELD_MEDICINE</TechType>
-				<TechType>TECH_SCREW_PROPELLER</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_DIESEL</BonusType>
-				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqOrBonuses>
-			<iCost>600</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>20</iMinAreaSize>
-			<iMoves>5</iMoves>
-			<iCombat>25</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>6</iXPValueAttack>
-			<iXPValueDefense>3</iXPValueDefense>
-			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iExtraCost>6</iExtraCost>
-			<iAsset>4</iAsset>
-			<iPower>83</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>2.25</fMaxSpeed>
-				<fPadTime>1</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>1</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_HOSPITAL_SHIP</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
-			<FreePromotions>
-				<PromotionType>PROMOTION_HERBAL_CURES</PromotionType>
-				<PromotionType>PROMOTION_MEDIC1</PromotionType>
-				<PromotionType>PROMOTION_MEDIC2</PromotionType>
-				<PromotionType>PROMOTION_MEDIC3</PromotionType>
-				<PromotionType>PROMOTION_HEAL1</PromotionType>
-			</FreePromotions>
-		</UnitInfo>
-		<UnitInfo> <!-- Hospital Ship II -->
-			<Class>UNITCLASS_HOSPITAL_SHIP_2</Class>
-			<Type>UNIT_HOSPITAL_SHIP_2</Type>
-			<Combat>UNITCOMBAT_HEALTH_CARE</Combat>
-			<Domain>DOMAIN_SEA</Domain>
-			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_HOSPITAL_SHIP_2</Description>
-			<Civilopedia>TXT_KEY_UNIT_HOSPITAL_SHIP_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_HOSPITAL_SHIP_STRATEGY</Strategy>
-			<Advisor>ADVISOR_MILITARY</Advisor>
-			<bOnlyDefensive>1</bOnlyDefensive>
-			<bMilitarySupport>1</bMilitarySupport>
-			<bMilitaryProduction>1</bMilitaryProduction>
-			<bPillage>1</bPillage>
-			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
-			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
-			<bMechanized>1</bMechanized>
-			<bRenderBelowWater>1</bRenderBelowWater>
-			<bMilitaryTrade>1</bMilitaryTrade>
-			<UnitAIs>
-				<UnitAIType>UNITCOMBAT_DIESEL_SHIPS</UnitAIType>
-			</UnitAIs>
-			<PrereqBuilding>BUILDING_HOSPITAL</PrereqBuilding>
-			<PrereqTechs>
-				<TechType>TECH_MODERN_HEALTH_CARE</TechType>
-				<TechType>TECH_MANUFACTURING</TechType>
-			</PrereqTechs>
-			<PrereqOrBonuses>
-				<BonusType>BONUS_DIESEL</BonusType>
-				<BonusType>BONUS_URANIUM</BonusType>
-			</PrereqOrBonuses>
-			<iCost>800</iCost>
-			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iMinAreaSize>20</iMinAreaSize>
-			<iMoves>6</iMoves>
-			<iCombat>30</iCombat>
-			<iCombatLimit>100</iCombatLimit>
-			<iXPValueAttack>6</iXPValueAttack>
-			<iXPValueDefense>3</iXPValueDefense>
-			<DomainCargo>DOMAIN_LAND</DomainCargo>
-			<iExtraCost>6</iExtraCost>
-			<iAsset>4</iAsset>
-			<iPower>83</iPower>
-			<UnitMeshGroups>
-				<iGroupSize>1</iGroupSize>
-				<fMaxSpeed>2.25</fMaxSpeed>
-				<fPadTime>1</fPadTime>
-				<iMeleeWaveSize>1</iMeleeWaveSize>
-				<iRangedWaveSize>1</iRangedWaveSize>
-				<UnitMeshGroup>
-					<iRequired>1</iRequired>
-					<EarlyArtDefineTag>ART_DEF_UNIT_HOSPITAL_SHIP</EarlyArtDefineTag>
-				</UnitMeshGroup>
-			</UnitMeshGroups>
-			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
-			<FreePromotions>
-				<PromotionType>PROMOTION_HERBAL_CURES</PromotionType>
-				<PromotionType>PROMOTION_MEDIC1</PromotionType>
-				<PromotionType>PROMOTION_MEDIC2</PromotionType>
-				<PromotionType>PROMOTION_MEDIC3</PromotionType>
-				<PromotionType>PROMOTION_HEAL1</PromotionType>
-				<PromotionType>PROMOTION_HEAL2</PromotionType>
-			</FreePromotions>
-		</UnitInfo>
-		<UnitInfo> <!-- Ambulance (WWI) -->
+		<UnitInfo> <!-- Ambulance -->
 			<Class>UNITCLASS_AMBULANCE</Class>
 			<Type>UNIT_AMBULANCE</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
@@ -3722,7 +3590,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3739,7 +3607,7 @@
 				<PromotionType>PROMOTION_HEAL1</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
-		<UnitInfo> <!-- Ambulance (WWII) -->
+		<UnitInfo> <!-- Ambulance Ii -->
 			<Class>UNITCLASS_AMBULANCE_II</Class>
 			<Type>UNIT_AMBULANCE_II</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
@@ -3779,7 +3647,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3796,7 +3664,7 @@
 				<PromotionType>PROMOTION_HEAL1</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
-		<UnitInfo> <!-- Medivac Helicopter -->
+		<UnitInfo> <!-- Early Medivac -->
 			<Class>UNITCLASS_EARLY_MEDIVAC</Class>
 			<Type>UNIT_EARLY_MEDIVAC</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
@@ -3841,7 +3709,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3858,9 +3726,8 @@
 				<PromotionType>PROMOTION_HEAL1</PromotionType>
 			</FreePromotions>
 			<LeaderPromotion>NONE</LeaderPromotion>
-			<iLeaderExperience>0</iLeaderExperience>
 		</UnitInfo>
-		<UnitInfo> <!-- Modern Medivac Helicopter -->
+		<UnitInfo> <!-- Modern Medivac -->
 			<Class>UNITCLASS_MODERN_MEDIVAC</Class>
 			<Type>UNIT_MODERN_MEDIVAC</Type>
 			<Special>SPECIALUNIT_PEOPLE</Special>
@@ -3903,7 +3770,7 @@
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
-				<fPadTime>1</fPadTime>
+				<fPadTime>1.0</fPadTime>
 				<iMeleeWaveSize>2</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
@@ -3920,6 +3787,7 @@
 				<PromotionType>PROMOTION_HEAL1</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
+
 
 <!-- ************ -->
 <!-- Helicopter -->
@@ -7901,6 +7769,138 @@
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
 			<FreePromotions>
 				<PromotionType>PROMOTION_CREW_STANDARD</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+<!-- Health Care -->
+		<UnitInfo> <!-- Hospital Ship -->
+			<Class>UNITCLASS_HOSPITAL_SHIP</Class>
+			<Type>UNIT_HOSPITAL_SHIP</Type>
+			<Combat>UNITCOMBAT_HEALTH_CARE</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HOSPITAL_SHIP</Description>
+			<Civilopedia>TXT_KEY_UNIT_HOSPITAL_SHIP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HOSPITAL_SHIP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_HOSPITAL_SHIP_2</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITCOMBAT_DIESEL_SHIPS</UnitAIType>
+			</UnitAIs>
+			<PrereqBuilding>BUILDING_HOSPITAL</PrereqBuilding>
+			<PrereqTechs>
+				<TechType>TECH_AUTOMOBILE</TechType>
+				<TechType>TECH_BATTLEFIELD_MEDICINE</TechType>
+				<TechType>TECH_SCREW_PROPELLER</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_DIESEL</BonusType>
+				<BonusType>BONUS_URANIUM</BonusType>
+			</PrereqOrBonuses>
+			<iCost>600</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>5</iMoves>
+			<iCombat>25</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iExtraCost>6</iExtraCost>
+			<iAsset>4</iAsset>
+			<iPower>83</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HOSPITAL_SHIP</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_HERBAL_CURES</PromotionType>
+				<PromotionType>PROMOTION_MEDIC1</PromotionType>
+				<PromotionType>PROMOTION_MEDIC2</PromotionType>
+				<PromotionType>PROMOTION_MEDIC3</PromotionType>
+				<PromotionType>PROMOTION_HEAL1</PromotionType>
+			</FreePromotions>
+		</UnitInfo>
+		<UnitInfo> <!-- Hospital Ship 2 -->
+			<Class>UNITCLASS_HOSPITAL_SHIP_2</Class>
+			<Type>UNIT_HOSPITAL_SHIP_2</Type>
+			<Combat>UNITCOMBAT_HEALTH_CARE</Combat>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HOSPITAL_SHIP_2</Description>
+			<Civilopedia>TXT_KEY_UNIT_HOSPITAL_SHIP_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HOSPITAL_SHIP_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bOnlyDefensive>1</bOnlyDefensive>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<bIgnoreTerrainCost>1</bIgnoreTerrainCost>
+			<bMechanized>1</bMechanized>
+			<bRenderBelowWater>1</bRenderBelowWater>
+			<bMilitaryTrade>1</bMilitaryTrade>
+			<UnitAIs>
+				<UnitAIType>UNITCOMBAT_DIESEL_SHIPS</UnitAIType>
+			</UnitAIs>
+			<PrereqBuilding>BUILDING_HOSPITAL</PrereqBuilding>
+			<PrereqTechs>
+				<TechType>TECH_MODERN_HEALTH_CARE</TechType>
+				<TechType>TECH_MANUFACTURING</TechType>
+			</PrereqTechs>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_DIESEL</BonusType>
+				<BonusType>BONUS_URANIUM</BonusType>
+			</PrereqOrBonuses>
+			<iCost>800</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMinAreaSize>20</iMinAreaSize>
+			<iMoves>6</iMoves>
+			<iCombat>30</iCombat>
+			<iCombatLimit>100</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
+			<iExtraCost>6</iExtraCost>
+			<iAsset>4</iAsset>
+			<iPower>83</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>1</iGroupSize>
+				<fMaxSpeed>2.25</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
+				<iRangedWaveSize>1</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>1</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_HOSPITAL_SHIP</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+			<FreePromotions>
+				<PromotionType>PROMOTION_HERBAL_CURES</PromotionType>
+				<PromotionType>PROMOTION_MEDIC1</PromotionType>
+				<PromotionType>PROMOTION_MEDIC2</PromotionType>
+				<PromotionType>PROMOTION_MEDIC3</PromotionType>
+				<PromotionType>PROMOTION_HEAL1</PromotionType>
+				<PromotionType>PROMOTION_HEAL2</PromotionType>
 			</FreePromotions>
 		</UnitInfo>
 <!-- Steam Ships -->
