@@ -2637,6 +2637,14 @@ void CvUnit::move(CvPlot* pPlot, bool bShow) {
 
 	setXY(pPlot->getX_INLINE(), pPlot->getY_INLINE(), true, true, bShow && pPlot->isVisibleToWatchingHuman(), bShow);
 
+	// Remove any lairs
+	if (!isBarbarian()) {
+		ImprovementTypes eImprovement = pPlot->getImprovementType();
+		if (eImprovement != NO_IMPROVEMENT && GC.getImprovementInfo(eImprovement).getAnimalSpawnRatePercentage() > 0) {
+			pPlot->setImprovementType(NO_IMPROVEMENT);
+		}
+	}
+
 	//change feature
 	FeatureTypes featureType = pPlot->getFeatureType();
 	if (featureType != NO_FEATURE) {
