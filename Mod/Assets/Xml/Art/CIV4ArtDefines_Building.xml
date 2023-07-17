@@ -2818,5 +2818,15 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/jewellers.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NATIONAL_MINT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/HRE_RathHouse/HRE_RathHouse.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/TechTree/usury.dds</Button>
+		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
