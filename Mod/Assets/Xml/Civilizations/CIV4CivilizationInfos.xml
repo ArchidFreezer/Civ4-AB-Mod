@@ -193,8 +193,8 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -282,7 +282,7 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -376,7 +376,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -472,8 +472,8 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -567,7 +567,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -665,7 +665,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -763,7 +763,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -872,7 +872,7 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -965,7 +965,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1058,7 +1058,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1150,7 +1150,7 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_HUNTING</TechType>
 				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -1259,7 +1259,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1457,7 +1457,7 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -1545,7 +1545,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1694,8 +1694,8 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MYSTICISM</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_RITUALISM</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1784,7 +1784,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1878,7 +1878,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -1960,8 +1960,8 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MINING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2043,8 +2043,8 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2140,8 +2140,8 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MINING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2226,7 +2226,7 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_AGRICULTURE</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -2517,7 +2517,7 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 				<TechType>TECH_AGRICULTURE</TechType>
 			</FreeTechs>
 			<InitialCivics>
@@ -2736,7 +2736,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2844,7 +2844,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -2936,7 +2936,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_HUNTING</TechType>
-				<TechType>TECH_MINING</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -3032,7 +3032,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -3122,7 +3122,7 @@
 			</FreeBuildingClasses>
 			<FreeTechs>
 				<TechType>TECH_AGRICULTURE</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
 			</FreeTechs>
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
@@ -3410,10 +3410,9 @@
 				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 			</FreeBuildingClasses>
 			<FreeTechs>
-				<TechType>TECH_MINING</TechType>
-				<TechType>TECH_MYSTICISM</TechType>
+				<TechType>TECH_EARLY_METALWORKING</TechType>
+				<TechType>TECH_RITUALISM</TechType>
 				<TechType>TECH_FISHING</TechType>
-				<TechType>TECH_THE_WHEEL</TechType>
 				<TechType>TECH_AGRICULTURE</TechType>
 				<TechType>TECH_HUNTING</TechType>
 			</FreeTechs>
