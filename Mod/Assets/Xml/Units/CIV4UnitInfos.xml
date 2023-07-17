@@ -5225,7 +5225,7 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_CHARIOTRY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>30</iCost>
@@ -5284,7 +5284,7 @@
 				<UnitAIType>UNITAI_PILLAGE</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_CHARIOTRY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>30</iCost>
@@ -5344,7 +5344,7 @@
 				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</NotUnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_THE_WHEEL</TechType>
+				<TechType>TECH_CHARIOTRY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_HORSE</BonusType>
 			<iCost>30</iCost>
