@@ -214,7 +214,7 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_AXEMAN</UnitClass>
-					<UnitPromotion>PROMOTION_SHOCK</UnitPromotion>
+					<UnitPromotion>PROMOTION_SHOCK1</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
@@ -1445,7 +1445,7 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_GRENADIER</UnitClass>
-					<UnitPromotion>PROMOTION_PINCH</UnitPromotion>
+					<UnitPromotion>PROMOTION_PINCH1</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<PythonCallback>applyFiringPins</PythonCallback>
@@ -1729,7 +1729,7 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_MUSKETMAN</UnitClass>
-					<UnitPromotion>PROMOTION_PINCH</UnitPromotion>
+					<UnitPromotion>PROMOTION_PINCH1</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<ClearEvents>
@@ -1778,7 +1778,7 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_PIKEMAN</UnitClass>
-					<UnitPromotion>PROMOTION_SHOCK</UnitPromotion>
+					<UnitPromotion>PROMOTION_SHOCK1</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<PythonCallback>applyHalberd</PythonCallback>
@@ -2130,7 +2130,7 @@
 			<UnitCombatPromotions>
 				<UnitCombatPromotion>
 					<UnitCombat>UNITCOMBAT_MOUNTED</UnitCombat>
-					<UnitPromotion>PROMOTION_SENTRY</UnitPromotion>
+					<UnitPromotion>PROMOTION_SENTRY1</UnitPromotion>
 				</UnitCombatPromotion>
 			</UnitCombatPromotions>
 			<ClearEvents>
@@ -2629,7 +2629,7 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_SWORDSMAN</UnitClass>
-					<UnitPromotion>PROMOTION_SHOCK</UnitPromotion>
+					<UnitPromotion>PROMOTION_SHOCK1</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<ClearEvents>
@@ -3349,7 +3349,7 @@
 			<UnitClassPromotions>
 				<UnitClassPromotion>
 					<UnitClass>UNITCLASS_MUSKETMAN</UnitClass>
-					<UnitPromotion>PROMOTION_PINCH</UnitPromotion>
+					<UnitPromotion>PROMOTION_PINCH1</UnitPromotion>
 				</UnitClassPromotion>
 			</UnitClassPromotions>
 			<PythonCallback>applySmokelessPowder</PythonCallback>
@@ -3656,7 +3656,7 @@
 			<UnitCombatPromotions>
 				<UnitCombatPromotion>
 					<UnitCombat>UNITCOMBAT_MELEE</UnitCombat>
-					<UnitPromotion>PROMOTION_COVER</UnitPromotion>
+					<UnitPromotion>PROMOTION_COVER1</UnitPromotion>
 				</UnitCombatPromotion>
 			</UnitCombatPromotions>
 			<PythonCallback>applyTowerShield</PythonCallback>
