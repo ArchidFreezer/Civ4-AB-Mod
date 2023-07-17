@@ -107,8 +107,17 @@ public abstract class AbstractImporter<T extends IInfos<S>, S extends IInfo> imp
 	 */
 	protected <U> void parseCell(Cell cell, Class<U> valClass, Consumer<U> func) {
 		XSSFCell xsfCell = (XSSFCell) cell;
+		// Deal with null cells, which Excel is prone to throw at us
 		// This is a horrible kludge, but formatting a cell as text in Excel doesn't always seem to work properly
-		if (xsfCell.getCellTypeEnum() == CellType.NUMERIC) {
+		if (xsfCell == null) {
+			if (valClass == Integer.class || valClass == Float.class) {
+				func.accept(getVal("0", valClass));
+			} else if (valClass == Boolean.class) {
+				func.accept(getVal("false", valClass));
+			} else {
+				func.accept(getVal("", valClass));
+			}
+		} else if (xsfCell.getCellTypeEnum() == CellType.NUMERIC) {
 			if (valClass == Integer.class || valClass == Boolean.class) {
 				func.accept(getVal(String.valueOf((int)cell.getNumericCellValue()), valClass));
 			} else if (valClass == Float.class) {
@@ -137,6 +146,9 @@ public abstract class AbstractImporter<T extends IInfos<S>, S extends IInfo> imp
 	 * @param func the {@link Consumer} function called with a single {@code IPair} as a parameter
 	 */
 	protected <U, V> void parsePairsCell(Cell cell, Class<U> keyClass, Class<V> valClass, Consumer<IPair<U, V>> func) {
+		// Deal with null cells, which Excel is prone to throw at us
+		if (cell == null ) return;
+		
 		String[] arr = cell.getStringCellValue().split(IInfoWorkbook.CELL_NEWLINE);
 		if (arr.length > 1) {
 			boolean first = true;
@@ -171,6 +183,8 @@ public abstract class AbstractImporter<T extends IInfos<S>, S extends IInfo> imp
 	 * @param func the {@link Consumer} function called with a single {@code IPair} as a parameter
 	 */
 	protected <U, V, W> void parseTriplesCell(Cell cell, Class<U> keyClass, Class<V> valClass, Class<W> dataClass, Consumer<ITriple<U, V, W>> func) {
+		if (cell == null) return;
+		
 		String[] arr = cell.getStringCellValue().split(IInfoWorkbook.CELL_NEWLINE);
 		if (arr.length > 2) {
 			int count = 0;
@@ -206,6 +220,8 @@ public abstract class AbstractImporter<T extends IInfos<S>, S extends IInfo> imp
 	 * @param func the {@link Consumer} function called with a single list value as a parameter
 	 */
 	protected <U> void parseListCell(Cell cell, Class<U> listClass, Consumer<U> func) {
+		if (cell == null) return;
+		
 		for (String str: cell.getStringCellValue().split(IInfoWorkbook.CELL_NEWLINE)) {
 			if (StringUtils.hasCharacters(str))
 				func.accept(getVal(str, listClass));
@@ -213,6 +229,8 @@ public abstract class AbstractImporter<T extends IInfos<S>, S extends IInfo> imp
 	}
 	
 	protected <U,V> void parseMapListCell(Cell cell, Class<U> keyClass, Class<V> listClass, BiConsumer<U, List<V>> func) {
+		if (cell == null) return;
+		
 		String[] arr = cell.getStringCellValue().split(IInfoWorkbook.CELL_NEWLINE);
 		if (arr.length > 1) {
 			boolean newEntry = true;

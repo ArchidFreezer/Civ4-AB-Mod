@@ -11216,6 +11216,24 @@
 			<Sound>AS2D_TECH_GENERIC</Sound>
 			<Button>Art/Interface/Buttons/TechTree/space_stations.dds</Button>
 		</TechInfo>
+		<TechInfo> <!-- Special -->
+			<Type>TECH_SPECIAL</Type>
+			<Description>NONE</Description>
+			<Advisor>NONE</Advisor>
+			<iCost>0</iCost>
+			<iAdvancedStartCost>0</iAdvancedStartCost>
+			<Era>NONE</Era>
+			<iAsset>0</iAsset>
+			<iGridX>-1</iGridX>
+			<iGridY>-1</iGridY>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>1</iFlavor>
+				</Flavor>
+			</Flavors>
+			<Button>Art/Interface/Buttons/Promotions/broken_combat.dds</Button>
+		</TechInfo>
 		<TechInfo> <!-- Stealth -->
 			<Type>TECH_STEALTH</Type>
 			<Description>TXT_KEY_TECH_STEALTH</Description>

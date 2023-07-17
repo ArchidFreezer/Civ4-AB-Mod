@@ -15,6 +15,8 @@ public class TechImporter extends AbstractImporter<IInfos<ITechInfo>, ITechInfo>
 
 	/** Logging facility */
 	static Logger log = Logger.getLogger(TechImporter.class.getName());
+	
+	static String specialTech = "TECH_SPECIAL";
 
 	public TechImporter(EInfo infoEnum) {
 		super(infoEnum, new DefaultXmlFormatter("tech"));
@@ -61,6 +63,7 @@ public class TechImporter extends AbstractImporter<IInfos<ITechInfo>, ITechInfo>
 				infos.addInfo(info);
 			}
 		}
+		infos.addInfo(createSpecialTech());
 
 		// Get the rest of the values from the tech tree
 		sheet = wb.getSheet(getListSheetName());
@@ -178,5 +181,13 @@ public class TechImporter extends AbstractImporter<IInfos<ITechInfo>, ITechInfo>
 	@Override
 	protected ITechInfo parseRow(Row row) {
 		return null;
+	}
+	
+	private ITechInfo createSpecialTech() {
+		// We need to add the tech that is used as a prereq for things we don't want players accessing
+		ITechInfo info = TechInfos.createInfo(specialTech);
+		info.setGridX(-1);
+		info.setGridY(-1);
+		return info;
 	}
 }
