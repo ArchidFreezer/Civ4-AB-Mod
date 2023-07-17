@@ -6920,7 +6920,7 @@
 			<PrereqTechs>
 				<TechType>TECH_OPTICS</TechType>
 			</PrereqTechs>
-			<iCost>60</iCost>
+			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>3</iMoves>
@@ -6990,7 +6990,7 @@
 			<PrereqTechs>
 				<TechType>TECH_RUDDER</TechType>
 			</PrereqTechs>
-			<iCost>60</iCost>
+			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>3</iMoves>
@@ -7057,7 +7057,7 @@
 			<PrereqTechs>
 				<TechType>TECH_RUDDER</TechType>
 			</PrereqTechs>
-			<iCost>85</iCost>
+			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>3</iMoves>
@@ -7115,7 +7115,7 @@
 				<TechType>TECH_NAVIGATION</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
-			<iCost>90</iCost>
+			<iCost>170</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
@@ -7171,7 +7171,7 @@
 				<TechType>TECH_NAVAL_CANNON</TechType>
 				<TechType>TECH_ASTRONOMY</TechType>
 			</PrereqTechs>
-			<iCost>80</iCost>
+			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
@@ -7229,11 +7229,11 @@
 				<TechType>TECH_NAVAL_CANNON</TechType>
 				<TechType>TECH_ASTRONOMY</TechType>
 			</PrereqTechs>
-			<iCost>80</iCost>
+			<iCost>150</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
-			<iCombat>19</iCombat>
+			<iCombat>18</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
@@ -7273,7 +7273,7 @@
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_GALLEON</UnitClassType>
+				<UnitClassType>UNITCLASS_CARRACK</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
@@ -7343,7 +7343,7 @@
 				<TechType>TECH_GRAND_WAR</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
-			<iCost>90</iCost>
+			<iCost>240</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
@@ -7351,7 +7351,7 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
-			<iBombardRate>8</iBombardRate>
+			<iBombardRate>15</iBombardRate>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>3</iAsset>
 			<iPower>8</iPower>
@@ -7402,7 +7402,7 @@
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
 			</PrereqOrBonuses>
-			<iCost>80</iCost>
+			<iCost>220</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
@@ -7410,6 +7410,7 @@
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>3</iAsset>
 			<iPower>6</iPower>
 			<UnitMeshGroups>
@@ -7445,6 +7446,9 @@
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<bHiddenNationality>1</bHiddenNationality>
 			<bAlwaysHostile>1</bAlwaysHostile>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_HEAVY_PRIVATEER</UnitClassType>
+			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_PIRATE_SEA</UnitAIType>
 			</UnitAIs>
@@ -7461,7 +7465,7 @@
 				<BonusType>BONUS_COPPER</BonusType>
 				<BonusType>BONUS_IRON</BonusType>
 			</PrereqOrBonuses>
-			<iCost>80</iCost>
+			<iCost>160</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>4</iMoves>
@@ -7481,6 +7485,7 @@
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassDefenseMod>
 			</UnitClassDefenseMods>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>3</iAsset>
 			<iPower>6</iPower>
 			<UnitMeshGroups>
@@ -7514,6 +7519,9 @@
 			<bMilitaryProduction>1</bMilitaryProduction>
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_SAIL_GUNBOAT</UnitClassType>
+			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
@@ -7523,7 +7531,7 @@
 				<TechType>TECH_SHIP_BUILDING</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_COPPER</BonusType>
-			<iCost>60</iCost>
+			<iCost>75</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>2</iMoves>
@@ -7591,7 +7599,7 @@
 			<iXPValueAttack>6</iXPValueAttack>
 			<iXPValueDefense>3</iXPValueDefense>
 			<iWithdrawalProb>20</iWithdrawalProb>
-			<iBombardRate>4</iBombardRate>
+			<iBombardRate>7</iBombardRate>
 			<iAsset>1</iAsset>
 			<iPower>34</iPower>
 			<UnitMeshGroups>
@@ -7640,15 +7648,16 @@
 				<BonusType>BONUS_IRON</BonusType>
 				<BonusType>BONUS_COPPER</BonusType>
 			</PrereqOrBonuses>
-			<iCost>120</iCost>
+			<iCost>300</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
-			<iMoves>3</iMoves>
+			<iMoves>5</iMoves>
 			<iCombat>32</iCombat>
 			<iCombatLimit>100</iCombatLimit>
 			<iXPValueAttack>4</iXPValueAttack>
 			<iXPValueDefense>2</iXPValueDefense>
 			<iBombardRate>12</iBombardRate>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>3</iAsset>
 			<iPower>10</iPower>
 			<UnitMeshGroups>
@@ -7697,7 +7706,7 @@
 				<TechType>TECH_METALLURGY</TechType>
 			</PrereqTechs>
 			<BonusType>BONUS_IRON</BonusType>
-			<iCost>100</iCost>
+			<iCost>125</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>5</iMoves>
@@ -7728,6 +7737,8 @@
 					<iUnitClassMod>50</iUnitClassMod>
 				</UnitClassDefenseMod>
 			</UnitClassDefenseMods>
+			<iBombardRate>4</iBombardRate>
+			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iAsset>1</iAsset>
 			<iPower>25</iPower>
 			<UnitMeshGroups>
@@ -7762,8 +7773,7 @@
 			<bMechanized>1</bMechanized>
 			<bRenderBelowWater>1</bRenderBelowWater>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_CARAVEL</UnitClassType>
-				<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
+				<UnitClassType>UNITCLASS_SLOOP_OF_WAR</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
@@ -7774,7 +7784,7 @@
 			<PrereqTechs>
 				<TechType>TECH_SHIP_BUILDING</TechType>
 			</PrereqTechs>
-			<iCost>50</iCost>
+			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>2</iMoves>
@@ -7843,7 +7853,7 @@
 			<PrereqTechs>
 				<TechType>TECH_NAVAL_WARFARE</TechType>
 			</PrereqTechs>
-			<iCost>50</iCost>
+			<iCost>70</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMinAreaSize>20</iMinAreaSize>
 			<iMoves>2</iMoves>
