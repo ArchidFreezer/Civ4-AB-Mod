@@ -481,6 +481,12 @@
 			<iCategory>29</iCategory>
 			<DefaultBuilding>BUILDING_HYPERMARKET</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Jewellers -->
+			<Type>BUILDINGCLASS_JEWELLERS</Type>
+			<Description>TXT_KEY_BUILDING_JEWELLERS</Description>
+			<iCategory>29</iCategory>
+			<DefaultBuilding>BUILDING_JEWELLERS</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Market -->
 			<Type>BUILDINGCLASS_MARKET</Type>
 			<Description>TXT_KEY_BUILDING_MARKET</Description>

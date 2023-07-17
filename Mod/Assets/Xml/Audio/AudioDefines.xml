@@ -7,6 +7,13 @@
 <AudioDefines xmlns="x-schema:AudioDefinesSchema.xml">
 	<SoundDatas>
 		<SoundData>
+			<SoundID>SND_BUILD_JEWELLERS</SoundID>
+			<Filename>Sounds/Buildings/Jewellers</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_BUILD_BUTCHERY</SoundID>
 			<Filename>Sounds/Buildings/Butchery</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>
