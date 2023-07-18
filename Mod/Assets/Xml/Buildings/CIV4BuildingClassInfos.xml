@@ -1214,6 +1214,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_VERSAILLES</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Walls Of Troy -->
+			<Type>BUILDINGCLASS_WALLS_OF_TROY</Type>
+			<Description>TXT_KEY_BUILDING_WALLS_OF_TROY</Description>
+			<iCategory>2</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_WALLS_OF_TROY</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- World Bank -->
 			<Type>BUILDINGCLASS_WORLD_BANK</Type>
 			<Description>TXT_KEY_BUILDING_WORLD_BANK</Description>
