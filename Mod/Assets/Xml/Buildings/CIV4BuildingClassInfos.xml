@@ -438,7 +438,13 @@
 			<DefaultBuilding>BUILDING_NUCLEAR_PLANT</DefaultBuilding>
 		</BuildingClassInfo>
 
-		<BuildingClassInfo> <!-- Brightsmiths Hut -->                <!-- Commerce -->
+		<BuildingClassInfo> <!-- Beadmakers Hut -->                  <!-- Commerce -->
+			<Type>BUILDINGCLASS_BEADMAKERS_HUT</Type>
+			<Description>TXT_KEY_BUILDING_BEADMAKERS_HUT</Description>
+			<iCategory>28</iCategory>
+			<DefaultBuilding>BUILDING_BEADMAKERS_HUT</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Brightsmiths Hut -->
 			<Type>BUILDINGCLASS_BRIGHTSMITHS_HUT</Type>
 			<Description>TXT_KEY_BUILDING_BRIGHTSMITHS_HUT</Description>
 			<iCategory>28</iCategory>
@@ -866,7 +872,7 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ARTEMIS</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Asklepieion of Kos -->
+		<BuildingClassInfo> <!-- Asklepieion Of Kos -->
 			<Type>BUILDINGCLASS_ASKLEPIEION_OF_KOS</Type>
 			<Description>TXT_KEY_BUILDING_TEMPLE_OF_ASCL</Description>
 			<iCategory>2</iCategory>
@@ -971,7 +977,7 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_EINSTEIN_LAB</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Great Bath of Mohenjo-daro -->
+		<BuildingClassInfo> <!-- Great Bath Of Mohenjo Daro -->
 			<Type>BUILDINGCLASS_GREAT_BATH_OF_MOHENJO_DARO</Type>
 			<Description>TXT_KEY_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Description>
 			<iCategory>2</iCategory>
