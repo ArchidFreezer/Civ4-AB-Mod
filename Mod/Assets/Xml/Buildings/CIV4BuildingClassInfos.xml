@@ -771,6 +771,12 @@
 			<iCategory>37</iCategory>
 			<DefaultBuilding>BUILDING_HOSPITAL</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Plague Hospital -->
+			<Type>BUILDINGCLASS_PLAGUE_HOSPITAL</Type>
+			<Description>TXT_KEY_BUILDING_PLAGUE_HOSPITAL</Description>
+			<iCategory>37</iCategory>
+			<DefaultBuilding>BUILDING_PLAGUE_HOSPITAL</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Public Transportation -->
 			<Type>BUILDINGCLASS_PUBLIC_TRANSPORTATION</Type>
 			<Description>TXT_KEY_BUILDING_PUBLIC_TRANSPORTATION</Description>
