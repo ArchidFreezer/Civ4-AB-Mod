@@ -10273,6 +10273,7 @@
 			<iBaseHurry>15</iBaseHurry>
 			<iBaseTrade>30</iBaseTrade>
 			<iTradeMultiplier>2</iTradeMultiplier>
+			<iAutoXP>1</iAutoXP>
 			<iCombat>2</iCombat>
 			<iAnimalCombat>100</iAnimalCombat>
 			<iAsset>1</iAsset>

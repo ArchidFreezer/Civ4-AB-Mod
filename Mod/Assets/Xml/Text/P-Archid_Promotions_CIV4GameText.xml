@@ -2001,6 +2001,20 @@
 		<German>Torpedos</German>
 	</TEXT>
 
+<!-- +++ Trader +++ -->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TRADER1</Tag>
+		<English>Trader I</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TRADER2</Tag>
+		<English>Trader II</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_TRADER3</Tag>
+		<English>Trader III</English>
+	</TEXT>
+
 	<TEXT> <!-- Trainer -->
 		<Tag>TXT_KEY_PROMOTION_TRAINER</Tag>
 		<English>Trainer</English>

@@ -2061,7 +2061,6 @@
 				<TerrainType>TERRAIN_DESERT</TerrainType>
 			</TerrainDoubleMoves>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
@@ -2486,7 +2485,6 @@
 				</TerrainDefense>
 			</TerrainDefenses>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -2693,7 +2691,6 @@
 			<iMovesChange>1</iMovesChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -2936,7 +2933,6 @@
 			<iHillsDefense>20</iHillsDefense>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -3160,7 +3156,6 @@
 			<iCityDefense>20</iCityDefense>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
@@ -3751,7 +3746,6 @@
 			<bAlwaysHeal>1</bAlwaysHeal>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
@@ -3863,7 +3857,6 @@
 			<iAdjacentTileHealChange>5</iAdjacentTileHealChange>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
@@ -5005,7 +4998,6 @@
 			</UnitCombatMods>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
@@ -5131,7 +5123,6 @@
 			</SeeInvisibles>
 			<OrUnitCombatTypes>
 				<UnitCombatType>UNITCOMBAT_LAW_ENFORCEMENT</UnitCombatType>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
@@ -5187,7 +5178,6 @@
 			</PrereqOrPromotions>
 			<iMovesChange>1</iMovesChange>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_WHEELED</UnitCombatType>
@@ -5524,6 +5514,47 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/torpedoes.dds</Button>
 		</PromotionInfo>
+		<PromotionInfo> <!-- Slaver1 -->
+			<Type>PROMOTION_TRADER1</Type>
+			<Description>TXT_KEY_PROMOTION_TRADER1</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<TechPrereq>TECH_TRADE</TechPrereq>
+			<FeatureDoubleMoves>
+				<FeatureType>FEATURE_FOREST</FeatureType>
+				<FeatureType>FEATURE_JUNGLE</FeatureType>
+			</FeatureDoubleMoves>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/trader1.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Trader2 -->
+			<Type>PROMOTION_TRADER2</Type>
+			<Description>TXT_KEY_PROMOTION_TRADER2</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_TRADER1</PromotionType>
+			</PrereqOrPromotions>
+			<iMovesChange>1</iMovesChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/trader2.dds</Button>
+		</PromotionInfo>
+		<PromotionInfo> <!-- Trader3 -->
+			<Type>PROMOTION_TRADER3</Type>
+			<Description>TXT_KEY_PROMOTION_TRADER3</Description>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PrereqOrPromotions>
+				<PromotionType>PROMOTION_TRADER2</PromotionType>
+			</PrereqOrPromotions>
+			<bEnemyRoute>1</bEnemyRoute>
+			<iMovesChange>1</iMovesChange>
+			<OrUnitCombatTypes>
+				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
+			</OrUnitCombatTypes>
+			<Button>Art/Interface/Buttons/Promotions/trader3.dds</Button>
+		</PromotionInfo>
 		<PromotionInfo> <!-- Trench1 -->
 			<Type>PROMOTION_TRENCH1</Type>
 			<Description>TXT_KEY_PROMOTION_TRENCH1</Description>
@@ -5710,7 +5741,6 @@
 				</FeatureDefense>
 			</FeatureDefenses>
 			<OrUnitCombatTypes>
-				<UnitCombatType>UNITCOMBAT_TRADE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_HEALTH_CARE</UnitCombatType>
 				<UnitCombatType>UNITCOMBAT_ANIMAL</UnitCombatType>
