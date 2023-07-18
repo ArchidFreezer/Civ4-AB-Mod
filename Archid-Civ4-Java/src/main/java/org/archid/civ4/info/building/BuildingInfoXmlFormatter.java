@@ -90,12 +90,12 @@ public class BuildingInfoXmlFormatter extends AbstractXmlFormatter {
 		 * Standard
 		 */
 		// Output the domain header comment
-		out.append(groupHeader.replaceAll("xxxGROUPxxx",	GROUP_STANDARD_LABEL));
+		out.append(groupHeader.replaceAll("xxxGROUPxxx", GROUP_STANDARD_LABEL));
 		
 		// Now loop through the buildings, in most cases there will only be a single instance, but there
 		// will be multiples where there are UBs for the class that need to be sorted
 		// The map is maintained in the following keys: Building Comment / Building
-		Map<String, IXmlInfo> sortedGroup =  new TreeMap<String, IXmlInfo>();
+		Map<String, IXmlInfo> sortedGroup =  new TreeMap<String, IXmlInfo>(infoCommentComparator);
 		for (IXmlInfo info: standard.values()) {
 			// If the type matches the class then we will use the type only
 			String unitType = getCommentText(info.getType());
@@ -124,7 +124,7 @@ public class BuildingInfoXmlFormatter extends AbstractXmlFormatter {
 		out.append(newline + newline + groupHeader.replaceAll("xxxGROUPxxx",	GROUP_AUTO_BUILD_LABEL));
 		
 		// There shouldn't be any equivalent of UBs, but we may as well process the infos as if there were
-		sortedGroup =  new TreeMap<String, IXmlInfo>();
+		sortedGroup =  new TreeMap<String, IXmlInfo>(infoCommentComparator);
 		for (IXmlInfo info: features.values()) {
 			// If the type matches the class then we will use the type only
 			String unitType = getCommentText(info.getType());
@@ -152,7 +152,7 @@ public class BuildingInfoXmlFormatter extends AbstractXmlFormatter {
 		out.append(newline + newline + groupHeader.replaceAll("xxxGROUPxxx",	GROUP_NO_CONSTRUCT_LABEL));
 		
 		// There shouldn't be any equivalent of UBs, but we may as well process the infos as if there were
-		sortedGroup =  new TreeMap<String, IXmlInfo>();
+		sortedGroup =  new TreeMap<String, IXmlInfo>(infoCommentComparator);
 		for (IXmlInfo info: noConstruct.values()) {
 			// If the type matches the class then we will use the type only
 			String unitType = getCommentText(info.getType());
@@ -186,5 +186,4 @@ public class BuildingInfoXmlFormatter extends AbstractXmlFormatter {
 			log.error("Could not access the file", e);
 		}
 	}
-
 }
