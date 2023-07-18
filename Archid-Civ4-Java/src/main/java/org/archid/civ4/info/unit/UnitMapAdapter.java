@@ -307,6 +307,8 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 		private Integer greatJestHappiness;
 		@XmlElement(name="iGreatJestDuration")
 		private Integer greatJestDuration;
+		@XmlElement(name="iAutoXP")
+		private Integer autoXP;
 		@XmlElementWrapper(name="TerrainImpassables")
 		@XmlElement(name="TerrainType")
 		private List<String> terrainImpassables;
@@ -918,6 +920,7 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			info.setEspionagePoints(JaxbUtils.unmarshallInteger(aInfo.espionagePoints));
 			info.setGreatJestHappiness(JaxbUtils.unmarshallInteger(aInfo.greatJestHappiness));
 			info.setGreatJestDuration(JaxbUtils.unmarshallInteger(aInfo.greatJestDuration));
+			info.setAutoXP(JaxbUtils.unmarshallInteger(aInfo.autoXP));
 
 			if (CollectionUtils.hasElements(aInfo.terrainImpassables)) {
 				for (String val: aInfo.terrainImpassables) {
@@ -1450,6 +1453,7 @@ public class UnitMapAdapter extends XmlAdapter<UnitMapAdapter.UnitMap, Map<Strin
 			aInfo.espionagePoints = JaxbUtils.marshallInteger(info.getEspionagePoints());
 			aInfo.greatJestHappiness = JaxbUtils.marshallInteger(info.getGreatJestHappiness());
 			aInfo.greatJestDuration = JaxbUtils.marshallInteger(info.getGreatJestDuration());
+			aInfo.autoXP = JaxbUtils.marshallInteger(info.getAutoXP());
 
 			if (CollectionUtils.hasElements(info.getTerrainImpassables())) {
 				aInfo.terrainImpassables = new ArrayList<String>();

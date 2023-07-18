@@ -7591,6 +7591,12 @@ void CvGameTextMgr::setBasicUnitHelp(CvWStringBuffer& szBuffer, UnitTypes eUnit,
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_GREAT_JEST", kUnit.getGreatJestHappiness(), iDuration));
 	}
 
+	if (kUnit.getAutoXP() > 0) {
+		int iXP = std::max(1, kUnit.getAutoXP());
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_AUTO_XP", kUnit.getAutoXP(), iXP));
+	}
+
 	if (kUnit.isGoldenAge()) {
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_UNIT_GOLDEN_AGE"));

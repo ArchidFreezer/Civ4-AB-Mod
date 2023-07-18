@@ -1718,4 +1718,9 @@
 		<Tag>TXT_KEY_ERA_TRANSHUMAN</Tag>
 		<English>Transhuman</English>
 	</TEXT>
+<!-- Auto XP -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AUTO_XP</Tag>
+		<English>[ICON_BULLET]Gains %d1 XP each turn</English>
+	</TEXT>
 </Civ4GameText>

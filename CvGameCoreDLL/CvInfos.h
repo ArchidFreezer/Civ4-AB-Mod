@@ -1037,6 +1037,7 @@ public:
 	int getMaxAmmunitionTypeTier() const;
 	int getGreatJestDuration() const;
 	int getGreatJestHappiness() const;
+	int getAutoXP() const;
 
 	bool isAnimal() const;				// Exposed to Python
 	bool isFoodProduction() const;				// Exposed to Python
@@ -1267,6 +1268,7 @@ protected:
 	int m_iMaxAmmunitionTypeTier;
 	int m_iGreatJestDuration;
 	int m_iGreatJestHappiness;
+	int m_iAutoXP;
 
 	bool m_bAnimal;
 	bool m_bFoodProduction;

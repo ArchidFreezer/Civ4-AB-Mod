@@ -489,6 +489,7 @@
 	<ElementType name="iMorale" content="textOnly" dt:type="int"/>
 	<ElementType name="iGreatJestDuration" content="textOnly" dt:type="int"/>
 	<ElementType name="iGreatJestHappiness" content="textOnly" dt:type="int"/>
+	<ElementType name="iAutoXP" content="textOnly" dt:type="int"/>
 	<ElementType name="bCityPacifier" content="textOnly" dt:type="boolean"/>
 	<ElementType name="UnitInfo" content="eltOnly">
 		<element type="Class"/>
@@ -618,6 +619,7 @@
 		<element type="iEspionagePoints" minOccurs="0"/>
 		<element type="iGreatJestHappiness" minOccurs="0"/>
 		<element type="iGreatJestDuration" minOccurs="0"/>
+		<element type="iAutoXP" minOccurs="0"/>
 		<element type="TerrainImpassables" minOccurs="0"/>
 		<element type="FeatureImpassables" minOccurs="0"/>
 		<element type="TerrainPassableTechs" minOccurs="0"/>

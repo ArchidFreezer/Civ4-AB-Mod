@@ -775,6 +775,10 @@ void CvUnit::doTurn() {
 
 	setMoves(0);
 
+	if (isEnabled()) {
+		doAutoXP();
+	}
+
 	if (getDesiredDiscoveryTech() != NO_TECH) {
 		if (GET_PLAYER(getOwnerINLINE()).canResearch(getDesiredDiscoveryTech())) {
 			getGroup()->setActivityType(ACTIVITY_AWAKE);
@@ -13613,4 +13617,8 @@ void CvUnit::setOnlyDefensiveCount(int iValue) {
 
 void CvUnit::changeOnlyDefensiveCount(int iChange) {
 	setOnlyDefensiveCount(getOnlyDefensiveCount() + iChange);
+}
+
+void CvUnit::doAutoXP() {
+	changeExperience(m_pUnitInfo->getAutoXP());
 }

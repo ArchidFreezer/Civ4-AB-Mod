@@ -384,6 +384,9 @@ public interface IUnitInfo extends IInfo {
 	Integer getGreatJestDuration();
 	void setGreatJestDuration(Integer greatJestDuration);
 
+	Integer getAutoXP();
+	void setAutoXP(Integer autoXP);
+
 	List<String> getTerrainImpassables();
 	void addTerrainImpassable(String terrainImpassable);
 

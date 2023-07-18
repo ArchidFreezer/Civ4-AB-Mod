@@ -3278,6 +3278,7 @@ CvUnitInfo::CvUnitInfo() :
 	m_iMaxAmmunitionTypeTier(0),
 	m_iGreatJestDuration(0),
 	m_iGreatJestHappiness(0),
+	m_iAutoXP(0),
 	m_bAnimal(false),
 	m_bFoodProduction(false),
 	m_bNoBadGoodies(false),
@@ -3416,6 +3417,10 @@ CvUnitInfo::~CvUnitInfo() {
 	SAFE_DELETE_ARRAY(m_paszLateArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszMiddleArtDefineTags);
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
+}
+
+int CvUnitInfo::getAutoXP() const {
+	return m_iAutoXP;
 }
 
 bool CvUnitInfo::isCityPacifier() const {
@@ -4563,6 +4568,7 @@ void CvUnitInfo::read(FDataStreamBase* stream) {
 	stream->Read(&m_iMaxAmmunitionTypeTier);
 	stream->Read(&m_iGreatJestDuration);
 	stream->Read(&m_iGreatJestHappiness);
+	stream->Read(&m_iAutoXP);
 
 	int iTemp;
 	stream->Read(&iTemp);
@@ -4977,6 +4983,7 @@ void CvUnitInfo::write(FDataStreamBase* stream) {
 	stream->Write(m_iMaxAmmunitionTypeTier);
 	stream->Write(m_iGreatJestDuration);
 	stream->Write(m_iGreatJestHappiness);
+	stream->Write(m_iAutoXP);
 
 	stream->Write(m_eRangeType);
 	stream->Write(m_eMinCultureLevel);
@@ -5332,6 +5339,7 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML) {
 	pXML->GetChildXmlValByName(&m_iEspionagePoints, "iEspionagePoints");
 	pXML->GetChildXmlValByName(&m_iGreatJestDuration, "iGreatJestDuration");
 	pXML->GetChildXmlValByName(&m_iGreatJestHappiness, "iGreatJestHappiness");
+	pXML->GetChildXmlValByName(&m_iAutoXP, "iAutoXP");
 
 	pXML->SetListInfoBool(&m_pbTerrainImpassable, "TerrainImpassables", GC.getNumTerrainInfos());
 	pXML->SetListInfoBool(&m_pbFeatureImpassable, "FeatureImpassables", GC.getNumFeatureInfos());

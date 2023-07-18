@@ -164,6 +164,7 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		private Integer espionagePoints;
 		private Integer greatJestHappiness;
 		private Integer greatJestDuration;
+		private Integer autoXP;
 		private List<String> terrainImpassables = new ArrayList<String>();
 		private List<String> featureImpassables = new ArrayList<String>();
 		private List<IPair<String, String>> terrainPassableTechs = new ArrayList<IPair<String, String>>();
@@ -1495,6 +1496,16 @@ public class UnitInfos extends AbstractInfos<IUnitInfo> {
 		@Override
 		public void setGreatJestDuration(Integer greatJestDuration) {
 			this.greatJestDuration = greatJestDuration;
+		}
+
+		@Override
+		public Integer getAutoXP() {
+			return autoXP;
+		}
+
+		@Override
+		public void setAutoXP(Integer autoXP) {
+			this.autoXP = autoXP;
 		}
 
 		@Override

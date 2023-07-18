@@ -161,6 +161,7 @@ public class UnitImporter extends AbstractImporter<IInfos<IUnitInfo>, IUnitInfo>
 		parseCell(row.getCell(colNum++), Integer.class, info::setEspionagePoints);
 		parseCell(row.getCell(colNum++), Integer.class, info::setGreatJestHappiness);
 		parseCell(row.getCell(colNum++), Integer.class, info::setGreatJestDuration);
+		parseCell(row.getCell(colNum++), Integer.class, info::setAutoXP);
 		parseListCell(row.getCell(colNum++), String.class, info::addTerrainImpassable);
 		parseListCell(row.getCell(colNum++), String.class, info::addFeatureImpassable);
 		parsePairsCell(row.getCell(colNum++), String.class, String.class, info::addTerrainPassableTech);

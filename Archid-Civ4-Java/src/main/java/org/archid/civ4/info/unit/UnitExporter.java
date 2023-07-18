@@ -170,6 +170,7 @@ public class UnitExporter extends AbstractExporter<IInfos<IUnitInfo>, IUnitInfo>
 		addSingleCell(row.createCell(colNum++), info.getEspionagePoints());
 		addSingleCell(row.createCell(colNum++), info.getGreatJestHappiness());
 		addSingleCell(row.createCell(colNum++), info.getGreatJestDuration());
+		addSingleCell(row.createCell(colNum++), info.getAutoXP());
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getTerrainImpassables(), maxHeight);
 		maxHeight = addRepeatingCell(row.createCell(colNum++), info.getFeatureImpassables(), maxHeight);
 		maxHeight = addRepeatingPairCell(row.createCell(colNum++), info.getTerrainPassableTechs(), maxHeight);
