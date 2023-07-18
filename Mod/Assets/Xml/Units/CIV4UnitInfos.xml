@@ -9310,16 +9310,17 @@
 			<bMechanized>1</bMechanized>
 			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+				<UnitClassType>UNITCLASS_BOMBARD</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_CONSTRUCTION</TechType>
+				<TechType>TECH_SIEGE_WARFARE</TechType>
 			</PrereqTechs>
-			<iCost>50</iCost>
+			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
 			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
@@ -9339,7 +9340,7 @@
 			<iBombardRate>8</iBombardRate>
 			<iCultureGarrison>4</iCultureGarrison>
 			<iAsset>2</iAsset>
-			<iPower>5</iPower>
+			<iPower>10</iPower>
 			<UnitMeshGroups>
 				<iGroupSize>2</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -9375,17 +9376,18 @@
 			<bMechanized>1</bMechanized>
 			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+				<UnitClassType>UNITCLASS_BOMBARD</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
 				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 				<UnitAIType>UNITAI_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
 			</UnitAIs>
 			<PrereqTechs>
-				<TechType>TECH_CONSTRUCTION</TechType>
+				<TechType>TECH_SIEGE_WARFARE</TechType>
 			</PrereqTechs>
-			<iCost>50</iCost>
+			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iMoves>1</iMoves>
 			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
@@ -9411,7 +9413,7 @@
 			<iBombardRate>8</iBombardRate>
 			<iCultureGarrison>4</iCultureGarrison>
 			<iAsset>2</iAsset>
-			<iPower>5</iPower>
+			<iPower>10</iPower>
 			<UnitMeshGroups>
 				<iGroupSize>2</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -9447,13 +9449,14 @@
 			<bMechanized>1</bMechanized>
 			<bMilitaryTrade>1</bMilitaryTrade>
 			<UnitClassUpgrades>
-				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+				<UnitClassType>UNITCLASS_BOMBARD</UnitClassType>
 			</UnitClassUpgrades>
 			<UnitAIs>
 				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 			</UnitAIs>
 			<NotUnitAIs>
-				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
 				<UnitAIType>UNITAI_ATTACK</UnitAIType>
 			</NotUnitAIs>
 			<PrereqTechs>
@@ -9479,8 +9482,8 @@
 			</UnitCombatCollateralImmunes>
 			<iBombardRate>16</iBombardRate>
 			<iCultureGarrison>4</iCultureGarrison>
-			<iAsset>3</iAsset>
-			<iPower>8</iPower>
+			<iAsset>2</iAsset>
+			<iPower>15</iPower>
 			<UnitMeshGroups>
 				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
@@ -9490,6 +9493,76 @@
 				<UnitMeshGroup>
 					<iRequired>2</iRequired>
 					<EarlyArtDefineTag>ART_DEF_UNIT_TREBUCHET</EarlyArtDefineTag>
+				</UnitMeshGroup>
+			</UnitMeshGroups>
+			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
+		</UnitInfo>
+		<UnitInfo> <!-- Bombard -->
+			<Class>UNITCLASS_BOMBARD</Class>
+			<Type>UNIT_BOMBARD</Type>
+			<Capture>UNITCLASS_BOMBARD</Capture>
+			<Combat>UNITCOMBAT_SIEGE</Combat>
+			<SubCombatTypes>
+				<UnitCombatType>UNITCOMBAT_FORT_RANGED</UnitCombatType>
+			</SubCombatTypes>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK_CITY</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_BOMBARD</Description>
+			<Civilopedia>TXT_KEY_UNIT_BOMBARD_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_BOMBARD_STRATEGY</Strategy>
+			<Advisor>ADVISOR_MILITARY</Advisor>
+			<bMilitaryHappiness>1</bMilitaryHappiness>
+			<bMilitarySupport>1</bMilitarySupport>
+			<bMilitaryProduction>1</bMilitaryProduction>
+			<bPillage>1</bPillage>
+			<bNoDefensiveBonus>1</bNoDefensiveBonus>
+			<bIgnoreBuildingDefense>1</bIgnoreBuildingDefense>
+			<UnitClassUpgrades>
+				<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+			</UnitClassUpgrades>
+			<UnitAIs>
+				<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+				<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
+				<UnitAIType>UNITAI_CITY_COUNTER</UnitAIType>
+			</UnitAIs>
+			<PrereqTechs>
+				<TechType>TECH_GUNPOWDER</TechType>
+			</PrereqTechs>
+			<BonusType>BONUS_IRON</BonusType>
+			<PrereqOrBonuses>
+				<BonusType>BONUS_SULPHUR</BonusType>
+			</PrereqOrBonuses>
+			<iCost>280</iCost>
+			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMoves>1</iMoves>
+			<UnitRangeType>UNITRANGE_RANGE</UnitRangeType>
+			<iCombat>11</iCombat>
+			<iCombatLimit>80</iCombatLimit>
+			<iXPValueAttack>6</iXPValueAttack>
+			<iXPValueDefense>3</iXPValueDefense>
+			<iCollateralDamage>100</iCollateralDamage>
+			<iCollateralDamageLimit>60</iCollateralDamageLimit>
+			<iCollateralDamageMaxUnits>6</iCollateralDamageMaxUnits>
+			<iCityAttack>50</iCityAttack>
+			<UnitCombatCollateralImmunes>
+				<UnitCombatCollateralImmune>
+					<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+					<iUnitCombatCollateralImmune>1</iUnitCombatCollateralImmune>
+				</UnitCombatCollateralImmune>
+			</UnitCombatCollateralImmunes>
+			<iBombardRate>10</iBombardRate>
+			<iCultureGarrison>6</iCultureGarrison>
+			<iAsset>3</iAsset>
+			<iPower>23</iPower>
+			<UnitMeshGroups>
+				<iGroupSize>2</iGroupSize>
+				<fMaxSpeed>1.75</fMaxSpeed>
+				<fPadTime>1.0</fPadTime>
+				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iRangedWaveSize>2</iRangedWaveSize>
+				<UnitMeshGroup>
+					<iRequired>2</iRequired>
+					<EarlyArtDefineTag>ART_DEF_UNIT_BOMBARD</EarlyArtDefineTag>
 				</UnitMeshGroup>
 			</UnitMeshGroups>
 			<FormationType>FORMATION_TYPE_MACHINE</FormationType>
