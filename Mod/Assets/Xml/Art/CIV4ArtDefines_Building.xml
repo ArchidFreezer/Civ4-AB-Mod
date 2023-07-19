@@ -3128,7 +3128,7 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/Zoroastrian_cathedral.dds</Button>
 		</BuildingArtInfo>
-		<BuildingArtInfo> <!-- Zoroastrianm Monastery -->
+		<BuildingArtInfo> <!-- Zoroastrian Monastery -->
 			<Type>ART_DEF_BUILDING_ZOROASTRIAN_MONASTERY</Type>
 			<LSystem>LSYSTEM_2x2</LSystem>
 			<bAnimated>1</bAnimated>
@@ -3157,6 +3157,16 @@
 			<NIF>Art/Structures/Buildings/city/Zoroastrian_temple/firetemple.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrian Wonder Apadana Palace -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_WONDER_APADANA_PALACE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/zoroastrian_wonder_apadana_palace/darius.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/zoroastrian_wonder_apadana_palace.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
