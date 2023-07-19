@@ -2988,6 +2988,16 @@
 			<KFM />
 			<Button>Art/Interface/Buttons/Buildings/asatru_temple.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Asatru Thor Worship Altar -->
+			<Type>ART_DEF_BUILDING_ASATRU_THOR_WORSHIP_ALTAR</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.45</fScale>
+			<fInterfaceScale>8.83</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/asatru_thor_altar/svarog_temple.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/asatru_thor_altar.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo> <!-- Hellenic Cathedral -->
 			<Type>ART_DEF_BUILDING_HELLENIC_CATHEDRAL</Type>
 			<LSystem>LSYSTEM_4x4</LSystem>
