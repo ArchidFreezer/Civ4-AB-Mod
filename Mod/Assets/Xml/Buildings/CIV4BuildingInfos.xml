@@ -919,6 +919,10 @@
 					<iExperience>3</iExperience>
 				</UnitCombatFreeExperience>
 				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+					<iExperience>3</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
 					<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 					<iExperience>3</iExperience>
 				</UnitCombatFreeExperience>
@@ -1041,6 +1045,10 @@
 				</UnitCombatFreeExperience>
 				<UnitCombatFreeExperience>
 					<UnitCombatType>UNITCOMBAT_WOODEN_SHIPS</UnitCombatType>
+					<iExperience>2</iExperience>
+				</UnitCombatFreeExperience>
+				<UnitCombatFreeExperience>
+					<UnitCombatType>UNITCOMBAT_SLAVER</UnitCombatType>
 					<iExperience>2</iExperience>
 				</UnitCombatFreeExperience>
 			</UnitCombatFreeExperiences>
