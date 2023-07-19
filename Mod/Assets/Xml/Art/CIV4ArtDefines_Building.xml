@@ -1208,16 +1208,6 @@
 			<Button>,Art/Interface/Buttons/Buildings/Oracle.dds,Art/Interface/Buttons/Buildings_Atlas.dds,4,5</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_PARTHENON</Type>
-			<LSystem>LSYSTEM_1x2</LSystem>
-			<bAnimated>0</bAnimated>
-			<fScale>2.25</fScale>
-			<fInterfaceScale>0.67</fInterfaceScale>
-			<NIF>Art/Structures/Buildings/Parthenon/Parthenon.nif</NIF>
-			<KFM/>
-			<Button>,Art/Interface/Buttons/Buildings/Parthenon.dds,Art/Interface/Buttons/Buildings_Atlas.dds,7,5</Button>
-		</BuildingArtInfo>
-		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_ANGKOR_WAT</Type>
 			<LSystem>LSYSTEM_2x2</LSystem>
 			<bAnimated>0</bAnimated>
@@ -1506,16 +1496,6 @@
 			<NIF>Art/Structures/Buildings/Halicarnassus/Halicarnassus.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/PoliceStation.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,1,5</Button>
-		</BuildingArtInfo>
-		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_STATUE_OF_ZEUS</Type>
-			<LSystem>LSYSTEM_2x3</LSystem>
-			<bAnimated>1</bAnimated>
-			<fScale>0.6</fScale>
-			<fInterfaceScale>0.8</fInterfaceScale>
-			<NIF>Art/Structures/Buildings/Zeus/Zeus.nif</NIF>
-			<KFM/>
-			<Button>,Art/Interface/Buttons/Buildings/PoliceStation.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,5</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_CRISTO_REDENTOR</Type>
@@ -2967,6 +2947,216 @@
 			<NIF>Art/Structures/Buildings/Wonders/walls_of_troy/Walls of Troy.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/walls_of_troy.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Asatru Cathedral -->
+			<Type>ART_DEF_BUILDING_ASATRU_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/asatru_cathedral/asencathedral.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/asatru_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Asatru Monastery -->
+			<Type>ART_DEF_BUILDING_ASATRU_MONASTERY</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.1</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/asatru_monastery/asenmonastery.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/asatru_monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Asatru Shrine -->
+			<Type>ART_DEF_BUILDING_ASATRU_SHRINE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/asatru_shrine/asenshrine.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/asatru_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Asatru Temple -->
+			<Type>ART_DEF_BUILDING_ASATRU_TEMPLE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/City/asatru_temple/asentemple.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/asatru_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Hellenic Cathedral -->
+			<Type>ART_DEF_BUILDING_HELLENIC_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/hellenic_cathedral/Castle.NIF</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/hellenic_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Hellenic Monastery -->
+			<Type>ART_DEF_BUILDING_HELLENIC_MONASTERY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.13</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/hellenic_monastery/Artemis.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/hellenic_monastry.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Hellenic Shrine -->
+			<Type>ART_DEF_BUILDING_HELLENIC_SHRINE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Zeus/Zeus.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/hellenic_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Hellenic Temple -->
+			<Type>ART_DEF_BUILDING_HELLENIC_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/hellenic_temple/Parthenon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/hellenic_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Hellenic Wonder Parthenon -->
+			<Type>ART_DEF_BUILDING_HELLENIC_WONDER_PARTHENON</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.25</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Parthenon/Parthenon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/hellenic_wonder_parthenon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Kemetic Cathedral -->
+			<Type>ART_DEF_BUILDING_KEMETIC_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/kemetic_cathedral/NubianPyramid.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/kemetic_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Kemetic Monastery -->
+			<Type>ART_DEF_BUILDING_KEMETIC_MONASTERY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/kemetic_monastery/temple.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/kemetic_monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Kemetic Shrine -->
+			<Type>ART_DEF_BUILDING_KEMETIC_SHRINE</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3.03</fScale>
+			<fInterfaceScale>0.36</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/kemetic_shrine/alhambra.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/kemetic_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Kemetic Temple -->
+			<Type>ART_DEF_BUILDING_KEMETIC_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/kemetic_temple/bank.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/buildings/kemetic_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Nagualistic Cathedral -->
+			<Type>ART_DEF_BUILDING_NAGUALISTIC_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/nagualistic_cathedral/meso2.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/nagualistic_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Nagualistic Monastery -->
+			<Type>ART_DEF_BUILDING_NAGUALISTIC_MONASTERY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/nagualistic_monastery/meso1.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/nagualistic_monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Nagualistic Shrine -->
+			<Type>ART_DEF_BUILDING_NAGUALISTIC_SHRINE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/nagualistic_shrine/meso3.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/nagualistic_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Nagualistic Temple -->
+			<Type>ART_DEF_BUILDING_NAGUALISTIC_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/nagualistic_temple/Meso4.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/nagualistic_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrian Cathedral -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.9</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Zoroastrian_Cathedral/zorocathedral.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Zoroastrian_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrianm Monastery -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_MONASTERY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Zoroastrian_Monastery/zoro_kloster.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Zoroastrian_Monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrian Shrine -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_SHRINE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>4.0</fScale>
+			<fInterfaceScale>0.65</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/Zoroastrian_shrine/zoroshrine.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Zoroastrian_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrian Temple -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/city/Zoroastrian_temple/firetemple.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/zoroastrian_temple.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

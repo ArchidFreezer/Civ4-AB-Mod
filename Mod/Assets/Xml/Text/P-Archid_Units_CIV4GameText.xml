@@ -881,6 +881,81 @@
 		<English>Use [COLOR_UNIT_TEXT]Medics[COLOR_REVERT] to heal troops. They are fast moving, but expensive to produce and maintain. Additionally, Medics require a hospital in the city in which they are built. However, upgrading an [COLOR_UNIT_TEXT]Explorer[COLOR_REVERT] or adding a [COLOR_UNIT_TEXT]Great General[COLOR_REVERT] are great ways to get the precious [COLOR_UNIT_TEXT]Medic 3[COLOR_REVERT] and [COLOR_UNIT_TEXT]Woodsman 3[COLOR_REVERT] promotions, both of which add to a unit's healing percentage.</English>
 	</TEXT>
 
+<!-- Missionaries -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASATRU_MISSIONARY</Tag>
+		<English>Godhi</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASATRU_MISSIONARY_STRATEGY</Tag>
+		<English>[TAB]Use this missionary to actively spread [COLOR_HIGHLIGHT_TEXT]Asatruism[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]).</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_JEWISH_MISSIONARY</Tag>
+		<English>Rabbi</English>
+		<French>Rabbin</French>
+		<German>Rabbi</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CHRISTIAN_MISSIONARY</Tag>
+		<English>Priest</English>
+		<French>Prêtre</French>
+		<German>Priester</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ISLAMIC_MISSIONARY</Tag>
+		<English>Imam</English>
+		<French>Imam</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HELLENIC_MISSIONARY</Tag>
+		<English>Oracle</English>
+		<French>Oracle</French>
+		<German>Orakel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HINDU_MISSIONARY</Tag>
+		<English>Yogi</English>
+		<French>Yogi</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BUDDHIST_MISSIONARY</Tag>
+		<English>Bodhisattva</English>
+		<French>Bodhisattva</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CONFUCIAN_MISSIONARY</Tag>
+		<English>Gentleman</English>
+		<French>Gentilhomme</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TAOIST_MISSIONARY</Tag>
+		<English>Alchemist</English>
+		<French>Alchimiste</French>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ZOROASTRIAN_MISSIONARY</Tag>
+		<English>Magi</English>
+		<French>Mage</French>
+		<German>Magi</German>
+		<Italian>Magi</Italian>
+		<Spanish>Magi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_KEMETIC_MISSIONARY</Tag>
+		<English>Scribe</English>
+		<French>Scribe</French>
+		<German>Schreiber</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_NAGUALISTIC_MISSIONARY</Tag>
+		<English>Tlenamacac</English>
+		<French>Tlenamacac</French>
+		<German>Tlenamacac</German>
+		<Italian>Tlenamacac</Italian>
+		<Spanish>Tlenamacac</Spanish>
+	</TEXT>
+
 	<TEXT> <!-- Medivac Helicopter -->
 		<Tag>TXT_KEY_UNIT_EARLY_MEDIVAC</Tag>
 		<English>Medivac Helicopter</English>

@@ -3738,7 +3738,7 @@
 					<BuildingType>NONE</BuildingType>
 				</Building>
 				<Building>
-					<BuildingClassType>BUILDINGCLASS_PARTHENON</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HELLENIC_WONDER_PARTHENON</BuildingClassType>
 					<BuildingType>NONE</BuildingType>
 				</Building>
 				<Building>
@@ -3846,7 +3846,7 @@
 					<BuildingType>NONE</BuildingType>
 				</Building>
 				<Building>
-					<BuildingClassType>BUILDINGCLASS_STATUE_OF_ZEUS</BuildingClassType>
+					<BuildingClassType>BUILDINGCLASS_HELLENIC_SHRINE</BuildingClassType>
 					<BuildingType>NONE</BuildingType>
 				</Building>
 			</Buildings>

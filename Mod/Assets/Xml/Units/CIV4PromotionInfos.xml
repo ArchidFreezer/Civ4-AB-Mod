@@ -5514,7 +5514,7 @@
 			</OrUnitCombatTypes>
 			<Button>Art/Interface/Buttons/Promotions/torpedoes.dds</Button>
 		</PromotionInfo>
-		<PromotionInfo> <!-- Slaver1 -->
+		<PromotionInfo> <!-- Trader1 -->
 			<Type>PROMOTION_TRADER1</Type>
 			<Description>TXT_KEY_PROMOTION_TRADER1</Description>
 			<Sound>AS2D_IF_LEVELUP</Sound>
