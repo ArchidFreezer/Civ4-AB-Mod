@@ -1697,6 +1697,13 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_NAGUALISTIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Nagualistic Wonder Magician Pyramid -->
+			<Type>BUILDINGCLASS_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID</Type>
+			<Description>TXT_KEY_BUILDING_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sacred Site -->
 			<Type>BUILDINGCLASS_SACRED_SITE</Type>
 			<Description>TXT_KEY_BUILDING_SACRED_SITE</Description>

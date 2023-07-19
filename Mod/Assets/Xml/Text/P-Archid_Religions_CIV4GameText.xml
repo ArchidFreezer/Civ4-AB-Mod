@@ -732,6 +732,20 @@
 		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_SHRINE_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Wonder (Pyramid of the Magician) -->
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID</Tag>
+		<English>Nagualistic Wonder (Pyramid of the Magician)</English>
+		<French>Pyramide du Mage</French>
+		<German>Pyramide des Magiers</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID_PEDIA</Tag>
+		<English>[TAB]The Pyramid of the Magician is a Mesoamerican step pyramid located in the ancient, Pre-Columbian city of Uxmal, Mexico. The structure is also referred to as the Pyramid of the Dwarf, Casa el Adivino, and the Pyramid of the Soothsayer. The pyramid is the tallest and most recognizable structure in Uxmal.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
 
 <!-- +++ Taoism +++ -->
 	<TEXT> <!-- Cathedral (Pagoda) -->
