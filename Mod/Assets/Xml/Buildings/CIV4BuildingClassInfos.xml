@@ -1684,6 +1684,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_KEMETIC_WONDER_TEMPLE_OF_OSIRIS</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder Temple Of Set -->
+			<Type>BUILDINGCLASS_KEMETIC_WONDER_TEMPLE_OF_SET</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Nagualistic Cathedral -->
 			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>

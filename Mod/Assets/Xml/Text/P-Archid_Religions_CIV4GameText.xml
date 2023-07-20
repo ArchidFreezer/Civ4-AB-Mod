@@ -696,6 +696,20 @@
 		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_OSIRIS_STRATEGY</Tag>
 		<English>Build this to increase the growth of your cities</English>
 	</TEXT>
+	<TEXT> <!-- Wonder (Set) -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET</Tag>
+		<English>Kemetic Wonder (Temple of Set)</English>
+		<French>Temple de Set</French>
+		<German>Seth-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET_PEDIA</Tag>
+		<English>[TAB]Set (also spelled Seth, Sutekh or Seteh) is an ancient god, who was originally the god of the desert, storms, and chaos. Set was viewed as immensely powerful, and was regarded consequently as the chief god. Set carried the epithet, "His Majesty", shared only with Ra. Another common epithet was, of great of strength, and in one of the Pyramid Texts it states that the king's strength is that of Set. As chief god, he was patron of Upper Egypt (in the South- upstream), where he was worshiped, most notably at Ombos. Set was regarded as a fierce warrior. It was he who protected Ra on the solar barque, slaying the chaos serpent, Apep each day to allow the sun to rise. Combined with an association with the destructive and irresistible power of storms and the desert, Set became the patron deity of soldiers, who often wore Set amulets, hoping to acquire similar destructive force, or Set's infinite protection.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET_STRATEGY</Tag>
+		<English>Build this when you embark on wars as it reduces war weariness and increases GG point generation</English>
+	</TEXT>
 
 <!-- ++++ Nagualism +++ -->
 	<TEXT> <!-- Religion Details -->
