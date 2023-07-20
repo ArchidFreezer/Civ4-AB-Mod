@@ -1691,6 +1691,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder Temple Of Thoth -->
+			<Type>BUILDINGCLASS_KEMETIC_WONDER_TEMPLE_OF_THOTH</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_THOTH</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_WONDER_TEMPLE_OF_THOTH</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Nagualistic Cathedral -->
 			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>

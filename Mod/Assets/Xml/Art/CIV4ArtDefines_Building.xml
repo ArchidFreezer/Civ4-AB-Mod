@@ -3088,6 +3088,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/buildings/kemetic_temple.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Kemetic Wonder Thoth -->
+			<Type>ART_DEF_BUILDING_KEMETIC_WONDER_TEMPLE_OF_THOTH</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.30</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/kemetic_wonder_temple_ptah/Ptah.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/kemetic_wonder_temple_of_thoth.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo> <!-- Nagualistic Cathedral -->
 			<Type>ART_DEF_BUILDING_NAGUALISTIC_CATHEDRAL</Type>
 			<LSystem>LSYSTEM_3x3</LSystem>
