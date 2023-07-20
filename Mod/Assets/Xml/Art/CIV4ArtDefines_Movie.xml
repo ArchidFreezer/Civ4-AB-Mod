@@ -431,5 +431,9 @@
 			<Type>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_ISIS</Type>
 			<Path>Art/Movies/Wonders/kemetic_wonder_isis.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Kemetic Wonder Temple of Osiris -->
+			<Type>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_OSIRIS</Type>
+			<Path>Art/Movies/Wonders/kemetic_wonder_osiris.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

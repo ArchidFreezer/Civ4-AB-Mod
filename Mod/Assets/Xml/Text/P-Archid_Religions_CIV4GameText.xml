@@ -682,6 +682,20 @@
 		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_ISIS_STRATEGY</Tag>
 		<English>Build this to increase the health of your cities</English>
 	</TEXT>
+	<TEXT> <!-- Wonder (Osiris) -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_OSIRIS</Tag>
+		<English>Kemetic Wonder (Temple of Osiris)</English>
+		<French>Temple d'Osiris</French>
+		<German>Osiris-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_OSIRIS_PEDIA</Tag>
+		<English>[TAB]Osiris is the Egyptian god of life, death, and fertility. Osiris was not only the redeemer and merciful judge of the dead in the afterlife, but also the underworld agency that granted all life, including sprouting vegetation and the fertile flooding of the Nile River. The Kings of Egypt were associated with Osiris in death as Osiris rose from the dead they would, in union with him, inherit eternal life through a process of imitative magic. By the New Kingdom all people, not just pharaohs, were believed to be associated with Osiris at death if they incurred the costs of the assimilation rituals.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_OSIRIS_STRATEGY</Tag>
+		<English>Build this to increase the growth of your cities</English>
+	</TEXT>
 
 <!-- ++++ Nagualism +++ -->
 	<TEXT> <!-- Religion Details -->
