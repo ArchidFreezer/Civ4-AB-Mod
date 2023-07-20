@@ -668,6 +668,20 @@
 		<Tag>TXT_KEY_BUILDING_KEMETIC_SHRINE_STRATEGY</Tag>
 		<English>.</English>
 	</TEXT>
+	<TEXT> <!-- Wonder (Isis) -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_ISIS</Tag>
+		<English>Kemetic Wonder (Temple of Isis)</English>
+		<French>Temple d'Isis</French>
+		<German>Isis-Tempel</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_ISIS_PEDIA</Tag>
+		<English>[TAB]Isis Is the wife and sister of Osiris and the mother of Horus (Heru). Isis was worshipped as the archetypal wife and mother. Her name literally means "she of throne", that is, "Queen of the throne", which was portrayed by the emblem worn on her head, that of a throne. However, the hieroglyph of her name originally meant "she of flesh", i.e. mortal, and she may simply have represented deified, historical queens. She is also known as the goddess of magic and healing and the goddess from who all Beginnings arose, and was also known as the Lady of bread, of beer and of green fields. Ancient Egyptians believed that the Nile flooded every year because of her tears of sorrow for her dead husband, Osiris. He was killed by her other evil brother, Set, god of chaos and destruction. Set sliced Osiris into bits and flung them into the Nile River, letting the animals eat the remains of his body. However, all the pieces survived, except for his phallus.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_ISIS_STRATEGY</Tag>
+		<English>Build this to increase the health of your cities</English>
+	</TEXT>
 
 <!-- ++++ Nagualism +++ -->
 	<TEXT> <!-- Religion Details -->

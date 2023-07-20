@@ -1670,6 +1670,13 @@
 			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Kemetic Wonder Temple Of Isis -->
+			<Type>BUILDINGCLASS_KEMETIC_WONDER_TEMPLE_OF_ISIS</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_ISIS</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_KEMETIC_WONDER_TEMPLE_OF_ISIS</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Nagualistic Cathedral -->
 			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>
