@@ -435,6 +435,10 @@
 			<Type>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_OSIRIS</Type>
 			<Path>Art/Movies/Wonders/kemetic_wonder_osiris.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Kemetic Wonder Temple of Ptah -->
+			<Type>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_PTAH</Type>
+			<Path>Art/Movies/Wonders/kemetic_wonder_ptah.bik</Path>
+		</MovieArtInfo>
 		<MovieArtInfo> <!-- Kemetic Wonder Temple of Set -->
 			<Type>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_SET</Type>
 			<Path>Art/Movies/Wonders/kemetic_wonder_set.bik</Path>

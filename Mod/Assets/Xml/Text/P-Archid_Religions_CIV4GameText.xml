@@ -696,6 +696,25 @@
 		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_OSIRIS_STRATEGY</Tag>
 		<English>Build this to increase the growth of your cities</English>
 	</TEXT>
+	<TEXT> <!-- Wonder (Ptah) -->
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH</Tag>
+		<English>Kemetic Wonder (Temple of Ptah)</English>
+		<French>Temple de Ptah</French>
+		<Italian>
+			<Text>Tempio di Ptah</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH_PEDIA</Tag>
+		<English>[TAB]Ptah was the ancient Egyptian god of scribes ,craftsmen and architects. In art, he is shown as a bearded mummified man, often wearing a skull cap, holding a djed. He was believed to be married to Sekhmet.</English>
+		<Italian>[TAB]Ptah era l'antico dio egizio degli scribi, degli artigiani e degli architetti. Nell'arte veniva rappresentato come un uomo mummificato barbuto, spesso indossando un berretto cranico, brandendo un djed. Si riteneva che fosse sposato con Sekhmet.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH_STRATEGY</Tag>
+		<English>Build the Temple of Ptah to increase the production of your cities craftsmen.</English>
+	</TEXT>
 	<TEXT> <!-- Wonder (Set) -->
 		<Tag>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_SET</Tag>
 		<English>Kemetic Wonder (Temple of Set)</English>

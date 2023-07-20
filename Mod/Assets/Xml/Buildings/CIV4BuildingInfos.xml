@@ -8615,7 +8615,7 @@
 			<bStateReligion>1</bStateReligion>
 			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
 			<PrereqAndTechs>
-				<TechType>TECH_PRIESTHOOD</TechType>
+				<TechType>TECH_FERMENTATION</TechType>
 			</PrereqAndTechs>
 			<bNeverCapture>1</bNeverCapture>
 			<iCost>400</iCost>
@@ -8623,6 +8623,71 @@
 			<iStateReligionHappiness>1</iStateReligionHappiness>
 			<iGlobalPopulationGrowthRateModifier>5</iGlobalPopulationGrowthRateModifier>
 			<iAsset>6</iAsset>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_KEMETISM</ReligionType>
+					<iChange>2</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<SpecialistCounts>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iCount>1</iCount>
+				</SpecialistCount>
+			</SpecialistCounts>
+			<ConstructSound>AS2D_BUILD_KEMETIC</ConstructSound>
+			<BonusProductionModifiers>
+				<BonusProductionModifier>
+					<BonusType>BONUS_STONE</BonusType>
+					<iModifier>100</iModifier>
+				</BonusProductionModifier>
+			</BonusProductionModifiers>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_RELIGION</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
+		<BuildingInfo> <!-- Kemetic Wonder Temple Of Ptah -->
+			<BuildingClass>BUILDINGCLASS_KEMETIC_WONDER_TEMPLE_OF_PTAH</BuildingClass>
+			<Type>BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH</Type>
+			<Description>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH</Description>
+			<Civilopedia>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_KEMETIC_WONDER_TEMPLE_OF_PTAH</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_PTAH</MovieDefineTag>
+			<ReligionType>RELIGION_KEMETISM</ReligionType>
+			<StateReligion>RELIGION_KEMETISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
+			<PrereqAndTechs>
+				<TechType>TECH_SCULPTURE</TechType>
+			</PrereqAndTechs>
+			<bNeverCapture>1</bNeverCapture>
+			<iCost>400</iCost>
+			<iHurryCostModifier>100</iHurryCostModifier>
+			<iStateReligionHappiness>1</iStateReligionHappiness>
+			<iAsset>6</iAsset>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>2</iYield>
+			</YieldChanges>
+			<YieldModifiers>
+				<iYield>0</iYield>
+				<iYield>10</iYield>
+			</YieldModifiers>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -8673,7 +8738,7 @@
 			<bStateReligion>1</bStateReligion>
 			<PrereqReligion>RELIGION_KEMETISM</PrereqReligion>
 			<PrereqAndTechs>
-				<TechType>TECH_PRIESTHOOD</TechType>
+				<TechType>TECH_WARFARE</TechType>
 			</PrereqAndTechs>
 			<bNeverCapture>1</bNeverCapture>
 			<iCost>400</iCost>
