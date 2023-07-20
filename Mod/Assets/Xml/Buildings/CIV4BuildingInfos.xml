@@ -6713,7 +6713,7 @@
 			<bTeamShare>1</bTeamShare>
 			<bNukeImmune>1</bNukeImmune>
 			<iCost>500</iCost>
-			<iHurryCostModifier>-50</iHurryCostModifier>
+			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
 			<iGlobalGreatPeopleRateModifier>50</iGlobalGreatPeopleRateModifier>
 			<iAsset>10</iAsset>
@@ -10469,7 +10469,7 @@
 			<iCost>560</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iHappiness>1</iHappiness>
-			<iStateReligionHappiness>4</iStateReligionHappiness>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
 			<iGlobalTradeRoutes>1</iGlobalTradeRoutes>
 			<iTradeRouteModifier>50</iTradeRouteModifier>
 			<iAsset>8</iAsset>
