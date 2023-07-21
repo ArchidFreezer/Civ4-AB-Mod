@@ -3148,7 +3148,7 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/nagualistic_temple.dds</Button>
 		</BuildingArtInfo>
-		<BuildingArtInfo>
+		<BuildingArtInfo> <!-- Nagualistic Wonder Magician Pyramid -->
 			<Type>ART_DEF_BUILDING_NAGUALISTIC_WONDER_MAGICIAN_PYRAMID</Type>
 			<LSystem>LSYSTEM_3x3</LSystem>
 			<bAnimated>0</bAnimated>
@@ -3207,6 +3207,16 @@
 			<NIF>Art/Structures/Buildings/Wonders/zoroastrian_wonder_apadana_palace/darius.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_wonder_apadana_palace.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- National Brewery -->
+			<Type>ART_DEF_BUILDING_BREWERY</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/wonders/brewery/Brewery.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/brewery.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
