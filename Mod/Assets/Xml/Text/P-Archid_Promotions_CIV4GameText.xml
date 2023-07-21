@@ -1775,6 +1775,68 @@
 		<German>Verst&#228;rkte Strukturen</German>
 	</TEXT>
 
+<!-- +++ Religious +++ -->
+	<TEXT> <!-- Asatru Mjolnir -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_ASATRU</Tag>
+		<English>Mjolnir</English>
+	</TEXT>
+	<TEXT> <!-- Buddhism Zen -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_BUDDHISM</Tag>
+		<English>Zen</English>
+	</TEXT>
+	<TEXT> <!-- Christianity Crusader -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_CHRISTIANITY</Tag>
+		<English>Crusader</English>
+		<French>Croisé</French>
+		<German>Kreuzritter</German>
+	</TEXT>
+	<TEXT> <!-- Confucianism Gentlemen -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_CONFUCIANISM</Tag>
+		<English>Gentlemen</English>
+		<French>Gentilhomme</French>
+		<German>Gentlemen</German>
+	</TEXT>
+	<TEXT> <!-- Hellenism Pankration -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_HELLENISM</Tag>
+		<English>Pankration</English>
+		<French>Pancrace</French>
+	</TEXT>
+	<TEXT> <!-- Himduism Holy Trinity -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_HINDUISM</Tag>
+		<English>Holy Trinity</English>
+		<French>Sainte Trinité</French>
+		<German>Heilige Dreifaltigkeit</German>
+	</TEXT>
+	<TEXT> <!-- Islamic Mujahid -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_ISLAMIC</Tag>
+		<English>Mujahid</English>
+	</TEXT>
+	<TEXT> <!-- Judaism Kanai -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_JUDAISM</Tag>
+		<English>Kanai</English>
+	</TEXT>
+	<TEXT> <!-- Kemetism Pharaoh's Propaganda -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_KEMETISM</Tag>
+		<English>Pharaoh's Propaganda</English>
+		<French>Propagande du Pharaon</French>
+	</TEXT>
+	<TEXT> <!-- Nagualism Flower War -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_NAGUALISM</Tag>
+		<English>Flower War</English>
+		<French>Guerre des Fleurs</French>
+		<German>Blumenkrieg</German>
+	</TEXT>
+	<TEXT> <!-- Taoism Waidan -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_TAOISM</Tag>
+		<English>Waidan</English>
+	</TEXT>
+	<TEXT> <!-- Zoroastrianism Order of Ormazd -->
+		<Tag>TXT_KEY_PROMOTION_RELIGION_ZOROASTRIANISM</Tag>
+		<English>Order of Ormazd</English>
+		<French>Ordre de Ormazd</French>
+		<German>Orden von Ormazd</German>
+	</TEXT>
+
 <!-- +++ Safecracker +++ -->
 	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_SAFECRACKER1</Tag>

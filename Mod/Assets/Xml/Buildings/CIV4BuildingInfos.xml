@@ -1084,7 +1084,7 @@
 				<TechType>TECH_NAVAL_WARFARE</TechType>
 			</PrereqAndTechs>
 			<FreePromotions>
-				<PromotionType>PROMOTION_MJOLNIR</PromotionType>
+				<PromotionType>PROMOTION_RELIGION_ASATRU</PromotionType>
 			</FreePromotions>
 			<iCost>200</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
@@ -6582,7 +6582,7 @@
 			<ReligionType>RELIGION_HELLENISM</ReligionType>
 			<PrereqReligion>RELIGION_HELLENISM</PrereqReligion>
 			<FreePromotions>
-				<PromotionType>PROMOTION_PANKRATION</PromotionType>
+				<PromotionType>PROMOTION_RELIGION_HELLENISM</PromotionType>
 			</FreePromotions>
 			<bNeverCapture>1</bNeverCapture>
 			<iStarSignMitigateChangePercent>5</iStarSignMitigateChangePercent>
@@ -8740,7 +8740,11 @@
 			<PrereqAndTechs>
 				<TechType>TECH_WARFARE</TechType>
 			</PrereqAndTechs>
+			<FreePromotions>
+				<PromotionType>PROMOTION_RELIGION_KEMETISM</PromotionType>
+			</FreePromotions>
 			<bNeverCapture>1</bNeverCapture>
+			<bApplyFreePromotionOnMove>1</bApplyFreePromotionOnMove>
 			<iCost>400</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iGreatGeneralRateModifier>50</iGreatGeneralRateModifier>
@@ -17110,7 +17114,7 @@
 			<ReligionType>RELIGION_CONFUCIANISM</ReligionType>
 			<GlobalReligionCommerce>RELIGION_CONFUCIANISM</GlobalReligionCommerce>
 			<FreePromotions>
-				<PromotionType>PROMOTION_MORALE</PromotionType>
+				<PromotionType>PROMOTION_RELIGION_CONFUCIANISM</PromotionType>
 			</FreePromotions>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
