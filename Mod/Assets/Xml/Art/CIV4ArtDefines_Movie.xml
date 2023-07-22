@@ -164,31 +164,31 @@
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_JEWISH</Type>
-			<Path>Art/Movies/Religion/Judaism/Shrine_Jud_dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/judaic_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_CHRISTIAN</Type>
-			<Path>Art/Movies/Religion/Christianity/Shrine_Chr_dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/christian_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_ISLAMIC</Type>
-			<Path>Art/Movies/Religion/Islam/Shrine_Isl_dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/islamic_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_HINDU</Type>
-			<Path>Art/Movies/Religion/Hinduism/Shrine_Hin_dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/hindu_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_BUDDHIST</Type>
-			<Path>Art/Movies/Religion/Buddhism/Shrine_Bud_Dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/buddhist_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_CONFUCIAN</Type>
-			<Path>Art/Movies/Religion/Confucianism/Shrine_Con_dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/confucian_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_TAOIST</Type>
-			<Path>Art/Movies/Religion/Taoism/Shrine_Tao_dwg_512.dds</Path>
+			<Path>Art/Movies/wonders/taoist_shrine.bik</Path>
 			<KFM>None</KFM>
 		</MovieArtInfo>
 		<MovieArtInfo>
@@ -446,6 +446,26 @@
 		<MovieArtInfo> <!-- Kemetic Wonder Temple of Thoth -->
 			<Type>ART_DEF_MOVIE_KEMETIC_WONDER_TEMPLE_OF_THOTH</Type>
 			<Path>Art/Movies/Wonders/kemetic_wonder_thoth.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo> <!-- Asatru Shrine -->
+			<Type>ART_DEF_MOVIE_ASATRU_SHRINE</Type>
+			<Path>Art/Movies/Wonders/asatru_shrine.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo> <!-- Hellenic Shrine -->
+			<Type>ART_DEF_MOVIE_HELLENIC_SHRINE</Type>
+			<Path>Art/Movies/Wonders/hellenic_shrine.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo> <!-- Kemetic Shrine -->
+			<Type>ART_DEF_MOVIE_KEMETIC_SHRINE</Type>
+			<Path>Art/Movies/Wonders/kemetic_shrine.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo> <!-- Nagualistic Shrine -->
+			<Type>ART_DEF_MOVIE_NAGUALISTIC_SHRINE</Type>
+			<Path>Art/Movies/Wonders/nagualistic_shrine.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo> <!-- Zoroastrian Shrine -->
+			<Type>ART_DEF_MOVIE_ZOROASTRIAN_SHRINE</Type>
+			<Path>Art/Movies/Wonders/zoroastrian_shrine.bik</Path>
 		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

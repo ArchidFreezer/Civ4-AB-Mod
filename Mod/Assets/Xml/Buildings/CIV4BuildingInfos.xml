@@ -17020,7 +17020,7 @@
 			<Strategy>TXT_KEY_BUILDING_ASATRU_SHRINE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_RELIGION</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_ASATRU_SHRINE</ArtDefineTag>
-			<MovieDefineTag>ART_DEF_MOVIE_SHRINE_ASATRU</MovieDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_ASATRU_SHRINE</MovieDefineTag>
 			<HolyCity>RELIGION_ASATRU</HolyCity>
 			<ReligionType>RELIGION_ASATRU</ReligionType>
 			<GlobalReligionCommerce>RELIGION_ASATRU</GlobalReligionCommerce>
