@@ -1723,4 +1723,9 @@
 		<Tag>TXT_KEY_UNIT_AUTO_XP</Tag>
 		<English>[ICON_BULLET]Gains %d1 XP each turn</English>
 	</TEXT>
+<!-- Building Wonder Production Modifier -->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WONDER_PRODUCTION_MODIFIER</Tag>
+		<English>[ICON_BULLET]Wonder productioon changed by %d1_modifier%</English>
+	</TEXT>
 </Civ4GameText>
