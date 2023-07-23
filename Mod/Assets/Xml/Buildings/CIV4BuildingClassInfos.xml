@@ -874,9 +874,10 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_APOSTOLIC_PALACE</DefaultBuilding>
 		</BuildingClassInfo>
-		<BuildingClassInfo> <!-- Ark of the Covenant -->
+		<BuildingClassInfo> <!-- Ark Of The Covenant -->
 			<Type>BUILDINGCLASS_ARK_OF_THE_COVENANT</Type>
 			<Description>TXT_KEY_BUILDING_ARK_OF_THE_COVENANT</Description>
+			<iCategory>2</iCategory>
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ARK_OF_THE_COVENANT</DefaultBuilding>
 		</BuildingClassInfo>
@@ -1795,6 +1796,13 @@
 			<iCategory>5</iCategory>
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_ZOROASTRIAN_WONDER_APADANA_PALACE</DefaultBuilding>
+		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Zoroastrian Wonder Hammurabi Stele Laws -->
+			<Type>BUILDINGCLASS_ZOROASTRIAN_WONDER_HAMMURABI_STELE_LAWS</Type>
+			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_WONDER_HAMMURABI_STELE_LAWS</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_ZOROASTRIAN_WONDER_HAMMURABI_STELE_LAWS</DefaultBuilding>
 		</BuildingClassInfo>
 
 

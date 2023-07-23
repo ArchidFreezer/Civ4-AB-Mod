@@ -471,5 +471,9 @@
 			<Type>ART_DEF_MOVIE_ARK_OF_THE_COVENANT</Type>
 			<Path>Art/Movies/Wonders/ark_covenant.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Zoroastrian Wonder Hammurabi Stele of Laws -->
+			<Type>ART_DEF_MOVIE_ZOROASTRIAN_WONDER_HAMMURABI_STELE_LAWS</Type>
+			<Path>Art/Movies/Wonders/zoroastrian_wonder_hammurabi.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

@@ -3208,6 +3208,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_wonder_apadana_palace.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrian Wonder Hammurabi Stele of Laws -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_WONDER_HAMMURABI_STELE_LAWS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.61</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/zoroastrian_wonder_hammurabi_stele/CodeofHammurabi.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/zoroastrian_wonder_hammurabi_stele.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo>	<!-- National Brewery -->
 			<Type>ART_DEF_BUILDING_BREWERY</Type>
 			<LSystem>LSYSTEM_1x2</LSystem>
