@@ -7224,7 +7224,7 @@
 			<bActAsLand>0</bActAsLand>
 			<bActAsAir>0</bActAsAir>
 			<NIF>Art/Units/missionary_asatru/Missionary_General.nif</NIF>
-			<KFM>Art/Units/Missionary_General/Missionary_General.kfm</KFM>
+			<KFM>Art/Units/missionary_asatru/Missionary_General.kfm</KFM>
 			<SHADERNIF>Art/Units/missionary_asatru/Missionary_General_FX.nif</SHADERNIF>
 			<ShadowDef>
 				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>

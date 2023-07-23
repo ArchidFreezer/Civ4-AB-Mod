@@ -1849,6 +1849,46 @@
 			<bIsProjectile>0</bIsProjectile>
 		</EffectInfo>
 		<EffectInfo>
+			<Type>EFFECT_MISSIONARY_ACTIVE_KEMETIC</Type>
+			<Description>Activation effect for Kemetic missionary</Description>
+			<fScale>1.3</fScale>
+			<fUpdateRate>1.0</fUpdateRate>
+			<Path>Art/Effects/unit_missionary_activation/fx_missionary_activate_kemetic.nif</Path>
+			<bIsProjectile>0</bIsProjectile>
+		</EffectInfo>
+		<EffectInfo>
+			<Type>EFFECT_MISSIONARY_ACTIVE_HELLENIC</Type>
+			<Description>Activation effect for Hellenic missionary</Description>
+			<fScale>1.3</fScale>
+			<fUpdateRate>1.0</fUpdateRate>
+			<Path>Art/Effects/unit_missionary_activation/fx_missionary_activate_hellenic.nif</Path>
+			<bIsProjectile>0</bIsProjectile>
+		</EffectInfo>
+		<EffectInfo>
+			<Type>EFFECT_MISSIONARY_ACTIVE_NAGUALISTIC</Type>
+			<Description>Activation effect for Nagualistic missionary</Description>
+			<fScale>1.3</fScale>
+			<fUpdateRate>1.0</fUpdateRate>
+			<Path>Art/Effects/unit_missionary_activation/fx_missionary_activate_nagualistic.nif</Path>
+			<bIsProjectile>0</bIsProjectile>
+		</EffectInfo>
+		<EffectInfo>
+			<Type>EFFECT_MISSIONARY_ACTIVE_ZOROASTRIAN</Type>
+			<Description>Activation effect for Zoroastrian missionary</Description>
+			<fScale>1.3</fScale>
+			<fUpdateRate>1.0</fUpdateRate>
+			<Path>Art/Effects/unit_missionary_activation/fx_missionary_activate_zoroastrian.nif</Path>
+			<bIsProjectile>0</bIsProjectile>
+		</EffectInfo>
+		<EffectInfo>
+			<Type>EFFECT_MISSIONARY_ACTIVE_ASATRU</Type>
+			<Description>Activation effect for Asatru missionary</Description>
+			<fScale>1.3</fScale>
+			<fUpdateRate>1.0</fUpdateRate>
+			<Path>Art/Effects/unit_missionary_activation/fx_missionary_activate_asatru.nif</Path>
+			<bIsProjectile>0</bIsProjectile>
+		</EffectInfo>
+		<EffectInfo>
 			<Type>EFFECT_GREATPEOPLE_ACTIVE_ARTIST</Type>
 			<Description>Activation effect for the King Baby!</Description>
 			<fScale>1.0</fScale>
