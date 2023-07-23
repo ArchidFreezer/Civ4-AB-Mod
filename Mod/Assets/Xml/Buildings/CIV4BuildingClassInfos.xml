@@ -577,14 +577,12 @@
 			<Type>BUILDINGCLASS_COLOSSEUM</Type>
 			<Description>TXT_KEY_BUILDING_COLOSSEUM</Description>
 			<iCategory>31</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_COLOSSEUM</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Monument -->
 			<Type>BUILDINGCLASS_MONUMENT</Type>
 			<Description>TXT_KEY_BUILDING_MONUMENT</Description>
 			<iCategory>31</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_MONUMENT</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Theatre -->
@@ -787,7 +785,6 @@
 			<Type>BUILDINGCLASS_PUBLIC_TRANSPORTATION</Type>
 			<Description>TXT_KEY_BUILDING_PUBLIC_TRANSPORTATION</Description>
 			<iCategory>37</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_PUBLIC_TRANSPORTATION</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Recycling Center -->
@@ -1285,7 +1282,6 @@
 			<Description>TXT_KEY_BUILDING_HEROIC_EPIC</Description>
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_HEROIC_EPIC</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Iron Works -->
@@ -1328,7 +1324,6 @@
 			<Description>TXT_KEY_BUILDING_NATIONAL_EPIC</Description>
 			<iCategory>3</iCategory>
 			<iMaxPlayerInstances>1</iMaxPlayerInstances>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_NATIONAL_EPIC</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- National Mint -->
@@ -1431,7 +1426,6 @@
 			<Type>BUILDINGCLASS_ASATRU_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_ASATRU_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ASATRU_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Asatru Monastery -->
@@ -1451,7 +1445,6 @@
 			<Type>BUILDINGCLASS_ASATRU_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_ASATRU_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ASATRU_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Asatru Thor Worship Altar -->
@@ -1464,7 +1457,6 @@
 			<Type>BUILDINGCLASS_BUDDHIST_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_BUDDHIST_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Buddhist Monastery -->
@@ -1484,7 +1476,6 @@
 			<Type>BUILDINGCLASS_BUDDHIST_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_BUDDHIST_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Ceremonial Altar -->
@@ -1497,7 +1488,6 @@
 			<Type>BUILDINGCLASS_CHRISTIAN_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_CHRISTIAN_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_CHRISTIAN_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Christian Monastery -->
@@ -1517,14 +1507,12 @@
 			<Type>BUILDINGCLASS_CHRISTIAN_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_CHRISTIAN_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_CHRISTIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Confucian Cathedral -->
 			<Type>BUILDINGCLASS_CONFUCIAN_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_CONFUCIAN_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_CONFUCIAN_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Confucian Monastery -->
@@ -1544,14 +1532,12 @@
 			<Type>BUILDINGCLASS_CONFUCIAN_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_CONFUCIAN_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_CONFUCIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hellenic Cathedral -->
 			<Type>BUILDINGCLASS_HELLENIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_HELLENIC_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_HELLENIC_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hellenic Monastery -->
@@ -1571,7 +1557,6 @@
 			<Type>BUILDINGCLASS_HELLENIC_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_HELLENIC_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_HELLENIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hellenic Wonder Parthenon -->
@@ -1585,7 +1570,6 @@
 			<Type>BUILDINGCLASS_HINDU_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_HINDU_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_HINDU_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Hindu Monastery -->
@@ -1605,14 +1589,12 @@
 			<Type>BUILDINGCLASS_HINDU_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_HINDU_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_HINDU_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Islamic Cathedral -->
 			<Type>BUILDINGCLASS_ISLAMIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_ISLAMIC_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ISLAMIC_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Islamic Monastery -->
@@ -1632,14 +1614,12 @@
 			<Type>BUILDINGCLASS_ISLAMIC_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_ISLAMIC_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ISLAMIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Jewish Cathedral -->
 			<Type>BUILDINGCLASS_JEWISH_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_JEWISH_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_JEWISH_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Jewish Monastery -->
@@ -1659,14 +1639,12 @@
 			<Type>BUILDINGCLASS_JEWISH_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_JEWISH_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_JEWISH_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Kemetic Cathedral -->
 			<Type>BUILDINGCLASS_KEMETIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_KEMETIC_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Kemetic Monastery -->
@@ -1686,7 +1664,6 @@
 			<Type>BUILDINGCLASS_KEMETIC_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_KEMETIC_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_KEMETIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Kemetic Wonder Temple Of Isis -->
@@ -1728,7 +1705,6 @@
 			<Type>BUILDINGCLASS_NAGUALISTIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_NAGUALISTIC_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Nagualistic Monastery -->
@@ -1748,7 +1724,6 @@
 			<Type>BUILDINGCLASS_NAGUALISTIC_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_NAGUALISTIC_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_NAGUALISTIC_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Nagualistic Wonder Magician Pyramid -->
@@ -1768,7 +1743,6 @@
 			<Type>BUILDINGCLASS_TAOIST_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_TAOIST_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_TAOIST_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Taoist Monastery -->
@@ -1788,14 +1762,12 @@
 			<Type>BUILDINGCLASS_TAOIST_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_TAOIST_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_TAOIST_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Zoroastrian Cathedral -->
 			<Type>BUILDINGCLASS_ZOROASTRIAN_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_CATHEDRAL</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ZOROASTRIAN_CATHEDRAL</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Zoroastrian Monastery -->
@@ -1815,7 +1787,6 @@
 			<Type>BUILDINGCLASS_ZOROASTRIAN_TEMPLE</Type>
 			<Description>TXT_KEY_BUILDING_ZOROASTRIAN_TEMPLE</Description>
 			<iCategory>5</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_ZOROASTRIAN_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Zoroastrian Wonder Apadana Palace -->
@@ -1905,7 +1876,6 @@
 			<Type>BUILDINGCLASS_FUJI</Type>
 			<Description>TXT_KEY_BUILDING_FUJI</Description>
 			<iCategory>4</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_FUJI</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Great Barrier -->
@@ -1966,7 +1936,6 @@
 			<Type>BUILDINGCLASS_SOPKA</Type>
 			<Description>TXT_KEY_BUILDING_SOPKA</Description>
 			<iCategory>4</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_SOPKA</DefaultBuilding>
 		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Sugarloaf -->
@@ -1985,7 +1954,6 @@
 			<Type>BUILDINGCLASS_VICTORIA_FALLS</Type>
 			<Description>TXT_KEY_BUILDING_VICTORIA_FALLS</Description>
 			<iCategory>4</iCategory>
-			<bMonument>1</bMonument>
 			<DefaultBuilding>BUILDING_VICTORIA_FALLS</DefaultBuilding>
 		</BuildingClassInfo>
 	</BuildingClassInfos>
