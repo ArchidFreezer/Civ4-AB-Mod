@@ -86,9 +86,6 @@
 					<iNeeded>2</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_GREAT_ACADEMY</BuildingClassType>
@@ -629,9 +626,6 @@
 					<iExperience>1</iExperience>
 				</UnitCombatFreeExperience>
 			</UnitCombatFreeExperiences>
-			<ReplacedByBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_CIRCUS_MAXIMUS</BuildingClassType>
-			</ReplacedByBuildingClasses>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Ark Of The Covenant -->
 			<BuildingClass>BUILDINGCLASS_ARK_OF_THE_COVENANT</BuildingClass>
@@ -2721,9 +2715,10 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqAndBuildingClasses>
+			<PrereqOrBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-			</PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HIGH_WALLS</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -2795,9 +2790,10 @@
 					<iExperience>5</iExperience>
 				</UnitCombatFreeExperience>
 			</UnitCombatFreeExperiences>
-			<PrereqAndBuildingClasses>
+			<PrereqOrBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-			</PrereqAndBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_HIGH_WALLS</BuildingClassType>
+			</PrereqOrBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -3347,9 +3343,6 @@
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_ARENA</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -3955,9 +3948,6 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_TELEPHONE_NETWORK</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -4898,9 +4888,6 @@
 				<bCommerceChangeOriginalOwner>1</bCommerceChangeOriginalOwner>
 			</CommerceChangeOriginalOwners>
 			<ConstructSound>AS2D_BUILD_UNIVERSITY</ConstructSound>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -7501,9 +7488,6 @@
 					<iModifier>100</iModifier>
 				</BonusProductionModifier>
 			</BonusProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_MILITARY</FlavorType>
@@ -7887,9 +7871,6 @@
 					<iChange>1</iChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<BonusYieldChanges>
 				<BonusYieldChange>
 					<BonusType>BONUS_OLIVES</BonusType>
@@ -8099,9 +8080,6 @@
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_COMPUTER_NETWORK</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>
@@ -12019,9 +11997,6 @@
 					<iModifier>50</iModifier>
 				</DomainProductionModifier>
 			</DomainProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_CONTAINER_PORT</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
@@ -13055,9 +13030,6 @@
 					<iNeeded>4</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_HOSPITAL</BuildingClassType>
-			</PrereqAndBuildingClasses>
 		</BuildingInfo>
 		<BuildingInfo> <!-- Research Institute -->
 			<BuildingClass>BUILDINGCLASS_RESEARCH_INSTITUTE</BuildingClass>
@@ -14057,9 +14029,6 @@
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_BAZAAR</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GOLD</FlavorType>
@@ -14809,9 +14778,6 @@
 					<iNeeded>3</iNeeded>
 				</PrereqNumOfBuildingClass>
 			</PrereqNumOfBuildingClasses>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_GROWTH</FlavorType>
@@ -15026,9 +14992,6 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
 			</ReplacedByBuildingClasses>
@@ -15241,9 +15204,6 @@
 					<iModifier>15</iModifier>
 				</BuildingClassProductionModifier>
 			</BuildingClassProductionModifiers>
-			<PrereqAndBuildingClasses>
-				<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-			</PrereqAndBuildingClasses>
 			<ReplacedByBuildingClasses>
 				<BuildingClassType>BUILDINGCLASS_HYPERMARKET</BuildingClassType>
 			</ReplacedByBuildingClasses>
