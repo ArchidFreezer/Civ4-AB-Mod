@@ -508,13 +508,13 @@
 			<ArtDefineTag>ART_DEF_BUILDING_AQUEDUCT</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_MATHEMATICS</TechType>
-				<TechType>TECH_MASONRY</TechType>
+				<TechType>TECH_CANALS</TechType>
 			</PrereqAndTechs>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
 			<iHealth>2</iHealth>
 			<iAsset>4</iAsset>
 			<fVisibilityPriority>10240000.0</fVisibilityPriority>
@@ -536,13 +536,13 @@
 			<ArtDefineTag>ART_DEF_BUILDING_KHMER_BARAY</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_MATHEMATICS</TechType>
-				<TechType>TECH_MASONRY</TechType>
+				<TechType>TECH_CANALS</TechType>
 			</PrereqAndTechs>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
 			<iHealth>2</iHealth>
 			<iAsset>5</iAsset>
 			<YieldChanges>
@@ -568,13 +568,13 @@
 			<ArtDefineTag>ART_DEF_BUILDING_OTTOMAN_HAMMAM</ArtDefineTag>
 			<FreeStartEra>ERA_RENAISSANCE</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_MATHEMATICS</TechType>
-				<TechType>TECH_MASONRY</TechType>
+				<TechType>TECH_CANALS</TechType>
 			</PrereqAndTechs>
 			<bCenterInCity>1</bCenterInCity>
 			<iCost>100</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>5</iMaintenanceModifier>
 			<iHealth>2</iHealth>
 			<iHappiness>2</iHappiness>
 			<iAsset>5</iAsset>
