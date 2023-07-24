@@ -294,6 +294,16 @@
 <!-- ******************** -->
 <!-- Units                -->
 <!-- ******************** -->
+	<TEXT> <!-- Agent -->
+		<Tag>TXT_KEY_UNIT_AGENT</Tag>
+		<English>Agent</English>
+		<French>
+			<Text>Agent</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+	</TEXT>	
+
 	<TEXT> <!-- Ambulance WWI -->
 		<Tag>TXT_KEY_UNIT_AMBULANCE</Tag>
 		<English>Ambulance (WWI)</English>
@@ -1036,6 +1046,17 @@
 		</Spanish>
 	</TEXT>
 
+	<TEXT> <!-- Nanite Spy -->
+		<Tag>TXT_KEY_UNIT_NANITE_SPY</Tag>
+		<English>Nanite Spy</English>
+		<French>Espion Nanite</French>
+		<German>Nanitenspion</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_NANITE_SPY_STRATEGY</Tag>
+		<English>.</English>
+	</TEXT>
+
 	<TEXT> <!-- Polar Bear -->
 		<Tag>TXT_KEY_UNIT_POLAR_BEAR</Tag>
 		<English>Polar Bear</English>
@@ -1167,6 +1188,11 @@ A sloop-of-war was smaller than a sailing frigate and outside the rating system.
 		</English>
 	</TEXT>
 
+	<TEXT> <!-- Special Agent -->
+		<Tag>TXT_KEY_UNIT_SPECIAL_AGENT</Tag>
+		<English>Special Agent</English>
+	</TEXT>	
+
 	<TEXT> <!-- Surgeon -->
 		<Tag>TXT_KEY_UNIT_SURGEON</Tag>
 		<English>Surgeon</English>
@@ -1187,6 +1213,11 @@ A sloop-of-war was smaller than a sailing frigate and outside the rating system.
 		<German>Tiger</German>
 		<Italian>Tigre</Italian>
 		<Spanish>Tigre</Spanish>
+	</TEXT>
+
+	<TEXT> <!-- Top Secret Agent -->
+		<Tag>TXT_KEY_UNIT_TOP_SECRET_AGENT</Tag>
+		<English>Top Secret Agent</English>
 	</TEXT>
 
 	<TEXT> <!-- Trade Caravan -->
