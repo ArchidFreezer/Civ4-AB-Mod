@@ -164,7 +164,7 @@
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_JEWISH</Type>
-			<Path>Art/Movies/wonders/judaic_shrine.bik</Path>
+			<Path>Art/Movies/wonders/jewish_shrine.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo>
 			<Type>ART_DEF_MOVIE_SHRINE_CHRISTIAN</Type>
@@ -474,6 +474,10 @@
 		<MovieArtInfo> <!-- Zoroastrian Wonder Hammurabi Stele of Laws -->
 			<Type>ART_DEF_MOVIE_ZOROASTRIAN_WONDER_HAMMURABI_STELE_LAWS</Type>
 			<Path>Art/Movies/Wonders/zoroastrian_wonder_hammurabi.bik</Path>
+		</MovieArtInfo>
+		<MovieArtInfo> <!-- Jewish Wonder Masada -->
+			<Type>ART_DEF_MOVIE_JEWISH_WONDER_MASADA</Type>
+			<Path>Art/Movies/Wonders/jewish_wonder_masada.bik</Path>
 		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

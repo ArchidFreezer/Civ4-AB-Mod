@@ -1642,6 +1642,13 @@
 			<iCategory>5</iCategory>
 			<DefaultBuilding>BUILDING_JEWISH_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Jewish Wonder Masada -->
+			<Type>BUILDINGCLASS_JEWISH_WONDER_MASADA</Type>
+			<Description>TXT_KEY_BUILDING_JEWISH_WONDER_MASADA</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_JEWISH_WONDER_MASADA</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Kemetic Cathedral -->
 			<Type>BUILDINGCLASS_KEMETIC_CATHEDRAL</Type>
 			<Description>TXT_KEY_BUILDING_KEMETIC_CATHEDRAL</Description>

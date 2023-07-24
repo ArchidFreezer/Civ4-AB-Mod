@@ -596,6 +596,18 @@
 			<Plural>0</Plural>
 		</Spanish>
 	</TEXT>
+	<TEXT> <!-- Wonder (Masada) -->
+		<Tag>TXT_KEY_BUILDING_JEWISH_WONDER_MASADA</Tag>
+		<English>Jewish Wonder (Masada)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JEWISH_WONDER_MASADA_STRATEGY</Tag>
+		<English>Build the Masada to improve the production of your priests globally and provide a significant Culture boost</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JEWISH_WONDER_MASADA_PEDIA</Tag>
+		<English>[TAB]Masada is the name for a site of ancient palaces and fortifications in the South District of Israel on top of an isolated rock plateau, or large mesa, on the eastern edge of the Judean Desert overlooking the Dead Sea. Masada became famous after the First Jewish-Roman War (also known as the Great Jewish Revolt) when a siege of the fortress by troops of the Roman Empire led to a mass suicide of the site's Jewish Sicarii fugitives when defeat became imminent. Today, Masada is a very popular tourist destination.[PARAGRAPH:2]The cliffs on the east edge of Masada are about 1,300 feet (400 m) high and the cliffs on the west are about 300 feet (90 m) high; the natural approaches to the cliff top are very difficult. The top of the plateau is flat and rhomboid-shaped, about 1,800 feet (550 m) by 900 feet (275 m). There was a casemate wall around the top of the plateau totaling 4,300 feet (1.3 km) long and 12 feet (3.7 m) thick, with many towers, and the fortress included storehouses, barracks, an armory, the palace, and cisterns that were refilled by rainwater. Three narrow, winding paths led from below up to fortified gates.[PARAGRAPH:2]According to Josephus, a first-century Jewish Roman historian, Herod the Great fortified Masada between 37 and 31 BCE as a refuge for himself in the event of a revolt. In 66 CE, at the beginning of the First Jewish-Roman War against the Roman Empire, a group of Judaic extremist rebels called the Sicarii took Masada from the Roman garrison stationed there.[PARAGRAPH:2]In 72 CE, the Roman governor of Iudaea Lucius Flavius Silva marched against Masada with the Roman legion X Fretensis and laid siege to the fortress. After failed attempts to breach the wall, they built a circumvallation wall and then a rampart against the western face of the plateau, using thousands of tons of stones and beaten earth. The rampart was complete in the spring of 73, after approximately two to three months of siege, allowing the Romans to finally breach the wall of the fortress with a battering ram. When they entered the fortress, however, the Romans discovered that its 936 inhabitants had set all the buildings but the food storerooms ablaze and committed mass suicide rather than face certain capture, defeat, slavery or execution by their enemies.</English>
+	</TEXT>
 
 <!-- +++ Kemetism +++ -->
 	<TEXT> <!-- Religion Details -->
