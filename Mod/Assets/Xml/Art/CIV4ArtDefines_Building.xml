@@ -3048,6 +3048,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/buildings/hellenic_wonder_parthenon.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Hellenic Wonder Phidias Workshop -->
+			<Type>ART_DEF_BUILDING_HELLENIC_WONDER_PHIDIAS_WORKSHOP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.11</fScale>
+			<fInterfaceScale>0.50</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/hellenic_wonder_phidias_workshop/statue.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/hellenic_wonder_phidias_workshop.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo> <!-- Kemetic Cathedral -->
 			<Type>ART_DEF_BUILDING_KEMETIC_CATHEDRAL</Type>
 			<LSystem>LSYSTEM_3x3</LSystem>
