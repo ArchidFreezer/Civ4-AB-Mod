@@ -3028,6 +3028,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_wonder_thor_sanctuary.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>	<!-- Confucian Wonder San Kong -->
+			<Type>ART_DEF_BUILDING_CONFUCIAN_WONDER_SAN_KONG</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.15</fScale>
+			<fInterfaceScale>0.43</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/confucian_wonder_san_kong/asian_ren_palace.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/confucian_wonder_san_kong.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo> <!-- Hellenic Cathedral -->
 			<Type>ART_DEF_BUILDING_HELLENIC_CATHEDRAL</Type>
 			<LSystem>LSYSTEM_4x4</LSystem>

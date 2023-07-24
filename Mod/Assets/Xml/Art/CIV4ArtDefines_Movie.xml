@@ -503,5 +503,9 @@
 			<Type>ART_DEF_MOVIE_SUN_TZU_ART_OF_WAR</Type>
 			<Path>Art/Movies/Wonders/sun_tzu_art_war.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Confucian Wonder San Kong -->
+			<Type>ART_DEF_MOVIE_CONFUCIAN_WONDER_SAN_KONG</Type>
+			<Path>Art/Movies/Wonders/confucian_wonder_san_kong.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

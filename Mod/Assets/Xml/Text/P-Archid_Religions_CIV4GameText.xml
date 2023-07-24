@@ -269,6 +269,58 @@
 			<Plural>0</Plural>
 		</Spanish>
 	</TEXT>
+	<TEXT> <!-- Wonder (San Kong) -->
+		<Tag>TXT_KEY_BUILDING_CONFUCIAN_WONDER_SAN_KONG</Tag>
+		<English>Confucian Wonder (San Kong)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONFUCIAN_WONDER_SAN_KONG_PEDIA</Tag>
+		<English>[TAB]The San Kong is the collective name for the three major Confucian sites at Qufu. These consist of the Temple and Cemetery of Confucius and the Kong Family Mansion. The temple complex is amongst the largest in China covering an area of 16,000 square meters. The mainpart of the temple consists of 9 courtyards arranged on a central axis, which is oriented in the north-south direction and is 1.3 km in length. The first three courtyards have small gates and are planted with tall pine trees, they serve an introductory function. The first (southernmost) gate is named "Lingxing Gate" after a star in the Great Bear constellation, the name suggests that Confucius is a star from heaven. The buildings in the remaining courtyards form the heart of the complex. They are impressive structures with yellow roof-tiles (otherwise reserved for the emperor) and red-painted walls, they are surrounded by dark-green pine trees to create a color contrast with complementary colors.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONFUCIAN_WONDER_SAN_KONG_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_REVERT] increases the science output of the city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CONFUCIAN_WONDER_SAN_KONG_HELP</Tag>
+		<English>[ICON_BULLET]Provides a Random Great Person</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_PROPHET</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Prophet[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_ARTIST</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Artist[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_SCIENTIST</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Scientist[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_MERCHANT</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Merchant[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_ENGINEER</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Engineer[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_GENERAL</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great General[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_SPY</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Spy[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_DOCTOR</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Doctor[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONFUCIAN_SAN_KONG_GREAT_JESTER</Tag>
+		<English>[COLOR_BUILDING_TEXT]The School of Confucius[COLOR_SELECTED_TEXT] has inspired a [COLOR_UNIT_TEXT]Great Jester[COLOR_SELECTED_TEXT]![COLOR_REVERT]</English>
+	</TEXT>
 
 <!-- +++ Hellenism +++ -->
 	<TEXT> <!-- Religion Details -->
