@@ -3218,6 +3218,16 @@
 			<KFM />
 			<Button>Art/Interface/Buttons/Buildings/zoroastrian_wonder_hammurabi_stele.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Zoroastrian Wonder Nimrud Palace -->
+			<Type>ART_DEF_BUILDING_ZOROASTRIAN_WONDER_NIMRUD_PALACE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/zoroastrian_wonder_nimrud_palace/IC_Palace_med.nif</NIF>
+			<KFM />
+			<Button>Art/Interface/Buttons/Buildings/zoroastrian_wonder_nimrud_palace.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo>	<!-- National Brewery -->
 			<Type>ART_DEF_BUILDING_BREWERY</Type>
 			<LSystem>LSYSTEM_1x2</LSystem>

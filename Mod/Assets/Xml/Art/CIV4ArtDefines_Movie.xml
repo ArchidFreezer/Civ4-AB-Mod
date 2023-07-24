@@ -479,5 +479,9 @@
 			<Type>ART_DEF_MOVIE_JEWISH_WONDER_MASADA</Type>
 			<Path>Art/Movies/Wonders/jewish_wonder_masada.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Zoroastrian Wonder Nimrud Palace -->
+			<Type>ART_DEF_MOVIE_ZOROASTRIAN_WONDER_NIMRUD_PALACE</Type>
+			<Path>Art/Movies/Wonders/zoroastrian_wonder_nimrud_palace.dds</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
