@@ -4288,8 +4288,8 @@
 			</ProductionTraits>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iMaintenanceModifier>-50</iMaintenanceModifier>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>-25</iMaintenanceModifier>
 			<iAsset>4</iAsset>
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -4325,7 +4325,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_AZTEC_SACRIFICIAL_ALTAR</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_CODE_OF_LAWS</TechType>
+				<TechType>TECH_SACRIFICE</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -4336,8 +4336,9 @@
 			<iHurryAngerModifier>-50</iHurryAngerModifier>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iMaintenanceModifier>-50</iMaintenanceModifier>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>-25</iMaintenanceModifier>
+			<iPopulationGrowthRateModifier>-5</iPopulationGrowthRateModifier>
 			<iAsset>5</iAsset>
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -4383,8 +4384,8 @@
 			</ProductionTraits>
 			<iCost>120</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iMaintenanceModifier>-75</iMaintenanceModifier>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>-50</iMaintenanceModifier>
 			<iAsset>5</iAsset>
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -4420,7 +4421,7 @@
 			<ArtDefineTag>ART_DEF_BUILDING_SUMERIAN_ZIGGURAT</ArtDefineTag>
 			<FreeStartEra>ERA_MODERN</FreeStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_PRIESTHOOD</TechType>
+				<TechType>TECH_CODE_OF_LAWS</TechType>
 			</PrereqAndTechs>
 			<ProductionTraits>
 				<ProductionTrait>
@@ -4430,8 +4431,8 @@
 			</ProductionTraits>
 			<iCost>90</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
-			<iConquestProb>66</iConquestProb>
-			<iMaintenanceModifier>-50</iMaintenanceModifier>
+			<iConquestProb>75</iConquestProb>
+			<iMaintenanceModifier>-25</iMaintenanceModifier>
 			<iAsset>4</iAsset>
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
