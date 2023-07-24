@@ -2690,8 +2690,9 @@
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
-			<iCost>100</iCost>
+			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
 			<iTradeRoutes>1</iTradeRoutes>
 			<iDefense>50</iDefense>
 			<iBombardDefense>25</iBombardDefense>
@@ -2757,8 +2758,9 @@
 				</ProductionTrait>
 			</ProductionTraits>
 			<bCenterInCity>1</bCenterInCity>
-			<iCost>100</iCost>
+			<iCost>110</iCost>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
+			<iMaintenanceModifier>10</iMaintenanceModifier>
 			<iTradeRoutes>1</iTradeRoutes>
 			<iDefense>50</iDefense>
 			<iBombardDefense>25</iBombardDefense>
