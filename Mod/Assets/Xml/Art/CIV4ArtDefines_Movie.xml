@@ -451,6 +451,10 @@
 			<Type>ART_DEF_MOVIE_ASATRU_SHRINE</Type>
 			<Path>Art/Movies/Wonders/asatru_shrine.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Asatru Wonder Freya Sanctuary -->
+			<Type>ART_DEF_MOVIE_ASATRU_WONDER_FREYA_SANCTUARY</Type>
+			<Path>Art/Movies/Wonders/asatru_wonder_freya_sanctuary.bik</Path>
+		</MovieArtInfo>
 		<MovieArtInfo> <!-- Hellenic Shrine -->
 			<Type>ART_DEF_MOVIE_HELLENIC_SHRINE</Type>
 			<Path>Art/Movies/Wonders/hellenic_shrine.bik</Path>

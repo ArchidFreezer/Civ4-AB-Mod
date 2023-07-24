@@ -2998,6 +2998,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_thor_altar.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Asatru Wonder Freya Sanctuary -->
+			<Type>ART_DEF_BUILDING_ASATRU_WONDER_FREYA_SANCTUARY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.11</fScale>
+			<fInterfaceScale>0.50</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/asatru_wonder_freya_sanctuary/statue.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/asatru_wonder_freya_sanctuary.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo> <!-- Hellenic Cathedral -->
 			<Type>ART_DEF_BUILDING_HELLENIC_CATHEDRAL</Type>
 			<LSystem>LSYSTEM_4x4</LSystem>
