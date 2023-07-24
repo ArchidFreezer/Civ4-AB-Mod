@@ -10250,7 +10250,8 @@
 			<MovieDefineTag>ART_DEF_MOVIE_MOAI_STATUES</MovieDefineTag>
 			<MaxStartEra>ERA_ANCIENT</MaxStartEra>
 			<PrereqAndTechs>
-				<TechType>TECH_SAILING</TechType>
+				<TechType>TECH_SCULPTURE</TechType>
+				<TechType>TECH_SEAFARING</TechType>
 			</PrereqAndTechs>
 			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
