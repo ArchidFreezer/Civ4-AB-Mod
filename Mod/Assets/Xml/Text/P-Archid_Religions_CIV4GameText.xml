@@ -213,6 +213,38 @@
 		<English>Build Bezeklik Caves to get 2 free artists in your city, and to help spreading buddhism.</English>
 		<Italian>Costruisci le Grotte di Bezeklik per ottenere 2 artisti gratis nella tua città e per migliorare la diffusione del buddismo.</Italian>
 	</TEXT>
+	<TEXT> <!-- Wonder (Kotoku-in) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU</Tag>
+		<English>Buddhist Wonder (Kotoku-in)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_PEDIA</Tag>
+		<English>The statue probably dates from 1252, in the Kamakura period, when temple records report the construction of a bronze statue. However, it is unclear whether that is the present statue. The statue was built inside a wooden temple, but that building washed away in the tsunami of September 20th, 1498 during the Muromachi period; the statue remains.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Kotoku-in[COLOR_REVERT] No Unhealthiness from Population and reduced Maintenance in city.  Spreads Buddhism.</English>
+	</TEXT>
+	<TEXT> <!-- Wonder (Nara's Giant Buddha) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_NARA_GIANT_BUDDHA</Tag>
+		<English>Buddhist Wonder (Nara's Giant Buddha}</English>
+		<French>Le Bouddha Géant de Nara</French>
+		<Italian>
+			<Text>Buddha giganti di Nara</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_NARA_GIANT_BUDDHA_PEDIA</Tag>
+		<English>[TAB]In 743, Emperor Shomu issued a law in which he stated that the people should become directly involved with the establishment of new Buddha temples throughout Japan. His personal belief was that such piety would inspire Buddha to protect his country from further disaster. Gyoki, with his pupils, traveled the provinces asking for donations. According to records kept by Todai-ji, more than 2,600,000 people in total helped construct the Great Buddha and its Hall. The 16 m  high statue was built through eight castings over three years, the head and neck being cast together as a separate element. The making of the statue has started first in Shigaraki. After enduring multiple fires and earthquakes, the construction was eventually resumed in Nara in 745,  and the Buddha was finally completed in 751. A year later, in 752, the eye-opening ceremony was held with an attendance of 10,000 people to celebrate the completion of the Buddha. The Indian priest Bodhisena performed the eye-opening for Emperor Shomu. The project nearly bankrupted Japan's economy, consuming most of the available bronze of the time.</English>
+		<Italian>[TAB]Nel 743 l'imperatore Shomu emanò una legge in cui affermava che le persone dovevano essere direttamente coinvolte nella creazione di nuovi templi in onore di Buddha in tutto il Giappone. La sua convinzione personale era che tale pietà avrebbe spinto Buddha a proteggere il suo paese da ulteriori disastri. Gyoki, con i suoi allievi, viaggiò nelle province chiedendo donazioni. Secondo i registri tenuti da Todai-ji, più di 2.600.000 persone in totale contribuirono alla costruzione del Grande Buddha e della sua Sala. La statua, alta 16 metri, venne costruita per mezzo di otto getti in più di tre anni; la testa e il collo furono gettati insieme come elementi separati. La realizzazione della statua iniziò a Shigaraki. Dopo aver sopportato molteplici incendi e terremoti, la costruzione venne finalmente ripresa a Nara nel 745 e il Buddha è stato infine completato nel 751. Un anno dopo, nel 752, la cerimonia di inaugurazione si svolse con la partecipazione di 10.000 persone per festeggiare il completamento del Buddha. Il sacerdote indiano Bodhisena eseguì l'inaugurazione per l'imperatore Shomu. Il progetto portò quasi alla bancarotta l'economia del Giappone, consumando la maggior parte del bronzo a disposizione in quel periodo.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_NARA_GIANT_BUDDHA_STRATEGY</Tag>
+		<English>Build the Nara's Giant Buddha to decrease anarchy length and to increase Golden Age length.</English>
+		<Italian>Costruisci i Buddha giganti di Nara per diminuire la lunghezza dell'anarchia e per incrementare la lunghezza delle età dell'oro.</Italian>
+	</TEXT>
 	<TEXT> <!-- Wonder (Palace of Potala) -->
 		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Tag>
 		<English>Buddhist Wonder (Palace of Potala)</English>
@@ -226,18 +258,6 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE_STRATEGY</Tag>
 		<English>Palace of Potal requires Buddhism and it increases happiness and War Weariness in all cities with State religion. It also increases science in the city where it is built.</English>
-	</TEXT>
-	<TEXT> <!-- Wonder (Kotoku-in) -->
-		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU</Tag>
-		<English>Buddhist Wonder (Kotoku-in)</English>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_PEDIA</Tag>
-		<English>The statue probably dates from 1252, in the Kamakura period, when temple records report the construction of a bronze statue. However, it is unclear whether that is the present statue. The statue was built inside a wooden temple, but that building washed away in the tsunami of September 20th, 1498 during the Muromachi period; the statue remains.</English>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_STRATEGY</Tag>
-		<English>[COLOR_BUILDING_TEXT]Kotoku-in[COLOR_REVERT] No Unhealthiness from Population and reduced Maintenance in city.  Spreads Buddhism.</English>
 	</TEXT>
 
 <!-- +++ Christianity +++ -->

@@ -3048,6 +3048,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/buddhist_wonder_kotoku.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Buddhist Wonder Nara Giant Buddha -->
+			<Type>ART_DEF_BUILDING_BUDDHIST_WONDER_NARA_GIANT_BUDDHA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/buddhist_wonder_nara_giant_buddha/buddha.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/buddhist_wonder_nara_giant_buddha.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo> <!-- Buddhist Wonder Potala Palace -->
 			<Type>ART_DEF_BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Type>
 			<LSystem>LSYSTEM_4x2</LSystem>

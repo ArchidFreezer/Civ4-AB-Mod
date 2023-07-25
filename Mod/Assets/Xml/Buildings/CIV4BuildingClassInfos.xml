@@ -1589,6 +1589,13 @@
 			<iMaxGlobalInstances>1</iMaxGlobalInstances>
 			<DefaultBuilding>BUILDING_BUDDHIST_WONDER_KOTOKU</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Buddhist Wonder Nara Giant Buddha -->
+			<Type>BUILDINGCLASS_BUDDHIST_WONDER_NARA_GIANT_BUDDHA</Type>
+			<Description>TXT_KEY_BUILDING_BUDDHIST_WONDER_NARA_GIANT_BUDDHA</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_BUDDHIST_WONDER_NARA_GIANT_BUDDHA</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Buddhist Wonder Potala Palace -->
 			<Type>BUILDINGCLASS_BUDDHIST_WONDER_POTALA_PALACE</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Description>
