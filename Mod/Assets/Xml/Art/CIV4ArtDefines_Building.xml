@@ -3038,6 +3038,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/buddhist_wonder_potala_palace.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BUDDHIST_WONDER_KOTOKU</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/buddhist_wonder_kotoku/buddha.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/buddhist_wonder_kotoku.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo>	<!-- Confucian Wonder San Kong -->
 			<Type>ART_DEF_BUILDING_CONFUCIAN_WONDER_SAN_KONG</Type>
 			<LSystem>LSYSTEM_3x2</LSystem>

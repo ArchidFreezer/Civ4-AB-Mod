@@ -2356,6 +2356,62 @@
 				</Flavor>
 			</Flavors>
 		</BuildingInfo>
+		<BuildingInfo> <!-- Buddhist Wonder Kotoku -->
+			<BuildingClass>BUILDINGCLASS_BUDDHIST_WONDER_KOTOKU</BuildingClass>
+			<Type>BUILDING_BUDDHIST_WONDER_KOTOKU</Type>
+			<Description>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_STRATEGY</Strategy>
+			<Advisor>ADVISOR_RELIGION</Advisor>
+			<ArtDefineTag>ART_DEF_BUILDING_BUDDHIST_WONDER_KOTOKU</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_BUDDHIST_WONDER_KOTOKU</MovieDefineTag>
+			<ReligionType>RELIGION_BUDDHISM</ReligionType>
+			<StateReligion>RELIGION_BUDDHISM</StateReligion>
+			<bStateReligion>1</bStateReligion>
+			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<PrereqAndTechs>
+				<TechType>TECH_AESTHETICS</TechType>
+			</PrereqAndTechs>
+			<GreatPeopleUnitClass>UNITCLASS_PROPHET</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
+			<bTeamShare>1</bTeamShare>
+			<bNukeImmune>1</bNukeImmune>
+			<iCost>380</iCost>
+			<iHurryCostModifier>200</iHurryCostModifier>
+			<iMaintenanceModifier>-15</iMaintenanceModifier>
+			<iStateReligionHappiness>2</iStateReligionHappiness>
+			<iAsset>10</iAsset>
+			<fVisibilityPriority>1.0</fVisibilityPriority>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>4</iCommerce>
+			</ObsoleteSafeCommerceChanges>
+			<CommerceChangeDoubleTimes>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1000</iCommerce>
+			</CommerceChangeDoubleTimes>
+			<GlobalCommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>5</iCommerce>
+			</GlobalCommerceModifiers>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_BUDDHISM</ReligionType>
+					<iChange>3</iChange>
+				</ReligionChange>
+			</ReligionChanges>
+			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_GROWTH</FlavorType>
+					<iFlavor>10</iFlavor>
+				</Flavor>
+			</Flavors>
+		</BuildingInfo>
 		<BuildingInfo> <!-- Buddhist Wonder Potala Palace -->
 			<BuildingClass>BUILDINGCLASS_BUDDHIST_WONDER_POTALA_PALACE</BuildingClass>
 			<Type>BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Type>

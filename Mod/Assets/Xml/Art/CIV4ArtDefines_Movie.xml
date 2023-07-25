@@ -511,5 +511,9 @@
 			<Type>ART_DEF_MOVIE_BUDDHIST_WONDER_POTALA_PALACE</Type>
 			<Path>Art/Movies/Wonders/buddhist_wonder_potala_palace.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Buddhist Wonder Kotoku-in -->
+			<Type>ART_DEF_MOVIE_BUDDHIST_WONDER_KOTOKU</Type>
+			<Path>Art/Movies/Wonders/buddhist_wonder_kotoku.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

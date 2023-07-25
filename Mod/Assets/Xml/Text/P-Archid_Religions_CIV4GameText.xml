@@ -207,6 +207,18 @@
 		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE_STRATEGY</Tag>
 		<English>Palace of Potal requires Buddhism and it increases happiness and War Weariness in all cities with State religion. It also increases science in the city where it is built.</English>
 	</TEXT>
+	<TEXT> <!-- Wonder (Kotoku-in) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU</Tag>
+		<English>Buddhist Wonder (Kotoku-in)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_PEDIA</Tag>
+		<English>The statue probably dates from 1252, in the Kamakura period, when temple records report the construction of a bronze statue. However, it is unclear whether that is the present statue. The statue was built inside a wooden temple, but that building washed away in the tsunami of September 20th, 1498 during the Muromachi period; the statue remains.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Kotoku-in[COLOR_REVERT] No Unhealthiness from Population and reduced Maintenance in city.  Spreads Buddhism.</English>
+	</TEXT>
 
 <!-- +++ Christianity +++ -->
 	<TEXT> <!-- Shrine (The Church of the Nativity) -->
