@@ -1575,6 +1575,13 @@
 			<iCategory>5</iCategory>
 			<DefaultBuilding>BUILDING_BUDDHIST_TEMPLE</DefaultBuilding>
 		</BuildingClassInfo>
+		<BuildingClassInfo> <!-- Buddhist Wonder Bezeklik Caves -->
+			<Type>BUILDINGCLASS_BUDDHIST_WONDER_BEZEKLIK_CAVES</Type>
+			<Description>TXT_KEY_BUILDING_BUDDHIST_WONDER_BEZEKLIK_CAVES</Description>
+			<iCategory>5</iCategory>
+			<iMaxGlobalInstances>1</iMaxGlobalInstances>
+			<DefaultBuilding>BUILDING_BUDDHIST_WONDER_BEZEKLIK_CAVES</DefaultBuilding>
+		</BuildingClassInfo>
 		<BuildingClassInfo> <!-- Buddhist Wonder Kotoku -->
 			<Type>BUILDINGCLASS_BUDDHIST_WONDER_KOTOKU</Type>
 			<Description>TXT_KEY_BUILDING_BUDDHIST_WONDER_KOTOKU</Description>

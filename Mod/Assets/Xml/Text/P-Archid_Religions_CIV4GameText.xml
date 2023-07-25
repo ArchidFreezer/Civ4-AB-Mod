@@ -193,6 +193,26 @@
 			<Plural>0</Plural>
 		</Spanish>
 	</TEXT>
+	<TEXT> <!-- Wonder (Bezeklik Caves) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_BEZEKLIK_CAVES</Tag>
+		<English>Buddhist Wonder (Bezeklik Caves)</English>
+		<French>Les Cavernes Bezeklik</French>
+		<Italian>
+			<Text>Grotte di Bezeklik</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_BEZEKLIK_CAVES_PEDIA</Tag>
+		<English>[TAB]The Bezeklik Thousand Buddha Caves are complex of Buddhist cave grottos dating from the 5th to the 9th centuries between the cities of Turpan and Shanshan (Loulan) at the north-east of the Taklamakan Desert, China. They are high on the cliffs of the west Mutou Valley under the Flaming Mountains. There are 77 rock-cut caves at the site. Most have rectangular spaces with rounded arch ceilings often divided into four sections, each with a mural of Buddha. The effect is of entire ceiling covers with hundreds of Buddha murals. Some ceilings are painted with a large Buddha surrounded by other figures, including Indians, Persians and Europeans. The quality of the murals vary with some being artistically naive while others are masterpieces of religious art.</English>
+		<Italian>[TAB]Le Grotte buddhiste di Bezeklik sono un complesso di grotte rupestri buddiste che risalgono ad un periodo tra il 5° e il 9° secolo, situate tra le città di Turfan e Shanshan (Loulan) a nord-est del deserto di Taklamakan, in Cina. Si trovano sulle pareti occidentali della valle di Mutou, sotto le montagne Fiammeggianti. Ci sono 77 grotte scavate nella roccia nel sito. La maggior parte hanno spazi rettangolari con soffitti ad arco arrotondati spesso divisi in quattro sezioni, ognuna con un murale di Buddha; come risultato, ci sono soffitti ricoperti da centinaia di immagini di Buddha. Alcuni soffitti sono dipinti con un grande Buddha circondato da altre figure, tra cui indiani, persiani ed europei. La qualità dei dipinti varia, da alcuni artisticamente ingenui a veri e propri capolavori di arte religiosa.</Italian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_BEZEKLIK_CAVES_STRATEGY</Tag>
+		<English>Build Bezeklik Caves to get 2 free artists in your city, and to help spreading buddhism.</English>
+		<Italian>Costruisci le Grotte di Bezeklik per ottenere 2 artisti gratis nella tua città e per migliorare la diffusione del buddismo.</Italian>
+	</TEXT>
 	<TEXT> <!-- Wonder (Palace of Potala) -->
 		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Tag>
 		<English>Buddhist Wonder (Palace of Potala)</English>

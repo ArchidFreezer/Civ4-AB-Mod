@@ -515,5 +515,9 @@
 			<Type>ART_DEF_MOVIE_BUDDHIST_WONDER_KOTOKU</Type>
 			<Path>Art/Movies/Wonders/buddhist_wonder_kotoku.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Buddhist Wonder Bezeklik Caves -->
+			<Type>ART_DEF_MOVIE_BUDDHIST_WONDER_BEZEKLIK_CAVES</Type>
+			<Path>Art/Movies/Wonders/buddhist_wonder_bezeklik_caves.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>
