@@ -3028,6 +3028,16 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/asatru_wonder_thor_sanctuary.dds</Button>
 		</BuildingArtInfo>
+		<BuildingArtInfo> <!-- Buddhist Wonder Potala Palace -->
+			<Type>ART_DEF_BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.75</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Wonders/buddhist_wonder_potala_palace/potalapalace.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/buddhist_wonder_potala_palace.dds</Button>
+		</BuildingArtInfo>
 		<BuildingArtInfo>	<!-- Confucian Wonder San Kong -->
 			<Type>ART_DEF_BUILDING_CONFUCIAN_WONDER_SAN_KONG</Type>
 			<LSystem>LSYSTEM_3x2</LSystem>

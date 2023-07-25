@@ -507,5 +507,9 @@
 			<Type>ART_DEF_MOVIE_CONFUCIAN_WONDER_SAN_KONG</Type>
 			<Path>Art/Movies/Wonders/confucian_wonder_san_kong.bik</Path>
 		</MovieArtInfo>
+		<MovieArtInfo> <!-- Buddhist Wonder Potala Palace -->
+			<Type>ART_DEF_MOVIE_BUDDHIST_WONDER_POTALA_PALACE</Type>
+			<Path>Art/Movies/Wonders/buddhist_wonder_potala_palace.bik</Path>
+		</MovieArtInfo>
 	</MovieArtInfos>
 </Civ4ArtDefines>

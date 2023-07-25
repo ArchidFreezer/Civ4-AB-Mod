@@ -193,6 +193,20 @@
 			<Plural>0</Plural>
 		</Spanish>
 	</TEXT>
+	<TEXT> <!-- Wonder (Palace of Potala) -->
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE</Tag>
+		<English>Buddhist Wonder (Palace of Potala)</English>
+		<French>Palais de Potala</French>
+		<German>Potala-Palast</German>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE_PEDIA</Tag>
+		<English>[TAB]The Potala Palace is located in Lhasa, Tibet. It was named after Mount Potala, the abode of Chenresig or Avalokitesvara. The Potala Palace was the chief residence of the Dalai Lama until the 14th Dalai Lama fled to Dharamsala, India, after the Chinese invasion and failed uprising in 1959. Today the Potala Palace has been converted into a museum by the Chinese. [PARAGRAPH:2]The building measures 400 metres east-west and 350 metres north-south, with sloping stone walls averaging 3 m. thick, and 5 m. (more than 16 ft) thick at the base, and with copper poured into the foundations to help proof it against earthquakes. Thirteen stories of buildings – containing over 1,000 rooms, 10,000 shrines and about 200,000 statues – soar 117 metres (384 ft) on top of Marpo Ri, the "Red Hill", rising more than 300 m (about 1,000 ft) in total above the valley floor. Tradition has it that the three main hills of Lhasa represent the "Three Protectors of Tibet." Chokpori, just to the south of the Potala, is the soul-mountain (bla-ri) of Vajrapani, Pongwari that of Manjushri, and Marpori, the hill on which the Potala stands, represents Chenresig or Avalokiteshvara.[PARAGRAPH:2]The site was used as a meditation retreat by King Songtsen Gampo, who in 637 built the first palace there in order to greet his bride Princess Wen Cheng of the Tang Dynasty of China. Lozang Gyatso, the Great Fifth Dalai Lama, started the construction of the Potala Palace in 1645 after one of his spiritual advisers, Konchog Chophel (d. 1646), pointed out that the site was ideal as a seat of government, situated as it is between Drepung and Sera monasteries and the old city of Lhasa. The Dalai Lama and his government moved into the Potrang Karpo ('White Palace') in 1649. Construction lasted until 1694, some twelve years after his death. The Potala was used as a winter palace by the Dalai Lama from that time. The Potrang Marpo ('Red Palace') was added between 1690 and 1694.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BUDDHIST_WONDER_POTALA_PALACE_STRATEGY</Tag>
+		<English>Palace of Potal requires Buddhism and it increases happiness and War Weariness in all cities with State religion. It also increases science in the city where it is built.</English>
+	</TEXT>
 
 <!-- +++ Christianity +++ -->
 	<TEXT> <!-- Shrine (The Church of the Nativity) -->
