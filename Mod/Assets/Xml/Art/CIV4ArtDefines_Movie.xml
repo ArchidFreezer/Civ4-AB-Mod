@@ -493,7 +493,7 @@
 		</MovieArtInfo>
 		<MovieArtInfo> <!-- Zoroastrian Wonder Nimrud Palace -->
 			<Type>ART_DEF_MOVIE_ZOROASTRIAN_WONDER_NIMRUD_PALACE</Type>
-			<Path>Art/Movies/Wonders/zoroastrian_wonder_nimrud_palace.dds</Path>
+			<Path>Art/Movies/Wonders/zoroastrian_wonder_nimrud_palace.bik</Path>
 		</MovieArtInfo>
 		<MovieArtInfo> <!-- hellenic Wonder Phidias Workshop -->
 			<Type>ART_DEF_MOVIE_HELLENIC_WONDER_PHIDIAS_WORKSHOP</Type>
