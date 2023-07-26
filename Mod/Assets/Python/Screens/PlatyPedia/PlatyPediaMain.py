@@ -183,6 +183,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.sMovieIcon = "[ICON_CULTURE] "
 		self.sUpgradeIcon = "[ICON_HEALTHY] "
 		self.sNaturalIcon = "[ICON_MAP] "
+		self.sVictory = "[ICON_OCCUPATION] "
 
 ########################################### Customization End #################################################
 
@@ -445,7 +446,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		if List3 and List3[0][2]:
 			self.placePedia(List3, CyTranslator().getText(self.sCorporationIcon, ()), WidgetTypes.WIDGET_PYTHON, 8201, False)
 		if List4 and List4[0][2]:
-			self.placePedia(List4, CyTranslator().getText("[ICON_OCCUPATION] ", ()), WidgetTypes.WIDGET_PYTHON, 6786, True)
+			self.placePedia(List4, CyTranslator().getText(self.sVictory, ()), WidgetTypes.WIDGET_PYTHON, 6786, False)
 		if List5 and List5[0][2]:
 			self.placePedia(List5, CyTranslator().getText(self.sNaturalIcon, ()), WidgetTypes.WIDGET_PYTHON, 6780, True)
 
@@ -1992,7 +1993,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		elif iType == 1:
 			if not lUnique: return lSorted
 			lUnique.sort()
-			lSorted.append(["", "", lUnique])
+			lSorted.append([CyTranslator().getText("TXT_KEY_NATURAL_WONDERS", ()), "", lUnique])
 		return lSorted
 
 	def sortBonus(self, iType):

@@ -46,6 +46,9 @@ class CvPediaMovie:
 		elif self.iType == 6786:
 			sDescription =gc.getVictoryInfo(iEntry).getDescription()
 			self.szMovieFile = CyArtFileMgr().getMovieArtInfo(gc.getVictoryInfo(self.iEntry).getMovie()).getPath()
+		elif self.iType == 6780:
+			sDescription =gc.getFeatureInfo(iEntry).getDescription()
+			self.szMovieFile = CyArtFileMgr().getMovieArtInfo(gc.getFeatureInfo(self.iEntry).getMovieArtDef()).getPath()
 		if self.szMovieFile.find(".nif") > -1:
 			screen.addReligionMovieWidgetGFC("Movie", self.szMovieFile, self.X_MOVIE, self.Y_MOVIE, self.W_MOVIE, self.H_MOVIE, WidgetTypes.WIDGET_GENERAL, -1, -1)
 		else:
